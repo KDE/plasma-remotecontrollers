@@ -1,4 +1,6 @@
+#include "libcec/ceccontroller.h"
 #include "wiimote/wiimotecontroller.h"
+
 #include <QGuiApplication>
 #include <QDebug>
 
@@ -21,25 +23,37 @@ int main(int argc, char *argv[])
     
     // Register all keys we want to press with this application
     ioctl(fd, UI_SET_EVBIT, EV_KEY);
+    ioctl(fd, UI_SET_KEYBIT, KEY_PLAY);
+    ioctl(fd, UI_SET_KEYBIT, KEY_STOP);
+    ioctl(fd, UI_SET_KEYBIT, KEY_PAUSE);
+    ioctl(fd, UI_SET_KEYBIT, KEY_REWIND);
+    ioctl(fd, UI_SET_KEYBIT, KEY_FASTFORWARD);
     ioctl(fd, UI_SET_KEYBIT, KEY_ENTER);
+    ioctl(fd, UI_SET_KEYBIT, KEY_SELECT);
     ioctl(fd, UI_SET_KEYBIT, KEY_UP);
     ioctl(fd, UI_SET_KEYBIT, KEY_DOWN);
     ioctl(fd, UI_SET_KEYBIT, KEY_LEFT);
     ioctl(fd, UI_SET_KEYBIT, KEY_RIGHT);
-    ioctl(fd, UI_SET_KEYBIT, KEY_HOMEPAGE);
-    ioctl(fd, UI_SET_KEYBIT, KEY_MENU);
-    ioctl(fd, UI_SET_KEYBIT, KEY_BACK);
-    ioctl(fd, UI_SET_KEYBIT, KEY_PLAY);
-    ioctl(fd, UI_SET_KEYBIT, KEY_STOP);
-    ioctl(fd, UI_SET_KEYBIT, KEY_PAUSE);
-    ioctl(fd, UI_SET_KEYBIT, KEY_FASTFORWARD);
-    ioctl(fd, UI_SET_KEYBIT, KEY_REWIND);
-    ioctl(fd, UI_SET_KEYBIT, KEY_BLUE);
-    ioctl(fd, UI_SET_KEYBIT, KEY_RED);
-    ioctl(fd, UI_SET_KEYBIT, KEY_YELLOW);
-    ioctl(fd, UI_SET_KEYBIT, KEY_GREEN);
     ioctl(fd, UI_SET_KEYBIT, KEY_1);
     ioctl(fd, UI_SET_KEYBIT, KEY_2);
+    ioctl(fd, UI_SET_KEYBIT, KEY_3);
+    ioctl(fd, UI_SET_KEYBIT, KEY_4);
+    ioctl(fd, UI_SET_KEYBIT, KEY_5);
+    ioctl(fd, UI_SET_KEYBIT, KEY_6);
+    ioctl(fd, UI_SET_KEYBIT, KEY_7);
+    ioctl(fd, UI_SET_KEYBIT, KEY_8);
+    ioctl(fd, UI_SET_KEYBIT, KEY_9);
+    ioctl(fd, UI_SET_KEYBIT, KEY_BLUE);
+    ioctl(fd, UI_SET_KEYBIT, KEY_RED);
+    ioctl(fd, UI_SET_KEYBIT, KEY_GREEN);
+    ioctl(fd, UI_SET_KEYBIT, KEY_YELLOW);
+    ioctl(fd, UI_SET_KEYBIT, KEY_CHANNELUP);
+    ioctl(fd, UI_SET_KEYBIT, KEY_CHANNELDOWN);
+    ioctl(fd, UI_SET_KEYBIT, KEY_EXIT);
+    ioctl(fd, UI_SET_KEYBIT, KEY_BACK);
+    ioctl(fd, UI_SET_KEYBIT, KEY_HOME);
+    ioctl(fd, UI_SET_KEYBIT, KEY_MENU);
+    ioctl(fd, UI_SET_KEYBIT, KEY_SUBTITLE);
     ioctl(fd, UI_SET_KEYBIT, KEY_MINUS);
     
     memset(&usetup, 0, sizeof(usetup));
@@ -52,10 +66,11 @@ int main(int argc, char *argv[])
     ioctl(fd, UI_DEV_CREATE);
     sleep(1);
 
+    CECController* ct = new CECController(fd);
     WiimoteController* wt = new WiimoteController(fd);
+    
+    ct->start();
     wt->start();
-
-    qDebug() << "Finished setting up the Wiimote controller!";
 
     return app.exec();
 }

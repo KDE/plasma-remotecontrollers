@@ -10,7 +10,6 @@
 
 wiimote::wiimote(int fd, struct xwii_iface *iface)
 {
-    // TODO: Something here SIGSEGV's
     m_fd = fd;
     
     int ret = 0;
@@ -128,7 +127,7 @@ void wiimote::handle_keypress(struct xwii_event *event)
                 emit_key(KEY_BACK);
                 break;
             case XWII_KEY_HOME:
-                emit_key(KEY_HOMEPAGE);
+                emit_key(KEY_HOME);
                 break;
             case XWII_KEY_ONE:
                 emit_key(KEY_1);
