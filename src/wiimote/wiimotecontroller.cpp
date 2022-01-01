@@ -18,27 +18,27 @@ void WiimoteController::run()
             exit(1);
         }
 
-        char* found_wiimote = NULL;
+        char* foundWiimote = NULL;
         while ((ent = xwii_monitor_poll(mon))) {
-            found_wiimote = ent;
+            foundWiimote = ent;
             free(ent);
         }
         
-        if (!found_wiimote) {
+        if (!foundWiimote) {
             sleep(1);
             continue;
         }
         
-        qInfo() << "  Found wiimote device: " << found_wiimote;
+        qInfo() << "  Found wiimote device: " << foundWiimote;
 
         xwii_monitor_unref(mon);
         
         int ret = 0;
         
-        ret = xwii_iface_new(&iface, found_wiimote);
+        ret = xwii_iface_new(&iface, foundWiimote);
         
         if (ret) {
-            qCritical() << "Cannot create xwii_iface " << found_wiimote << " " << ret;
+            qCritical() << "Cannot create xwii_iface " << foundWiimote << " " << ret;
             exit(1);
         }
         

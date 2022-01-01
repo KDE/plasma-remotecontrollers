@@ -11,7 +11,7 @@
 int Wiimote::m_fd;
 QHash<int, int> Wiimote::m_keyCodeTranslation;
 
-Wiimote::Wiimote(int fd, struct xwii_iface *iface)
+Wiimote::Wiimote(int fd, struct xwii_iface* iface)
 {
     m_fd = fd;
     m_keyCodeTranslation = {
@@ -37,7 +37,7 @@ Wiimote::Wiimote(int fd, struct xwii_iface *iface)
         exit(1);
     }
 
-    int fds_num;
+    int fdsNum;
     struct pollfd fds[2];
     
     memset(fds, 0, sizeof(fds));
@@ -45,12 +45,12 @@ Wiimote::Wiimote(int fd, struct xwii_iface *iface)
     fds[0].events = POLLIN;
     fds[1].fd = xwii_iface_get_fd(iface);
     fds[1].events = POLLIN;
-    fds_num = 2;
+    fdsNum = 2;
     
     struct xwii_event event;
-    bool device_gone = false;
-    while (!device_gone) {
-        int ret = poll(fds, fds_num, -1);
+    bool deviceGone = false;
+    while (!deviceGone) {
+        int ret = poll(fds, fdsNum, -1);
         if (ret < 0) {
             qDebug() << "Error: Cannot poll fds: " << ret;
             break;
@@ -67,11 +67,11 @@ Wiimote::Wiimote(int fd, struct xwii_iface *iface)
             case XWII_EVENT_GONE:
                 fds[1].fd = -1;
                 fds[1].events = 0;
-                fds_num = 1;
-                device_gone = true;
+                fdsNum = 1;
+                deviceGone = true;
                 break;
             case XWII_EVENT_KEY:
-                handle_keypress(&event);
+                handleKeypress(&event);
                 break;
             case XWII_EVENT_ACCEL:
             case XWII_EVENT_IR:
@@ -79,7 +79,7 @@ Wiimote::Wiimote(int fd, struct xwii_iface *iface)
             case XWII_EVENT_MOTION_PLUS:
             case XWII_EVENT_NUNCHUK_KEY:
             case XWII_EVENT_NUNCHUK_MOVE:
-                handle_nunchuk(&event);
+                handleNunchuk(&event);
                 break;
             case XWII_EVENT_CLASSIC_CONTROLLER_KEY:
             case XWII_EVENT_CLASSIC_CONTROLLER_MOVE:
@@ -96,13 +96,13 @@ Wiimote::Wiimote(int fd, struct xwii_iface *iface)
     }
 }
 
-void Wiimote::emit_key(int key, int pressed)
+void Wiimote::emitKey(int key, int pressed)
 {
-    emit_event(EV_KEY, key, pressed);
-    emit_event(EV_SYN, SYN_REPORT, 0);
+    emitEvent(EV_KEY, key, pressed);
+    emitEvent(EV_SYN, SYN_REPORT, 0);
 }
 
-void Wiimote::emit_event(int type, int code, int val)
+void Wiimote::emitEvent(int type, int code, int val)
 {
     struct input_event ie;
     
@@ -115,7 +115,7 @@ void Wiimote::emit_event(int type, int code, int val)
     write(m_fd, &ie, sizeof(ie));
 }
 
-void Wiimote::handle_keypress(struct xwii_event *event)
+void Wiimote::handleKeypress(struct xwii_event *event)
     {
     bool pressed = event->v.key.state;
     int nativeKeyCode = m_keyCodeTranslation.value(event->v.key.code, -1);
@@ -125,39 +125,39 @@ void Wiimote::handle_keypress(struct xwii_event *event)
         return;
     }
 
-    emit_key(nativeKeyCode, pressed);
+    emitKey(nativeKeyCode, pressed);
 }
 
-void Wiimote::handle_nunchuk(struct xwii_event *event)
+void Wiimote::handleNunchuk(struct xwii_event *event)
 {
     double val;
 
     if (event->type == XWII_EVENT_NUNCHUK_MOVE) {
         int time_since_previous_event =
-        event->time.tv_sec - m_previous_nunchuk_axis;
+        event->time.tv_sec - m_previousNunchukAxisTime;
         
         if (time_since_previous_event > 0) {
             // pow(val, 1/4) for smoother interpolation around the origin
             val = event->v.abs[0].x * 12;
             if (val > 1000) {
-                emit_key(KEY_RIGHT, 1);
-                emit_key(KEY_RIGHT, 0);
-                m_previous_nunchuk_axis = event->time.tv_sec;
+                emitKey(KEY_RIGHT, 1);
+                emitKey(KEY_RIGHT, 0);
+                m_previousNunchukAxisTime = event->time.tv_sec;
             } else if (val < -1000) {
-                emit_key(KEY_LEFT, 1);
-                emit_key(KEY_LEFT, 0);
-                m_previous_nunchuk_axis = event->time.tv_sec;
+                emitKey(KEY_LEFT, 1);
+                emitKey(KEY_LEFT, 0);
+                m_previousNunchukAxisTime = event->time.tv_sec;
             }
             
             val = event->v.abs[0].y * 12;
             if (val > 1000) {
-                emit_key(KEY_UP, 1);
-                emit_key(KEY_UP, 0);
-                m_previous_nunchuk_axis = event->time.tv_sec;
+                emitKey(KEY_UP, 1);
+                emitKey(KEY_UP, 0);
+                m_previousNunchukAxisTime = event->time.tv_sec;
             } else if (val < -1000) {
-                emit_key(KEY_DOWN, 1);
-                emit_key(KEY_DOWN, 0);
-                m_previous_nunchuk_axis = event->time.tv_sec;
+                emitKey(KEY_DOWN, 1);
+                emitKey(KEY_DOWN, 0);
+                m_previousNunchukAxisTime = event->time.tv_sec;
             }
         }
     }

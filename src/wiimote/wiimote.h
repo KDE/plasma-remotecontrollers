@@ -9,19 +9,19 @@ class Wiimote : public QObject
     Q_OBJECT
 
 public:
-    explicit Wiimote(int fd, struct xwii_iface* wiimote);
+    explicit Wiimote(int fd, struct xwii_iface* iface);
     ~Wiimote() override;
 
 
 private:
     static int m_fd;
-    int m_previous_nunchuk_axis = 0;
+    int m_previousNunchukAxisTime = 0;
     static QHash<int, int> m_keyCodeTranslation;
 
-    void emit_key(int key, int pressed);
-    void emit_event(int type, int code, int val);
-    void handle_keypress(struct xwii_event *event);
-    void handle_nunchuk(struct xwii_event *event);
+    void emitKey(int key, int pressed);
+    void emitEvent(int type, int code, int val);
+    void handleKeypress(struct xwii_event *event);
+    void handleNunchuk(struct xwii_event *event);
 };
 
 #endif // WIIMOTE_H

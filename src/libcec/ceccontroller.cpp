@@ -95,15 +95,15 @@ CECController::CECController(int fd)
     m_cecCallbacks.Clear();
     m_cecCallbacks.keyPress = &CECController::handleCecKeypress;
     
-    libcec_configuration cec_config;
-    cec_config.Clear();
-    cec_config.bActivateSource = 0;
-    snprintf(cec_config.strDeviceName, LIBCEC_OSD_NAME_SIZE, "libcec");
-    cec_config.clientVersion = LIBCEC_VERSION_CURRENT;
-    cec_config.deviceTypes.Add(CEC_DEVICE_TYPE_RECORDING_DEVICE);
-    cec_config.callbacks = &m_cecCallbacks;
+    libcec_configuration cecConfig;
+    cecConfig.Clear();
+    cecConfig.bActivateSource = 0;
+    snprintf(cecConfig.strDeviceName, LIBCEC_OSD_NAME_SIZE, "joyclick");
+    cecConfig.clientVersion = LIBCEC_VERSION_CURRENT;
+    cecConfig.deviceTypes.Add(CEC_DEVICE_TYPE_RECORDING_DEVICE);
+    cecConfig.callbacks = &m_cecCallbacks;
     
-    m_cecAdapter = LibCecInitialise(&cec_config);
+    m_cecAdapter = LibCecInitialise(&cecConfig);
     
     if (!m_cecAdapter) {
         qCritical() << "Could not create CEC adaptor with current config";
