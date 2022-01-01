@@ -8,9 +8,25 @@
 #include <linux/uinput.h>
 #include <unistd.h>
 
-wiimote::wiimote(int fd, struct xwii_iface *iface)
+int Wiimote::m_fd;
+QHash<int, int> Wiimote::m_keyCodeTranslation;
+
+Wiimote::Wiimote(int fd, struct xwii_iface *iface)
 {
     m_fd = fd;
+    m_keyCodeTranslation = {
+        { XWII_KEY_A, KEY_SELECT},
+        { XWII_KEY_B, KEY_BACK},
+        { XWII_KEY_UP, KEY_UP},
+        { XWII_KEY_DOWN, KEY_DOWN},
+        { XWII_KEY_LEFT, KEY_LEFT},
+        { XWII_KEY_RIGHT, KEY_RIGHT},
+        { XWII_KEY_ONE, KEY_1},
+        { XWII_KEY_TWO, KEY_2},
+        { XWII_KEY_PLUS, KEY_VOLUMEUP},
+        { XWII_KEY_MINUS, KEY_VOLUMEDOWN},
+        { XWII_KEY_HOME, KEY_HOME},
+    };
     
     int ret = 0;
     
@@ -80,15 +96,13 @@ wiimote::wiimote(int fd, struct xwii_iface *iface)
     }
 }
 
-void wiimote::emit_key(int key)
+void Wiimote::emit_key(int key, int pressed)
 {
-    emit_event(EV_KEY, key, 1);
-    emit_event(EV_SYN, SYN_REPORT, 0);
-    emit_event(EV_KEY, key, 0);
+    emit_event(EV_KEY, key, pressed);
     emit_event(EV_SYN, SYN_REPORT, 0);
 }
 
-void wiimote::emit_event(int type, int code, int val)
+void Wiimote::emit_event(int type, int code, int val)
 {
     struct input_event ie;
     
@@ -101,59 +115,23 @@ void wiimote::emit_event(int type, int code, int val)
     write(m_fd, &ie, sizeof(ie));
 }
 
-void wiimote::handle_keypress(struct xwii_event *event)
+void Wiimote::handle_keypress(struct xwii_event *event)
     {
-    unsigned int code = event->v.key.code;
     bool pressed = event->v.key.state;
+    int nativeKeyCode = m_keyCodeTranslation.value(event->v.key.code, -1);
     
-    if (pressed) {     
-        switch (code) {
-            case XWII_KEY_LEFT:
-                emit_key(KEY_LEFT);
-                break;
-            case XWII_KEY_RIGHT:
-                emit_key(KEY_RIGHT);
-                break;
-            case XWII_KEY_UP:
-                emit_key(KEY_UP);
-                break;
-            case XWII_KEY_DOWN:
-                emit_key(KEY_DOWN);
-                break;
-            case XWII_KEY_A:
-                emit_key(KEY_ENTER);
-                break;
-            case XWII_KEY_B:
-                emit_key(KEY_BACK);
-                break;
-            case XWII_KEY_HOME:
-                emit_key(KEY_HOME);
-                break;
-            case XWII_KEY_ONE:
-                emit_key(KEY_1);
-                break;
-            case XWII_KEY_TWO:
-                emit_key(KEY_2);
-                break;
-            case XWII_KEY_MINUS:
-                emit_key(KEY_MINUS);
-                break;
-            case XWII_KEY_PLUS:
-            case XWII_KEY_X:
-            case XWII_KEY_Y:
-            case XWII_KEY_TL:
-            case XWII_KEY_TR:
-            case XWII_KEY_ZL:
-            case XWII_KEY_ZR:
-                break;
-        }
+    if (nativeKeyCode < 0) {
+        qDebug() << "DEBUG: Received a keypress we do not handle!";
+        return;
     }
+
+    emit_key(nativeKeyCode, pressed);
 }
 
-void wiimote::handle_nunchuk(struct xwii_event *event)
+void Wiimote::handle_nunchuk(struct xwii_event *event)
 {
     double val;
-    
+
     if (event->type == XWII_EVENT_NUNCHUK_MOVE) {
         int time_since_previous_event =
         event->time.tv_sec - m_previous_nunchuk_axis;
@@ -162,23 +140,27 @@ void wiimote::handle_nunchuk(struct xwii_event *event)
             // pow(val, 1/4) for smoother interpolation around the origin
             val = event->v.abs[0].x * 12;
             if (val > 1000) {
-                emit_key(KEY_RIGHT);
+                emit_key(KEY_RIGHT, 1);
+                emit_key(KEY_RIGHT, 0);
                 m_previous_nunchuk_axis = event->time.tv_sec;
             } else if (val < -1000) {
-                emit_key(KEY_LEFT);
+                emit_key(KEY_LEFT, 1);
+                emit_key(KEY_LEFT, 0);
                 m_previous_nunchuk_axis = event->time.tv_sec;
             }
             
             val = event->v.abs[0].y * 12;
             if (val > 1000) {
-                emit_key(KEY_UP);
+                emit_key(KEY_UP, 1);
+                emit_key(KEY_UP, 0);
                 m_previous_nunchuk_axis = event->time.tv_sec;
             } else if (val < -1000) {
-                emit_key(KEY_DOWN);
+                emit_key(KEY_DOWN, 1);
+                emit_key(KEY_DOWN, 0);
                 m_previous_nunchuk_axis = event->time.tv_sec;
             }
         }
     }
 }
 
-wiimote::~wiimote() = default;
+Wiimote::~Wiimote() = default;

@@ -59,7 +59,7 @@ CECController::CECController(int fd)
     KConfigGroup generalGroup = config->group("General");
     
     m_keyCodeTranslation = {
-        { generalGroup.readEntry("ButtonPlay", (int) CEC::CEC_USER_CONTROL_CODE_PLAY), KEY_PLAY},
+        { generalGroup.readEntry("ButtonPlay", (int) CEC_USER_CONTROL_CODE_PLAY), KEY_PLAY},
         { generalGroup.readEntry("ButtonStop", (int) CEC_USER_CONTROL_CODE_STOP), KEY_STOP},
         { generalGroup.readEntry("ButtonPause", (int) CEC_USER_CONTROL_CODE_PAUSE), KEY_PAUSE},
         { generalGroup.readEntry("ButtonRewind", (int) CEC_USER_CONTROL_CODE_REWIND), KEY_REWIND},
@@ -85,7 +85,7 @@ CECController::CECController(int fd)
         { generalGroup.readEntry("ButtonYellow", (int) CEC_USER_CONTROL_CODE_F4_YELLOW), KEY_YELLOW},
         { generalGroup.readEntry("ButtonChannelUp", (int) CEC_USER_CONTROL_CODE_CHANNEL_UP), KEY_CHANNELUP},
         { generalGroup.readEntry("ButtonChannelDown", (int) CEC_USER_CONTROL_CODE_CHANNEL_DOWN), KEY_CHANNELDOWN},
-        { generalGroup.readEntry("ButtonExit ", (int) CEC_USER_CONTROL_CODE_EXIT), KEY_EXIT},
+        { generalGroup.readEntry("ButtonExit", (int) CEC_USER_CONTROL_CODE_EXIT), KEY_EXIT},
         { generalGroup.readEntry("ButtonBack", (int) CEC_USER_CONTROL_CODE_AN_RETURN), KEY_BACK},
         { generalGroup.readEntry("ButtonHome", (int) CEC_USER_CONTROL_CODE_ROOT_MENU), KEY_HOME},
         { generalGroup.readEntry("ButtonSubtitle", (int) CEC_USER_CONTROL_CODE_SUB_PICTURE), KEY_SUBTITLE},

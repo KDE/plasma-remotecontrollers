@@ -49,7 +49,7 @@ void WiimoteController::run()
             exit(1);
         }
         
-        new wiimote(m_fd, iface);
+        new Wiimote(m_fd, iface);
         xwii_iface_unref(iface);
     }
 }
