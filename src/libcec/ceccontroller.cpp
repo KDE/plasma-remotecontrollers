@@ -15,21 +15,7 @@
 
 using namespace CEC;
 
-int CECController::m_fd;
 QHash<int, int> CECController::m_keyCodeTranslation;
-
-void emit_event(int fd, int type, int code, int val)
-{
-    struct input_event ie;
-    
-    ie.type = type;
-    ie.code = code;
-    ie.value = val;
-    ie.time.tv_sec = 0;
-    ie.time.tv_usec = 0;
-    
-    write(fd, &ie, sizeof(ie));
-}
 
 void CECController::handleCecKeypress(void* param, const cec_keypress* key)
 {
@@ -43,18 +29,14 @@ void CECController::handleCecKeypress(void* param, const cec_keypress* key)
     }
     
     if (key->duration) {
-        emit_event(m_fd, EV_KEY, nativeKeyCode, 0);
-        emit_event(m_fd, EV_SYN, SYN_REPORT, 0);
+        emit static_cast<CECController *>(param)->keyPress(nativeKeyCode, false);
     } else {
-        emit_event(m_fd, EV_KEY, nativeKeyCode, 1);
-        emit_event(m_fd, EV_SYN, SYN_REPORT, 0);
+        emit static_cast<CECController *>(param)->keyPress(nativeKeyCode, true);
     }
 }
 
-CECController::CECController(int fd)
+CECController::CECController()
 {
-    m_fd = fd;
-    
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup generalGroup = config->group("General");
     
@@ -102,6 +84,7 @@ CECController::CECController(int fd)
     cecConfig.clientVersion = LIBCEC_VERSION_CURRENT;
     cecConfig.deviceTypes.Add(CEC_DEVICE_TYPE_RECORDING_DEVICE);
     cecConfig.callbacks = &m_cecCallbacks;
+    cecConfig.callbackParam = this;
     
     m_cecAdapter = LibCecInitialise(&cecConfig);
     

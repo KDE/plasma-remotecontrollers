@@ -28,6 +28,7 @@ feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 add_executable(joyclick
     src/main.cpp
+    src/uinput.cpp
     src/notifier.cpp
     src/controller.cpp
     src/libcec/ceccontroller.cpp

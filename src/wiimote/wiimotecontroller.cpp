@@ -4,7 +4,7 @@
 
 #include "../devicetypes.h"
 
-WiimoteController::WiimoteController(int fd) { m_fd = fd; }
+WiimoteController::WiimoteController(Uinput* uinput) { m_uinput = uinput; }
 
 void WiimoteController::run()
 {
@@ -52,7 +52,7 @@ void WiimoteController::run()
         }
         
         emit deviceConnected(DeviceWiimote);
-        new Wiimote(m_fd, iface);
+        new Wiimote(m_uinput, iface);
 
         emit deviceDisconnected(DeviceWiimote);
         xwii_iface_unref(iface);

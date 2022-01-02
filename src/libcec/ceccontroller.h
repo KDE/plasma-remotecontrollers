@@ -5,19 +5,26 @@
 #include <QThread>
 
 #include <libcec/cec.h>
+
+#include "../uinput.h"
 #include "../controller.h"
 
 using namespace CEC;
 
 class CECController : public Controller
 {
+    Q_OBJECT
+
 public:
-    explicit CECController(int fd);
+    explicit CECController();
     ~CECController() override;
     
     void run() override;
+
+signals:
+    void keyPress(int keyCode, bool pressed);
+
 private:
-    static int m_fd;
     ICECAdapter* m_cecAdapter = nullptr;
     ICECCallbacks m_cecCallbacks;
     static QHash<int, int> m_keyCodeTranslation;

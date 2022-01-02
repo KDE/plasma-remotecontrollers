@@ -1,21 +1,23 @@
 #ifndef WIIMOTECONTROLLER_H
 #define WIIMOTECONTROLLER_H
 
+#include "../uinput.h"
+#include "../controller.h"
+#include "wiimote.h"
+
 #include <QThread>
 #include <xwiimote.h>
-#include "wiimote.h"
-#include "../controller.h"
 
 class WiimoteController : public Controller
 {
 public:
-    explicit WiimoteController(int fd);
+    explicit WiimoteController(Uinput* uinput);
     ~WiimoteController() override;
     
     void run() override;
 
 private:
-    int m_fd;
+    Uinput* m_uinput;
 };
 
 #endif // WIIMOTECONTROLLER_H

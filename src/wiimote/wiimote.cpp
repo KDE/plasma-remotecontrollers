@@ -8,12 +8,12 @@
 #include <linux/uinput.h>
 #include <unistd.h>
 
-int Wiimote::m_fd;
 QHash<int, int> Wiimote::m_keyCodeTranslation;
 
-Wiimote::Wiimote(int fd, struct xwii_iface* iface)
+Wiimote::Wiimote(Uinput* uinput, struct xwii_iface* iface)
 {
-    m_fd = fd;
+    QObject::connect(this, SIGNAL(keyPress(int, bool)),
+                     uinput, SLOT(emitKey(int, bool)));
     m_keyCodeTranslation = {
         { XWII_KEY_A, KEY_SELECT},
         { XWII_KEY_B, KEY_BACK},
@@ -101,25 +101,6 @@ Wiimote::Wiimote(int fd, struct xwii_iface* iface)
     }
 }
 
-void Wiimote::emitKey(int key, int pressed)
-{
-    emitEvent(EV_KEY, key, pressed);
-    emitEvent(EV_SYN, SYN_REPORT, 0);
-}
-
-void Wiimote::emitEvent(int type, int code, int val)
-{
-    struct input_event ie;
-    
-    ie.type = type;
-    ie.code = code;
-    ie.value = val;
-    ie.time.tv_sec = 0;
-    ie.time.tv_usec = 0;
-    
-    write(m_fd, &ie, sizeof(ie));
-}
-
 void Wiimote::handleKeypress(struct xwii_event *event)
     {
     bool pressed = event->v.key.state;
@@ -130,7 +111,7 @@ void Wiimote::handleKeypress(struct xwii_event *event)
         return;
     }
 
-    emitKey(nativeKeyCode, pressed);
+    emit keyPress(nativeKeyCode, pressed);
 }
 
 void Wiimote::handleNunchuk(struct xwii_event *event)
@@ -145,23 +126,23 @@ void Wiimote::handleNunchuk(struct xwii_event *event)
             // pow(val, 1/4) for smoother interpolation around the origin
             val = event->v.abs[0].x * 12;
             if (val > 1000) {
-                emitKey(KEY_RIGHT, 1);
-                emitKey(KEY_RIGHT, 0);
+                emit keyPress(KEY_RIGHT, true);
+                emit keyPress(KEY_RIGHT, false);
                 m_previousNunchukAxisTime = event->time.tv_sec;
             } else if (val < -1000) {
-                emitKey(KEY_LEFT, 1);
-                emitKey(KEY_LEFT, 0);
+                emit keyPress(KEY_LEFT, true);
+                emit keyPress(KEY_LEFT, false);
                 m_previousNunchukAxisTime = event->time.tv_sec;
             }
             
             val = event->v.abs[0].y * 12;
             if (val > 1000) {
-                emitKey(KEY_UP, 1);
-                emitKey(KEY_UP, 0);
+                emit keyPress(KEY_UP, true);
+                emit keyPress(KEY_UP, false);
                 m_previousNunchukAxisTime = event->time.tv_sec;
             } else if (val < -1000) {
-                emitKey(KEY_DOWN, 1);
-                emitKey(KEY_DOWN, 0);
+                emit keyPress(KEY_DOWN, true);
+                emit keyPress(KEY_DOWN, false);
                 m_previousNunchukAxisTime = event->time.tv_sec;
             }
         }
