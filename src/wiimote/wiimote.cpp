@@ -34,7 +34,7 @@ Wiimote::Wiimote(int fd, struct xwii_iface* iface)
     
     if (ret) {
         qCritical() << "Error: Cannot initialize hotplug watch descriptor";
-        exit(1);
+        return;
     }
 
     int fdsNum;
@@ -47,20 +47,25 @@ Wiimote::Wiimote(int fd, struct xwii_iface* iface)
     fds[1].events = POLLIN;
     fdsNum = 2;
     
+    // Let the user know the device is being used by rumbling
+    xwii_iface_rumble(iface, true);
+    sleep(1);
+    xwii_iface_rumble(iface, false);
+
     struct xwii_event event;
     bool deviceGone = false;
     while (!deviceGone) {
         int ret = poll(fds, fdsNum, -1);
         if (ret < 0) {
             qDebug() << "Error: Cannot poll fds: " << ret;
-            break;
+            return;
         }
         
         ret = xwii_iface_dispatch(iface, &event, sizeof(event));
         if (ret) {
             if (ret != -EAGAIN) {
                 qCritical() << "Error: Read failed with err: " << ret;
-                break;
+                return;
             }
         }
         switch (event.type){
