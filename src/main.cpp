@@ -1,5 +1,7 @@
 #include "libcec/ceccontroller.h"
 #include "wiimote/wiimotecontroller.h"
+#include "notifier.h"
+#include "devicetypes.h"
 
 #include <QGuiApplication>
 #include <QDebug>
@@ -71,6 +73,13 @@ int main(int argc, char *argv[])
     
     ct->start();
     wt->start();
+
+    Notifier* notifier = new Notifier();
+    qRegisterMetaType<DeviceType>("DeviceType");
+    QObject::connect(wt, SIGNAL(deviceConnected(DeviceType)),
+                     notifier, SLOT(notifyNewDevice(DeviceType)));
+    QObject::connect(wt, SIGNAL(deviceDisconnected(DeviceType)),
+                     notifier, SLOT(notifyDisconnectedDevice(DeviceType)));
 
     return app.exec();
 }

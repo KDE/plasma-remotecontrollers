@@ -1,0 +1,17 @@
+[Global]
+IconName=gamepad
+Name=joyclick
+Comment=Translates events from various input devices to native key presses
+DesktopEntry=org.kde.joyclick.desktop
+
+[Event/controllerConnected]
+Name=New controller connected
+Comment=A new controller was connected
+Action=Popup
+Urgency=Low
+
+[Event/controllerDisconnected]
+Name=Controller disconnected
+Comment=A controller has disconnected
+Action=Popup
+Urgency=Low

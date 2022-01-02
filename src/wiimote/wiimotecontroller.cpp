@@ -2,6 +2,8 @@
 
 #include <QDebug>
 
+#include "../devicetypes.h"
+
 WiimoteController::WiimoteController(int fd) { m_fd = fd; }
 
 void WiimoteController::run()
@@ -36,20 +38,23 @@ void WiimoteController::run()
         int ret = 0;
         
         ret = xwii_iface_new(&iface, foundWiimote);
-        
+
         if (ret) {
             qCritical() << "Cannot create xwii_iface " << ret;
             return;
         }
         
         ret = xwii_iface_open(iface, xwii_iface_available(iface) | XWII_IFACE_WRITABLE);
-        
+
         if (ret) {
             qCritical() << "Error: Cannot open interface " << ret;
             return;
         }
         
+        emit deviceConnected(DeviceWiimote);
         new Wiimote(m_fd, iface);
+
+        emit deviceDisconnected(DeviceWiimote);
         xwii_iface_unref(iface);
     }
 }

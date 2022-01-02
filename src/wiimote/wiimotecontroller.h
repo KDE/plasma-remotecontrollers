@@ -1,17 +1,19 @@
 #ifndef WIIMOTECONTROLLER_H
 #define WIIMOTECONTROLLER_H
 
-#include <QDebug>
 #include <QThread>
 #include <xwiimote.h>
 #include "wiimote.h"
+#include "../controller.h"
 
-class WiimoteController : public QThread {  
+class WiimoteController : public Controller
+{
 public:
     explicit WiimoteController(int fd);
     ~WiimoteController() override;
     
     void run() override;
+
 private:
     int m_fd;
 };

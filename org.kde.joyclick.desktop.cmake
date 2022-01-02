@@ -5,3 +5,4 @@ Exec=@CMAKE_INSTALL_PREFIX@/bin/joyclick
 Icon=gamepad
 Type=Application
 X-KDE-PluginInfo-Version=${PROJECT_VERSION}
+NoDisplay=true

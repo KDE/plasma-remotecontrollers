@@ -5,10 +5,12 @@
 #include <QThread>
 
 #include <libcec/cec.h>
+#include "../controller.h"
 
 using namespace CEC;
 
-class CECController : public QThread {  
+class CECController : public Controller
+{
 public:
     explicit CECController(int fd);
     ~CECController() override;

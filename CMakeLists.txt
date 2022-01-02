@@ -16,7 +16,10 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     Gui
 )
-find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED Config)
+find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
+    Config
+    Notifications
+)
 find_package(Libcec REQUIRED)
 find_package(XWiimote REQUIRED)
 pkg_check_modules(LIBXWIIMOTE libxwiimote IMPORTED_TARGET)
@@ -25,6 +28,8 @@ feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 add_executable(joyclick
     src/main.cpp
+    src/notifier.cpp
+    src/controller.cpp
     src/libcec/ceccontroller.cpp
     src/wiimote/wiimotecontroller.cpp
     src/wiimote/wiimote.cpp)
@@ -33,6 +38,7 @@ target_link_libraries(joyclick
     Qt5::Core
     Qt5::Gui
     KF5::ConfigCore
+    KF5::Notifications
     Libcec::Libcec
     XWiimote::XWiimote
 )
@@ -40,9 +46,8 @@ target_link_libraries(joyclick
 install(TARGETS joyclick DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 configure_file(org.kde.joyclick.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.joyclick.desktop @ONLY)
-install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/org.kde.joyclick.desktop
-    DESTINATION ${KDE_INSTALL_SYSCONFDIR}/xdg/autostart
-)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.joyclick.desktop DESTINATION ${KDE_INSTALL_SYSCONFDIR}/xdg/autostart)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.joyclick.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 install(FILES joyclickrc DESTINATION ${KDE_INSTALL_CONFDIR}/xdg)
+install(FILES joyclick.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
