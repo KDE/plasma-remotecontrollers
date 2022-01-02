@@ -7,10 +7,10 @@ WiimoteController::WiimoteController(int fd) { m_fd = fd; }
 void WiimoteController::run()
 {
     // Keep trying to find a Wiiremote indefinitely
-    static struct xwii_iface *iface;
+    struct xwii_iface* iface;
     while(true) {
-        struct xwii_monitor *mon;
-        char *ent;
+        struct xwii_monitor* mon;
+        char* ent;
 
         mon = xwii_monitor_new(false, false);
         if (!mon) {
@@ -32,21 +32,21 @@ void WiimoteController::run()
         qInfo() << "  Found wiimote device: " << foundWiimote;
 
         xwii_monitor_unref(mon);
-        
+
         int ret = 0;
         
         ret = xwii_iface_new(&iface, foundWiimote);
         
         if (ret) {
-            qCritical() << "Cannot create xwii_iface " << foundWiimote << " " << ret;
-            exit(1);
+            qCritical() << "Cannot create xwii_iface " << ret;
+            return;
         }
         
         ret = xwii_iface_open(iface, xwii_iface_available(iface) | XWII_IFACE_WRITABLE);
         
         if (ret) {
             qCritical() << "Error: Cannot open interface " << ret;
-            exit(1);
+            return;
         }
         
         new Wiimote(m_fd, iface);
