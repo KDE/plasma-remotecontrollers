@@ -31,6 +31,7 @@ Uinput::Uinput()
     ioctl(m_fd, UI_SET_KEYBIT, KEY_DOWN);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_LEFT);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_RIGHT);
+    ioctl(m_fd, UI_SET_KEYBIT, KEY_0);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_1);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_2);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_3);
