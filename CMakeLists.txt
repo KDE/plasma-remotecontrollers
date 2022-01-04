@@ -20,7 +20,7 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Config
     Notifications
 )
-find_package(Libcec REQUIRED)
+find_package(Libcec 6 REQUIRED)
 find_package(XWiimote)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
