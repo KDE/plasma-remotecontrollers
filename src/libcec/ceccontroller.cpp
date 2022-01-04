@@ -1,5 +1,6 @@
 #include "ceccontroller.h"
 #include "../controllermanager.h"
+#include "../devicetypes.h"
 
 #include <QDebug>
 #include <KSharedConfig>
@@ -114,8 +115,8 @@ void CECController::run()
         qWarning() << "Could not open CEC device " << devices[0].strComPath << " " << devices[0].strComName;
         return;
     }
-    
-    qDebug() << "Succesfully opened CEC device";
+
+    ControllerManager::instance().newDevice(DeviceCEC);
     
     // Just live forever
     while (true) {}

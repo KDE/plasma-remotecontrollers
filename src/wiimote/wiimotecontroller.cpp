@@ -1,15 +1,12 @@
 #include "wiimotecontroller.h"
 #include "../devicetypes.h"
+#include "../controllermanager.h"
 #include "../notificationsmanager.h"
 
 #include <QDebug>
 
 WiimoteController::WiimoteController()
 {
-    QObject::connect(this, SIGNAL(deviceConnected(DeviceType)),
-                     &NotificationsManager::instance(), SLOT(notifyNewDevice(DeviceType)));
-    QObject::connect(this, SIGNAL(deviceDisconnected(DeviceType)),
-                     &NotificationsManager::instance(), SLOT(notifyDisconnectedDevice(DeviceType)));
 }
 
 void WiimoteController::run()
@@ -36,8 +33,6 @@ void WiimoteController::run()
             sleep(1);
             continue;
         }
-        
-        qInfo() << "  Found wiimote device: " << foundWiimote;
 
         xwii_monitor_unref(mon);
 
@@ -57,10 +52,10 @@ void WiimoteController::run()
             return;
         }
         
-        emit deviceConnected(DeviceWiimote);
+        int index = ControllerManager::instance().newDevice(DeviceWiimote);
         new Wiimote(iface);
 
-        emit deviceDisconnected(DeviceWiimote);
+        ControllerManager::instance().removeDevice(index);
         xwii_iface_unref(iface);
     }
 }

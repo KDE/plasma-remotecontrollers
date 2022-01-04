@@ -1,4 +1,5 @@
 #include "controllermanager.h"
+#include "notificationsmanager.h"
 
 #include <QDebug>
 
@@ -9,6 +10,12 @@
 ControllerManager::ControllerManager(QObject *parent)
     : QObject(parent)
 {
+    // Setup notifications
+    QObject::connect(this, SIGNAL(deviceConnected(DeviceType)),
+                     &NotificationsManager::instance(), SLOT(notifyNewDevice(DeviceType)));
+    QObject::connect(this, SIGNAL(deviceDisconnected(DeviceType)),
+                     &NotificationsManager::instance(), SLOT(notifyDisconnectedDevice(DeviceType)));
+
     struct uinput_setup usetup;
     m_fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
     
@@ -78,6 +85,37 @@ void ControllerManager::emitKey(int key, bool pressed)
 {
     emitEvent(EV_KEY, key, pressed ? 1 : 0);
     emitEvent(EV_SYN, SYN_REPORT, 0);
+}
+
+int ControllerManager::newDevice(DeviceType deviceType)
+{
+    int listSize = m_connectedDevices.size();
+    m_connectedDevices.insert(listSize, deviceType);
+    
+    switch (deviceType) {
+        case DeviceCEC:
+            qInfo() << "New device connected: CEC adapter";
+            break;
+        case DeviceWiimote:
+            qInfo() << "New device connected: Wiimote";
+            break;
+        default:
+            qInfo() << "New device connected we do not handle yet";
+            break;
+    }
+    
+    // Don't send notifications for CEC devices, since we expect them to always be available
+    if (deviceType != DeviceCEC)
+        emit deviceConnected(deviceType);
+    return listSize;
+}
+
+void ControllerManager::removeDevice(int deviceIndex)
+{
+    DeviceType removedDevice = m_connectedDevices.at(deviceIndex);
+    m_connectedDevices.removeAt(deviceIndex);
+    
+    emit deviceDisconnected(removedDevice);
 }
 
 void ControllerManager::emitEvent(int type, int code, int val)

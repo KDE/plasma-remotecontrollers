@@ -2,6 +2,7 @@
 #define DEVICETYPE_H
 
 enum DeviceType {
+    DeviceCEC,
     DeviceWiimote,
     DeviceGamepad
 };
