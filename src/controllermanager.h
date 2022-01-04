@@ -16,7 +16,7 @@ public slots:
     void emitKey(int key, bool pressed);
 
 private:
-    static int m_fd;
+    int m_fd;
 
     void emitEvent(int type, int code, int val);
 };

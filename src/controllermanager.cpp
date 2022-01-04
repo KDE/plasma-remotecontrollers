@@ -6,8 +6,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-int ControllerManager::m_fd;
-
 ControllerManager::ControllerManager(QObject *parent)
     : QObject(parent)
 {
