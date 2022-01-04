@@ -1,10 +1,16 @@
 #include "wiimotecontroller.h"
+#include "../devicetypes.h"
+#include "../notificationsmanager.h"
 
 #include <QDebug>
 
-#include "../devicetypes.h"
-
-WiimoteController::WiimoteController(Uinput* uinput) { m_uinput = uinput; }
+WiimoteController::WiimoteController()
+{
+    QObject::connect(this, SIGNAL(deviceConnected(DeviceType)),
+                     &NotificationsManager::instance(), SLOT(notifyNewDevice(DeviceType)));
+    QObject::connect(this, SIGNAL(deviceDisconnected(DeviceType)),
+                     &NotificationsManager::instance(), SLOT(notifyDisconnectedDevice(DeviceType)));
+}
 
 void WiimoteController::run()
 {
@@ -52,7 +58,7 @@ void WiimoteController::run()
         }
         
         emit deviceConnected(DeviceWiimote);
-        new Wiimote(m_uinput, iface);
+        new Wiimote(iface);
 
         emit deviceDisconnected(DeviceWiimote);
         xwii_iface_unref(iface);

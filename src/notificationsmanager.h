@@ -1,21 +1,20 @@
-#ifndef NOTIFIER_H
-#define NOTIFIER_H
+#pragma once
 
 #include <QObject>
 #include "devicetypes.h"
 
-class Notifier : public QObject
+class NotificationsManager : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit Notifier();
-    ~Notifier() override;
+    static NotificationsManager &instance();
 
 public slots:
     void notifyNewDevice(DeviceType deviceType);
     void notifyDisconnectedDevice(DeviceType deviceType);
-};
 
-#endif // NOTIFIER_H
+private:
+    NotificationsManager();
+};
 

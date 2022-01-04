@@ -1,4 +1,4 @@
-#include "uinput.h"
+#include "controllermanager.h"
 
 #include <QDebug>
 
@@ -6,9 +6,10 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-int Uinput::m_fd;
+int ControllerManager::m_fd;
 
-Uinput::Uinput()
+ControllerManager::ControllerManager(QObject *parent)
+    : QObject(parent)
 {
     struct uinput_setup usetup;
     m_fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
@@ -65,13 +66,23 @@ Uinput::Uinput()
     sleep(1);
 }
 
-void Uinput::emitKey(int key, bool pressed)
+ControllerManager::~ControllerManager()
+{
+}
+
+ControllerManager &ControllerManager::instance()
+{
+    static ControllerManager _instance;
+    return _instance;
+}
+
+void ControllerManager::emitKey(int key, bool pressed)
 {
     emitEvent(EV_KEY, key, pressed ? 1 : 0);
     emitEvent(EV_SYN, SYN_REPORT, 0);
 }
 
-void Uinput::emitEvent(int type, int code, int val)
+void ControllerManager::emitEvent(int type, int code, int val)
 {
     struct input_event ie;
     
@@ -83,5 +94,3 @@ void Uinput::emitEvent(int type, int code, int val)
     
     write(m_fd, &ie, sizeof(ie));
 }
-
-Uinput::~Uinput() = default;

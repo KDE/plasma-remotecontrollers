@@ -6,7 +6,6 @@
 
 #include <libcec/cec.h>
 
-#include "../uinput.h"
 #include "../controller.h"
 
 using namespace CEC;

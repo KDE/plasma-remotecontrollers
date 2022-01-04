@@ -1,13 +1,19 @@
-#include "notifier.h"
+#include "notificationsmanager.h"
 
 #include <QDebug>
 #include <KNotification>
 
-Notifier::Notifier()
+NotificationsManager &NotificationsManager::instance()
+{
+    static NotificationsManager _instance;
+    return _instance;
+}
+
+NotificationsManager::NotificationsManager()
 {
 }
 
-void Notifier::notifyNewDevice(DeviceType deviceType)
+void NotificationsManager::notifyNewDevice(DeviceType deviceType)
 {
     KNotification* notification = new KNotification("controllerConnected");
 
@@ -17,7 +23,7 @@ void Notifier::notifyNewDevice(DeviceType deviceType)
     notification->sendEvent();
 }
 
-void Notifier::notifyDisconnectedDevice(DeviceType deviceType)
+void NotificationsManager::notifyDisconnectedDevice(DeviceType deviceType)
 {
     KNotification* notification = new KNotification("controllerDisconnected");
 
@@ -26,5 +32,3 @@ void Notifier::notifyDisconnectedDevice(DeviceType deviceType)
         notification->setText("A wiimote has been disconnected");
     notification->sendEvent();
 }
-
-Notifier::~Notifier() = default;

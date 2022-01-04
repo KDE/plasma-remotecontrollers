@@ -1,6 +1,9 @@
 #include "ceccontroller.h"
+#include "../controllermanager.h"
 
 #include <QDebug>
+#include <KSharedConfig>
+#include <KConfigGroup>
 
 #include <iostream> // Workaround for libcec bug
 #include <libcec/cec.h>
@@ -9,9 +12,6 @@
 #include <linux/input-event-codes.h>
 #include <linux/uinput.h>
 #include <unistd.h>
-
-#include <KSharedConfig>
-#include <KConfigGroup>
 
 using namespace CEC;
 
@@ -29,9 +29,10 @@ void CECController::handleCecKeypress(void* param, const cec_keypress* key)
     }
     
     if (key->duration) {
-        emit static_cast<CECController *>(param)->keyPress(nativeKeyCode, false);
+        qDebug() << key->keycode;
+        emit ControllerManager::instance().emitKey(nativeKeyCode, false);
     } else {
-        emit static_cast<CECController *>(param)->keyPress(nativeKeyCode, true);
+        emit ControllerManager::instance().emitKey(nativeKeyCode, true);
     }
 }
 
@@ -84,7 +85,6 @@ CECController::CECController()
     cecConfig.clientVersion = LIBCEC_VERSION_CURRENT;
     cecConfig.deviceTypes.Add(CEC_DEVICE_TYPE_RECORDING_DEVICE);
     cecConfig.callbacks = &m_cecCallbacks;
-    cecConfig.callbackParam = this;
     
     m_cecAdapter = LibCecInitialise(&cecConfig);
     

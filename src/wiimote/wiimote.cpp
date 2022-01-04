@@ -1,19 +1,20 @@
 #include "wiimote.h"
+#include "../controllermanager.h"
+
 #include <QLoggingCategory>
 #include <QDebug>
 
 #include <xwiimote.h>
 #include <poll.h>
 #include <linux/input-event-codes.h>
-#include <linux/uinput.h>
 #include <unistd.h>
 
 QHash<int, int> Wiimote::m_keyCodeTranslation;
 
-Wiimote::Wiimote(Uinput* uinput, struct xwii_iface* iface)
+Wiimote::Wiimote(struct xwii_iface* iface)
 {
     QObject::connect(this, SIGNAL(keyPress(int, bool)),
-                     uinput, SLOT(emitKey(int, bool)));
+                     &ControllerManager::instance(), SLOT(emitKey(int, bool)));
     m_keyCodeTranslation = {
         { XWII_KEY_A, KEY_SELECT},
         { XWII_KEY_B, KEY_BACK},
