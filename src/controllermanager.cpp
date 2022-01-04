@@ -115,6 +115,18 @@ void ControllerManager::removeDevice(int deviceIndex)
     DeviceType removedDevice = m_connectedDevices.at(deviceIndex);
     m_connectedDevices.removeAt(deviceIndex);
     
+    switch (removedDevice) {
+        case DeviceCEC:
+            qInfo() << "Device disconnected: CEC adapter";
+            break;
+        case DeviceWiimote:
+            qInfo() << "Device disconnected: Wiimote";
+            break;
+        default:
+            qInfo() << "Device disconnected we do not handle yet";
+            break;
+    }
+    
     emit deviceDisconnected(removedDevice);
 }
 
