@@ -31,8 +31,8 @@ mark_as_advanced(
 if(Libcec_FOUND AND NOT TARGET Libcec::Libcec)
     add_library(Libcec::Libcec UNKNOWN IMPORTED)
     set_target_properties(Libcec::Libcec PROPERTIES
-        IMPORTED_LOCATION "${XWiimote_LIBRARIES}"
-        INTERFACE_INCLUDE_DIRECTORIES "${XWiimote_INCLUDE_DIRS}"
+        IMPORTED_LOCATION "${Libcec_LIBRARIES}"
+        INTERFACE_INCLUDE_DIRECTORIES "${Libcec_INCLUDE_DIRS}"
     )
 endif()
 

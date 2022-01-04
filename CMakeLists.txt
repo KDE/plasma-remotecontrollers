@@ -21,8 +21,7 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Notifications
 )
 find_package(Libcec REQUIRED)
-find_package(XWiimote REQUIRED)
-pkg_check_modules(LIBXWIIMOTE libxwiimote IMPORTED_TARGET)
+find_package(XWiimote)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -31,9 +30,7 @@ add_executable(joyclick
     src/uinput.cpp
     src/notifier.cpp
     src/controller.cpp
-    src/libcec/ceccontroller.cpp
-    src/wiimote/wiimotecontroller.cpp
-    src/wiimote/wiimote.cpp)
+    src/libcec/ceccontroller.cpp)
 
 target_link_libraries(joyclick
     Qt5::Core
@@ -41,8 +38,16 @@ target_link_libraries(joyclick
     KF5::ConfigCore
     KF5::Notifications
     Libcec::Libcec
-    XWiimote::XWiimote
 )
+
+if(XWiimote_FOUND)
+    target_sources(joyclick
+        PUBLIC
+            src/wiimote/wiimotecontroller.cpp
+            src/wiimote/wiimote.cpp)
+    target_link_libraries(joyclick XWiimote::XWiimote)
+    add_definitions(-DHAS_XWIIMOTE)
+endif()
 
 install(TARGETS joyclick DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
