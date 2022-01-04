@@ -33,6 +33,7 @@ add_executable(joyclick
     src/libcec/ceccontroller.cpp)
 
 target_link_libraries(joyclick
+    ${CMAKE_DL_LIBS}
     Qt5::Core
     Qt5::Gui
     KF5::ConfigCore
