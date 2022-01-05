@@ -11,10 +11,10 @@ ControllerManager::ControllerManager(QObject *parent)
     : QObject(parent)
 {
     // Setup notifications
-    QObject::connect(this, SIGNAL(deviceConnected(DeviceType)),
-                     &NotificationsManager::instance(), SLOT(notifyNewDevice(DeviceType)));
-    QObject::connect(this, SIGNAL(deviceDisconnected(DeviceType)),
-                     &NotificationsManager::instance(), SLOT(notifyDisconnectedDevice(DeviceType)));
+    QObject::connect(this, &ControllerManager::deviceConnected,
+                     &NotificationsManager::instance(), &NotificationsManager::notifyNewDevice);
+    QObject::connect(this, &ControllerManager::deviceDisconnected,
+                     &NotificationsManager::instance(), &NotificationsManager::notifyDisconnectedDevice);
 
     struct uinput_setup usetup;
     m_fd = open("/dev/uinput", O_WRONLY | O_NONBLOCK);
