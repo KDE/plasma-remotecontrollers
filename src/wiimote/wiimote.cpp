@@ -13,8 +13,8 @@ QHash<int, int> Wiimote::m_keyCodeTranslation;
 
 Wiimote::Wiimote(struct xwii_iface* iface)
 {
-    QObject::connect(this, SIGNAL(keyPress(int, bool)),
-                     &ControllerManager::instance(), SLOT(emitKey(int, bool)));
+    QObject::connect(this, &Wiimote::keyPress,
+                     &ControllerManager::instance(), &ControllerManager::emitKey);
     m_keyCodeTranslation = {
         { XWII_KEY_A, KEY_SELECT},
         { XWII_KEY_B, KEY_BACK},
