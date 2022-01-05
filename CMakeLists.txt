@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(joyclick)
+project(plasma-remotecontrollers)
 
 set(QT_MIN_VERSION "5.15.0")
 set(KF_MIN_VERSION "5.68.0")
@@ -25,14 +25,14 @@ find_package(XWiimote)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
-add_executable(joyclick
+add_executable(plasma-remotecontrollers
     src/main.cpp
     src/controllermanager.cpp
     src/notificationsmanager.cpp
     src/controller.cpp
     src/libcec/ceccontroller.cpp)
 
-target_link_libraries(joyclick
+target_link_libraries(plasma-remotecontrollers
     ${CMAKE_DL_LIBS}
     Qt5::Core
     Qt5::Gui
@@ -42,19 +42,19 @@ target_link_libraries(joyclick
 )
 
 if(XWiimote_FOUND)
-    target_sources(joyclick
+    target_sources(plasma-remotecontrollers
         PUBLIC
             src/wiimote/wiimotecontroller.cpp
             src/wiimote/wiimote.cpp)
-    target_link_libraries(joyclick XWiimote::XWiimote)
+    target_link_libraries(plasma-remotecontrollers XWiimote::XWiimote)
     add_definitions(-DHAS_XWIIMOTE)
 endif()
 
-install(TARGETS joyclick DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS plasma-remotecontrollers DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
-configure_file(org.kde.joyclick.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.joyclick.desktop @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.joyclick.desktop DESTINATION ${KDE_INSTALL_SYSCONFDIR}/xdg/autostart)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.joyclick.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+configure_file(org.kde.plasma-remotecontrollers.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop DESTINATION ${KDE_INSTALL_SYSCONFDIR}/xdg/autostart)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
-install(FILES joyclickrc DESTINATION ${KDE_INSTALL_CONFDIR}/xdg)
-install(FILES joyclick.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR}/xdg)
+install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})

@@ -1,4 +1,4 @@
-# Joyclick
+# Plasma Remotecontrollers
 
 This project translates events from various input devices to keypresses on a keyboard and pointer events (mouse movement).
 
