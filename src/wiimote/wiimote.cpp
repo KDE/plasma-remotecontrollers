@@ -93,22 +93,25 @@ void Wiimote::run()
                 deviceGone = true;
                 ControllerManager::instance().removeDevice(m_index);
                 return;
+            case XWII_EVENT_WATCH:
+                if (handleWatch())
+                    return;
+                break;
             case XWII_EVENT_KEY:
                 handleKeypress(&event);
+                break;
+            case XWII_EVENT_NUNCHUK_MOVE:
+                handleNunchuk(&event);
                 break;
             case XWII_EVENT_ACCEL:
             case XWII_EVENT_IR:
             case XWII_EVENT_BALANCE_BOARD:
             case XWII_EVENT_MOTION_PLUS:
             case XWII_EVENT_NUNCHUK_KEY:
-            case XWII_EVENT_NUNCHUK_MOVE:
-                handleNunchuk(&event);
-                break;
             case XWII_EVENT_CLASSIC_CONTROLLER_KEY:
             case XWII_EVENT_CLASSIC_CONTROLLER_MOVE:
             case XWII_EVENT_PRO_CONTROLLER_KEY:
             case XWII_EVENT_PRO_CONTROLLER_MOVE:
-            case XWII_EVENT_WATCH:
             case XWII_EVENT_NUM:
             case XWII_EVENT_GUITAR_KEY:
             case XWII_EVENT_GUITAR_MOVE:
@@ -130,6 +133,17 @@ void Wiimote::handleKeypress(struct xwii_event *event)
     }
 
     emit keyPress(nativeKeyCode, pressed);
+}
+
+int Wiimote::handleWatch()
+{
+    int ret = xwii_iface_open(m_iface, xwii_iface_available(m_iface) | XWII_IFACE_WRITABLE);
+
+    if (ret) {
+        qCritical() << "Error: Cannot open interface " << ret;
+    }
+
+    return ret;
 }
 
 void Wiimote::handleNunchuk(struct xwii_event *event)

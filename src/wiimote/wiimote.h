@@ -28,5 +28,6 @@ private:
     static QHash<int, int> m_keyCodeTranslation;
 
     void handleKeypress(struct xwii_event *event);
+    int handleWatch();
     void handleNunchuk(struct xwii_event *event);
 };
