@@ -1,26 +1,32 @@
-#ifndef WIIMOTE_H
-#define WIIMOTE_H
+#pragma once
 
-#include <xwiimote.h>
+#include "../device.h"
+
 #include <QObject>
 
-class Wiimote : public QObject
+#include <xwiimote.h>
+#include <poll.h>
+
+class Wiimote : public Device
 {
     Q_OBJECT
 
 public:
-    explicit Wiimote(struct xwii_iface* iface);
-    ~Wiimote() override;
+    explicit Wiimote(char *sysPath);
+    ~Wiimote();
+    void run() override;
 
 signals:
     void keyPress(int keyCode, bool pressed);
 
 private:
+    char* m_sysPath;
+    struct xwii_iface* m_iface;
+    struct pollfd m_fds[2];
+    int m_fdsNum;
     int m_previousNunchukAxisTime = 0;
     static QHash<int, int> m_keyCodeTranslation;
 
     void handleKeypress(struct xwii_event *event);
     void handleNunchuk(struct xwii_event *event);
 };
-
-#endif // WIIMOTE_H

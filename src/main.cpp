@@ -1,6 +1,5 @@
 #include "controllermanager.h"
 #include "libcec/ceccontroller.h"
-#include "devicetypes.h"
 
 #ifdef HAS_XWIIMOTE
 # include "wiimote/wiimotecontroller.h"
@@ -23,8 +22,6 @@ int main(int argc, char *argv[])
     WiimoteController* wt = new WiimoteController();
     wt->start();
 #endif // HAS_XWIIMOTE
-
-    qRegisterMetaType<DeviceType>("DeviceType");
 
     return app.exec();
 }

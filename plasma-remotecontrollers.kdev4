@@ -1,3 +1,4 @@
 [Project]
-Name=plasma-remotecontrollers
+CreatedFrom=CMakeLists.txt
 Manager=KDevCMakeManager
+Name=plasma-remotecontrollers

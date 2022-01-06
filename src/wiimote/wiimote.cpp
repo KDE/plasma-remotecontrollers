@@ -5,16 +5,34 @@
 #include <QDebug>
 
 #include <xwiimote.h>
-#include <poll.h>
 #include <linux/input-event-codes.h>
 #include <unistd.h>
 
 QHash<int, int> Wiimote::m_keyCodeTranslation;
 
-Wiimote::Wiimote(struct xwii_iface* iface)
+Wiimote::Wiimote(char *sysPath)
 {
+    m_uniqueIdentifier = sysPath;
+    m_name = "Wiimote";
+    m_deviceType = DeviceWiimote;
+
     QObject::connect(this, &Wiimote::keyPress,
                      &ControllerManager::instance(), &ControllerManager::emitKey);
+
+    int ret = xwii_iface_new(&m_iface, sysPath);
+
+    if (ret) {
+        qCritical() << "Error: Cannot create xwii_iface " << ret;
+        return;
+    }
+
+    ret = xwii_iface_open(m_iface, xwii_iface_available(m_iface) | XWII_IFACE_WRITABLE);
+
+    if (ret) {
+        qCritical() << "Error: Cannot open interface " << ret;
+        return;
+    }
+
     m_keyCodeTranslation = {
         { XWII_KEY_A, KEY_SELECT},
         { XWII_KEY_B, KEY_BACK},
@@ -29,53 +47,52 @@ Wiimote::Wiimote(struct xwii_iface* iface)
         { XWII_KEY_HOME, KEY_HOME},
     };
     
-    int ret = 0;
-    
-    ret = xwii_iface_watch(iface, true);
+    ret = xwii_iface_watch(m_iface, true);
     
     if (ret) {
         qCritical() << "Error: Cannot initialize hotplug watch descriptor";
         return;
     }
 
-    int fdsNum;
-    struct pollfd fds[2];
-    
-    memset(fds, 0, sizeof(fds));
-    fds[0].fd = 0;
-    fds[0].events = POLLIN;
-    fds[1].fd = xwii_iface_get_fd(iface);
-    fds[1].events = POLLIN;
-    fdsNum = 2;
+    memset(m_fds, 0, sizeof(m_fds));
+    m_fds[0].fd = 0;
+    m_fds[0].events = POLLIN;
+    m_fds[1].fd = xwii_iface_get_fd(m_iface);
+    m_fds[1].events = POLLIN;
+    m_fdsNum = 2;
     
     // Let the user know the device is being used by rumbling
-    xwii_iface_rumble(iface, true);
+    xwii_iface_rumble(m_iface, true);
     sleep(1);
-    xwii_iface_rumble(iface, false);
+    xwii_iface_rumble(m_iface, false);
+}
 
+void Wiimote::run()
+{
     struct xwii_event event;
+    int ret;
     bool deviceGone = false;
     while (!deviceGone) {
-        int ret = poll(fds, fdsNum, -1);
+        ret = poll(m_fds, m_fdsNum, -1);
         if (ret < 0) {
             qDebug() << "Error: Cannot poll fds: " << ret;
-            return;
+            break;
         }
         
-        ret = xwii_iface_dispatch(iface, &event, sizeof(event));
-        if (ret) {
-            if (ret != -EAGAIN) {
-                qCritical() << "Error: Read failed with err: " << ret;
-                return;
-            }
+        ret = xwii_iface_dispatch(m_iface, &event, sizeof(event));
+        if (ret && ret != -EAGAIN) {
+            qCritical() << "Error: Read failed with err: " << ret;
+            break;
         }
-        switch (event.type){
+
+        switch (event.type) {
             case XWII_EVENT_GONE:
-                fds[1].fd = -1;
-                fds[1].events = 0;
-                fdsNum = 1;
+                m_fds[1].fd = -1;
+                m_fds[1].events = 0;
+                m_fdsNum = 1;
                 deviceGone = true;
-                break;
+                ControllerManager::instance().removeDevice(m_index);
+                return;
             case XWII_EVENT_KEY:
                 handleKeypress(&event);
                 break;
@@ -150,4 +167,8 @@ void Wiimote::handleNunchuk(struct xwii_event *event)
     }
 }
 
-Wiimote::~Wiimote() = default;
+Wiimote::~Wiimote()
+{
+    // TODO: this seems to never be called
+    xwii_iface_unref(m_iface);
+}

@@ -1,16 +1,13 @@
-#ifndef CECCONTROLLER_H
-#define CECCONTROLLER_H
+#pragma once
 
 #include <QDebug>
 #include <QThread>
 
 #include <libcec/cec.h>
 
-#include "../controller.h"
-
 using namespace CEC;
 
-class CECController : public Controller
+class CECController : public QThread
 {
     Q_OBJECT
 
@@ -30,6 +27,4 @@ private:
     
     static void handleCecKeypress(void* param, const cec_keypress* key);
 };
-
-#endif // CECCONTROLLER_H
 

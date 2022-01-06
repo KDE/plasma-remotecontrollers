@@ -13,22 +13,22 @@ NotificationsManager::NotificationsManager()
 {
 }
 
-void NotificationsManager::notifyNewDevice(DeviceType deviceType)
+void NotificationsManager::notifyNewDevice(Device* device)
 {
     KNotification* notification = new KNotification("controllerConnected");
 
     notification->setTitle("New controller connected");
-    if (deviceType == DeviceWiimote)
+    if (device->getDeviceType() == DeviceWiimote)
         notification->setText("A Wiimote has been connected");
     notification->sendEvent();
 }
 
-void NotificationsManager::notifyDisconnectedDevice(DeviceType deviceType)
+void NotificationsManager::notifyDisconnectedDevice(Device* device)
 {
     KNotification* notification = new KNotification("controllerDisconnected");
 
     notification->setTitle("A controller has been disconnected");
-    if (deviceType == DeviceWiimote)
+    if (device->getDeviceType() == DeviceWiimote)
         notification->setText("A wiimote has been disconnected");
     notification->sendEvent();
 }

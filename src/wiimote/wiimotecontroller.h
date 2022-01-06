@@ -1,13 +1,11 @@
-#ifndef WIIMOTECONTROLLER_H
-#define WIIMOTECONTROLLER_H
+#pragma once
 
-#include "../controller.h"
 #include "wiimote.h"
 
 #include <QThread>
 #include <xwiimote.h>
 
-class WiimoteController : public Controller
+class WiimoteController : public QThread
 {
 public:
     explicit WiimoteController();
@@ -15,5 +13,3 @@ public:
     
     void run() override;
 };
-
-#endif // WIIMOTECONTROLLER_H

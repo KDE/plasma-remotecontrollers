@@ -1,5 +1,4 @@
 #include "wiimotecontroller.h"
-#include "../devicetypes.h"
 #include "../controllermanager.h"
 #include "../notificationsmanager.h"
 
@@ -12,51 +11,28 @@ WiimoteController::WiimoteController()
 void WiimoteController::run()
 {
     // Keep trying to find a Wiiremote indefinitely
-    struct xwii_iface* iface;
-    while(true) {
-        struct xwii_monitor* mon;
-        char* ent;
+    struct xwii_monitor *mon;
+    char *ent;
 
+    while(true) {
         mon = xwii_monitor_new(false, false);
         if (!mon) {
             qCritical() << "Cannot create monitor";
-            exit(1);
+            return;
         }
 
-        char* foundWiimote = NULL;
         while ((ent = xwii_monitor_poll(mon))) {
-            foundWiimote = ent;
+            if (ControllerManager::instance().isConnected(ent))
+                continue;
+
+            ControllerManager::instance().newDevice(new Wiimote(ent));
             free(ent);
-        }
-        
-        if (!foundWiimote) {
-            sleep(1);
-            continue;
         }
 
         xwii_monitor_unref(mon);
-
-        int ret = 0;
         
-        ret = xwii_iface_new(&iface, foundWiimote);
-
-        if (ret) {
-            qCritical() << "Cannot create xwii_iface " << ret;
-            return;
-        }
-        
-        ret = xwii_iface_open(iface, xwii_iface_available(iface) | XWII_IFACE_WRITABLE);
-
-        if (ret) {
-            qCritical() << "Error: Cannot open interface " << ret;
-            return;
-        }
-        
-        int index = ControllerManager::instance().newDevice(DeviceWiimote);
-        new Wiimote(iface);
-
-        ControllerManager::instance().removeDevice(index);
-        xwii_iface_unref(iface);
+        // Let's not hug the CPU
+        sleep(1);
     }
 }
 

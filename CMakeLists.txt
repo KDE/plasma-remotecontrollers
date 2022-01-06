@@ -29,7 +29,7 @@ add_executable(plasma-remotecontrollers
     src/main.cpp
     src/controllermanager.cpp
     src/notificationsmanager.cpp
-    src/controller.cpp
+    src/device.cpp
     src/libcec/ceccontroller.cpp)
 
 target_link_libraries(plasma-remotecontrollers

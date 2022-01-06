@@ -1,6 +1,6 @@
 #pragma once
 
-#include "devicetypes.h"
+#include "device.h"
 
 #include <QObject>
 
@@ -10,22 +10,23 @@ class ControllerManager : public QObject
 
 public:
     explicit ControllerManager(QObject *parent = nullptr);
-    virtual ~ControllerManager();
+    ~ControllerManager() = default;
     static ControllerManager &instance();
     
-    int newDevice(DeviceType deviceType);
+    int newDevice(Device *device);
     void removeDevice(int deviceIndex);
+    bool isConnected(char *uniqueIdentifier);
 
 public slots:
     void emitKey(int key, bool pressed);
 
 Q_SIGNALS:
-    void deviceConnected(DeviceType);
-    void deviceDisconnected(DeviceType);
+    void deviceConnected(Device*);
+    void deviceDisconnected(Device*);
 
 private:
     int m_fd;
-    QList<DeviceType> m_connectedDevices;
+    QVector<Device*> m_connectedDevices;
 
     void emitEvent(int type, int code, int val);
 };

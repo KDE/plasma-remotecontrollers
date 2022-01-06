@@ -1,7 +1,8 @@
 #pragma once
 
+#include "device.h"
+
 #include <QObject>
-#include "devicetypes.h"
 
 class NotificationsManager : public QObject
 {
@@ -11,8 +12,8 @@ public:
     static NotificationsManager &instance();
 
 public slots:
-    void notifyNewDevice(DeviceType deviceType);
-    void notifyDisconnectedDevice(DeviceType deviceType);
+    void notifyNewDevice(Device* device);
+    void notifyDisconnectedDevice(Device* device);
 
 private:
     NotificationsManager();

@@ -1,6 +1,6 @@
 #include "ceccontroller.h"
 #include "../controllermanager.h"
-#include "../devicetypes.h"
+#include "../device.h"
 
 #include <QDebug>
 #include <KSharedConfig>
@@ -29,19 +29,17 @@ void CECController::handleCecKeypress(void* param, const cec_keypress* key)
         return;
     }
     
-    if (key->duration) {
-        qDebug() << key->keycode;
-        emit ControllerManager::instance().emitKey(nativeKeyCode, false);
-    } else {
-        emit ControllerManager::instance().emitKey(nativeKeyCode, true);
-    }
+    emit ControllerManager::instance().emitKey(nativeKeyCode, !key->duration);
 }
 
 CECController::CECController()
 {
+    QObject::connect(this, &CECController::keyPress,
+                     &ControllerManager::instance(), &ControllerManager::emitKey);
+
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup generalGroup = config->group("General");
-    
+
     m_keyCodeTranslation = {
         { generalGroup.readEntry("ButtonPlay", (int) CEC_USER_CONTROL_CODE_PLAY), KEY_PLAY},
         { generalGroup.readEntry("ButtonStop", (int) CEC_USER_CONTROL_CODE_STOP), KEY_STOP},
@@ -78,7 +76,7 @@ CECController::CECController()
 
     m_cecCallbacks.Clear();
     m_cecCallbacks.keyPress = &CECController::handleCecKeypress;
-    
+
     libcec_configuration cecConfig;
     cecConfig.Clear();
     cecConfig.bActivateSource = 0;
@@ -86,14 +84,14 @@ CECController::CECController()
     cecConfig.clientVersion = LIBCEC_VERSION_CURRENT;
     cecConfig.deviceTypes.Add(CEC_DEVICE_TYPE_RECORDING_DEVICE);
     cecConfig.callbacks = &m_cecCallbacks;
-    
+
     m_cecAdapter = LibCecInitialise(&cecConfig);
-    
+
     if (!m_cecAdapter) {
         qCritical() << "Could not create CEC adaptor with current config";
         exit(1);
     }
-    
+
     // Init video on targets that need this
     m_cecAdapter->InitVideoStandalone();
 }
@@ -102,24 +100,30 @@ void CECController::run()
 {
     // TODO: keep trying to detect a device till we find one
     cec_adapter_descriptor devices[10];
-    int devices_found = 0;
-    
-    while (devices_found == 0) {
-        devices_found = m_cecAdapter->DetectAdapters(devices, 10, NULL);
-        
-        if (devices_found == 0)
-            sleep(1);
-    }
-    
-    if (!m_cecAdapter->Open(devices[0].strComName)) {
-        qWarning() << "Could not open CEC device " << devices[0].strComPath << " " << devices[0].strComName;
-        return;
-    }
 
-    ControllerManager::instance().newDevice(DeviceCEC);
-    
-    // Just live forever
-    while (true) {}
+    while (true) {
+        int devices_found = m_cecAdapter->DetectAdapters(devices, 10);
+
+        if (devices_found == 0)
+            continue;
+
+        for (int i = 0; i < devices_found; i++) {
+            if (ControllerManager::instance().isConnected(devices[i].strComName))
+                continue;
+
+            if (!m_cecAdapter->Open(devices[i].strComName)) {
+                qWarning() << "Could not open CEC device " << devices[i].strComPath << " " << devices[i].strComName;
+                return;
+            }
+
+            // TODO: detect and handle disconnects
+            Device* device = new Device(DeviceCEC, "CEC Controller", devices[i].strComName);
+            ControllerManager::instance().newDevice(device);
+        }
+
+        // Let's not hug the CPU
+        sleep(1);
+    }
 }
 
 CECController::~CECController() = default;

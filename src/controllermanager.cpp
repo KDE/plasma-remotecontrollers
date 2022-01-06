@@ -71,63 +71,46 @@ ControllerManager::ControllerManager(QObject *parent)
     sleep(1);
 }
 
-ControllerManager::~ControllerManager()
-{
-}
-
 ControllerManager &ControllerManager::instance()
 {
     static ControllerManager _instance;
     return _instance;
 }
 
-void ControllerManager::emitKey(int key, bool pressed)
+int ControllerManager::newDevice(Device *device)
 {
-    emitEvent(EV_KEY, key, pressed ? 1 : 0);
-    emitEvent(EV_SYN, SYN_REPORT, 0);
-}
-
-int ControllerManager::newDevice(DeviceType deviceType)
-{
+    qInfo() << "New device connected:" << device->getName();
+    
     int listSize = m_connectedDevices.size();
-    m_connectedDevices.insert(listSize, deviceType);
-    
-    switch (deviceType) {
-        case DeviceCEC:
-            qInfo() << "New device connected: CEC adapter";
-            break;
-        case DeviceWiimote:
-            qInfo() << "New device connected: Wiimote";
-            break;
-        default:
-            qInfo() << "New device connected we do not handle yet";
-            break;
-    }
-    
+    m_connectedDevices.insert(listSize, device);
+    device->setIndex(listSize);
+    device->start();
+
     // Don't send notifications for CEC devices, since we expect them to always be available
-    if (deviceType != DeviceCEC)
-        emit deviceConnected(deviceType);
+    if (device->getDeviceType() != DeviceCEC)
+        emit deviceConnected(device);
     return listSize;
 }
 
 void ControllerManager::removeDevice(int deviceIndex)
 {
-    DeviceType removedDevice = m_connectedDevices.at(deviceIndex);
-    m_connectedDevices.removeAt(deviceIndex);
+    Device *removedDevice = m_connectedDevices.at(deviceIndex);
+    m_connectedDevices.remove(deviceIndex);
     
-    switch (removedDevice) {
-        case DeviceCEC:
-            qInfo() << "Device disconnected: CEC adapter";
-            break;
-        case DeviceWiimote:
-            qInfo() << "Device disconnected: Wiimote";
-            break;
-        default:
-            qInfo() << "Device disconnected we do not handle yet";
-            break;
-    }
+    qInfo() << "Device disconnected:" << removedDevice->getName();
     
     emit deviceDisconnected(removedDevice);
+}
+
+bool ControllerManager::isConnected(char *uniqueIdentifier)
+{
+    return std::find_if(m_connectedDevices.begin(), m_connectedDevices.end(), [&uniqueIdentifier](Device* other) { return other->getUniqueIdentifier() == *uniqueIdentifier; }) != m_connectedDevices.end();
+}
+
+void ControllerManager::emitKey(int key, bool pressed)
+{
+    emitEvent(EV_KEY, key, pressed ? 1 : 0);
+    emitEvent(EV_SYN, SYN_REPORT, 0);
 }
 
 void ControllerManager::emitEvent(int type, int code, int val)
