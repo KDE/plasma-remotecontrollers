@@ -15,7 +15,7 @@ public:
     
     int newDevice(Device *device);
     void removeDevice(int deviceIndex);
-    bool isConnected(char *uniqueIdentifier);
+    bool isConnected(QString uniqueIdentifier);
 
 public slots:
     void emitKey(int key, bool pressed);

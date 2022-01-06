@@ -16,9 +16,9 @@ void Device::setIndex(int index)
     }
 }
 
-char& Device::getUniqueIdentifier()
+QString Device::getUniqueIdentifier()
 {
-    return *m_uniqueIdentifier;
+    return m_uniqueIdentifier;
 }
 
 QString Device::getName()

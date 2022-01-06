@@ -22,7 +22,8 @@ void WiimoteController::run()
         }
 
         while ((ent = xwii_monitor_poll(mon))) {
-            if (ControllerManager::instance().isConnected(ent))
+            QString uniqueIdentifier = ent;
+            if (ControllerManager::instance().isConnected(uniqueIdentifier))
                 continue;
 
             ControllerManager::instance().newDevice(new Wiimote(ent));

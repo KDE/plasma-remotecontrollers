@@ -18,14 +18,14 @@ public:
     ~Device();
 
     void setIndex(int index);
-    char& getUniqueIdentifier();
+    QString getUniqueIdentifier();
 
     QString getName();
     DeviceType getDeviceType();
 
 protected:
     int m_index = -1;
-    char* m_uniqueIdentifier;
+    QString m_uniqueIdentifier;
     QString m_name;
     DeviceType m_deviceType;
 };

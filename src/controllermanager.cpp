@@ -102,9 +102,14 @@ void ControllerManager::removeDevice(int deviceIndex)
     emit deviceDisconnected(removedDevice);
 }
 
-bool ControllerManager::isConnected(char *uniqueIdentifier)
+bool ControllerManager::isConnected(QString uniqueIdentifier)
 {
-    return std::find_if(m_connectedDevices.begin(), m_connectedDevices.end(), [&uniqueIdentifier](Device* other) { return other->getUniqueIdentifier() == *uniqueIdentifier; }) != m_connectedDevices.end();
+    if (m_connectedDevices.size() < 1)
+        return false;
+
+    return std::find_if(m_connectedDevices.begin(), m_connectedDevices.end(), [&uniqueIdentifier](Device* other) {
+        return other->getUniqueIdentifier() == uniqueIdentifier;
+    }) != m_connectedDevices.end();
 }
 
 void ControllerManager::emitKey(int key, bool pressed)

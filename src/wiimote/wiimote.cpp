@@ -30,7 +30,6 @@ Wiimote::Wiimote(char *sysPath)
 
     if (ret) {
         qCritical() << "Error: Cannot open interface " << ret;
-        return;
     }
 
     m_keyCodeTranslation = {
@@ -46,12 +45,11 @@ Wiimote::Wiimote(char *sysPath)
         { XWII_KEY_MINUS, KEY_VOLUMEDOWN},
         { XWII_KEY_HOME, KEY_HOME},
     };
-    
+
     ret = xwii_iface_watch(m_iface, true);
-    
+
     if (ret) {
         qCritical() << "Error: Cannot initialize hotplug watch descriptor";
-        return;
     }
 
     memset(m_fds, 0, sizeof(m_fds));
@@ -94,8 +92,7 @@ void Wiimote::run()
                 ControllerManager::instance().removeDevice(m_index);
                 return;
             case XWII_EVENT_WATCH:
-                if (handleWatch())
-                    return;
+                handleWatch();
                 break;
             case XWII_EVENT_KEY:
                 handleKeypress(&event);
@@ -135,15 +132,13 @@ void Wiimote::handleKeypress(struct xwii_event *event)
     emit keyPress(nativeKeyCode, pressed);
 }
 
-int Wiimote::handleWatch()
+void Wiimote::handleWatch()
 {
     int ret = xwii_iface_open(m_iface, xwii_iface_available(m_iface) | XWII_IFACE_WRITABLE);
 
     if (ret) {
-        qCritical() << "Error: Cannot open interface " << ret;
+        qCritical() << "Error: Cannot open interface" << ret;
     }
-
-    return ret;
 }
 
 void Wiimote::handleNunchuk(struct xwii_event *event)

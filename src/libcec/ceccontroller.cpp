@@ -108,7 +108,8 @@ void CECController::run()
             continue;
 
         for (int i = 0; i < devices_found; i++) {
-            if (ControllerManager::instance().isConnected(devices[i].strComName))
+            QString uniqueIdentifier = devices[i].strComName;
+            if (ControllerManager::instance().isConnected(uniqueIdentifier))
                 continue;
 
             if (!m_cecAdapter->Open(devices[i].strComName)) {

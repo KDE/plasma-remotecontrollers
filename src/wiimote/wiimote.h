@@ -20,14 +20,15 @@ signals:
     void keyPress(int keyCode, bool pressed);
 
 private:
-    char* m_sysPath;
-    struct xwii_iface* m_iface;
+    char *m_sysPath;
+    struct xwii_iface *m_iface;
     struct pollfd m_fds[2];
     int m_fdsNum;
+    char *m_extensionName;
     int m_previousNunchukAxisTime = 0;
     static QHash<int, int> m_keyCodeTranslation;
 
     void handleKeypress(struct xwii_event *event);
-    int handleWatch();
+    void handleWatch();
     void handleNunchuk(struct xwii_event *event);
 };
