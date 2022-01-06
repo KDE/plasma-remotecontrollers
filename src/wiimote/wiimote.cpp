@@ -134,7 +134,16 @@ void Wiimote::handleKeypress(struct xwii_event *event)
 
 void Wiimote::handleWatch()
 {
-    int ret = xwii_iface_open(m_iface, xwii_iface_available(m_iface) | XWII_IFACE_WRITABLE);
+    int ret = 1;
+
+    // After a hotplug event occurred xwii_iface_open will fail if called too shortly after it happened
+    // Because of this, just keep calling it till it succeeds
+    // https://github.com/dvdhrm/xwiimote/issues/97
+    while (ret) {
+        if (ret) {
+            ret = xwii_iface_open(m_iface, xwii_iface_available(m_iface) | XWII_IFACE_WRITABLE);
+        }
+    }
 
     if (ret) {
         qCritical() << "Error: Cannot open interface" << ret;
