@@ -8,6 +8,7 @@ find_package(ECM CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
 
 include(FeatureSummary)
+include(ECMQtDeclareLoggingCategory)
 include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
@@ -23,14 +24,22 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
 find_package(Libcec 6 REQUIRED)
 pkg_check_modules(WIIUSE IMPORTED_TARGET wiiuse)
 
+pkg_check_modules(Evdev IMPORTED_TARGET libevdev)
+add_feature_info(Evdev Evdev_FOUND "Adds support for controllers")
+
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
+ecm_qt_declare_logging_category(SRCS HEADER plasmarc-evdev-debug.h IDENTIFIER PLASMARC_EVDEV CATEGORY_NAME org.kde.plasma.remotecontrollers.evdev DESCRIPTION "Plasma Remote Controllers - evdev" DEFAULT_SEVERITY Info EXPORT PLASMARC)
 
 add_executable(plasma-remotecontrollers
     src/main.cpp
     src/controllermanager.cpp
     src/notificationsmanager.cpp
     src/device.cpp
-    src/libcec/ceccontroller.cpp)
+    src/libcec/ceccontroller.cpp
+    src/evdev/evdevcontroller.cpp
+    ${SRCS}
+)
 
 target_link_libraries(plasma-remotecontrollers
     ${CMAKE_DL_LIBS}
@@ -39,6 +48,7 @@ target_link_libraries(plasma-remotecontrollers
     KF5::ConfigCore
     KF5::Notifications
     Libcec::Libcec
+    PkgConfig::Evdev
 )
 
 if(WIIUSE_FOUND)
@@ -58,3 +68,9 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.deskt
 
 install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR}/xdg)
 install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+
+ecm_qt_install_logging_categories(
+        EXPORT PLASMARC
+        FILE plasma-remotecontrollers.categories
+        DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+    )

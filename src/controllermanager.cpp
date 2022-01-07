@@ -38,6 +38,7 @@ ControllerManager::ControllerManager(QObject *parent)
     ioctl(m_fd, UI_SET_KEYBIT, KEY_REWIND);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_FASTFORWARD);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_ENTER);
+    ioctl(m_fd, UI_SET_KEYBIT, KEY_CANCEL);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_SELECT);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_UP);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_DOWN);
@@ -65,6 +66,7 @@ ControllerManager::ControllerManager(QObject *parent)
     ioctl(m_fd, UI_SET_KEYBIT, KEY_MENU);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_SUBTITLE);
     ioctl(m_fd, UI_SET_KEYBIT, KEY_MINUS);
+    ioctl(m_fd, UI_SET_KEYBIT, KEY_FORWARD);
     
     memset(&usetup, 0, sizeof(usetup));
     usetup.id.bustype = BUS_USB;

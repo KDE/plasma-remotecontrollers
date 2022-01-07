@@ -10,6 +10,7 @@
 #ifdef HAS_WIIUSE
 # include "wiimote/wiimotecontroller.h"
 #endif // HAS_WIIUSE
+# include "evdev/evdevcontroller.h"
 
 #include <QGuiApplication>
 #include <QDebug>
@@ -21,8 +22,9 @@ int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-    CECController* ct = new CECController();
-    ct->start();
+    new EvdevController();
+
+    new CECController();
     
 #ifdef HAS_WIIUSE
     new WiimoteController();
