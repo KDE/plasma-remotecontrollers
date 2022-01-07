@@ -8,7 +8,7 @@
 
 #include <QDebug>
 
-Device::Device(DeviceType deviceType, QString name, char *uniqueIdentifier)
+Device::Device(DeviceType deviceType, QString name, QString uniqueIdentifier)
 {
     m_deviceType = deviceType;
     m_name = name;

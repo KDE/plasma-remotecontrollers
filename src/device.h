@@ -22,7 +22,7 @@ class Device : public QObject
 
 public:
     Device() = default;
-    Device(DeviceType deviceType, QString name, char* uniqueIdentifier);
+    Device(DeviceType deviceType, QString name, QString uniqueIdentifier);
     ~Device();
 
     void setIndex(int index);
