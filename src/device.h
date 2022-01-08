@@ -2,6 +2,8 @@
 
 #include <QObject>
 
+#include <unistd.h>
+
 enum DeviceType {
     DeviceCEC,
     DeviceWiimote,
@@ -25,7 +27,7 @@ public:
 
 public slots:
     virtual void watchEvents() {
-        while (true) { };
+        while (true) { sleep(1); /* Don't hug the CPU */ };
     };
 
 Q_SIGNALS:
