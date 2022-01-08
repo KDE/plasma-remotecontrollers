@@ -1,6 +1,18 @@
 [Desktop Entry]
 Name=Joyclick
+Name[ca]=Control remot
+Name[es]=Joyclick
+Name[nl]=Joyclick
+Name[sv]=Joyclick
+Name[uk]=Joyclick
+Name[x-test]=xxJoyclickxx
 Description=Translates events from various input devices to native key presses
+Description[ca]=Tradueix esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles
+Description[es]=Traduce eventos de diversos dispositivos de entrada a pulsaciones de teclas nativas
+Description[nl]=Vertaalt gebeurtenissen uit verschillende invoerapparaten naar inheemse toetsaanslagen
+Description[sv]=Översätter händelser från olika typer av inmatningsenheter till inbyggda tangentnedtryckningar
+Description[uk]=Транслює події з різних пристроїв введення у сигнали про натискання клавіш
+Description[x-test]=xxTranslates events from various input devices to native key pressesxx
 Exec=@CMAKE_INSTALL_PREFIX@/bin/joyclick
 Icon=gamepad
 Type=Application
