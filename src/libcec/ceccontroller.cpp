@@ -1,6 +1,7 @@
 #include "ceccontroller.h"
 #include "../controllermanager.h"
 #include "../device.h"
+#include "../constants.h"
 
 #include <QDebug>
 #include <KSharedConfig>
@@ -122,8 +123,7 @@ void CECController::run()
             ControllerManager::instance().newDevice(device);
         }
 
-        // Let's not hug the CPU
-        sleep(1);
+        usleep(LOOPTIME); // Don't hug the CPU
     }
 }
 

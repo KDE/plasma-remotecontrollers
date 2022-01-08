@@ -1,5 +1,7 @@
 #pragma once
 
+#include "constants.h"
+
 #include <QObject>
 
 #include <unistd.h>
@@ -27,7 +29,7 @@ public:
 
 public slots:
     virtual void watchEvents() {
-        while (true) { sleep(1); /* Don't hug the CPU */ };
+        while (true) { usleep(LOOPTIME); /* Don't hug the CPU */ };
     };
 
 Q_SIGNALS:

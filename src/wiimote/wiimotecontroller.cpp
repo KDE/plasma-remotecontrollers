@@ -1,6 +1,7 @@
 #include "wiimotecontroller.h"
 #include "../controllermanager.h"
 #include "../notificationsmanager.h"
+#include "../constants.h"
 
 #include <QDebug>
 
@@ -32,8 +33,7 @@ void WiimoteController::run()
 
         xwii_monitor_unref(mon);
         
-        // Let's not hug the CPU
-        sleep(1);
+        usleep(LOOPTIME); // Don't hug the CPU
     }
 }
 

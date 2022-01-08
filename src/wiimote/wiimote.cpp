@@ -1,5 +1,6 @@
 #include "wiimote.h"
 #include "../controllermanager.h"
+#include "../constants.h"
 
 #include <QLoggingCategory>
 #include <QDebug>
@@ -47,7 +48,7 @@ Wiimote::Wiimote(char *sysPath)
     
     // Let the user know the device is being used by rumbling
     xwii_iface_rumble(m_iface, true);
-    sleep(1);
+    usleep(500 * 1000); // Only rumble for half a second
     xwii_iface_rumble(m_iface, false);
 }
 
@@ -101,6 +102,10 @@ void Wiimote::watchEvents()
             case XWII_EVENT_DRUMS_MOVE:
                 break;
         }
+
+        // If we loop without delay we hug the CPU
+        // Using LOOPTIME_WII we still hug it a bit but any slower and we start missing events
+        usleep(LOOPTIME_WII);
     }
 
     emit deviceDisconnected(m_index);
