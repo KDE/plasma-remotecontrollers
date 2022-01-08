@@ -14,9 +14,11 @@ class Wiimote : public Device
 public:
     explicit Wiimote(char *sysPath);
     ~Wiimote();
-    void run() override;
 
-signals:
+public slots:
+    void watchEvents() override;
+
+Q_SIGNALS:
     void keyPress(int keyCode, bool pressed);
 
 private:
@@ -26,9 +28,8 @@ private:
     int m_fdsNum;
     char *m_extensionName;
     int m_previousNunchukAxisTime = 0;
-    static QHash<int, int> m_keyCodeTranslation;
 
-    void handleKeypress(struct xwii_event *event);
     void handleWatch();
+    void handleKeypress(struct xwii_event *event);
     void handleNunchuk(struct xwii_event *event);
 };

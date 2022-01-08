@@ -17,7 +17,7 @@ public:
     
     void run() override;
 
-signals:
+Q_SIGNALS:
     void keyPress(int keyCode, bool pressed);
 
 private:

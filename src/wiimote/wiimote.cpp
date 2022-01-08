@@ -8,8 +8,6 @@
 #include <linux/input-event-codes.h>
 #include <unistd.h>
 
-QHash<int, int> Wiimote::m_keyCodeTranslation;
-
 Wiimote::Wiimote(char *sysPath)
 {
     m_uniqueIdentifier = sysPath;
@@ -19,32 +17,20 @@ Wiimote::Wiimote(char *sysPath)
     QObject::connect(this, &Wiimote::keyPress,
                      &ControllerManager::instance(), &ControllerManager::emitKey);
 
-    int ret = xwii_iface_new(&m_iface, sysPath);
+    int ret;
 
-    if (ret) {
-        qCritical() << "Error: Cannot create xwii_iface " << ret;
-        return;
-    }
+    // After a hotplug event occurred xwii_iface_open will fail if called too shortly after it happened
+    // Because of this, just keep calling it till it succeeds
+    // https://github.com/dvdhrm/xwiimote/issues/97
+    do {
+        ret = xwii_iface_new(&m_iface, sysPath);
+    } while (ret);
 
     ret = xwii_iface_open(m_iface, xwii_iface_available(m_iface) | XWII_IFACE_WRITABLE);
 
     if (ret) {
         qCritical() << "Error: Cannot open interface " << ret;
     }
-
-    m_keyCodeTranslation = {
-        { XWII_KEY_A, KEY_SELECT},
-        { XWII_KEY_B, KEY_BACK},
-        { XWII_KEY_UP, KEY_UP},
-        { XWII_KEY_DOWN, KEY_DOWN},
-        { XWII_KEY_LEFT, KEY_LEFT},
-        { XWII_KEY_RIGHT, KEY_RIGHT},
-        { XWII_KEY_ONE, KEY_1},
-        { XWII_KEY_TWO, KEY_2},
-        { XWII_KEY_PLUS, KEY_VOLUMEUP},
-        { XWII_KEY_MINUS, KEY_VOLUMEDOWN},
-        { XWII_KEY_HOME, KEY_HOME},
-    };
 
     ret = xwii_iface_watch(m_iface, true);
 
@@ -65,11 +51,12 @@ Wiimote::Wiimote(char *sysPath)
     xwii_iface_rumble(m_iface, false);
 }
 
-void Wiimote::run()
+void Wiimote::watchEvents()
 {
     struct xwii_event event;
     int ret;
     bool deviceGone = false;
+
     while (!deviceGone) {
         ret = poll(m_fds, m_fdsNum, -1);
         if (ret < 0) {
@@ -85,18 +72,17 @@ void Wiimote::run()
 
         switch (event.type) {
             case XWII_EVENT_GONE:
-                m_fds[1].fd = -1;
-                m_fds[1].events = 0;
-                m_fdsNum = 1;
+                // TODO: we don't always get this event
+                // https://github.com/dvdhrm/xwiimote/issues/99
                 deviceGone = true;
-                ControllerManager::instance().removeDevice(m_index);
-                return;
+                break;
             case XWII_EVENT_WATCH:
                 handleWatch();
                 break;
             case XWII_EVENT_KEY:
                 handleKeypress(&event);
                 break;
+            case XWII_EVENT_NUNCHUK_KEY:
             case XWII_EVENT_NUNCHUK_MOVE:
                 handleNunchuk(&event);
                 break;
@@ -104,7 +90,6 @@ void Wiimote::run()
             case XWII_EVENT_IR:
             case XWII_EVENT_BALANCE_BOARD:
             case XWII_EVENT_MOTION_PLUS:
-            case XWII_EVENT_NUNCHUK_KEY:
             case XWII_EVENT_CLASSIC_CONTROLLER_KEY:
             case XWII_EVENT_CLASSIC_CONTROLLER_MOVE:
             case XWII_EVENT_PRO_CONTROLLER_KEY:
@@ -117,19 +102,8 @@ void Wiimote::run()
                 break;
         }
     }
-}
 
-void Wiimote::handleKeypress(struct xwii_event *event)
-    {
-    bool pressed = event->v.key.state;
-    int nativeKeyCode = m_keyCodeTranslation.value(event->v.key.code, -1);
-    
-    if (nativeKeyCode < 0) {
-        qDebug() << "DEBUG: Received a keypress we do not handle!";
-        return;
-    }
-
-    emit keyPress(nativeKeyCode, pressed);
+    emit deviceDisconnected(m_index);
 }
 
 void Wiimote::handleWatch()
@@ -142,6 +116,33 @@ void Wiimote::handleWatch()
     do {
         ret = xwii_iface_open(m_iface, xwii_iface_available(m_iface) | XWII_IFACE_WRITABLE);
     } while (ret);
+}
+
+void Wiimote::handleKeypress(struct xwii_event *event)
+{
+    static QHash<int, int> keyCodeTranslation = {
+        { XWII_KEY_A, KEY_SELECT},
+        { XWII_KEY_B, KEY_BACK},
+        { XWII_KEY_UP, KEY_UP},
+        { XWII_KEY_DOWN, KEY_DOWN},
+        { XWII_KEY_LEFT, KEY_LEFT},
+        { XWII_KEY_RIGHT, KEY_RIGHT},
+        { XWII_KEY_ONE, KEY_1},
+        { XWII_KEY_TWO, KEY_2},
+        { XWII_KEY_PLUS, KEY_VOLUMEUP},
+        { XWII_KEY_MINUS, KEY_VOLUMEDOWN},
+        { XWII_KEY_HOME, KEY_HOME},
+    };
+
+    bool pressed = event->v.key.state;
+    int nativeKeyCode = keyCodeTranslation.value(event->v.key.code, -1);
+
+    if (nativeKeyCode < 0) {
+        qDebug() << "DEBUG: Received a keypress we do not handle!";
+        return;
+    }
+
+    emit keyPress(nativeKeyCode, pressed);
 }
 
 void Wiimote::handleNunchuk(struct xwii_event *event)
@@ -181,6 +182,5 @@ void Wiimote::handleNunchuk(struct xwii_event *event)
 
 Wiimote::~Wiimote()
 {
-    // TODO: this seems to never be called
     xwii_iface_unref(m_iface);
 }

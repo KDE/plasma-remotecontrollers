@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QThread>
+#include <QObject>
 
 enum DeviceType {
     DeviceCEC,
@@ -8,7 +8,7 @@ enum DeviceType {
     DeviceGamepad
 };
 
-class Device : public QThread
+class Device : public QObject
 {
     Q_OBJECT
 
@@ -22,6 +22,14 @@ public:
 
     QString getName();
     DeviceType getDeviceType();
+
+public slots:
+    virtual void watchEvents() {
+        while (true) { };
+    };
+
+Q_SIGNALS:
+    void deviceDisconnected(int index);
 
 protected:
     int m_index = -1;

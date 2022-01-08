@@ -3,6 +3,12 @@
 #include "device.h"
 
 #include <QObject>
+#include <QThread>
+
+struct DeviceEntry {
+    Device *device;
+    QThread *thread;
+};
 
 class ControllerManager : public QObject
 {
@@ -10,15 +16,15 @@ class ControllerManager : public QObject
 
 public:
     explicit ControllerManager(QObject *parent = nullptr);
-    ~ControllerManager() = default;
+    ~ControllerManager();
     static ControllerManager &instance();
     
-    int newDevice(Device *device);
-    void removeDevice(int deviceIndex);
+    void newDevice(Device *device);
     bool isConnected(QString uniqueIdentifier);
 
 public slots:
     void emitKey(int key, bool pressed);
+    void removeDevice(int deviceIndex);
 
 Q_SIGNALS:
     void deviceConnected(Device*);
@@ -26,7 +32,7 @@ Q_SIGNALS:
 
 private:
     int m_fd;
-    QVector<Device*> m_connectedDevices;
+    QVector<DeviceEntry*> m_connectedDevices;
 
     void emitEvent(int type, int code, int val);
 };
