@@ -3,7 +3,6 @@
 #include "device.h"
 
 #include <QObject>
-#include <QThread>
 
 class ControllerManager : public QObject
 {
