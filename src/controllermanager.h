@@ -5,11 +5,6 @@
 #include <QObject>
 #include <QThread>
 
-struct DeviceEntry {
-    Device *device;
-    QThread *thread;
-};
-
 class ControllerManager : public QObject
 {
     Q_OBJECT
@@ -21,6 +16,7 @@ public:
     
     void newDevice(Device *device);
     bool isConnected(QString uniqueIdentifier);
+    QVector<Device*> getDevicesByType(DeviceType deviceType);
 
 public slots:
     void emitKey(int key, bool pressed);
@@ -32,7 +28,7 @@ Q_SIGNALS:
 
 private:
     int m_fd;
-    QVector<DeviceEntry*> m_connectedDevices;
+    QVector<Device*> m_connectedDevices;
 
     void emitEvent(int type, int code, int val);
 };

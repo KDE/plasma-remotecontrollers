@@ -28,9 +28,7 @@ public:
     DeviceType getDeviceType();
 
 public slots:
-    virtual void watchEvents() {
-        while (true) { usleep(LOOPTIME); /* Don't hug the CPU */ };
-    };
+    virtual void watchEvents() { return; };
 
 Q_SIGNALS:
     void deviceDisconnected(int index);

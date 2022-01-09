@@ -56,59 +56,50 @@ void Wiimote::watchEvents()
 {
     struct xwii_event event;
     int ret;
-    bool deviceGone = false;
 
-    while (!deviceGone) {
-        ret = poll(m_fds, m_fdsNum, -1);
-        if (ret < 0) {
-            qDebug() << "Error: Cannot poll fds: " << ret;
-            break;
-        }
-        
-        ret = xwii_iface_dispatch(m_iface, &event, sizeof(event));
-        if (ret && ret != -EAGAIN) {
-            qCritical() << "Error: Read failed with err: " << ret;
-            break;
-        }
-
-        switch (event.type) {
-            case XWII_EVENT_GONE:
-                // TODO: we don't always get this event
-                // https://github.com/dvdhrm/xwiimote/issues/99
-                deviceGone = true;
-                break;
-            case XWII_EVENT_WATCH:
-                handleWatch();
-                break;
-            case XWII_EVENT_KEY:
-                handleKeypress(&event);
-                break;
-            case XWII_EVENT_NUNCHUK_KEY:
-            case XWII_EVENT_NUNCHUK_MOVE:
-                handleNunchuk(&event);
-                break;
-            case XWII_EVENT_ACCEL:
-            case XWII_EVENT_IR:
-            case XWII_EVENT_BALANCE_BOARD:
-            case XWII_EVENT_MOTION_PLUS:
-            case XWII_EVENT_CLASSIC_CONTROLLER_KEY:
-            case XWII_EVENT_CLASSIC_CONTROLLER_MOVE:
-            case XWII_EVENT_PRO_CONTROLLER_KEY:
-            case XWII_EVENT_PRO_CONTROLLER_MOVE:
-            case XWII_EVENT_NUM:
-            case XWII_EVENT_GUITAR_KEY:
-            case XWII_EVENT_GUITAR_MOVE:
-            case XWII_EVENT_DRUMS_KEY:
-            case XWII_EVENT_DRUMS_MOVE:
-                break;
-        }
-
-        // If we loop without delay we hug the CPU
-        // Using LOOPTIME_WII we still hug it a bit but any slower and we start missing events
-        usleep(LOOPTIME_WII);
+    ret = poll(m_fds, m_fdsNum, -1);
+    if (ret < 0) {
+        qDebug() << "Error: Cannot poll fds: " << ret;
+        return;
     }
 
-    emit deviceDisconnected(m_index);
+    ret = xwii_iface_dispatch(m_iface, &event, sizeof(event));
+    if (ret && ret != -EAGAIN) {
+        qCritical() << "Error: Read failed with err: " << ret;
+        return;
+    }
+
+    switch (event.type) {
+        case XWII_EVENT_GONE:
+            // TODO: we don't always get this event
+            // https://github.com/dvdhrm/xwiimote/issues/99
+            emit deviceDisconnected(m_index);
+            break;
+        case XWII_EVENT_WATCH:
+            handleWatch();
+            break;
+        case XWII_EVENT_KEY:
+            handleKeypress(&event);
+            break;
+        case XWII_EVENT_NUNCHUK_KEY:
+        case XWII_EVENT_NUNCHUK_MOVE:
+            handleNunchuk(&event);
+            break;
+        case XWII_EVENT_ACCEL:
+        case XWII_EVENT_IR:
+        case XWII_EVENT_BALANCE_BOARD:
+        case XWII_EVENT_MOTION_PLUS:
+        case XWII_EVENT_CLASSIC_CONTROLLER_KEY:
+        case XWII_EVENT_CLASSIC_CONTROLLER_MOVE:
+        case XWII_EVENT_PRO_CONTROLLER_KEY:
+        case XWII_EVENT_PRO_CONTROLLER_MOVE:
+        case XWII_EVENT_NUM:
+        case XWII_EVENT_GUITAR_KEY:
+        case XWII_EVENT_GUITAR_MOVE:
+        case XWII_EVENT_DRUMS_KEY:
+        case XWII_EVENT_DRUMS_MOVE:
+            break;
+    }
 }
 
 void Wiimote::handleWatch()

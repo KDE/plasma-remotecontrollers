@@ -84,18 +84,9 @@ void ControllerManager::newDevice(Device *device)
     int index = m_connectedDevices.size() - 1;
     device->setIndex(index < 0 ? 0 : index);
 
-    QThread *deviceThread = new QThread();
-    device->moveToThread(deviceThread);
-    connect(deviceThread, &QThread::started, device, &Device::watchEvents);
     connect(device, &Device::deviceDisconnected, this, &ControllerManager::removeDevice);
 
-    DeviceEntry *deviceEntry = new DeviceEntry {
-        device,
-        deviceThread
-    };
-
-    m_connectedDevices.append(deviceEntry);
-    deviceThread->start();
+    m_connectedDevices.append(device);
 
     // Don't send notifications for CEC devices, since we expect them to always be available
     if (device->getDeviceType() != DeviceCEC)
@@ -104,15 +95,12 @@ void ControllerManager::newDevice(Device *device)
 
 void ControllerManager::removeDevice(int deviceIndex)
 {
-    DeviceEntry *removedDevice = m_connectedDevices.at(deviceIndex);
+    Device *removedDevice = m_connectedDevices.at(deviceIndex);
     m_connectedDevices.remove(deviceIndex);
 
-    qInfo() << "Device disconnected:" << removedDevice->device->getName();
+    qInfo() << "Device disconnected:" << removedDevice->getName();
 
-    removedDevice->thread->quit();
-    removedDevice->thread->wait();
-
-    emit deviceDisconnected(removedDevice->device);
+    emit deviceDisconnected(removedDevice);
     delete removedDevice;
 }
 
@@ -121,9 +109,20 @@ bool ControllerManager::isConnected(QString uniqueIdentifier)
     if (m_connectedDevices.size() < 1)
         return false;
 
-    return std::find_if(m_connectedDevices.begin(), m_connectedDevices.end(), [&uniqueIdentifier](DeviceEntry *other) {
-        return other->device->getUniqueIdentifier() == uniqueIdentifier;
+    return std::find_if(m_connectedDevices.begin(), m_connectedDevices.end(), [&uniqueIdentifier](Device *other) {
+        return other->getUniqueIdentifier() == uniqueIdentifier;
     }) != m_connectedDevices.end();
+}
+
+QVector<Device*> ControllerManager::getDevicesByType(DeviceType deviceType)
+{
+    QVector<Device*> devices;
+
+    for (int i = 0; i < m_connectedDevices.size(); i++)
+        if (m_connectedDevices.at(i)->getDeviceType() == deviceType)
+            devices.append(m_connectedDevices.at(i));
+
+    return devices;
 }
 
 void ControllerManager::emitKey(int key, bool pressed)
@@ -147,10 +146,5 @@ void ControllerManager::emitEvent(int type, int code, int val)
 
 ControllerManager::~ControllerManager()
 {
-    for (int i = 0; i < m_connectedDevices.size(); i++) {
-        m_connectedDevices.at(i)->thread->quit();
-        m_connectedDevices.at(i)->thread->wait();
-    }
-
     m_connectedDevices.clear();
 }

@@ -16,6 +16,7 @@ void WiimoteController::run()
     char *ent;
 
     while(true) {
+        // First detect any new controllers
         mon = xwii_monitor_new(false, false);
         if (!mon) {
             qCritical() << "Cannot create monitor";
@@ -33,7 +34,12 @@ void WiimoteController::run()
 
         xwii_monitor_unref(mon);
         
-        usleep(LOOPTIME); // Don't hug the CPU
+        // Then check for a event on all connected controllers
+        QVector<Device*> devices = ControllerManager::instance().getDevicesByType(DeviceWiimote);
+        for (int i = 0; i < devices.size(); i++)
+            devices.at(i)->watchEvents();
+
+        usleep(LOOPTIME_WII); // Don't hug the CPU
     }
 }
 
