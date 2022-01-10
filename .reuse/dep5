@@ -1,0 +1,11 @@
+Format: https://www.debian.org/doc/packaging/manuals/copyright-format/1.0/
+Upstream-Name: Plasma Remotecontrollers
+Upstream-Contact: Bart Ribbers <bribbers@disroot.org>
+
+Files plasma-remotecontrollers.notifyrc
+Copyright: 2022 Bart Ribbers <bribbers@disroot.org>
+License: BSD-2-Clause
+
+Files plasma-remotecontrollersrc
+Copyright: 2022 Bart Ribbers <bribbers@disroot.org>
+License: BSD-2-Clause

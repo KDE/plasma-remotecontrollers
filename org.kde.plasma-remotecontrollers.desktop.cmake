@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2022 Bart Ribbers <bribbers@disroot.org>
 [Desktop Entry]
 Name=Plasma Remotecontrollers
 Name[ca]=Control remot
