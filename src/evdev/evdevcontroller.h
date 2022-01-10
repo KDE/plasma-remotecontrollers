@@ -8,6 +8,7 @@
 
 #include <QDebug>
 #include <QThread>
+#include <Solid/Device>
 
 #include "../device.h"
 #include <libevdev/libevdev.h>
@@ -17,7 +18,7 @@ class EvdevController : public QObject
 {
 public:
     explicit EvdevController();
-    bool addDevice(const QString &path);
+    bool addDevice(const Solid::Device &device);
 };
 
 class EvdevDevice : public Device
@@ -25,7 +26,7 @@ class EvdevDevice : public Device
     Q_OBJECT
 
 public:
-    explicit EvdevDevice(const QString& path, libevdev *device);
+    explicit EvdevDevice(const QString &udi, libevdev *device);
     ~EvdevDevice() override;
 
     libevdev *device() const {
@@ -37,7 +38,9 @@ signals:
 
 private:
     EvdevDeviceThread *m_thread;
+    void deviceRemoved(const QString &udi);
     libevdev *const m_device;
+    const QString m_udi;
 };
 
 

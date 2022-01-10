@@ -21,6 +21,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Config
     Notifications
+    Solid
 )
 find_package(Libcec 6 REQUIRED)
 pkg_check_modules(XWiimote IMPORTED_TARGET libxwiimote)
@@ -50,6 +51,7 @@ target_link_libraries(plasma-remotecontrollers
     Qt5::Gui
     KF5::ConfigCore
     KF5::Notifications
+    KF5::Solid
     Libcec::Libcec
     PkgConfig::Evdev
 )
