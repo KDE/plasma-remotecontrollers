@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=Joyclick
+Name=Plasma Remotecontrollers
 Name[ca]=Control remot
 Name[es]=Joyclick
 Name[nl]=Joyclick
