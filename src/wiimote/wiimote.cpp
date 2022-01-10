@@ -15,23 +15,46 @@
 #include <linux/input-event-codes.h>
 #include <unistd.h>
 
-Wiimote::Wiimote(char *sysPath)
+Wiimote::Wiimote(struct xwii_iface *iface, QString sysPath)
 {
+    m_iface = iface;
     m_uniqueIdentifier = sysPath;
     m_name = "Wiimote";
     m_deviceType = DeviceWiimote;
 
+    int ret;
+    char *devtype;
+    do {
+        ret = xwii_iface_get_devtype(iface, &devtype);
+        if (ret) {
+            qCritical() << "wiimote: ERROR: Failed to read devtype of new Wiimote device, error:" << ret;
+            return;
+        }
+    } while (strcmp(devtype, "pending") == 0);
+
+    if (strcmp(devtype, "unknown") == 0)
+        m_devType = WIIMOTE_DEVTYPE_UNKNOWN;
+    else if (strcmp(devtype, "generic") == 0)
+        m_devType = WIIMOTE_DEVTYPE_GENERIC;
+    else if (strcmp(devtype, "gen10") == 0)
+        m_devType = WIIMOTE_DEVTYPE_GEN10;
+    else if (strcmp(devtype, "gen15") == 0)
+        m_devType = WIIMOTE_DEVTYPE_GEN15;
+    else if (strcmp(devtype, "gen20") == 0)
+        m_devType = WIIMOTE_DEVTYPE_GEN20;
+    else if (strcmp(devtype, "balanceboard") == 0)
+        m_devType = WIIMOTE_DEVTYPE_BALANCEBOARD;
+    else if (strcmp(devtype, "procontroller") == 0)
+        m_devType = WIIMOTE_DEVTYPE_PROCONTROLLER;
+
+    free(devtype);
+
+    if (m_devType == WIIMOTE_DEVTYPE_UNKNOWN) {
+        return;
+    }
+
     QObject::connect(this, &Wiimote::keyPress,
                      &ControllerManager::instance(), &ControllerManager::emitKey);
-
-    int ret;
-
-    // After a hotplug event occurred xwii_iface_open will fail if called too shortly after it happened
-    // Because of this, just keep calling it till it succeeds
-    // https://github.com/dvdhrm/xwiimote/issues/97
-    do {
-        ret = xwii_iface_new(&m_iface, sysPath);
-    } while (ret);
 
     ret = xwii_iface_open(m_iface, xwii_iface_available(m_iface) | XWII_IFACE_WRITABLE);
 
@@ -60,6 +83,12 @@ Wiimote::Wiimote(char *sysPath)
     usleep(500 * 1000); // Only rumble for half a second
     xwii_iface_rumble(m_iface, false);
 }
+
+WiimoteDevtypes Wiimote::getDevType()
+{
+    return m_devType;
+}
+
 
 void Wiimote::watchEvents()
 {
@@ -197,17 +226,17 @@ void Wiimote::getExtensionType()
         qCritical() << "wiimote: ERROR: Failed to read extension type!";
 
     if (strcmp(extensionName, "none") == 0)
-        m_extensionType = EXTENSION_NONE;
+        m_extensionType = WIIMOTE_EXTENSION_NONE;
     else if (strcmp(extensionName, "unknown") == 0)
-        m_extensionType = EXTENSION_UNKNOWN;
+        m_extensionType = WIIMOTE_EXTENSION_UNKNOWN;
     else if (strcmp(extensionName, "nunchuk") == 0)
-        m_extensionType = EXTENSION_NUNCHUK;
+        m_extensionType = WIIMOTE_EXTENSION_NUNCHUK;
     else if (strcmp(extensionName, "classic") == 0)
-        m_extensionType = EXTENSION_CLASSIC;
+        m_extensionType = WIIMOTE_EXTENSION_CLASSIC;
     else if (strcmp(extensionName, "balanceboard") == 0)
-        m_extensionType = EXTENSION_CLASSIC;
+        m_extensionType = WIIMOTE_EXTENSION_CLASSIC;
     else if (strcmp(extensionName, "procontroller") == 0)
-        m_extensionType = EXTENSION_PROCONTROLLER;
+        m_extensionType = WIIMOTE_EXTENSION_PROCONTROLLER;
 }
 
 Wiimote::~Wiimote()

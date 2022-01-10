@@ -34,7 +34,21 @@ void WiimoteController::run()
             if (ControllerManager::instance().isConnected(uniqueIdentifier))
                 continue;
 
-            ControllerManager::instance().newDevice(new Wiimote(ent));
+            struct xwii_iface *iface;
+            int ret = xwii_iface_new(&iface, ent);
+
+            if (ret) {
+                qCritical() << "wiimote: ERROR: Failed to create a new Wiimote device, error:" << ret;
+                continue;
+            }
+
+            Wiimote *wiimote = new Wiimote(iface, ent);
+            if (wiimote->getDevType() == WIIMOTE_DEVTYPE_UNKNOWN) {
+                qDebug() << "wiimote: DEBUG: Unable to determine device type, skipping";
+                continue;
+            }
+
+            ControllerManager::instance().newDevice(wiimote);
             free(ent);
         }
 

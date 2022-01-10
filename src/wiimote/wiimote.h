@@ -13,13 +13,23 @@
 #include <xwiimote.h>
 #include <poll.h>
 
+enum WiimoteDevtypes {
+    WIIMOTE_DEVTYPE_UNKNOWN,
+    WIIMOTE_DEVTYPE_GENERIC,
+    WIIMOTE_DEVTYPE_GEN10,
+    WIIMOTE_DEVTYPE_GEN15,
+    WIIMOTE_DEVTYPE_GEN20,
+    WIIMOTE_DEVTYPE_BALANCEBOARD,
+    WIIMOTE_DEVTYPE_PROCONTROLLER
+};
+
 enum WiimoteExtensions {
-    EXTENSION_NONE,
-    EXTENSION_UNKNOWN,
-    EXTENSION_NUNCHUK,
-    EXTENSION_CLASSIC,
-    EXTENSION_BALANCEBOARD,
-    EXTENSION_PROCONTROLLER
+    WIIMOTE_EXTENSION_NONE,
+    WIIMOTE_EXTENSION_UNKNOWN,
+    WIIMOTE_EXTENSION_NUNCHUK,
+    WIIMOTE_EXTENSION_CLASSIC,
+    WIIMOTE_EXTENSION_BALANCEBOARD,
+    WIIMOTE_EXTENSION_PROCONTROLLER
 };
 
 class Wiimote : public Device
@@ -27,8 +37,10 @@ class Wiimote : public Device
     Q_OBJECT
 
 public:
-    explicit Wiimote(char *sysPath);
+    explicit Wiimote(struct xwii_iface *iface, QString sysPath);
     ~Wiimote();
+
+    WiimoteDevtypes getDevType();
 
 public slots:
     void watchEvents() override;
@@ -37,10 +49,10 @@ Q_SIGNALS:
     void keyPress(int keyCode, bool pressed);
 
 private:
-    char *m_sysPath;
     struct xwii_iface *m_iface;
     struct pollfd m_fds[2];
     int m_fdsNum;
+    WiimoteDevtypes m_devType;
     WiimoteExtensions m_extensionType;
     int m_previousNunchukAxisTime = 0;
 
