@@ -36,13 +36,14 @@ Wiimote::Wiimote(char *sysPath)
     ret = xwii_iface_open(m_iface, xwii_iface_available(m_iface) | XWII_IFACE_WRITABLE);
 
     if (ret) {
-        qCritical() << "Error: Cannot open interface " << ret;
+        qCritical() << "wiimote: Error: Cannot open interface " << ret;
     }
 
+    // We want to watch for hotplug events and adapt our device accordingly
     ret = xwii_iface_watch(m_iface, true);
 
     if (ret) {
-        qCritical() << "Error: Cannot initialize hotplug watch descriptor";
+        qCritical() << "wiimote: Error: Cannot initialize hotplug watch descriptor";
     }
 
     memset(m_fds, 0, sizeof(m_fds));
@@ -52,6 +53,8 @@ Wiimote::Wiimote(char *sysPath)
     m_fds[1].events = POLLIN;
     m_fdsNum = 2;
     
+    getExtensionType();
+
     // Let the user know the device is being used by rumbling
     xwii_iface_rumble(m_iface, true);
     usleep(500 * 1000); // Only rumble for half a second
@@ -65,13 +68,13 @@ void Wiimote::watchEvents()
 
     ret = poll(m_fds, m_fdsNum, -1);
     if (ret < 0) {
-        qDebug() << "Error: Cannot poll fds: " << ret;
+        qDebug() << "wiimote: Error: Cannot poll fds: " << ret;
         return;
     }
 
     ret = xwii_iface_dispatch(m_iface, &event, sizeof(event));
     if (ret && ret != -EAGAIN) {
-        qCritical() << "Error: Read failed with err: " << ret;
+        qCritical() << "wiimote: Error: Read failed with err: " << ret;
         return;
     }
 
@@ -115,9 +118,12 @@ void Wiimote::handleWatch()
     // After a hotplug event occurred xwii_iface_open will fail if called too shortly after it happened
     // Because of this, just keep calling it till it succeeds
     // https://github.com/dvdhrm/xwiimote/issues/97
+
     do {
         ret = xwii_iface_open(m_iface, xwii_iface_available(m_iface) | XWII_IFACE_WRITABLE);
     } while (ret);
+
+    getExtensionType();
 }
 
 void Wiimote::handleKeypress(struct xwii_event *event)
@@ -140,7 +146,7 @@ void Wiimote::handleKeypress(struct xwii_event *event)
     int nativeKeyCode = keyCodeTranslation.value(event->v.key.code, -1);
 
     if (nativeKeyCode < 0) {
-        qDebug() << "DEBUG: Received a keypress we do not handle!";
+        qDebug() << "wiimote: DEBUG: Received a keypress we do not handle!";
         return;
     }
 
@@ -180,6 +186,28 @@ void Wiimote::handleNunchuk(struct xwii_event *event)
             }
         }
     }
+}
+
+void Wiimote::getExtensionType()
+{
+    char* extensionName;
+    int ret = xwii_iface_get_extension(m_iface, &extensionName);
+
+    if (ret)
+        qCritical() << "wiimote: ERROR: Failed to read extension type!";
+
+    if (strcmp(extensionName, "none") == 0)
+        m_extensionType = EXTENSION_NONE;
+    else if (strcmp(extensionName, "unknown") == 0)
+        m_extensionType = EXTENSION_UNKNOWN;
+    else if (strcmp(extensionName, "nunchuk") == 0)
+        m_extensionType = EXTENSION_NUNCHUK;
+    else if (strcmp(extensionName, "classic") == 0)
+        m_extensionType = EXTENSION_CLASSIC;
+    else if (strcmp(extensionName, "balanceboard") == 0)
+        m_extensionType = EXTENSION_CLASSIC;
+    else if (strcmp(extensionName, "procontroller") == 0)
+        m_extensionType = EXTENSION_PROCONTROLLER;
 }
 
 Wiimote::~Wiimote()

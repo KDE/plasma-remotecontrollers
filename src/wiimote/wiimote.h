@@ -13,6 +13,15 @@
 #include <xwiimote.h>
 #include <poll.h>
 
+enum WiimoteExtensions {
+    EXTENSION_NONE,
+    EXTENSION_UNKNOWN,
+    EXTENSION_NUNCHUK,
+    EXTENSION_CLASSIC,
+    EXTENSION_BALANCEBOARD,
+    EXTENSION_PROCONTROLLER
+};
+
 class Wiimote : public Device
 {
     Q_OBJECT
@@ -32,10 +41,12 @@ private:
     struct xwii_iface *m_iface;
     struct pollfd m_fds[2];
     int m_fdsNum;
-    char *m_extensionName;
+    WiimoteExtensions m_extensionType;
     int m_previousNunchukAxisTime = 0;
 
     void handleWatch();
     void handleKeypress(struct xwii_event *event);
     void handleNunchuk(struct xwii_event *event);
+
+    void getExtensionType();
 };
