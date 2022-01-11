@@ -87,8 +87,7 @@ void ControllerManager::newDevice(Device *device)
 {
     qInfo() << "New device connected:" << device->getName();
 
-    int index = m_connectedDevices.size() - 1;
-    device->setIndex(index < 0 ? 0 : index);
+    device->setIndex(m_connectedDevices.size());
 
     connect(device, &Device::deviceDisconnected, this, &ControllerManager::removeDevice);
 
@@ -108,6 +107,11 @@ void ControllerManager::removeDevice(int deviceIndex)
 
     emit deviceDisconnected(removedDevice);
     delete removedDevice;
+    
+    // Re-set indexes
+    for (int i = 0; i < m_connectedDevices.size(); i++) {
+        m_connectedDevices.at(i)->setIndex(i);
+    }
 }
 
 bool ControllerManager::isConnected(QString uniqueIdentifier)
@@ -118,6 +122,11 @@ bool ControllerManager::isConnected(QString uniqueIdentifier)
     return std::find_if(m_connectedDevices.begin(), m_connectedDevices.end(), [&uniqueIdentifier](Device *other) {
         return other->getUniqueIdentifier() == uniqueIdentifier;
     }) != m_connectedDevices.end();
+}
+
+int ControllerManager::getConnectedDevicesCount()
+{
+    return m_connectedDevices.size();
 }
 
 QVector<Device*> ControllerManager::getDevicesByType(DeviceType deviceType)

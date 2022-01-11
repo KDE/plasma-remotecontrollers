@@ -7,9 +7,9 @@
 #include "controllermanager.h"
 #include "libcec/ceccontroller.h"
 
-#ifdef HAS_XWIIMOTE
+#ifdef HAS_WIIUSE
 # include "wiimote/wiimotecontroller.h"
-#endif // HAS_XWIIMOTE
+#endif // HAS_WIIUSE
 
 #include <QGuiApplication>
 #include <QDebug>
@@ -23,11 +23,10 @@ int main(int argc, char *argv[])
 
     CECController* ct = new CECController();
     ct->start();
-
-#ifdef HAS_XWIIMOTE
-    WiimoteController* wt = new WiimoteController();
-    wt->start();
-#endif // HAS_XWIIMOTE
+    
+#ifdef HAS_WIIUSE
+    new WiimoteController();
+#endif
 
     return app.exec();
 }

@@ -11,6 +11,7 @@ include(FeatureSummary)
 include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
+include(CheckIncludeFile)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
@@ -21,7 +22,7 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Notifications
 )
 find_package(Libcec 6 REQUIRED)
-find_package(XWiimote)
+pkg_check_modules(WIIUSE IMPORTED_TARGET wiiuse)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -41,13 +42,13 @@ target_link_libraries(plasma-remotecontrollers
     Libcec::Libcec
 )
 
-if(XWiimote_FOUND)
+if(WIIUSE_FOUND)
     target_sources(plasma-remotecontrollers
         PUBLIC
             src/wiimote/wiimotecontroller.cpp
             src/wiimote/wiimote.cpp)
-    target_link_libraries(plasma-remotecontrollers XWiimote::XWiimote)
-    add_definitions(-DHAS_XWIIMOTE)
+    target_link_libraries(plasma-remotecontrollers PkgConfig::WIIUSE)
+    add_definitions(-DHAS_WIIUSE)
 endif()
 
 install(TARGETS plasma-remotecontrollers DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

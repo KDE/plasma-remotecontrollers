@@ -7,7 +7,6 @@
 #include "ceccontroller.h"
 #include "../controllermanager.h"
 #include "../device.h"
-#include "../constants.h"
 
 #include <QDebug>
 #include <KSharedConfig>

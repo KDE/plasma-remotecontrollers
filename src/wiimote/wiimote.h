@@ -10,37 +10,16 @@
 
 #include <QObject>
 
-#include <xwiimote.h>
 #include <poll.h>
-
-enum WiimoteDevtypes {
-    WIIMOTE_DEVTYPE_UNKNOWN,
-    WIIMOTE_DEVTYPE_GENERIC,
-    WIIMOTE_DEVTYPE_GEN10,
-    WIIMOTE_DEVTYPE_GEN15,
-    WIIMOTE_DEVTYPE_GEN20,
-    WIIMOTE_DEVTYPE_BALANCEBOARD,
-    WIIMOTE_DEVTYPE_PROCONTROLLER
-};
-
-enum WiimoteExtensions {
-    WIIMOTE_EXTENSION_NONE,
-    WIIMOTE_EXTENSION_UNKNOWN,
-    WIIMOTE_EXTENSION_NUNCHUK,
-    WIIMOTE_EXTENSION_CLASSIC,
-    WIIMOTE_EXTENSION_BALANCEBOARD,
-    WIIMOTE_EXTENSION_PROCONTROLLER
-};
+#include <wiiuse.h>
 
 class Wiimote : public Device
 {
     Q_OBJECT
 
 public:
-    explicit Wiimote(struct xwii_iface *iface, QString sysPath);
-    ~Wiimote();
-
-    WiimoteDevtypes getDevType();
+    explicit Wiimote(wiimote* wiiptr);
+    ~Wiimote() = default;
 
 public slots:
     void watchEvents() override;
@@ -49,16 +28,7 @@ Q_SIGNALS:
     void keyPress(int keyCode, bool pressed);
 
 private:
-    struct xwii_iface *m_iface;
-    struct pollfd m_fds[2];
-    int m_fdsNum;
-    WiimoteDevtypes m_devType;
-    WiimoteExtensions m_extensionType;
-    int m_previousNunchukAxisTime = 0;
+    wiimote *m_wiiptr;
 
-    void handleWatch();
-    void handleKeypress(struct xwii_event *event);
-    void handleNunchuk(struct xwii_event *event);
-
-    void getExtensionType();
+    void handleEvent();
 };

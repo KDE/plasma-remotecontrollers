@@ -10,18 +10,36 @@
 #include "../device.h"
 
 #include <QThread>
-#include <xwiimote.h>
+#include <wiiuse.h>
 
-class WiimoteController : public QThread
+#define MAX_WIIMOTES 4
+#define SEARCH_TIMEOUT 5
+
+class WiimoteController : public QObject
 {
     Q_OBJECT
 
 public:
     explicit WiimoteController();
-    ~WiimoteController() override;
-    
-    void run() override;
+    ~WiimoteController();
+
+public slots:
+    void deviceDetection();
 
 Q_SIGNALS:
     void newDevice(Device *device);
+
+private:
+    QThread *m_detectionThread;
+    QThread *m_eventsThread;
+    
+    wiimote** m_wiimotesptr;
+};
+
+class WiimoteEventWatcher : public QObject
+{
+    Q_OBJECT
+
+public slots:
+    void watchEvents();
 };

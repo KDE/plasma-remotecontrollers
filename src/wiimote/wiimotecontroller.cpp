@@ -7,60 +7,73 @@
 #include "wiimotecontroller.h"
 #include "../controllermanager.h"
 #include "../notificationsmanager.h"
-#include "../constants.h"
 
 #include <QDebug>
 
+#define LOOPTIME_WII 7.5 * 1000
+
 WiimoteController::WiimoteController()
 {
+    m_detectionThread = new QThread();
+    m_eventsThread = new QThread();
+    WiimoteEventWatcher *eventWatcher = new WiimoteEventWatcher();
+    
+    QObject::connect(m_detectionThread, &QThread::started, this, &WiimoteController::deviceDetection);
+    QObject::connect(m_eventsThread, &QThread::started, eventWatcher, &WiimoteEventWatcher::watchEvents);
+    
+    this->moveToThread(m_detectionThread);
+    eventWatcher->moveToThread(m_eventsThread);
+    
+    m_wiimotesptr = wiiuse_init(MAX_WIIMOTES);
+    
+    // Silence the library, it should never print anything
+    // It'll still print a copyright banner but we can live with that
+    wiiuse_set_output(LOGLEVEL_INFO, NULL);
+
+    m_detectionThread->start();
+    m_eventsThread->start();
 }
 
-void WiimoteController::run()
+void WiimoteController::deviceDetection()
 {
-    // Keep trying to find a Wiiremote indefinitely
-    struct xwii_monitor *mon;
-    char *ent;
-
-    while(true) {
-        // First detect any new controllers
-        mon = xwii_monitor_new(false, false);
-        if (!mon) {
-            qCritical() << "Cannot create monitor";
-            return;
-        }
-
-        while ((ent = xwii_monitor_poll(mon))) {
-            QString uniqueIdentifier = ent;
-            if (ControllerManager::instance().isConnected(uniqueIdentifier))
-                continue;
-
-            struct xwii_iface *iface;
-            int ret = xwii_iface_new(&iface, ent);
-
-            if (ret) {
-                qCritical() << "wiimote: ERROR: Failed to create a new Wiimote device, error:" << ret;
-                continue;
-            }
-
-            Wiimote *wiimote = new Wiimote(iface, ent);
-            if (wiimote->getDevType() == WIIMOTE_DEVTYPE_UNKNOWN) {
-                qDebug() << "wiimote: DEBUG: Unable to determine device type, skipping";
-                continue;
-            }
-
-            ControllerManager::instance().newDevice(wiimote);
-            free(ent);
-        }
-
-        xwii_monitor_unref(mon);
+    while (true) {
+        int found = wiiuse_find(m_wiimotesptr, MAX_WIIMOTES, SEARCH_TIMEOUT);
         
-        // Then check for a event on all connected controllers
-        QVector<Device*> devices = ControllerManager::instance().getDevicesByType(DeviceWiimote);
-        for (int i = 0; i < devices.size(); i++)
-            devices.at(i)->watchEvents();
+        if (!found)
+            continue;
+        
+        int connected = wiiuse_connect(m_wiimotesptr, MAX_WIIMOTES);
 
-        usleep(LOOPTIME_WII); // Don't hug the CPU
+        if (connected) {
+            for (int i = 0; i < connected; i++) {
+                if (ControllerManager::instance().isConnected(m_wiimotesptr[i]->bdaddr_str))
+                    continue;
+                
+                Wiimote *wiimote = new Wiimote(m_wiimotesptr[i]);
+                ControllerManager::instance().newDevice(wiimote);
+            }
+        }
     }
 }
 
-WiimoteController::~WiimoteController() = default;
+WiimoteController::~WiimoteController()
+{
+    m_detectionThread->quit();
+    m_eventsThread->quit();
+    m_detectionThread->wait();
+    m_eventsThread->wait();
+
+    wiiuse_cleanup(m_wiimotesptr, MAX_WIIMOTES);
+}
+
+void WiimoteEventWatcher::watchEvents()
+{
+    while (true) {
+        QVector<Device*> devices = ControllerManager::instance().getDevicesByType(DeviceWiimote);
+        for (int i = 0; i < devices.size(); i++)
+            devices.at(i)->watchEvents();
+        
+        usleep(LOOPTIME_WII);
+    }
+}
+

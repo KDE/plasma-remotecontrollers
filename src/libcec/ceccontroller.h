@@ -11,6 +11,8 @@
 
 #include <libcec/cec.h>
 
+#define LOOPTIME 50 * 1000
+
 using namespace CEC;
 
 class CECController : public QThread

@@ -6,8 +6,6 @@
 
 #pragma once
 
-#include "constants.h"
-
 #include <QObject>
 
 #include <unistd.h>
