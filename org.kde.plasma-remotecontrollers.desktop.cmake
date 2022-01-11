@@ -2,18 +2,10 @@
 # SPDX-FileCopyrightText: 2022 Bart Ribbers <bribbers@disroot.org>
 [Desktop Entry]
 Name=Plasma Remotecontrollers
-Name[ca]=Control remot
-Name[es]=Joyclick
-Name[nl]=Joyclick
-Name[pl]=Joyclick
-Name[ru]=Joyclick
-Name[sk]=Joyclick
-Name[sv]=Joyclick
-Name[uk]=Joyclick
-Name[x-test]=xxJoyclickxx
 Description=Translates events from various input devices to native key presses
 Description[ca]=Tradueix esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles
 Description[es]=Traduce eventos de diversos dispositivos de entrada a pulsaciones de teclas nativas
+Description[fr]=Traduit les évènements à partir de divers périphériques d'entrée en des appuis natifs de touches
 Description[nl]=Vertaalt gebeurtenissen uit verschillende invoerapparaten naar inheemse toetsaanslagen
 Description[pl]=Tłumaczy zdarzenia z różnych urządzeń wejściowych na naciśnięcia klawiszy
 Description[ru]=Преобразование событий, получаемых с различных устройств, в нажатия клавиш
