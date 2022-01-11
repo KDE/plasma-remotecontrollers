@@ -10,8 +10,6 @@
 
 #include <QDebug>
 
-#define LOOPTIME_WII 7.5 * 1000
-
 WiimoteController::WiimoteController()
 {
     m_detectionThread = new QThread();
@@ -23,12 +21,6 @@ WiimoteController::WiimoteController()
     
     this->moveToThread(m_detectionThread);
     eventWatcher->moveToThread(m_eventsThread);
-    
-    m_wiimotesptr = wiiuse_init(MAX_WIIMOTES);
-    
-    // Silence the library, it should never print anything
-    // It'll still print a copyright banner but we can live with that
-    wiiuse_set_output(LOGLEVEL_INFO, NULL);
 
     m_detectionThread->start();
     m_eventsThread->start();
@@ -36,23 +28,44 @@ WiimoteController::WiimoteController()
 
 void WiimoteController::deviceDetection()
 {
-    while (true) {
-        int found = wiiuse_find(m_wiimotesptr, MAX_WIIMOTES, SEARCH_TIMEOUT);
-        
-        if (!found)
-            continue;
-        
-        int connected = wiiuse_connect(m_wiimotesptr, MAX_WIIMOTES);
+    // Keep trying to find a Wiiremote indefinitely
+    struct xwii_monitor *mon;
+    char *ent;
 
-        if (connected) {
-            for (int i = 0; i < connected; i++) {
-                if (ControllerManager::instance().isConnected(m_wiimotesptr[i]->bdaddr_str))
-                    continue;
-                
-                Wiimote *wiimote = new Wiimote(m_wiimotesptr[i]);
-                ControllerManager::instance().newDevice(wiimote);
-            }
+    while(true) {
+        // First detect any new controllers
+        mon = xwii_monitor_new(false, false);
+        if (!mon) {
+            qCritical() << "Cannot create monitor";
+            return;
         }
+
+        while ((ent = xwii_monitor_poll(mon))) {
+            QString uniqueIdentifier = ent;
+            if (ControllerManager::instance().isConnected(uniqueIdentifier))
+                continue;
+
+            struct xwii_iface *iface;
+            int ret = xwii_iface_new(&iface, ent);
+
+            if (ret) {
+                qCritical() << "wiimote: ERROR: Failed to create a new Wiimote device, error:" << ret;
+                continue;
+            }
+
+            Wiimote *wiimote = new Wiimote(iface, ent);
+            if (wiimote->getDevType() == WIIMOTE_DEVTYPE_UNKNOWN) {
+                qDebug() << "wiimote: DEBUG: Unable to determine device type, skipping";
+                continue;
+            }
+
+            ControllerManager::instance().newDevice(wiimote);
+            free(ent);
+        }
+
+        xwii_monitor_unref(mon);
+
+        usleep(LOOPTIME); // Don't hug the CPU
     }
 }
 
@@ -62,8 +75,6 @@ WiimoteController::~WiimoteController()
     m_eventsThread->quit();
     m_detectionThread->wait();
     m_eventsThread->wait();
-
-    wiiuse_cleanup(m_wiimotesptr, MAX_WIIMOTES);
 }
 
 void WiimoteEventWatcher::watchEvents()
@@ -73,7 +84,6 @@ void WiimoteEventWatcher::watchEvents()
         for (int i = 0; i < devices.size(); i++)
             devices.at(i)->watchEvents();
         
-        usleep(LOOPTIME_WII);
+        usleep(LOOPTIME_WII); // Don't hug the CPU
     }
 }
-

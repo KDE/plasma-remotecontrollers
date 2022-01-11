@@ -21,7 +21,6 @@ public:
     
     void newDevice(Device *device);
     bool isConnected(QString uniqueIdentifier);
-    int getConnectedDevicesCount();
     QVector<Device*> getDevicesByType(DeviceType deviceType);
 
 public slots:

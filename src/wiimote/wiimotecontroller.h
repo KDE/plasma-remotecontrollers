@@ -10,10 +10,10 @@
 #include "../device.h"
 
 #include <QThread>
-#include <wiiuse.h>
+#include <xwiimote.h>
 
-#define MAX_WIIMOTES 4
-#define SEARCH_TIMEOUT 5
+#define LOOPTIME 50 * 1000
+#define LOOPTIME_WII 7.5 * 1000
 
 class WiimoteController : public QObject
 {
@@ -32,8 +32,6 @@ Q_SIGNALS:
 private:
     QThread *m_detectionThread;
     QThread *m_eventsThread;
-    
-    wiimote** m_wiimotesptr;
 };
 
 class WiimoteEventWatcher : public QObject

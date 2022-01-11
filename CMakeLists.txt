@@ -22,7 +22,8 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Notifications
 )
 find_package(Libcec 6 REQUIRED)
-pkg_check_modules(WIIUSE IMPORTED_TARGET wiiuse)
+pkg_check_modules(XWiimote IMPORTED_TARGET libxwiimote)
+add_feature_info(XWiimote XWiimote_FOUND "Adds support for Wiimotes")
 
 pkg_check_modules(Evdev IMPORTED_TARGET libevdev)
 add_feature_info(Evdev Evdev_FOUND "Adds support for controllers")
@@ -51,13 +52,13 @@ target_link_libraries(plasma-remotecontrollers
     PkgConfig::Evdev
 )
 
-if(WIIUSE_FOUND)
+if(XWiimote_FOUND)
     target_sources(plasma-remotecontrollers
         PUBLIC
             src/wiimote/wiimotecontroller.cpp
             src/wiimote/wiimote.cpp)
-    target_link_libraries(plasma-remotecontrollers PkgConfig::WIIUSE)
-    add_definitions(-DHAS_WIIUSE)
+    target_link_libraries(plasma-remotecontrollers PkgConfig::XWiimote)
+    add_definitions(-DHAS_XWIIMOTE)
 endif()
 
 install(TARGETS plasma-remotecontrollers DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

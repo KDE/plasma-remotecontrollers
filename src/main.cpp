@@ -6,11 +6,11 @@
 
 #include "controllermanager.h"
 #include "libcec/ceccontroller.h"
+#include "evdev/evdevcontroller.h"
 
-#ifdef HAS_WIIUSE
+#ifdef HAS_XWIIMOTE
 # include "wiimote/wiimotecontroller.h"
-#endif // HAS_WIIUSE
-# include "evdev/evdevcontroller.h"
+#endif // HAS_XWIIMOTE
 
 #include <QGuiApplication>
 #include <QDebug>
@@ -24,11 +24,12 @@ int main(int argc, char *argv[])
 
     new EvdevController();
 
-    new CECController();
+    CECController* ct = new CECController();
+    ct->start();
     
-#ifdef HAS_WIIUSE
+#ifdef HAS_XWIIMOTE
     new WiimoteController();
-#endif
+#endif // HAS_XWIIMOTE
 
     return app.exec();
 }
