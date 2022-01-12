@@ -52,7 +52,7 @@ CECController::CECController()
         { generalGroup.readEntry("ButtonPause", (int) CEC_USER_CONTROL_CODE_PAUSE), KEY_PAUSE},
         { generalGroup.readEntry("ButtonRewind", (int) CEC_USER_CONTROL_CODE_REWIND), KEY_REWIND},
         { generalGroup.readEntry("ButtonFastforward", (int) CEC_USER_CONTROL_CODE_FAST_FORWARD), KEY_FASTFORWARD},
-        { generalGroup.readEntry("ButtonEnter", (int) CEC_USER_CONTROL_CODE_SELECT), KEY_SELECT},
+        { generalGroup.readEntry("ButtonEnter", (int) CEC_USER_CONTROL_CODE_SELECT), KEY_ENTER},
         { generalGroup.readEntry("ButtonUp", (int) CEC_USER_CONTROL_CODE_UP), KEY_UP},
         { generalGroup.readEntry("ButtonDown", (int) CEC_USER_CONTROL_CODE_DOWN), KEY_DOWN},
         { generalGroup.readEntry("ButtonLeft", (int) CEC_USER_CONTROL_CODE_LEFT), KEY_LEFT},
