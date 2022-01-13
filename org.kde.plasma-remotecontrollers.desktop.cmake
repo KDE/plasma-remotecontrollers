@@ -5,6 +5,7 @@ Name=Plasma Remotecontrollers
 Name[ca]=Controls remots del Plasma
 Name[es]=Controladores remotos de Plasma
 Name[nl]=Plasma afstandsbedieningen
+Name[uk]=Дистанційне керування Плазмою
 Name[x-test]=xxPlasma Remotecontrollersxx
 Description=Translates events from various input devices to native key presses
 Description[ca]=Tradueix esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles

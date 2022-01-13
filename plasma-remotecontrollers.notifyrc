@@ -5,6 +5,7 @@ Name[ca]=Controls remots del Plasma
 Name[cs]=Dálkové ovladače Plasma
 Name[es]=Controlador remoto de Plasma
 Name[nl]=Plasma afstandsbedieningen
+Name[uk]=Дистанційне керування Плазмою
 Name[x-test]=xxPlasma Remote controllersxx
 Comment=Translates events from various input devices to native key presses
 Comment[ca]=Tradueix esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles
