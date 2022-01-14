@@ -4,6 +4,7 @@
 Name=Plasma Remotecontrollers
 Name[ca]=Controls remots del Plasma
 Name[es]=Controladores remotos de Plasma
+Name[fr]=Contrôleurs distants de Plasma
 Name[nl]=Plasma afstandsbedieningen
 Name[uk]=Дистанційне керування Плазмою
 Name[x-test]=xxPlasma Remotecontrollersxx
