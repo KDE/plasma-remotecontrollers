@@ -71,6 +71,10 @@ public:
                         { BTN_WEST, KEY_MENU },
                         { BTN_TL, KEY_BACK },
                         { BTN_TR, KEY_FORWARD },
+                        { BTN_DPAD_UP, KEY_UP },
+                        { BTN_DPAD_DOWN, KEY_DOWN },
+                        { BTN_DPAD_LEFT, KEY_LEFT },
+                        { BTN_DPAD_RIGHT, KEY_RIGHT }
                     };
                     const int nativeKeyCode = s_buttons.value(ev.code, -1);
                     if (nativeKeyCode >= 0) {
