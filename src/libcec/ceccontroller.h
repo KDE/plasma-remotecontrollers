@@ -18,6 +18,7 @@ using namespace CEC;
 class CECController : public QThread
 {
     Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.plasma-remotecontrollers.CEC")
 
 public:
     explicit CECController();
@@ -25,14 +26,21 @@ public:
     
     void run() override;
 
+public Q_SLOTS:
+    Q_SCRIPTABLE int sendNextKey();
+
 Q_SIGNALS:
     void keyPress(int keyCode, bool pressed);
+    void pressedKey(int keycode);
 
 private:
     ICECAdapter* m_cecAdapter = nullptr;
     ICECCallbacks m_cecCallbacks;
     static QHash<int, int> m_keyCodeTranslation;
     
+    static bool m_catchNextInput;
+    static int m_caughtInput;
+
     static void handleCecKeypress(void* param, const cec_keypress* key);
 };
 

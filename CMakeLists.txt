@@ -15,6 +15,7 @@ include(KDECMakeSettings)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
+    DBus
     Gui
 )
 find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
@@ -45,6 +46,7 @@ add_executable(plasma-remotecontrollers
 target_link_libraries(plasma-remotecontrollers
     ${CMAKE_DL_LIBS}
     Qt5::Core
+    Qt5::DBus
     Qt5::Gui
     KF5::ConfigCore
     KF5::Notifications
@@ -61,13 +63,19 @@ if(XWiimote_FOUND)
     add_definitions(-DHAS_XWIIMOTE)
 endif()
 
+qt5_generate_dbus_interface(
+    src/libcec/ceccontroller.h
+    org.kde.plasma-remotecontrollers.CEC.xml
+    OPTIONS -a)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.CEC.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
+
 install(TARGETS plasma-remotecontrollers DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 configure_file(org.kde.plasma-remotecontrollers.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop DESTINATION ${KDE_INSTALL_SYSCONFDIR}/xdg/autostart)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
-install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR}/xdg)
+install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR})
 install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
 
 ecm_qt_install_logging_categories(

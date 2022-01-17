@@ -9,6 +9,7 @@
 #include "../device.h"
 
 #include <QDebug>
+#include <QDBusConnection>
 #include <KSharedConfig>
 #include <KConfigGroup>
 
@@ -17,16 +18,22 @@
 #include <libcec/cecloader.h>
 #include <libcec/cectypes.h>
 #include <linux/input-event-codes.h>
-#include <linux/uinput.h>
 #include <unistd.h>
 
 using namespace CEC;
 
 QHash<int, int> CECController::m_keyCodeTranslation;
+bool CECController::m_catchNextInput = false;
+int CECController::m_caughtInput;
 
 void CECController::handleCecKeypress(void* param, const cec_keypress* key)
 {
     Q_UNUSED(param)
+
+    if (m_catchNextInput) {
+        m_caughtInput = key->keycode;
+        return;
+    }
 
     int nativeKeyCode = m_keyCodeTranslation.value(key->keycode, -1);
     
@@ -34,12 +41,15 @@ void CECController::handleCecKeypress(void* param, const cec_keypress* key)
         qDebug() << "DEBUG: Received a keypress we do not handle!";
         return;
     }
-    
+
     emit ControllerManager::instance().emitKey(nativeKeyCode, !key->duration);
 }
 
 CECController::CECController()
 {
+    QDBusConnection::sessionBus().registerService("org.kde.plasma-remotecontrollers");
+    QDBusConnection::sessionBus().registerObject("/CEC", this, QDBusConnection::ExportScriptableSlots);
+
     QObject::connect(this, &CECController::keyPress,
                      &ControllerManager::instance(), &ControllerManager::emitKey);
 
@@ -132,6 +142,17 @@ void CECController::run()
     }
 }
 
+
 CECController::~CECController() = default;
 
+int CECController::sendNextKey()
+{
+    m_caughtInput = -1;
+    m_catchNextInput = true;
 
+    while (m_caughtInput < 0) { sleep(1); }
+
+    m_catchNextInput = false;
+
+    return m_caughtInput;
+}
