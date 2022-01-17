@@ -7,6 +7,7 @@ Name[es]=Controladores remotos de Plasma
 Name[fr]=Contrôleurs distants de Plasma
 Name[hu]=Plasma távirányítók
 Name[nl]=Plasma afstandsbedieningen
+Name[pl]=Kontrolery Plazmy
 Name[sl]=Plasma Remotecontrollers
 Name[sv]=Plasma fjärrkontroller
 Name[uk]=Дистанційне керування Плазмою
