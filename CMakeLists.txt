@@ -63,11 +63,7 @@ if(XWiimote_FOUND)
     add_definitions(-DHAS_XWIIMOTE)
 endif()
 
-qt5_generate_dbus_interface(
-    src/libcec/ceccontroller.h
-    org.kde.plasma-remotecontrollers.CEC.xml
-    OPTIONS -a)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.CEC.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
+install(FILES src/libcec/org.kde.plasma-remotecontrollers.CEC.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
 
 install(TARGETS plasma-remotecontrollers DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

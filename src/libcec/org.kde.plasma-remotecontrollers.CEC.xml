@@ -1,0 +1,18 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.plasma-remotecontrollers.CEC">
+    <signal name="keyPress">
+      <arg name="keyCode" type="i" direction="out"/>
+      <arg name="pressed" type="b" direction="out"/>
+    </signal>
+    <signal name="pressedKey">
+      <arg name="keycode" type="i" direction="out"/>
+    </signal>
+    <method name="sendNextKey">
+      <arg type="i" direction="out"/>
+    </method>
+    <method name="hdmiCecSupported">
+      <arg type="b" direction="out"/>
+    </method>
+  </interface>
+</node>

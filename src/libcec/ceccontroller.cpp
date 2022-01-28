@@ -194,3 +194,20 @@ int CECController::sendNextKey()
 
     return m_caughtInput;
 }
+
+bool CECController::hdmiCecSupported()
+{
+    cec_logical_addresses iFaceAddresses = m_cecAdapter->GetLogicalAddresses();
+    cec_power_status currentStatus;
+    for (uint8_t i = 0; i < CECDEVICE_BROADCAST; i++) {
+        if (static_cast<cec_logical_address>(iFaceAddresses[i]) != CECDEVICE_UNKNOWN) {
+            currentStatus = m_cecAdapter->GetDevicePowerStatus(static_cast<cec_logical_address>(iFaceAddresses[i]));
+            if (currentStatus == CEC_POWER_STATUS_ON) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    return false;
+}
