@@ -1,5 +1,6 @@
 /*
  *   SPDX-FileCopyrightText: 2022 Bart Ribbers <bribbers@disroot.org>
+ *   SPDX-FileCopyrightText: 2022 Aditya Mehra <aix.m@outlook.com>
  *
  *   SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -24,25 +25,55 @@ using namespace CEC;
 
 QHash<int, int> CECController::m_keyCodeTranslation;
 bool CECController::m_catchNextInput = false;
-int CECController::m_caughtInput;
+bool CECController::m_nativeNavMode = true;
+int CECController::m_caughtInput = -1;
+int CECController::m_hitcommand;
+
 
 void CECController::handleCecKeypress(void* param, const cec_keypress* key)
 {
+    Q_UNUSED(param);
+    // only handle complete event when we get the keycode, opcode for press event is always sent before keycode
+    handleCompleteEvent(key->keycode, key->duration, m_hitcommand);
+}
+
+void CECController::handleCommandReceived(void* param, const cec_command* command)
+{
     Q_UNUSED(param)
+    m_hitcommand = command->opcode;
+}
 
+void CECController::handleCompleteEvent(const int keycode, const int keyduration, const int opcode)
+{
     if (m_catchNextInput) {
-        m_caughtInput = key->keycode;
+        m_caughtInput = keycode;
+
+        // check if m_caughtInput has changed
+        if (m_caughtInput != -1) {
+            m_catchNextInput = false;
+        }
+    } else if(m_nativeNavMode) {
+        int nativeKeyCode = m_keyCodeTranslation.value(keycode, -1);
+
+        if (nativeKeyCode < 0) {
+            qDebug() << "DEBUG: Received a keypress we do not handle!";
+            return;
+        }
+
+        if(opcode == CEC_OPCODE_USER_CONTROL_PRESSED) {
+            // send key press and key release events before cec key release event
+            // otherwise the key release event will take 500 ms to be sent and cause the key to be stuck
+            // in the pressed state
+            emit ControllerManager::instance().emitKey(nativeKeyCode, 1);
+            emit ControllerManager::instance().emitKey(nativeKeyCode, 0);
+        } else if (opcode == CEC_OPCODE_USER_CONTROL_RELEASE) {
+
+            // not sure if this is actually needed, cec will send key pressed events even when it hasn't produced a key release event
+            emit ControllerManager::instance().emitKey(nativeKeyCode, 0);
+        }
+    } else {
         return;
     }
-
-    int nativeKeyCode = m_keyCodeTranslation.value(key->keycode, -1);
-    
-    if (nativeKeyCode < 0) {
-        qDebug() << "DEBUG: Received a keypress we do not handle!";
-        return;
-    }
-
-    emit ControllerManager::instance().emitKey(nativeKeyCode, !key->duration);
 }
 
 CECController::CECController()
@@ -92,6 +123,8 @@ CECController::CECController()
 
     m_cecCallbacks.Clear();
     m_cecCallbacks.keyPress = &CECController::handleCecKeypress;
+    m_cecCallbacks.commandReceived = &CECController::handleCommandReceived;
+
 
     libcec_configuration cecConfig;
     cecConfig.Clear();
@@ -147,12 +180,17 @@ CECController::~CECController() = default;
 
 int CECController::sendNextKey()
 {
-    m_caughtInput = -1;
     m_catchNextInput = true;
+    m_nativeNavMode = false;
 
-    while (m_caughtInput < 0) { sleep(1); }
+    // don't depend on caught input being set
+    // enter key sends keycode 0 which is == false, keeps the loop running indefinitely
 
-    m_catchNextInput = false;
+    while (m_catchNextInput) {
+        sleep(1);
+    }
+
+    m_nativeNavMode = true;
 
     return m_caughtInput;
 }

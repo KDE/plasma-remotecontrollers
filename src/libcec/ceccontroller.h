@@ -1,5 +1,6 @@
 /*
  *   SPDX-FileCopyrightText: 2022 Bart Ribbers <bribbers@disroot.org>
+ *   SPDX-FileCopyrightText: 2022 Aditya Mehra <aix.m@outlook.com>
  *
  *   SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
  */
@@ -23,7 +24,7 @@ class CECController : public QThread
 public:
     explicit CECController();
     ~CECController() override;
-    
+
     void run() override;
 
 public Q_SLOTS:
@@ -37,10 +38,15 @@ private:
     ICECAdapter* m_cecAdapter = nullptr;
     ICECCallbacks m_cecCallbacks;
     static QHash<int, int> m_keyCodeTranslation;
-    
+
     static bool m_catchNextInput;
     static int m_caughtInput;
+    static bool m_nativeNavMode;
 
     static void handleCecKeypress(void* param, const cec_keypress* key);
-};
+    static void handleCommandReceived(void* param, const cec_command* command);
 
+    static int m_hitcommand;
+
+    static void handleCompleteEvent(const int keycode, const int keyduration, const int opcode);
+};
