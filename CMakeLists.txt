@@ -63,7 +63,7 @@ if(XWiimote_FOUND)
     add_definitions(-DHAS_XWIIMOTE)
 endif()
 
-install(FILES src/libcec/org.kde.plasma-remotecontrollers.CEC.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR})
+install(FILES src/libcec/org.kde.plasma-remotecontrollers.CEC.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})
 
 install(TARGETS plasma-remotecontrollers DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -72,7 +72,8 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.deskt
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR})
-install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
+install(FILES 40-uinput.rules DESTINATION ${KDE_INSTALL_LIBDIR}/udev/rules.d)
 
 ecm_qt_install_logging_categories(
         EXPORT PLASMARC
