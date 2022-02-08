@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2022 Bart Ribbers <bribbers@disroot.org>
 [Desktop Entry]
 Name=Plasma Remotecontrollers
+Name[ar]=متحكم عن بعد لبلازما
 Name[ca]=Controls remots del Plasma
 Name[ca@valencia]=Controls remots del Plasma
 Name[es]=Controladores remotos de Plasma
@@ -15,6 +16,7 @@ Name[sv]=Plasma fjärrkontroller
 Name[uk]=Дистанційне керування Плазмою
 Name[x-test]=xxPlasma Remotecontrollersxx
 Description=Translates events from various input devices to native key presses
+Description[ar]=يترجم الأحداث من أجهزة الإدخال المختلفة إلى كبسات مفاتيح أصلية
 Description[ca]=Tradueix esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles
 Description[ca@valencia]=Tradueix esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles
 Description[es]=Traduce eventos de diversos dispositivos de entrada a pulsaciones de teclas nativas

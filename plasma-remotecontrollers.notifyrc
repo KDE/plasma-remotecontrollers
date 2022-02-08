@@ -1,6 +1,7 @@
 [Global]
 IconName=gamepad
 Name=Plasma Remote controllers
+Name[ar]=أجهزة تحكم عن بعد بالبلازما
 Name[ca]=Controls remots del Plasma
 Name[ca@valencia]=Controls remots del Plasma
 Name[cs]=Dálkové ovladače Plasma
@@ -15,6 +16,7 @@ Name[sv]=Plasma fjärrkontroller
 Name[uk]=Дистанційне керування Плазмою
 Name[x-test]=xxPlasma Remote controllersxx
 Comment=Translates events from various input devices to native key presses
+Comment[ar]=يترجم الأحداث من أجهزة الإدخال المختلفة إلى كبسات مفاتيح أصلية
 Comment[ca]=Tradueix esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles
 Comment[ca@valencia]=Tradueix esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles
 Comment[es]=Traduce eventos de diversos dispositivos de entrada a pulsaciones de teclas nativas
@@ -33,6 +35,7 @@ DesktopEntry=org.kde.joyclick.desktop
 
 [Event/controllerConnected]
 Name=New controller connected
+Name[ar]=وصل متحكم جديد
 Name[ca]=Controlador connectat nou
 Name[ca@valencia]=Controlador connectat nou
 Name[cs]=Připojen nový ovladač
@@ -49,6 +52,7 @@ Name[sv]=Ny kontroll ansluten
 Name[uk]=З'єднано новий контролер
 Name[x-test]=xxNew controller connectedxx
 Comment=A new controller was connected
+Comment[ar]=وصل متحكم جديد
 Comment[ca]=S'ha connectat un controlador nou
 Comment[ca@valencia]=S'ha connectat un controlador nou
 Comment[cs]=Byl připojen nový ovladač
@@ -69,6 +73,7 @@ Urgency=Low
 
 [Event/controllerDisconnected]
 Name=Controller disconnected
+Name[ar]=فُصل متحكم
 Name[ca]=Controlador desconnectat
 Name[ca@valencia]=Controlador desconnectat
 Name[cs]=Ovladač odpojen
@@ -85,6 +90,7 @@ Name[sv]=Kontroll bortkopplad
 Name[uk]=Контролер від'єднано
 Name[x-test]=xxController disconnectedxx
 Comment=A controller has disconnected
+Comment[ar]=فُصل متحكم
 Comment[ca]=S'ha desconnectat un controlador
 Comment[ca@valencia]=S'ha desconnectat un controlador
 Comment[cs]=Ovladač byl odpojen
