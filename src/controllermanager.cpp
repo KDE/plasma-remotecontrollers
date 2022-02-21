@@ -13,7 +13,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-static constexpr std::array<int, 37> s_supportedKeys = { KEY_PLAY
+static constexpr std::array<int, 38> s_supportedKeys = { KEY_PLAY
                 , KEY_STOP
                 , KEY_PAUSE
                 , KEY_REWIND
@@ -50,6 +50,7 @@ static constexpr std::array<int, 37> s_supportedKeys = { KEY_PLAY
                 , KEY_SUBTITLE
                 , KEY_MINUS
                 , KEY_FORWARD
+                , KEY_LEFTMETA
 };
 
 ControllerManager::ControllerManager(QObject *parent)
