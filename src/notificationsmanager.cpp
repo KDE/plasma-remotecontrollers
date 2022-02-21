@@ -30,6 +30,7 @@ void NotificationsManager::notifyNewDevice(Device* device)
     else {
         notification->setText(device->getName());
     }
+    notification->setIconName(device->iconName());
     notification->sendEvent();
 }
 

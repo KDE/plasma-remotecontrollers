@@ -30,6 +30,7 @@ public:
 
     QString getName();
     DeviceType getDeviceType();
+    QString iconName() const;
 
 public slots:
     virtual void watchEvents() { return; };

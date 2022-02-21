@@ -37,4 +37,9 @@ DeviceType Device::getDeviceType()
     return m_deviceType;
 }
 
+QString Device::iconName() const
+{
+    return m_deviceType == DeviceCEC ? "" : "input-gamepad";
+}
+
 Device::~Device() = default;
