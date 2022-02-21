@@ -8,6 +8,7 @@
 
 #include <QDebug>
 #include <KNotification>
+#include <KLocalizedString>
 
 NotificationsManager &NotificationsManager::instance()
 {
@@ -23,9 +24,12 @@ void NotificationsManager::notifyNewDevice(Device* device)
 {
     KNotification* notification = new KNotification("controllerConnected");
 
-    notification->setTitle("New controller connected");
+    notification->setTitle(i18n("New controller connected"));
     if (device->getDeviceType() == DeviceWiimote)
-        notification->setText("A Wiimote has been connected");
+        notification->setText(i18n("A Wiimote has been connected"));
+    else {
+        notification->setText(device->getName());
+    }
     notification->sendEvent();
 }
 
@@ -33,8 +37,8 @@ void NotificationsManager::notifyDisconnectedDevice(Device* device)
 {
     KNotification* notification = new KNotification("controllerDisconnected");
 
-    notification->setTitle("A controller has been disconnected");
+    notification->setTitle(i18n("A controller has been disconnected"));
     if (device->getDeviceType() == DeviceWiimote)
-        notification->setText("A wiimote has been disconnected");
+        notification->setText(i18n("A wiimote has been disconnected"));
     notification->sendEvent();
 }

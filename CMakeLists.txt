@@ -22,6 +22,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Config
     Notifications
+    I18n
     Solid
 )
 pkg_check_modules(Libcec REQUIRED IMPORTED_TARGET libcec>=6)
@@ -55,6 +56,7 @@ target_link_libraries(plasma-remotecontrollers
     KF5::ConfigCore
     KF5::Notifications
     KF5::Solid
+    KF5::I18n
     PkgConfig::Libcec
     PkgConfig::Evdev
 )
