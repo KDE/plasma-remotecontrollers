@@ -13,6 +13,45 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+static constexpr std::array<int, 37> s_supportedKeys = { KEY_PLAY
+                , KEY_STOP
+                , KEY_PAUSE
+                , KEY_REWIND
+                , KEY_FASTFORWARD
+                , KEY_ENTER
+                , KEY_CANCEL
+                , KEY_SELECT
+                , KEY_UP
+                , KEY_DOWN
+                , KEY_LEFT
+                , KEY_RIGHT
+                , KEY_0
+                , KEY_1
+                , KEY_2
+                , KEY_3
+                , KEY_4
+                , KEY_5
+                , KEY_6
+                , KEY_7
+                , KEY_8
+                , KEY_9
+                , KEY_BLUE
+                , KEY_RED
+                , KEY_GREEN
+                , KEY_YELLOW
+                , KEY_CHANNELUP
+                , KEY_CHANNELDOWN
+                , KEY_VOLUMEUP
+                , KEY_VOLUMEDOWN
+                , KEY_EXIT
+                , KEY_BACK
+                , KEY_HOME
+                , KEY_MENU
+                , KEY_SUBTITLE
+                , KEY_MINUS
+                , KEY_FORWARD
+};
+
 ControllerManager::ControllerManager(QObject *parent)
     : QObject(parent)
 {
@@ -32,44 +71,10 @@ ControllerManager::ControllerManager(QObject *parent)
     
     // Register all keys we want to press with this application
     ioctl(m_fd, UI_SET_EVBIT, EV_KEY);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_PLAY);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_STOP);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_PAUSE);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_REWIND);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_FASTFORWARD);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_ENTER);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_CANCEL);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_SELECT);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_UP);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_DOWN);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_LEFT);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_RIGHT);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_0);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_1);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_2);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_3);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_4);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_5);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_6);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_7);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_8);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_9);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_BLUE);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_RED);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_GREEN);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_YELLOW);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_CHANNELUP);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_CHANNELDOWN);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_VOLUMEUP);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_VOLUMEDOWN);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_EXIT);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_BACK);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_HOME);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_MENU);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_SUBTITLE);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_MINUS);
-    ioctl(m_fd, UI_SET_KEYBIT, KEY_FORWARD);
-    
+
+    for ( auto x : s_supportedKeys)
+        ioctl(m_fd, UI_SET_KEYBIT, x);
+
     memset(&usetup, 0, sizeof(usetup));
     usetup.id.bustype = BUS_USB;
     usetup.id.vendor = 0x1234; // TODO: change vendor
@@ -140,6 +145,9 @@ QVector<Device*> ControllerManager::getDevicesByType(DeviceType deviceType)
 
 void ControllerManager::emitKey(int key, bool pressed)
 {
+    if (std::find(s_supportedKeys.cbegin(), s_supportedKeys.cend(), key) == s_supportedKeys.cend()) {
+        qWarning() << "reporting unannounced key" << key;
+    }
     emitEvent(EV_KEY, key, pressed ? 1 : 0);
     emitEvent(EV_SYN, SYN_REPORT, 0);
 }
