@@ -44,5 +44,5 @@ Description[zh_CN]=将各种输入设备的事件翻译为系统原生按键事�
 Exec=plasma-remotecontrollers
 Icon=gamepad
 Type=Application
-X-KDE-PluginInfo-Version=${PROJECT_VERSION}
+X-KDE-PluginInfo-Version=@PROJECT_VERSION@
 NoDisplay=true

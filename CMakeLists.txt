@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(plasma-remotecontrollers)
+project(plasma-remotecontrollers VERSION 1.0)
 
 set(QT_MIN_VERSION "5.15.0")
 set(KF_MIN_VERSION "5.68.0")
