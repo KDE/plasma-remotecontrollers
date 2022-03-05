@@ -160,8 +160,8 @@ void ControllerManager::emitEvent(int type, int code, int val)
     ie.type = type;
     ie.code = code;
     ie.value = val;
-    ie.time.tv_sec = 0;
-    ie.time.tv_usec = 0;
+    ie.input_event_sec = 0;
+    ie.input_event_usec = 0;
     
     write(m_fd, &ie, sizeof(ie));
 }
