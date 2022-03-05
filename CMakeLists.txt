@@ -5,7 +5,7 @@ set(QT_MIN_VERSION "5.15.0")
 set(KF_MIN_VERSION "5.68.0")
 
 find_package(ECM CONFIG REQUIRED)
-set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(FeatureSummary)
 include(ECMQtDeclareLoggingCategory)
@@ -13,6 +13,7 @@ include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 
+find_package(PkgConfig REQUIRED)
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     DBus
@@ -23,11 +24,13 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Notifications
     Solid
 )
-find_package(Libcec 6 REQUIRED)
+pkg_check_modules(Libcec REQUIRED IMPORTED_TARGET libcec>=6)
+add_feature_info(Libcec Libcec_FOUND "Adds support forr CEC devices")
+
 pkg_check_modules(XWiimote IMPORTED_TARGET libxwiimote)
 add_feature_info(XWiimote XWiimote_FOUND "Adds support for Wiimotes")
 
-pkg_check_modules(Evdev IMPORTED_TARGET libevdev)
+pkg_check_modules(Evdev REQUIRED IMPORTED_TARGET libevdev)
 add_feature_info(Evdev Evdev_FOUND "Adds support for controllers")
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
@@ -52,7 +55,7 @@ target_link_libraries(plasma-remotecontrollers
     KF5::ConfigCore
     KF5::Notifications
     KF5::Solid
-    Libcec::Libcec
+    PkgConfig::Libcec
     PkgConfig::Evdev
 )
 
