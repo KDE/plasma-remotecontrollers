@@ -147,10 +147,10 @@ CECController::CECController()
 
 void CECController::run()
 {
-    // TODO: keep trying to detect a device till we find one
     cec_adapter_descriptor devices[10];
 
     while (true) {
+        usleep(LOOPTIME); // Don't hug the CPU
         int devices_found = m_cecAdapter->DetectAdapters(devices, 10);
 
         if (devices_found == 0)
@@ -170,8 +170,6 @@ void CECController::run()
             Device* device = new Device(DeviceCEC, "CEC Controller", devices[i].strComName);
             ControllerManager::instance().newDevice(device);
         }
-
-        usleep(LOOPTIME); // Don't hug the CPU
     }
 }
 
