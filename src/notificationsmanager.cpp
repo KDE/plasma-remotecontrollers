@@ -24,12 +24,8 @@ void NotificationsManager::notifyNewDevice(Device* device)
 {
     KNotification* notification = new KNotification("controllerConnected");
 
-    notification->setTitle(i18n("New controller connected"));
-    if (device->getDeviceType() == DeviceWiimote)
-        notification->setText(i18n("A Wiimote has been connected"));
-    else {
-        notification->setText(device->getName());
-    }
+    notification->setTitle(i18n("Controller connected"));
+    notification->setText(device->getName());
     notification->setIconName(device->iconName());
     notification->sendEvent();
 }
@@ -38,8 +34,8 @@ void NotificationsManager::notifyDisconnectedDevice(Device* device)
 {
     KNotification* notification = new KNotification("controllerDisconnected");
 
-    notification->setTitle(i18n("A controller has been disconnected"));
-    if (device->getDeviceType() == DeviceWiimote)
-        notification->setText(i18n("A wiimote has been disconnected"));
+    notification->setTitle(i18n("Controller Disconnected"));
+    notification->setText(device->getName());
+    notification->setIconName(device->iconName());
     notification->sendEvent();
 }
