@@ -24,6 +24,10 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Notifications
     I18n
     Solid
+    CoreAddons
+    Declarative
+    KCMUtils
+    Package
 )
 pkg_check_modules(Libcec REQUIRED IMPORTED_TARGET libcec>=6)
 add_feature_info(Libcec Libcec_FOUND "Adds support forr CEC devices")
@@ -81,6 +85,8 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.deskt
 install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR})
 install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
 install(FILES 40-uinput.rules DESTINATION ${KDE_INSTALL_LIBDIR}/udev/rules.d)
+
+add_subdirectory(kcm)
 
 ecm_qt_install_logging_categories(
         EXPORT PLASMARC
