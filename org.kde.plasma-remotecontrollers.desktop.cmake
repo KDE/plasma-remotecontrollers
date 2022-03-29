@@ -4,7 +4,7 @@
 Name=Plasma Remotecontrollers
 Name[ar]=متحكم عن بعد لبلازما
 Name[ca]=Controls remots del Plasma
-Name[ca@valencia]=Controls remots del Plasma
+Name[ca@valencia]=Controls remots de Plasma
 Name[en_GB]=Plasma Remotecontrollers
 Name[es]=Controladores remotos de Plasma
 Name[fr]=Contrôleurs distants de Plasma
