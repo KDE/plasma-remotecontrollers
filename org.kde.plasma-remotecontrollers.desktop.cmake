@@ -15,6 +15,7 @@ Name[nl]=Plasma afstandsbedieningen
 Name[nn]=Fjernkontrollar for Plasma
 Name[pl]=Kontrolery Plazmy
 Name[pt]=Controlos Remotos do Plasma
+Name[sk]=Diaľkové ovládače Plasma
 Name[sl]=Plasma Remotecontrollers
 Name[sv]=Plasma fjärrkontroller
 Name[tr]=Plasma Uzaktan Denetimciler
