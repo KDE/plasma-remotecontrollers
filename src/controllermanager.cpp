@@ -7,6 +7,7 @@
 #include "controllermanager.h"
 #include "notificationsmanager.h"
 #include "uinputsystem.h"
+#include "kwinfakeinputsystem.h"
 
 #include <QDebug>
 
@@ -22,7 +23,10 @@ ControllerManager::ControllerManager(QObject *parent)
 
     m_inputSystem.reset(new UInputSystem);
     if (!m_inputSystem->init()) {
-        exit(1);
+        m_inputSystem.reset(new KWinFakeInputSystem);
+        if (!m_inputSystem->init()) {
+            exit(1);
+        }
     }
 }
 

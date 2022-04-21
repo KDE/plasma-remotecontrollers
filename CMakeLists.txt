@@ -18,6 +18,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     DBus
     Gui
+    WaylandClient
 )
 find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Config
@@ -25,6 +26,7 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     I18n
     Solid
 )
+find_package(Wayland REQUIRED COMPONENTS Client)
 pkg_check_modules(Libcec REQUIRED IMPORTED_TARGET libcec>=6)
 add_feature_info(Libcec Libcec_FOUND "Adds support forr CEC devices")
 
@@ -38,6 +40,16 @@ feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 ecm_qt_declare_logging_category(SRCS HEADER plasmarc-evdev-debug.h IDENTIFIER PLASMARC_EVDEV CATEGORY_NAME org.kde.plasma.remotecontrollers.evdev DESCRIPTION "Plasma Remote Controllers - evdev" DEFAULT_SEVERITY Info EXPORT PLASMARC)
 
+set(CMAKE_CXX_STANDARD 17)
+
+find_package(PlasmaWaylandProtocols REQUIRED)
+find_package(QtWaylandScanner REQUIRED)
+
+ecm_add_qtwayland_client_protocol(SRCS
+    PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
+    BASENAME fake-input
+)
+
 add_executable(plasma-remotecontrollers
     src/main.cpp
     src/controllermanager.cpp
@@ -45,6 +57,7 @@ add_executable(plasma-remotecontrollers
     src/device.cpp
     src/abstractsystem.cpp
     src/uinputsystem.cpp
+    src/kwinfakeinputsystem.cpp
     src/libcec/ceccontroller.cpp
     src/evdev/evdevcontroller.cpp
     ${SRCS}
@@ -55,12 +68,14 @@ target_link_libraries(plasma-remotecontrollers
     Qt5::Core
     Qt5::DBus
     Qt5::Gui
+    Qt5::WaylandClient
     KF5::ConfigCore
     KF5::Notifications
     KF5::Solid
     KF5::I18n
     PkgConfig::Libcec
     PkgConfig::Evdev
+    Wayland::Client
 )
 
 if(XWiimote_FOUND)
