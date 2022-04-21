@@ -8,6 +8,7 @@
 
 #include <QDebug>
 #include <QThread>
+#include <QSet>
 #include <Solid/Device>
 
 #include "../device.h"
@@ -32,12 +33,16 @@ public:
     libevdev *device() const {
         return m_device;
     }
+    void readNow();
 
 signals:
     void keyPress(int keyCode, bool pressed);
 
 private:
-    EvdevDeviceThread *m_thread;
+    void processEvent(struct input_event &ev);
+    void setKey(int key, bool pressed);
+
+    QSet<int> m_pressedKeys;
     void deviceRemoved(const QString &udi);
     libevdev *const m_device;
     const QString m_udi;
