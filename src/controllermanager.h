@@ -7,6 +7,7 @@
 #pragma once
 
 #include "device.h"
+#include "uinputsystem.h"
 
 #include <QObject>
 
@@ -32,8 +33,6 @@ Q_SIGNALS:
     void deviceDisconnected(Device*);
 
 private:
-    int m_fd;
     QVector<Device*> m_connectedDevices;
-
-    void emitEvent(int type, int code, int val);
+    UInputSystem m_uinput;
 };

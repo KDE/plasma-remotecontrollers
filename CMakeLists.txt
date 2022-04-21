@@ -43,6 +43,7 @@ add_executable(plasma-remotecontrollers
     src/controllermanager.cpp
     src/notificationsmanager.cpp
     src/device.cpp
+    src/uinputsystem.cpp
     src/libcec/ceccontroller.cpp
     src/evdev/evdevcontroller.cpp
     ${SRCS}
