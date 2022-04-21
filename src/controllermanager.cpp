@@ -6,6 +6,7 @@
 
 #include "controllermanager.h"
 #include "notificationsmanager.h"
+#include "uinputsystem.h"
 
 #include <QDebug>
 
@@ -18,7 +19,9 @@ ControllerManager::ControllerManager(QObject *parent)
     QObject::connect(this, &ControllerManager::deviceDisconnected,
                      &NotificationsManager::instance(), &NotificationsManager::notifyDisconnectedDevice);
 
-    if (!m_uinput.init()) {
+
+    m_inputSystem.reset(new UInputSystem);
+    if (!m_inputSystem->init()) {
         exit(1);
     }
 }
@@ -82,7 +85,7 @@ QVector<Device*> ControllerManager::getDevicesByType(DeviceType deviceType)
 
 void ControllerManager::emitKey(int key, bool pressed)
 {
-    m_uinput.emitKey(key, pressed);
+    m_inputSystem->emitKey(key, pressed);
 }
 
 ControllerManager::~ControllerManager()

@@ -8,9 +8,9 @@
 #ifndef UINPUTSYSTEM_H
 #define UINPUTSYSTEM_H
 
-#include <qobject.h>
+#include "abstractsystem.h"
 
-class UInputSystem : public QObject
+class UInputSystem : public AbstractSystem
 {
     Q_OBJECT
 public:

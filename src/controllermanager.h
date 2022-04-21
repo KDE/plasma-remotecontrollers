@@ -7,9 +7,10 @@
 #pragma once
 
 #include "device.h"
-#include "uinputsystem.h"
 
 #include <QObject>
+
+class AbstractSystem;
 
 class ControllerManager : public QObject
 {
@@ -34,5 +35,5 @@ Q_SIGNALS:
 
 private:
     QVector<Device*> m_connectedDevices;
-    UInputSystem m_uinput;
+    QScopedPointer<AbstractSystem> m_inputSystem;
 };
