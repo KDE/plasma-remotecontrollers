@@ -33,7 +33,7 @@ pkg_check_modules(Libcec REQUIRED IMPORTED_TARGET libcec>=6)
 add_feature_info(Libcec Libcec_FOUND "Adds support forr CEC devices")
 
 pkg_check_modules(XWiimote IMPORTED_TARGET libxwiimote)
-add_feature_info(XWiimote XWiimote_FOUND "Adds support for Wiimotes")
+add_feature_info(XWiimote XWiimote_FOUND "Adds support for Wiimotes, not currently recommended due to unmaintained Wiimote")
 
 pkg_check_modules(Evdev REQUIRED IMPORTED_TARGET libevdev)
 add_feature_info(Evdev Evdev_FOUND "Adds support for controllers")
