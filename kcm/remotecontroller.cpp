@@ -13,35 +13,21 @@
 #include <QDBusConnection>
 #include <QDBusMessage>
 
-static const QString configFile = QStringLiteral("plasma-localerc");
-static const QString lcLanguage = QStringLiteral("LANGUAGE");
+K_PLUGIN_CLASS_WITH_JSON(RemoteController, "kcm_mediacenter_remotecontrollers.json")
 
 RemoteController::RemoteController(QObject *parent, const QVariantList &args)
     : KQuickAddons::ConfigModule(parent, args)
 {
-    KAboutData *about = new KAboutData(QStringLiteral("kcm_mediacenter_remotecontroller"), //
+    setButtons(Help);
+    KAboutData *about = new KAboutData(QStringLiteral("kcm_mediacenter_remotecontrollers"), //
                                        i18n("Configure Remote Controllers"),
                                        QStringLiteral("2.0"),
                                        QString(),
                                        KAboutLicense::LGPL);
     setAboutData(about);
-
-    setButtons(Apply | Default);
 }
 
 RemoteController::~RemoteController()
-{
-}
-
-void RemoteController::load()
-{
-}
-
-void RemoteController::save()
-{
-}
-
-void RemoteController::defaults()
 {
 }
 
@@ -76,7 +62,5 @@ int RemoteController::getCecKeyFromRemotePress()
     QList<QVariant> responseArg = response.arguments();
     return responseArg.at(0).toInt();
 }
-
-K_PLUGIN_CLASS_WITH_JSON(RemoteController, "mediacenter_remotecontroller.json")
 
 #include "remotecontroller.moc"

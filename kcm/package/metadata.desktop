@@ -4,7 +4,7 @@ Name=Remote Controllers
 Icon=input-gamepad-symbolic
 Type=Service
 X-KDE-PluginInfo-License=GPL
-X-KDE-PluginInfo-Name=kcm_mediacenter_remotecontroller
+X-KDE-PluginInfo-Name=kcm_mediacenter_remotecontrollers
 X-KDE-ServiceTypes=Plasma/Generic
 X-KDE-FormFactors=mediacenter
 

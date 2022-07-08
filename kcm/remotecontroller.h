@@ -20,10 +20,6 @@ public:
     ~RemoteController() override;
 
 public Q_SLOTS:
-    void load() override;
-    void save() override;
-    void defaults() override;
-
     QString getCecKeyConfig(const QString key);
     void setCecKeyConfig(const QString button, const QString key);
 

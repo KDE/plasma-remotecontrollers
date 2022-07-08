@@ -12,7 +12,8 @@
 #include <linux/uinput.h>
 #include <fcntl.h>
 #include <unistd.h>
-
+#include <array>
+ 
 static constexpr std::array<int, 38> s_supportedKeys = { KEY_PLAY
                 , KEY_STOP
                 , KEY_PAUSE
@@ -164,6 +165,11 @@ void ControllerManager::emitEvent(int type, int code, int val)
     ie.input_event_usec = 0;
     
     write(m_fd, &ie, sizeof(ie));
+}
+
+QVector<Device*> ControllerManager::getConnectedDevices()
+{
+    return m_connectedDevices;
 }
 
 ControllerManager::~ControllerManager()

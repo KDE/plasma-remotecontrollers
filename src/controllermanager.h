@@ -26,6 +26,7 @@ public:
 public slots:
     void emitKey(int key, bool pressed);
     void removeDevice(int deviceIndex);
+    QVector<Device*> getConnectedDevices();
 
 Q_SIGNALS:
     void deviceConnected(Device*);

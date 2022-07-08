@@ -86,6 +86,33 @@ install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR})
 install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
 install(FILES 40-uinput.rules DESTINATION ${KDE_INSTALL_LIBDIR}/udev/rules.d)
 
+add_library(remotecontrollersplugin SHARED)
+
+target_sources(remotecontrollersplugin PRIVATE
+    src/remotecontrollersplugin.cpp
+    src/devicesmodel.cpp
+    src/controllermanager.cpp
+    src/notificationsmanager.cpp
+    src/device.cpp
+)
+
+target_link_libraries(remotecontrollersplugin 
+    ${CMAKE_DL_LIBS}
+    Qt::Quick
+    Qt::Core
+    Qt::DBus
+    Qt::Gui
+    KF5::ConfigCore
+    KF5::Notifications
+    KF5::Solid
+    KF5::I18n
+    PkgConfig::Libcec
+    PkgConfig::Evdev
+)
+
+install(TARGETS remotecontrollersplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/remotecontrollers)
+install(FILES src/qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/remotecontrollers)
+
 add_subdirectory(kcm)
 
 ecm_qt_install_logging_categories(
