@@ -11,6 +11,17 @@
 
 #include <QDebug>
 
+class NoOpInputSystem : public AbstractSystem
+{
+public:
+    bool init() override { return true; }
+    void emitKey(int key, bool pressed) override {
+        Q_UNUSED(key)
+        Q_UNUSED(pressed)
+    }
+
+};
+
 ControllerManager::ControllerManager(QObject *parent)
     : QObject(parent)
 {
@@ -25,7 +36,7 @@ ControllerManager::ControllerManager(QObject *parent)
     if (!m_inputSystem->init()) {
         m_inputSystem.reset(new KWinFakeInputSystem);
         if (!m_inputSystem->init()) {
-            exit(1);
+            m_inputSystem.reset(new NoOpInputSystem);
         }
     }
 }
@@ -96,3 +107,9 @@ ControllerManager::~ControllerManager()
 {
     m_connectedDevices.clear();
 }
+
+void ControllerManager::noopInput()
+{
+    m_inputSystem.reset(new NoOpInputSystem);
+}
+

@@ -25,6 +25,9 @@ public:
     bool isConnected(QString uniqueIdentifier);
     QVector<Device*> getDevicesByType(DeviceType deviceType);
 
+    /** Have input not forward events to the OS */
+    void noopInput();
+
 public slots:
     void emitKey(int key, bool pressed);
     void removeDevice(int deviceIndex);
