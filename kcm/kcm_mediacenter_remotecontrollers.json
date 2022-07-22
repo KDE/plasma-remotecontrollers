@@ -1,0 +1,16 @@
+{
+    "KPlugin": {
+        "Description": "Setup Remote Controllers",
+        "FormFactors": [
+            "tablet",
+            "handset",
+            "desktop"
+        ],
+        "Icon": "input-gamepad-symbolic",
+        "Name": "Plasma RemoteControllers"
+    },
+    "X-DocPath": "kcontrol/desktopthemedetails/index.html",
+    "X-KDE-Keywords": "Remote Controllers,Remote,Controller,remote controllers,remote,controller,wii,cec,hdmi-cec",
+    "X-KDE-System-Settings-Parent-Category": "hardware",
+    "X-KDE-Weight": 20
+}

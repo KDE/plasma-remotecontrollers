@@ -11,6 +11,9 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(FeatureSummary)
 include(ECMQtDeclareLoggingCategory)
+include(CMakePackageConfigHelpers)
+include(ECMInstallIcons)
+include(ECMPackageConfigHelpers)
 include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
@@ -27,6 +30,10 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Notifications
     I18n
     Solid
+    CoreAddons
+    Declarative
+    KCMUtils
+    Package
 )
 find_package(Wayland REQUIRED COMPONENTS Client)
 pkg_check_modules(Libcec REQUIRED IMPORTED_TARGET libcec>=6)
@@ -62,6 +69,8 @@ add_executable(plasma-remotecontrollers
     src/kwinfakeinputsystem.cpp
     src/libcec/ceccontroller.cpp
     src/evdev/evdevcontroller.cpp
+    src/evdev/evdevdbusinterface.cpp
+    src/devicesmodel.cpp
     ${SRCS}
 )
 
@@ -90,6 +99,7 @@ if(XWiimote_FOUND)
 endif()
 
 install(FILES src/libcec/org.kde.plasma-remotecontrollers.CEC.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})
+install(FILES src/evdev/org.kde.plasma-remotecontrollers.EVDEV.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})
 
 install(TARGETS plasma-remotecontrollers DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -100,6 +110,44 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.deskt
 install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR})
 install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
 install(FILES 40-uinput.rules DESTINATION ${KDE_INSTALL_LIBDIR}/udev/rules.d)
+
+add_library(remotecontrollersplugin SHARED)
+
+target_sources(remotecontrollersplugin PRIVATE
+    src/remotecontrollersplugin.cpp
+    src/devicesmodel.cpp
+    src/controllermanager.cpp
+    src/notificationsmanager.cpp
+    src/device.cpp
+    src/abstractsystem.cpp
+    src/uinputsystem.cpp
+    src/kwinfakeinputsystem.cpp
+    src/evdev/evdevcontroller.cpp
+    src/evdev/evdevdbusinterface.cpp
+    src/libcec/ceccontroller.cpp
+    ${SRCS}
+)
+
+target_link_libraries(remotecontrollersplugin
+    ${CMAKE_DL_LIBS}
+    Qt::Quick
+    Qt5::Core
+    Qt5::DBus
+    Qt5::Gui
+    Qt5::WaylandClient
+    KF5::ConfigCore
+    KF5::Notifications
+    KF5::Solid
+    KF5::I18n
+    PkgConfig::Libcec
+    PkgConfig::Evdev
+    Wayland::Client
+)
+
+install(TARGETS remotecontrollersplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/remotecontrollers)
+install(FILES src/qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/remotecontrollers)
+
+add_subdirectory(kcm)
 
 ecm_qt_install_logging_categories(
         EXPORT PLASMARC

@@ -8,6 +8,7 @@
 #include "notificationsmanager.h"
 #include "uinputsystem.h"
 #include "kwinfakeinputsystem.h"
+#include "devicesmodel.h"
 
 #include <QDebug>
 
@@ -30,7 +31,6 @@ ControllerManager::ControllerManager(QObject *parent)
                      &NotificationsManager::instance(), &NotificationsManager::notifyNewDevice);
     QObject::connect(this, &ControllerManager::deviceDisconnected,
                      &NotificationsManager::instance(), &NotificationsManager::notifyDisconnectedDevice);
-
 
     m_inputSystem.reset(new UInputSystem);
     if (!m_inputSystem->init()) {
@@ -60,6 +60,16 @@ void ControllerManager::newDevice(Device *device)
     // Don't send notifications for CEC devices, since we expect them to always be available
     if (device->getDeviceType() != DeviceCEC)
         emit deviceConnected(device);
+}
+
+void ControllerManager::deviceRemoved(Device *device)
+{
+    qInfo() << "Device disconnected:" << device->getName();
+    emit deviceDisconnected(device);
+    m_connectedDevices.removeOne(device);
+    for (int i = 0; i < m_connectedDevices.size(); i++) {
+        m_connectedDevices[i]->setIndex(i);
+    }
 }
 
 void ControllerManager::removeDevice(int deviceIndex)
@@ -96,6 +106,11 @@ QVector<Device*> ControllerManager::getDevicesByType(DeviceType deviceType)
             devices.append(m_connectedDevices.at(i));
 
     return devices;
+}
+
+QVector<Device*> ControllerManager::connectedDevices()
+{
+    return m_connectedDevices;
 }
 
 void ControllerManager::emitKey(int key, bool pressed)

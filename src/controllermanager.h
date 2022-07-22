@@ -22,6 +22,7 @@ public:
     static ControllerManager &instance();
     
     void newDevice(Device *device);
+    void deviceRemoved(Device *device);
     bool isConnected(QString uniqueIdentifier);
     QVector<Device*> getDevicesByType(DeviceType deviceType);
 
@@ -31,6 +32,7 @@ public:
 public slots:
     void emitKey(int key, bool pressed);
     void removeDevice(int deviceIndex);
+    QVector<Device*> connectedDevices();
 
 Q_SIGNALS:
     void deviceConnected(Device*);

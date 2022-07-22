@@ -13,13 +13,17 @@
 
 #include "../device.h"
 #include <libevdev/libevdev.h>
+#include "evdevdbusinterface.h"
 
 class EvdevDeviceThread;
+class EvdevDbusInterface;
 class EvdevController : public QObject
 {
 public:
     explicit EvdevController();
+    static EvdevController &instance();
     bool addDevice(const Solid::Device &device);
+    EvdevDbusInterface m_dbusInterface;
 };
 
 class EvdevDevice : public Device

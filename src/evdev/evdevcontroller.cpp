@@ -80,6 +80,12 @@ bool EvdevController::addDevice(const Solid::Device &device)
     return true;
 }
 
+EvdevController &EvdevController::instance()
+{
+    static EvdevController instance;
+    return instance;
+}
+
 EvdevDevice::EvdevDevice(const QString& path, libevdev *device)
     : Device(DeviceGamepad, QString::fromUtf8(libevdev_get_name(device)), path)
     , m_device(device)
@@ -112,6 +118,7 @@ void EvdevDevice::setKey(int key, bool pressed)
     } else {
         m_pressedKeys.remove(key);
     }
+    emit EvdevController::instance().m_dbusInterface.emitKeyPress(key);
     ControllerManager::instance().emitKey(key, pressed);
 }
 
@@ -124,6 +131,10 @@ void EvdevDevice::readNow()
         qDebug() << "nothing to read";
     } else if (ret < 0) {
         qWarning() << "Error while reading" << strerror(errno);
+        if(errno == 19) {
+            ControllerManager::instance().deviceRemoved(this);
+            deleteLater();
+        }
     } else {
         processEvent(ev);
     }
@@ -153,8 +164,10 @@ void EvdevDevice::processEvent(struct input_event& ev)
             { BTN_DPAD_RIGHT, { KEY_RIGHT } }
         };
         const auto nativeKeyCodes = s_buttons.value(ev.code);
+
         if (!nativeKeyCodes.isEmpty()) {
             for (auto code : nativeKeyCodes) {
+                emit EvdevController::instance().m_dbusInterface.emitKeyPress(ev.code);
                 emit ControllerManager::instance().emitKey(code, ev.value);
             }
             return;
