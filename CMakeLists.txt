@@ -36,7 +36,7 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Package
 )
 find_package(Wayland REQUIRED COMPONENTS Client)
-pkg_check_modules(Libcec REQUIRED IMPORTED_TARGET libcec>=6)
+pkg_check_modules(Libcec IMPORTED_TARGET libcec>=6)
 add_feature_info(Libcec Libcec_FOUND "Adds support forr CEC devices")
 
 pkg_check_modules(XWiimote IMPORTED_TARGET libxwiimote)
@@ -67,7 +67,6 @@ add_executable(plasma-remotecontrollers
     src/abstractsystem.cpp
     src/uinputsystem.cpp
     src/kwinfakeinputsystem.cpp
-    src/libcec/ceccontroller.cpp
     src/evdev/evdevcontroller.cpp
     src/evdev/evdevdbusinterface.cpp
     src/devicesmodel.cpp
@@ -84,7 +83,6 @@ target_link_libraries(plasma-remotecontrollers
     KF5::Notifications
     KF5::Solid
     KF5::I18n
-    PkgConfig::Libcec
     PkgConfig::Evdev
     Wayland::Client
 )
@@ -124,9 +122,15 @@ target_sources(remotecontrollersplugin PRIVATE
     src/kwinfakeinputsystem.cpp
     src/evdev/evdevcontroller.cpp
     src/evdev/evdevdbusinterface.cpp
-    src/libcec/ceccontroller.cpp
     ${SRCS}
 )
+
+if (TARGET PkgConfig::Libcec)
+    target_sources(remotecontrollersplugin
+        PUBLIC src/libcec/ceccontroller.cpp)
+    target_link_libraries(remotecontrollersplugin PkgConfig::Libcec)
+    add_definitions(-DHAS_LIBCEC)
+endif()
 
 target_link_libraries(remotecontrollersplugin
     ${CMAKE_DL_LIBS}
@@ -139,7 +143,6 @@ target_link_libraries(remotecontrollersplugin
     KF5::Notifications
     KF5::Solid
     KF5::I18n
-    PkgConfig::Libcec
     PkgConfig::Evdev
     Wayland::Client
 )

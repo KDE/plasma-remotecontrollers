@@ -69,7 +69,7 @@ bool UInputSystem::init()
 
     if (m_fd < 0) {
         qCritical() << "Couldn't open /dev/uinput, make sure the kernel module is loaded";
-        exit(1);
+        return false;
     }
 
     // Register all keys we want to press with this application

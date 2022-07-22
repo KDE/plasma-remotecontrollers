@@ -21,8 +21,11 @@ RemoteControllersPlugin::RemoteControllersPlugin(QObject *parent)
 {
 
     m_evdevController = new EvdevController();
+
+#ifdef HAS_LIBCEC
     m_cecController = new CECController();
     m_cecController->start();
+#endif
 
 #ifdef HAS_XWIIMOTE
     m_wiimoteController = new WiimoteController();

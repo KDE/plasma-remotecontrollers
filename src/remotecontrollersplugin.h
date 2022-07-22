@@ -7,7 +7,9 @@
 #define REMOTECONTROLLERSPLUGIN_H
 
 #include <QQmlExtensionPlugin>
+#ifdef HAS_LIBCEC
 #include "libcec/ceccontroller.h"
+#endif
 #include "evdev/evdevcontroller.h"
 
 #ifdef HAS_XWIIMOTE
@@ -25,7 +27,9 @@ public:
 
 private:
     EvdevController *m_evdevController;
+#ifdef HAS_LIBCEC
     CECController *m_cecController;
+#endif
 
 #ifdef HAS_XWIIMOTE
     WiimoteController *m_wiimoteController;

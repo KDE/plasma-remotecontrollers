@@ -5,9 +5,11 @@
  */
 
 #include "controllermanager.h"
-#include "libcec/ceccontroller.h"
 #include "evdev/evdevcontroller.h"
 
+#ifdef HAS_LIBCEC
+#include "libcec/ceccontroller.h"
+#endif
 #ifdef HAS_XWIIMOTE
 # include "wiimote/wiimotecontroller.h"
 #endif // HAS_XWIIMOTE
@@ -25,8 +27,10 @@ int main(int argc, char *argv[])
 
     new EvdevController();
 
+#ifdef HAS_LIBCEC
     CECController* ct = new CECController();
     ct->start();
+#endif
     
 #ifdef HAS_XWIIMOTE
     new WiimoteController();
