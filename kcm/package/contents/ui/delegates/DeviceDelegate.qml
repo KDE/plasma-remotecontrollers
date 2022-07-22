@@ -20,31 +20,31 @@ ItemDelegate {
     implicitWidth: connectionView.width
     implicitHeight: Kirigami.Units.gridUnit * 4
     property QtObject deviceObj: model
-    
+
     Behavior on implicitWidth {
         NumberAnimation {
             duration: Kirigami.Units.longDuration
             easing.type: Easing.InOutQuad
         }
     }
-    
+
     Keys.onReturnPressed: {
         clicked();
     }
-    
+
     onClicked: {
         deviceSetupView.forceActiveFocus()
     }
 
     contentItem: Item {
         id: deviceItemLayout
-        
+
         Item {
             id: deviceSvgIcon
             width: PlasmaCore.Units.iconSizes.huge
             height: width
             y: deviceItemLayout.height / 2 - deviceSvgIcon.height / 2
-            
+
             PlasmaCore.IconItem {
                 anchors.centerIn: parent
                 source: model.deviceIconName
@@ -52,10 +52,10 @@ ItemDelegate {
                 height: width
             }
         }
-        
+
         ColumnLayout {
             id: textLayout
-            
+
             anchors {
                 left: deviceSvgIcon.right
                 right: deviceItemLayout.right
