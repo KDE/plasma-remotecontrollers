@@ -1,5 +1,13 @@
 [Desktop Entry]
 Name=Remote Controllers
+Name[ca]=Controls remots
+Name[ca@valencia]=Controls remots
+Name[fr]=Contrôleurs distants
+Name[nl]=Afstandsbedieningen
+Name[pt]=Comandos à Distância
+Name[tr]=Uzaktan Kumandalar
+Name[uk]=Дистанційне керування
+Name[x-test]=xxRemote Controllersxx
 
 Icon=input-gamepad-symbolic
 Type=Service
