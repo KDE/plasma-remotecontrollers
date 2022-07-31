@@ -13,6 +13,7 @@
         "Description[tr]": "Uzaktan Kumandaları Ayarla",
         "Description[uk]": "Налаштовування дистанційного керування Плазмою",
         "Description[x-test]": "xxSetup Remote Controllersxx",
+        "Description[zh_CN]": "设置遥控器",
         "Description[zh_TW]": "設定遙控器",
         "FormFactors": [
             "tablet",
@@ -33,6 +34,7 @@
         "Name[tr]": "Plasma Uzaktan Kumandalar",
         "Name[uk]": "Дистанційне керування Плазмою",
         "Name[x-test]": "xxPlasma RemoteControllersxx",
+        "Name[zh_CN]": "Plasma 遥控器",
         "Name[zh_TW]": "Plasma RemoteControllers"
     },
     "X-DocPath": "kcontrol/desktopthemedetails/index.html",
