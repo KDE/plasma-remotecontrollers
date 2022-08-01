@@ -153,18 +153,31 @@ ecm_install_icons(
         # Buttons
         22-devices-input-tvremote-ok.svg
 
+        32-devices-input-tvremote-ok.svg
+
         # Dpad
         22-devices-input-tvremote-dpad.svg
+
+        32-devices-input-tvremote-dpad.svg
 
         22-devices-input-tvremote-dpad-up.svg
         22-devices-input-tvremote-dpad-down.svg
         22-devices-input-tvremote-dpad-left.svg
         22-devices-input-tvremote-dpad-right.svg
 
+        32-devices-input-tvremote-dpad-up.svg
+        32-devices-input-tvremote-dpad-down.svg
+        32-devices-input-tvremote-dpad-left.svg
+        32-devices-input-tvremote-dpad-right.svg
+
         # Specific buttons
         22-devices-input-tvremote-home.svg
         22-devices-input-tvremote-menu.svg
         22-devices-input-tvremote-back.svg # Copy of actions/22/system-log-out as I can't symlink it from here
+
+        32-devices-input-tvremote-home.svg
+        32-devices-input-tvremote-menu.svg
+        32-devices-input-tvremote-back.svg
 
     DESTINATION ${ICON_INSTALL_DIR}
     THEME hicolor
