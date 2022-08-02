@@ -1,0 +1,17 @@
+<svg viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css" id="current-color-scheme">
+      .ColorScheme-Text {
+        color:#232629;
+      }
+    </style>
+    <g
+        style="fill:currentColor;fill-opacity:1;stroke:none"
+        class="ColorScheme-Text"
+        clip-rule="evenodd"
+        fill-rule="evenodd" >
+
+        <path d="m17 18h-12v-8c0-1.57708.39092-2.6595.99248-3.43293.60828-.78209 1.50859-1.34667 2.69875-1.74339 2.20737-.7358 5.13427-.81443 8.30877-.82272zm0-14.99924c-6.6513.01514-13 .33283-13 6.99924v9h14v-16c-.3336 0-.6672 0-1 .00076z"/>
+        <path d="m11.1441 16h-4.14399v-.696l2.84-4.152h-2.76v-.864h3.98399v.696l-2.83199 4.152h2.91199z"/>
+        <path d="m12.0054 16v-5.712h1.024v4.848h2.384v.864z"/>
+    </g>
+</svg>

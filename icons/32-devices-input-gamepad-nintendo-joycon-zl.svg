@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" fill="none" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25 3.00123C14 3 5 4 5 15V29H27V3L25 3.00123Z" clip-rule="evenodd" fill="url(#a)" fill-rule="evenodd"/>
+    <path d="M5 15C5 4 14 3 25 3.00123L27 3V4L25 4.00123C14 4 5 5 5 16V15Z" fill="#616A6C"/>
+    <rect x="5" y="28" width="22" height="1" fill="#2B3238"/>
+    <g fill="#000" opacity=".2">
+        <path d="m16.153 25h-5.995v-1.221l3.542-5.06h-3.465v-1.573h5.83v1.221l-3.542 5.06h3.63v1.573z"/>
+        <path d="m18.003 25v-7.854h1.936v6.281h3.091v1.573h-5.027z"/>
+    </g>
+    <path d="m16.153 24h-5.995v-1.221l3.542-5.06h-3.465v-1.573h5.83v1.221l-3.542 5.06h3.63v1.573z" fill="#fff"/>
+    <path d="m18.003 24v-7.854h1.936v6.281h3.091v1.573h-5.027z" fill="#fff"/>
+    <defs>
+        <linearGradient id="a" x1="16" x2="16" y1="3" y2="29" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#555C60" offset="0"/>
+            <stop stop-color="#2E3A46" offset="1"/>
+        </linearGradient>
+    </defs>
+</svg>

@@ -120,10 +120,15 @@ ecm_install_icons(
         22-devices-input-gamepad-nintendo-wiimote-nunchuk-c.svg
         22-devices-input-gamepad-nintendo-wiimote-nunchuk-z.svg
 
-        22-devices-input-gamepad-nintendo-joycon-l2.svg # -> ./22-devices-input-gamepad-l2.svg
-        22-devices-input-gamepad-nintendo-joycon-r2.svg # -> ./22-devices-input-gamepad-r2.svg
-        22-devices-input-gamepad-nintendo-joycon-l1.svg # -> ./22-devices-input-gamepad-l1.svg
-        22-devices-input-gamepad-nintendo-joycon-r1.svg # -> ./22-devices-input-gamepad-r1.svg
+        22-devices-input-gamepad-nintendo-joycon-zl.svg
+        22-devices-input-gamepad-nintendo-joycon-zr.svg
+        22-devices-input-gamepad-nintendo-joycon-l.svg
+        22-devices-input-gamepad-nintendo-joycon-r.svg
+
+        32-devices-input-gamepad-nintendo-joycon-zl.svg
+        32-devices-input-gamepad-nintendo-joycon-zr.svg
+        32-devices-input-gamepad-nintendo-joycon-l.svg
+        32-devices-input-gamepad-nintendo-joycon-r.svg
 
         # Dpad
         22-devices-input-gamepad-nintendo-wiimote-dpad.svg # -> ./22-devices-input-gamepad-dpad.svg
@@ -133,12 +138,14 @@ ecm_install_icons(
         22-devices-input-gamepad-nintendo-wiimote-dpad-left.svg  # -> ./22-devices-input-gamepad-dpad-left.svg
         22-devices-input-gamepad-nintendo-wiimote-dpad-right.svg # -> ./22-devices-input-gamepad-dpad-right.svg
 
+        32-devices-input-gamepad-nintendo-joycon-dpad-up.svg    # -> ./32-devices-input-tvremote-dpad-up.svg
+        32-devices-input-gamepad-nintendo-joycon-dpad-down.svg  # -> ./32-devices-input-tvremote-dpad-down.svg
+        32-devices-input-gamepad-nintendo-joycon-dpad-left.svg  # -> ./32-devices-input-tvremote-dpad-left.svg
+        32-devices-input-gamepad-nintendo-joycon-dpad-right.svg # -> ./32-devices-input-tvremote-dpad-right.svg
+
         22-devices-input-gamepad-nintendo-joycon-dpad.svg # -> ./22-devices-input-gamepad-dpad.svg
 
-        22-devices-input-gamepad-nintendo-joycon-dpad-up.svg    # -> ./22-devices-input-tvremote-dpad-up.svg
-        22-devices-input-gamepad-nintendo-joycon-dpad-down.svg  # -> ./22-devices-input-tvremote-dpad-down.svg
-        22-devices-input-gamepad-nintendo-joycon-dpad-left.svg  # -> ./22-devices-input-tvremote-dpad-left.svg
-        22-devices-input-gamepad-nintendo-joycon-dpad-right.svg # -> ./22-devices-input-tvremote-dpad-right.svg
+        32-devices-input-gamepad-nintendo-joycon-dpad.svg
 
         # Specific buttons
         22-devices-input-gamepad-nintendo-select.svg
@@ -148,6 +155,10 @@ ecm_install_icons(
         22-devices-input-gamepad-nintendo-wiimote-select.svg # -> ./22-devices-input-gamepad-nintendo-select.svg
         22-devices-input-gamepad-nintendo-wiimote-start.svg  # -> ./22-devices-input-gamepad-nintendo-start.svg
         22-devices-input-gamepad-nintendo-wiimote-home.svg   # -> ./22-devices-input-gamepad-nintendo-home.svg
+
+        32-devices-input-gamepad-nintendo-joycon-select.svg
+        32-devices-input-gamepad-nintendo-joycon-start.svg
+        32-devices-input-gamepad-nintendo-joycon-home.svg
 
     # TV Remote
         # Buttons
