@@ -13,6 +13,7 @@ X-KDE-Weight=40
 X-KDE-FormFactors=mediacenter
 
 Name=Remote Controllers
+Name[ar]=أجهزة تحكم عن بعد
 Name[ca]=Controls remots
 Name[ca@valencia]=Controls remots
 Name[en_GB]=Remote Controllers
