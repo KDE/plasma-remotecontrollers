@@ -10,6 +10,9 @@
 #include "kwinfakeinputsystem.h"
 #include "devicesmodel.h"
 
+#include <KWindowSystem>
+#include <KSharedConfig>
+#include <KConfigGroup>
 #include <QDebug>
 
 class NoOpInputSystem : public AbstractSystem
@@ -39,6 +42,10 @@ ControllerManager::ControllerManager(QObject *parent)
             m_inputSystem.reset(new NoOpInputSystem);
         }
     }
+
+    static KSharedConfigPtr config = KSharedConfig::openConfig(QLatin1String("plasma-remotecontrollersrc"));
+    static KConfigGroup grp(config, QLatin1String("Blacklist"));
+    m_applicationBlacklist = grp.readEntry("applications", QStringList());
 }
 
 ControllerManager &ControllerManager::instance()
@@ -115,6 +122,14 @@ QVector<Device*> ControllerManager::connectedDevices()
 
 void ControllerManager::emitKey(int key, bool pressed)
 {
+    int focusedWindowID = KWindowSystem::activeWindow();
+    QString focusedWindowName = KWindowInfo(focusedWindowID, NET::WMName).name();
+    for (const QString &blacklistedApplication : m_applicationBlacklist) {
+        if (focusedWindowName.split(QLatin1Char(' ')).contains(blacklistedApplication, Qt::CaseInsensitive)) {
+            return;
+        }
+    }
+    
     m_inputSystem->emitKey(key, pressed);
 }
 

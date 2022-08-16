@@ -39,6 +39,7 @@ Q_SIGNALS:
     void deviceDisconnected(Device*);
 
 private:
+    QStringList m_applicationBlacklist;
     QVector<Device*> m_connectedDevices;
     QScopedPointer<AbstractSystem> m_inputSystem;
 };

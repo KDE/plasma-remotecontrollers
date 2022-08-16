@@ -34,6 +34,7 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Declarative
     KCMUtils
     Package
+    WindowSystem
 )
 find_package(Wayland REQUIRED COMPONENTS Client)
 pkg_check_modules(Libcec IMPORTED_TARGET libcec>=6)
@@ -83,6 +84,7 @@ target_link_libraries(plasma-remotecontrollers
     KF5::Notifications
     KF5::Solid
     KF5::I18n
+    KF5::WindowSystem
     PkgConfig::Evdev
     Wayland::Client
 )
@@ -143,6 +145,7 @@ target_link_libraries(remotecontrollersplugin
     KF5::Notifications
     KF5::Solid
     KF5::I18n
+    KF5::WindowSystem
     PkgConfig::Evdev
     Wayland::Client
 )
