@@ -89,28 +89,6 @@ target_link_libraries(plasma-remotecontrollers
     Wayland::Client
 )
 
-if(XWiimote_FOUND)
-    target_sources(plasma-remotecontrollers
-        PUBLIC
-            src/wiimote/wiimotecontroller.cpp
-            src/wiimote/wiimote.cpp)
-    target_link_libraries(plasma-remotecontrollers PkgConfig::XWiimote)
-    add_definitions(-DHAS_XWIIMOTE)
-endif()
-
-install(FILES src/libcec/org.kde.plasma-remotecontrollers.CEC.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})
-install(FILES src/evdev/org.kde.plasma-remotecontrollers.EVDEV.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})
-
-install(TARGETS plasma-remotecontrollers DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-
-configure_file(org.kde.plasma-remotecontrollers.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop DESTINATION ${KDE_INSTALL_SYSCONFDIR}/xdg/autostart)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-
-install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR})
-install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
-install(FILES 40-uinput.rules DESTINATION ${KDE_INSTALL_LIBDIR}/udev/rules.d)
-
 add_library(remotecontrollersplugin SHARED)
 
 target_sources(remotecontrollersplugin PRIVATE
@@ -126,13 +104,6 @@ target_sources(remotecontrollersplugin PRIVATE
     src/evdev/evdevdbusinterface.cpp
     ${SRCS}
 )
-
-if (TARGET PkgConfig::Libcec)
-    target_sources(remotecontrollersplugin
-        PUBLIC src/libcec/ceccontroller.cpp)
-    target_link_libraries(remotecontrollersplugin PkgConfig::Libcec)
-    add_definitions(-DHAS_LIBCEC)
-endif()
 
 target_link_libraries(remotecontrollersplugin
     ${CMAKE_DL_LIBS}
@@ -150,10 +121,45 @@ target_link_libraries(remotecontrollersplugin
     Wayland::Client
 )
 
+if(XWiimote_FOUND)
+	set(WIIMOTE_SRCS
+		src/wiimote/wiimotecontroller.cpp
+		src/wiimote/wiimote.cpp)
+    target_sources(plasma-remotecontrollers PUBLIC ${WIIMOTE_SRCS})
+    target_sources(remotecontrollersplugin PUBLIC ${WIIMOTE_SRCS})
+    target_link_libraries(plasma-remotecontrollers PkgConfig::XWiimote)
+	target_link_libraries(remotecontrollersplugin PkgConfig::XWiimote)
+    add_definitions(-DHAS_XWIIMOTE)
+endif()
+
+if (TARGET PkgConfig::Libcec)
+	set(LIBCEC_SRCS src/libcec/ceccontroller.cpp)
+	target_sources(plasma-remotecontrollers PUBLIC ${LIBCEC_SRCS})
+    target_sources(remotecontrollersplugin PUBLIC ${LIBCEC_SRCS})
+    target_link_libraries(plasma-remotecontrollers PkgConfig::XWiimote)
+    target_link_libraries(remotecontrollersplugin PkgConfig::Libcec)
+    add_definitions(-DHAS_LIBCEC)
+endif()
+
+
 install(TARGETS remotecontrollersplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/remotecontrollers)
 install(FILES src/qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/remotecontrollers)
 
 add_subdirectory(kcm)
+
+install(FILES src/libcec/org.kde.plasma-remotecontrollers.CEC.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})
+install(FILES src/evdev/org.kde.plasma-remotecontrollers.EVDEV.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})
+
+install(TARGETS plasma-remotecontrollers DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+
+configure_file(org.kde.plasma-remotecontrollers.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop DESTINATION ${KDE_INSTALL_SYSCONFDIR}/xdg/autostart)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+
+install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR})
+install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
+install(FILES 40-uinput.rules DESTINATION ${KDE_INSTALL_LIBDIR}/udev/rules.d)
+
 
 ecm_qt_install_logging_categories(
         EXPORT PLASMARC
