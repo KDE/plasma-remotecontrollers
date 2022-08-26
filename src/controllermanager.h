@@ -30,7 +30,7 @@ public:
     void noopInput();
 
 public slots:
-    void emitKey(int key, bool pressed);
+    void emitKey(int key, bool pressed) const;
     void removeDevice(int deviceIndex);
     QVector<Device*> connectedDevices();
 

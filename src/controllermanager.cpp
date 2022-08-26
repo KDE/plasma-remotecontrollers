@@ -120,11 +120,11 @@ QVector<Device*> ControllerManager::connectedDevices()
     return m_connectedDevices;
 }
 
-void ControllerManager::emitKey(int key, bool pressed)
+void ControllerManager::emitKey(int key, bool pressed) const
 {
     int focusedWindowID = KWindowSystem::activeWindow();
     QString focusedWindowName = KWindowInfo(focusedWindowID, NET::WMName).name();
-    for (const QString &blacklistedApplication : qAsConst(m_applicationBlacklist)) {
+    for (const QString &blacklistedApplication : m_applicationBlacklist) {
         if (focusedWindowName.split(QLatin1Char(' ')).contains(blacklistedApplication, Qt::CaseInsensitive)) {
             return;
         }

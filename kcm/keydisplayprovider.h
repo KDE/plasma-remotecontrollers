@@ -15,8 +15,8 @@ class KeyDisplayProvider : public QObject
 public:
     explicit KeyDisplayProvider(QObject *parent = nullptr);
     ~KeyDisplayProvider() override;
-    Q_INVOKABLE QString keyDisplay(const int &key);
-    Q_INVOKABLE QString keyIcon(const int &key, const QString &deviceType);
+    Q_INVOKABLE QString keyDisplay(const int &key) const;
+    Q_INVOKABLE QString keyIcon(const int &key, const QString &deviceType) const;
 
 private: 
     QList<QVariantMap> m_displayMap;
