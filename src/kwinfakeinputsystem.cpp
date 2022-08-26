@@ -11,6 +11,7 @@
 #include <KLocalizedString>
 #include <QDebug>
 #include <linux/input-event-codes.h>
+#include <QtGlobal>
 
 class FakeInput : public QWaylandClientExtensionTemplate<FakeInput>, public QtWayland::org_kde_kwin_fake_input
 {
@@ -18,7 +19,7 @@ public:
     FakeInput()
         : QWaylandClientExtensionTemplate<FakeInput>(ORG_KDE_KWIN_FAKE_INPUT_KEYBOARD_KEY_SINCE_VERSION)
     {
-#if QTWAYLANDCLIENT_VERSION >= QT_VERSION_CHECK(6, 2, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 2, 0)
         initialize();
 #else
         // QWaylandClientExtensionTemplate invokes this with a QueuedConnection but we want it called immediately

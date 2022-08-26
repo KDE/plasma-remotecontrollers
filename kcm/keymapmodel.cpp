@@ -53,7 +53,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Left"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonLeft"));
     map.insert("ObjectNameRole", QStringLiteral("buttonLeftConfigValue"));
-    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonLeft"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonLeft"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("CEC")));
     m_keyMap.append(map);
@@ -63,7 +63,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Right"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonRight"));
     map.insert("ObjectNameRole", QStringLiteral("buttonRightConfigValue"));
-    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonRight"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonRight"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("CEC")));
     m_keyMap.append(map);
@@ -73,7 +73,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Up"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonUp"));
     map.insert("ObjectNameRole", QStringLiteral("buttonUpConfigValue"));
-    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonUp"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonUp"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("CEC")));
     m_keyMap.append(map);
@@ -83,7 +83,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Down"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonDown"));
     map.insert("ObjectNameRole", QStringLiteral("buttonDownConfigValue"));
-    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonDown"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonDown"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("CEC")));
     m_keyMap.append(map);
@@ -93,7 +93,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Enter"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonEnter"));
     map.insert("ObjectNameRole", QStringLiteral("buttonEnterConfigValue"));
-    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonEnter"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonEnter"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("CEC")));
     m_keyMap.append(map);
@@ -103,7 +103,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Back"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonBack"));
     map.insert("ObjectNameRole", QStringLiteral("buttonBackConfigValue"));
-    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonBack"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonBack"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("CEC")));
     m_keyMap.append(map);
@@ -113,7 +113,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Home"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonHomepage"));
     map.insert("ObjectNameRole", QStringLiteral("buttonHomepageConfigValue"));
-    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonHomepage"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_cec.readEntry(QStringLiteral("ButtonHomepage"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("CEC")));
     m_keyMap.append(map);
@@ -124,7 +124,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Left"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonLeft"));
     map.insert("ObjectNameRole", QStringLiteral("buttonLeftConfigValue"));
-    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonLeft"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonLeft"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("Gamepad")));
     m_keyMap.append(map);
@@ -134,7 +134,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Right"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonRight"));
     map.insert("ObjectNameRole", QStringLiteral("buttonRightConfigValue"));
-    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonRight"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonRight"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("Gamepad")));
     m_keyMap.append(map);
@@ -144,7 +144,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Up"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonUp"));
     map.insert("ObjectNameRole", QStringLiteral("buttonUpConfigValue"));
-    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonUp"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonUp"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("Gamepad")));
     m_keyMap.append(map);
@@ -154,7 +154,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Down"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonDown"));
     map.insert("ObjectNameRole", QStringLiteral("buttonDownConfigValue"));
-    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonDown"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonDown"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("Gamepad")));
     m_keyMap.append(map);
@@ -164,7 +164,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Enter"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonEnter"));
     map.insert("ObjectNameRole", QStringLiteral("buttonEnterConfigValue"));
-    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonEnter"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonEnter"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("Gamepad")));
     m_keyMap.append(map);
@@ -174,7 +174,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Back"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonBack"));
     map.insert("ObjectNameRole", QStringLiteral("buttonBackConfigValue"));
-    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonBack"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonBack"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("Gamepad")));
     m_keyMap.append(map);
@@ -184,7 +184,7 @@ void KeyMapModel::load()
     map.insert("ButtonDisplayRole", i18n("Button Home"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonHomepage"));
     map.insert("ObjectNameRole", QStringLiteral("buttonHomepageConfigValue"));
-    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonHomepage"), QStringLiteral("")));
+    map.insert("AssignedKeyRole", group_gamepad.readEntry(QStringLiteral("ButtonHomepage"), QString()));
     map.insert("AssignedKeyDisplayRole", m_keyDisplayProvider->keyDisplay(map.value("AssignedKeyRole").toInt()));
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("Gamepad")));
     m_keyMap.append(map);

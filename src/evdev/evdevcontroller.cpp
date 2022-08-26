@@ -118,7 +118,7 @@ void EvdevDevice::setKey(int key, bool pressed)
     } else {
         m_pressedKeys.remove(key);
     }
-    emit EvdevController::instance().m_dbusInterface.emitKeyPress(key);
+    EvdevController::instance().m_dbusInterface.emitKeyPress(key);
     ControllerManager::instance().emitKey(key, pressed);
 }
 
@@ -167,8 +167,8 @@ void EvdevDevice::processEvent(struct input_event& ev)
 
         if (!nativeKeyCodes.isEmpty()) {
             for (auto code : nativeKeyCodes) {
-                emit EvdevController::instance().m_dbusInterface.emitKeyPress(ev.code);
-                emit ControllerManager::instance().emitKey(code, ev.value);
+                EvdevController::instance().m_dbusInterface.emitKeyPress(ev.code);
+                ControllerManager::instance().emitKey(code, ev.value);
             }
             return;
         }
@@ -176,12 +176,12 @@ void EvdevDevice::processEvent(struct input_event& ev)
     } else if (ev.type == EV_ABS) {
         switch (ev.code) {
             case ABS_HAT0Y:
-                emit setKey(KEY_DOWN, ev.value > 0);
-                emit setKey(KEY_UP, ev.value < 0);
+                setKey(KEY_DOWN, ev.value > 0);
+                setKey(KEY_UP, ev.value < 0);
                 return;
             case ABS_HAT0X:
-                emit setKey(KEY_RIGHT, ev.value > 0);
-                emit setKey(KEY_LEFT, ev.value < 0);
+                setKey(KEY_RIGHT, ev.value > 0);
+                setKey(KEY_LEFT, ev.value < 0);
                 return;
         }
     }

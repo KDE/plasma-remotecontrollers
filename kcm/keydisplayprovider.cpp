@@ -72,7 +72,7 @@ KeyDisplayProvider::~KeyDisplayProvider()
 
 QString KeyDisplayProvider::keyDisplay(const int &key)
 {
-    for (const QVariantMap &map : m_displayMap) {
+    for (const QVariantMap &map : qAsConst(m_displayMap)) {
         if (map.value("key") == key) {
             return map.value("text").toString();
         }
@@ -82,7 +82,7 @@ QString KeyDisplayProvider::keyDisplay(const int &key)
 
 QString KeyDisplayProvider::keyIcon(const int &key, const QString &deviceType)
 {
-    for (const QVariantMap &map : m_displayMap) {
+    for (const QVariantMap &map : qAsConst(m_displayMap)) {
         if (map.value("key") == key) {
             if(deviceType == "Gamepad" || deviceType == "Xbox" || deviceType == "Wii") {
                 if(!map.value("gamePadIcon").toString().isEmpty()) {

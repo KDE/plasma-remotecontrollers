@@ -39,12 +39,14 @@ void CECController::handleCecKeypress(void* param, const cec_keypress* key)
 
 void CECController::handleCommandReceived(void* param, const cec_command* command)
 {
-    Q_UNUSED(param)
+    Q_UNUSED(param);
     m_hitcommand = command->opcode;
 }
 
 void CECController::handleCompleteEvent(const int keycode, const int keyduration, const int opcode)
 {
+    Q_UNUSED(keyduration);
+
     if (m_catchNextInput) {
         m_caughtInput = keycode;
 
@@ -64,12 +66,12 @@ void CECController::handleCompleteEvent(const int keycode, const int keyduration
             // send key press and key release events before cec key release event
             // otherwise the key release event will take 500 ms to be sent and cause the key to be stuck
             // in the pressed state
-            emit ControllerManager::instance().emitKey(nativeKeyCode, 1);
-            emit ControllerManager::instance().emitKey(nativeKeyCode, 0);
+            ControllerManager::instance().emitKey(nativeKeyCode, 1);
+            ControllerManager::instance().emitKey(nativeKeyCode, 0);
         } else if (opcode == CEC_OPCODE_USER_CONTROL_RELEASE) {
 
             // not sure if this is actually needed, cec will send key pressed events even when it hasn't produced a key release event
-            emit ControllerManager::instance().emitKey(nativeKeyCode, 0);
+            ControllerManager::instance().emitKey(nativeKeyCode, 0);
         }
     } else {
         return;

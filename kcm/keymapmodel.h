@@ -35,7 +35,7 @@ public:
         AssignedKeyIconRole
     };
 
-    Q_ENUMS(Roles)
+    Q_ENUM(Roles)
      
 private:
     QHash<int, QByteArray> m_roleNames;
