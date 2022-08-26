@@ -160,6 +160,7 @@ install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR})
 install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
 install(FILES 40-uinput.rules DESTINATION ${KDE_INSTALL_LIBDIR}/udev/rules.d)
 
+install(FILES org.kde.plasma.remotecontrollers.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 ecm_qt_install_logging_categories(
         EXPORT PLASMARC

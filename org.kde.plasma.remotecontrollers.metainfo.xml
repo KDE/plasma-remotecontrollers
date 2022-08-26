@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.kde.plasma.remotecontrollers</id>
+
+  <name>Plasma Remote Controllers</name>
+  <summary>Translate various input device events into keyboard and pointer events</summary>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL and LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL</project_license>
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>gamepad</control>
+  </supports>
+
+  <description>
+    <p>
+      Translate various input device events into keyboard and pointer events
+    </p>
+  </description>
+  <project_group>KDE</project_group>
+
+  <launchable type="desktop-id">org.kde.plasma-remotecontrollers.desktop</launchable>
+</component>
