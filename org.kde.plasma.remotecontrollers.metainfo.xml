@@ -4,16 +4,22 @@
   <name>Plasma Remote Controllers</name>
   <name xml:lang="ca">Controls remots del Plasma</name>
   <name xml:lang="ca-valencia">Controls remots de Plasma</name>
+  <name xml:lang="es">Mandos a distancia de Plasma</name>
   <name xml:lang="eu">Plasmaren urruneko aginteak</name>
   <name xml:lang="nl">Plasma afstandsbedieningen</name>
+  <name xml:lang="pl">Pady Plazmy</name>
+  <name xml:lang="pt">Comandos à Distância do Plasma</name>
   <name xml:lang="tr">Plasma Uzaktan Kumandalar</name>
   <name xml:lang="uk">Дистанційне керування Плазмою</name>
   <name xml:lang="x-test">xxPlasma Remote Controllersxx</name>
   <summary>Translate various input device events into keyboard and pointer events</summary>
   <summary xml:lang="ca">Tradueix diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</summary>
   <summary xml:lang="ca-valencia">Traduïx diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</summary>
+  <summary xml:lang="es">Traducir diversos eventos de dispositivos de entrada en eventos de teclado y del puntero</summary>
   <summary xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</summary>
   <summary xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</summary>
+  <summary xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</summary>
+  <summary xml:lang="pt">Traduz vários eventos dos dispositivos de entrada em eventos do teclado e do rato</summary>
   <summary xml:lang="tr">Çeşitli girdi aygıtı olaylarını klavye ve işaretçi olaylarına çevir</summary>
   <summary xml:lang="uk">Прив'язка різноманітних подій з пристроїв введення до подій клавіатури і вказівника</summary>
   <summary xml:lang="x-test">xxTranslate various input device events into keyboard and pointer eventsxx</summary>
@@ -30,8 +36,11 @@
     </p>
     <p xml:lang="ca">Tradueix diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</p>
     <p xml:lang="ca-valencia">Traduïx diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</p>
+    <p xml:lang="es">Traducir diversos eventos de dispositivos de entrada en eventos de teclado y del puntero</p>
     <p xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</p>
     <p xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</p>
+    <p xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</p>
+    <p xml:lang="pt">Traduz vários eventos dos dispositivos de entrada em eventos do teclado e do rato</p>
     <p xml:lang="tr">Çeşitli girdi aygıtı olaylarını klavye ve işaretçi olaylarına çevir</p>
     <p xml:lang="uk">Прив'язка різноманітних подій з пристроїв введення до подій клавіатури і вказівника</p>
     <p xml:lang="x-test">xxTranslate various input device events into keyboard and pointer eventsxx</p>
