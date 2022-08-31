@@ -39,7 +39,7 @@ Q_SIGNALS:
     void deviceDisconnected(Device*);
 
 private:
-    QStringList m_applicationBlacklist;
+    QStringList m_applicationInhibit;
     bool m_enabled = true;
     QVector<Device*> m_connectedDevices;
     QScopedPointer<AbstractSystem> m_inputSystem;

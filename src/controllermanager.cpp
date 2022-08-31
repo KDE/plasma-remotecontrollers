@@ -46,13 +46,13 @@ ControllerManager::ControllerManager(QObject *parent)
     }
 
     KSharedConfigPtr config = KSharedConfig::openConfig(QLatin1String("plasma-remotecontrollersrc"));
-    KConfigGroup grp(config, "Blacklist");
-    m_applicationBlacklist = grp.readEntry("applications", QStringList());
+    KConfigGroup grp(config, "Inhibit");
+    m_applicationInhibit = grp.readEntry("applications", QStringList());
 
     auto model = new TaskManager::TasksModel(this);
     connect(model, &TaskManager::TasksModel::activeTaskChanged, this, [this, model] {
         const QString appId = model->activeTask().data(TaskManager::AbstractTasksModel::AppId).toString();
-        m_enabled = !m_applicationBlacklist.contains(appId);
+        m_enabled = !m_applicationInhibit.contains(appId);
     });
 }
 
