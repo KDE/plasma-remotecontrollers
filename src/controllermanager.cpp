@@ -43,8 +43,8 @@ ControllerManager::ControllerManager(QObject *parent)
         }
     }
 
-    static KSharedConfigPtr config = KSharedConfig::openConfig(QLatin1String("plasma-remotecontrollersrc"));
-    static KConfigGroup grp(config, QLatin1String("Blacklist"));
+    KSharedConfigPtr config = KSharedConfig::openConfig(QLatin1String("plasma-remotecontrollersrc"));
+    KConfigGroup grp(config, "Blacklist");
     m_applicationBlacklist = grp.readEntry("applications", QStringList());
 }
 
