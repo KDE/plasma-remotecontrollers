@@ -10,10 +10,12 @@
 #include "kwinfakeinputsystem.h"
 #include "devicesmodel.h"
 
-#include <KWindowSystem>
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <QDebug>
+
+#include <taskmanager/tasksmodel.h>
+#include <taskmanager/abstracttasksmodel.h>
 
 class NoOpInputSystem : public AbstractSystem
 {
@@ -46,6 +48,12 @@ ControllerManager::ControllerManager(QObject *parent)
     KSharedConfigPtr config = KSharedConfig::openConfig(QLatin1String("plasma-remotecontrollersrc"));
     KConfigGroup grp(config, "Blacklist");
     m_applicationBlacklist = grp.readEntry("applications", QStringList());
+
+    auto model = new TaskManager::TasksModel(this);
+    connect(model, &TaskManager::TasksModel::activeTaskChanged, this, [this, model] {
+        const QString appId = model->activeTask().data(TaskManager::AbstractTasksModel::AppId).toString();
+        m_enabled = !m_applicationBlacklist.contains(appId);
+    });
 }
 
 ControllerManager &ControllerManager::instance()
@@ -122,14 +130,9 @@ QVector<Device*> ControllerManager::connectedDevices()
 
 void ControllerManager::emitKey(int key, bool pressed) const
 {
-    int focusedWindowID = KWindowSystem::activeWindow();
-    QString focusedWindowName = KWindowInfo(focusedWindowID, NET::WMName).name();
-    for (const QString &blacklistedApplication : m_applicationBlacklist) {
-        if (focusedWindowName.split(QLatin1Char(' ')).contains(blacklistedApplication, Qt::CaseInsensitive)) {
-            return;
-        }
-    }
-    
+    if (!m_enabled)
+        return;
+
     m_inputSystem->emitKey(key, pressed);
 }
 

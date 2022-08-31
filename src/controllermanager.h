@@ -40,6 +40,7 @@ Q_SIGNALS:
 
 private:
     QStringList m_applicationBlacklist;
+    bool m_enabled = true;
     QVector<Device*> m_connectedDevices;
     QScopedPointer<AbstractSystem> m_inputSystem;
 };

@@ -46,6 +46,8 @@ add_feature_info(XWiimote XWiimote_FOUND "Adds support for Wiimotes, not current
 pkg_check_modules(Evdev REQUIRED IMPORTED_TARGET libevdev)
 add_feature_info(Evdev Evdev_FOUND "Adds support for controllers")
 
+find_package(LibTaskManager REQUIRED)
+
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
 ecm_qt_declare_logging_category(SRCS HEADER plasmarc-evdev-debug.h IDENTIFIER PLASMARC_EVDEV CATEGORY_NAME org.kde.plasma.remotecontrollers.evdev DESCRIPTION "Plasma Remote Controllers - evdev" DEFAULT_SEVERITY Info EXPORT PLASMARC)
@@ -84,7 +86,7 @@ target_link_libraries(plasma-remotecontrollers
     KF5::Notifications
     KF5::Solid
     KF5::I18n
-    KF5::WindowSystem
+    PW::LibTaskManager
     PkgConfig::Evdev
     Wayland::Client
 )
@@ -116,7 +118,7 @@ target_link_libraries(remotecontrollersplugin
     KF5::Notifications
     KF5::Solid
     KF5::I18n
-    KF5::WindowSystem
+    PW::LibTaskManager
     PkgConfig::Evdev
     Wayland::Client
 )
