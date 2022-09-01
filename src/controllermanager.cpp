@@ -47,7 +47,7 @@ ControllerManager::ControllerManager(QObject *parent)
 
     KSharedConfigPtr config = KSharedConfig::openConfig(QLatin1String("plasma-remotecontrollersrc"));
     KConfigGroup grp(config, "Inhibit");
-    m_applicationInhibit = grp.readEntry("applications", QStringList());
+    m_applicationInhibit = grp.readEntry("Applications", QStringList { QStringLiteral("kodi.desktop"), QStringLiteral("xonotic-sdl.desktop") });
 
     auto model = new TaskManager::TasksModel(this);
     connect(model, &TaskManager::TasksModel::activeTaskChanged, this, [this, model] {
