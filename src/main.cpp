@@ -17,6 +17,7 @@
 #include <QGuiApplication>
 #include <QDebug>
 #include <QDBusConnection>
+#include <KLocalizedString>
 
 #include <fcntl.h>
 #include <unistd.h>
@@ -24,6 +25,7 @@
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    KLocalizedString::setApplicationDomain("plasma-remotecontrollers");
 
     new EvdevController();
 
