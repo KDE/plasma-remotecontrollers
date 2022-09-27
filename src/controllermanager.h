@@ -8,9 +8,18 @@
 
 #include "device.h"
 
+#include <QHash>
 #include <QObject>
 
 class AbstractSystem;
+class KStatusNotifierItem;
+class QAction;
+class RemoteControllersSettings;
+
+namespace TaskManager
+{
+    class TasksModel;
+}
 
 class ControllerManager : public QObject
 {
@@ -33,14 +42,18 @@ public slots:
     void emitKey(int key, bool pressed) const;
     void removeDevice(int deviceIndex);
     QVector<Device*> connectedDevices();
+    void refreshApps();
 
 Q_SIGNALS:
     void deviceConnected(Device*);
     void deviceDisconnected(Device*);
 
 private:
-    QStringList m_applicationInhibit;
     bool m_enabled = true;
     QVector<Device*> m_connectedDevices;
     QScopedPointer<AbstractSystem> m_inputSystem;
+    KStatusNotifierItem *m_sni = nullptr;
+    TaskManager::TasksModel *m_appsModel = nullptr;
+    QHash<QString, QAction *> m_appActions;
+    QScopedPointer<RemoteControllersSettings> m_settings;
 };

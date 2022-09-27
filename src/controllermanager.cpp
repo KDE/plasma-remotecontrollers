@@ -12,10 +12,16 @@
 
 #include <KSharedConfig>
 #include <KConfigGroup>
+#include <KLocalizedString>
+#include <KStatusNotifierItem>
+#include <QAction>
 #include <QDebug>
+#include <QMenu>
 
 #include <taskmanager/tasksmodel.h>
 #include <taskmanager/abstracttasksmodel.h>
+
+#include "remotecontrollers.h"
 
 class NoOpInputSystem : public AbstractSystem
 {
@@ -30,6 +36,7 @@ public:
 
 ControllerManager::ControllerManager(QObject *parent)
     : QObject(parent)
+    , m_settings(new RemoteControllersSettings)
 {
     // Setup notifications
     QObject::connect(this, &ControllerManager::deviceConnected,
@@ -45,15 +52,26 @@ ControllerManager::ControllerManager(QObject *parent)
         }
     }
 
-    KSharedConfigPtr config = KSharedConfig::openConfig(QLatin1String("plasma-remotecontrollersrc"));
-    KConfigGroup grp(config, "Inhibit");
-    m_applicationInhibit = grp.readEntry("Applications", QStringList { QStringLiteral("kodi.desktop"), QStringLiteral("xonotic-sdl.desktop") });
+    m_sni = new KStatusNotifierItem(QStringLiteral("org.kde.plasma.remotecontrollers"), this);
+    m_sni->setIconByName("input-gamepad");
+    m_sni->setStandardActionsEnabled(false);
+    m_sni->setContextMenu(new QMenu);
+    m_sni->setToolTipTitle(i18n("Plasma Remote Controllers"));
+    m_sni->setToolTipSubTitle(i18n("Configure Inhibited Apps"));
 
-    auto model = new TaskManager::TasksModel(this);
-    connect(model, &TaskManager::TasksModel::activeTaskChanged, this, [this, model] {
-        const QString appId = model->activeTask().data(TaskManager::AbstractTasksModel::AppId).toString();
-        m_enabled = !m_applicationInhibit.contains(appId);
+    auto section = new QAction(i18n("Inhibitions"));
+    section->setEnabled(false);
+    m_sni->contextMenu()->addAction(section);
+
+    m_appsModel = new TaskManager::TasksModel(this);
+    connect(m_appsModel, &TaskManager::TasksModel::activeTaskChanged, this, [this] {
+        const QString appId = m_appsModel->activeTask().data(TaskManager::AbstractTasksModel::AppId).toString();
+        m_enabled = !m_settings->applications().contains(appId);
     });
+    connect(m_appsModel, &TaskManager::TasksModel::rowsAboutToBeRemoved, this, &ControllerManager::refreshApps);
+    connect(m_appsModel, &TaskManager::TasksModel::rowsInserted, this, &ControllerManager::refreshApps);
+    connect(m_appsModel, &TaskManager::TasksModel::modelReset, this, &ControllerManager::refreshApps);
+    refreshApps();
 }
 
 ControllerManager &ControllerManager::instance()
@@ -75,6 +93,8 @@ void ControllerManager::newDevice(Device *device)
     // Don't send notifications for CEC devices, since we expect them to always be available
     if (device->getDeviceType() != DeviceCEC)
         emit deviceConnected(device);
+
+    m_sni->setStatus(KStatusNotifierItem::Active);
 }
 
 void ControllerManager::deviceRemoved(Device *device)
@@ -85,6 +105,8 @@ void ControllerManager::deviceRemoved(Device *device)
     for (int i = 0; i < m_connectedDevices.size(); i++) {
         m_connectedDevices[i]->setIndex(i);
     }
+
+    m_sni->setStatus(m_connectedDevices.count() > 0 ? KStatusNotifierItem::Active : KStatusNotifierItem::Passive);
 }
 
 void ControllerManager::removeDevice(int deviceIndex)
@@ -146,3 +168,43 @@ void ControllerManager::noopInput()
     m_inputSystem.reset(new NoOpInputSystem);
 }
 
+void ControllerManager::refreshApps()
+{
+    auto menu = m_sni->contextMenu();
+    auto actions = menu->actions();
+    for (int i = 0, c = m_appsModel->rowCount(); i < c; ++i) {
+        const auto task = m_appsModel->index(i, 0);
+        auto appId = task.data(TaskManager::AbstractTasksModel::AppId).toString();
+        auto &action = m_appActions[appId];
+        if (action) {
+            actions.removeAll(action);
+        } else {
+            QString appName = task.data(TaskManager::AbstractTasksModel::AppName).toString();
+            if (appName.isNull()) {
+                appName = task.data(Qt::DisplayRole).toString();
+            }
+            action = new QAction(appName);
+            action->setCheckable(true);
+            action->setChecked(m_settings->applications().contains(appId));
+            action->setProperty("appId", appId);
+            connect(action, &QAction::toggled, this, [this, action] (bool checked) {
+                if (checked) {
+                    auto apps = m_settings->applications();
+                    apps += action->property("appId").toString();
+                    m_settings->setApplications(apps);
+                } else {
+                    auto apps = m_settings->applications();
+                    apps.removeAll(action->property("appId").toString());
+                    m_settings->setApplications(apps);
+                }
+                m_settings->save();
+            });
+            m_appActions[appId] = action;
+            menu->addAction(action);
+        }
+    }
+    for (auto action : actions) {
+        menu->removeAction(action);
+        delete m_appActions.take(action->property("appId").toString());
+    }
+}

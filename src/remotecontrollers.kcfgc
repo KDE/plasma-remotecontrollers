@@ -1,0 +1,5 @@
+File=remotecontrollers.kcfg
+ClassName=RemoteControllersSettings
+GenerateProperties=true
+Mutators=true
+Inherits=KCoreConfigSkeleton

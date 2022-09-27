@@ -90,6 +90,8 @@ target_link_libraries(plasma-remotecontrollers
 )
 
 add_library(remotecontrollersplugin SHARED)
+kconfig_add_kcfg_files(remotecontrollersplugin src/remotecontrollers.kcfgc GENERATE_MOC)
+kconfig_add_kcfg_files(plasma-remotecontrollers src/remotecontrollers.kcfgc GENERATE_MOC)
 
 target_sources(remotecontrollersplugin PRIVATE
     src/remotecontrollersplugin.cpp

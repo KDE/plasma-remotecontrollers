@@ -14,7 +14,7 @@
 # include "wiimote/wiimotecontroller.h"
 #endif // HAS_XWIIMOTE
 
-#include <QGuiApplication>
+#include <QApplication>
 #include <QDebug>
 #include <QDBusConnection>
 #include <KLocalizedString>
@@ -24,7 +24,8 @@
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    // KStatusNotifierItem needs a QApplication
+    QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("plasma-remotecontrollers");
 
     new EvdevController();
