@@ -14,6 +14,7 @@
   <name xml:lang="pt">Comandos à Distância do Plasma</name>
   <name xml:lang="sk">Diaľkové ovládače Plasma</name>
   <name xml:lang="sl">Plasma Remote Controllers</name>
+  <name xml:lang="sv">Plasma fjärrkontroller</name>
   <name xml:lang="tr">Plasma Uzaktan Kumandalar</name>
   <name xml:lang="uk">Дистанційне керування Плазмою</name>
   <name xml:lang="x-test">xxPlasma Remote Controllersxx</name>
@@ -29,6 +30,7 @@
   <summary xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</summary>
   <summary xml:lang="pt">Traduz vários eventos dos dispositivos de entrada em eventos do teclado e do rato</summary>
   <summary xml:lang="sl">Prevaja različne dogodke na vhodni napravi v dogodke na tipkovnici in kazalniku</summary>
+  <summary xml:lang="sv">Översätt diverse inmatningsenhetshändelser till tangentbords- och pekarhändelser</summary>
   <summary xml:lang="tr">Çeşitli girdi aygıtı olaylarını klavye ve işaretçi olaylarına çevir</summary>
   <summary xml:lang="uk">Прив'язка різноманітних подій з пристроїв введення до подій клавіатури і вказівника</summary>
   <summary xml:lang="x-test">xxTranslate various input device events into keyboard and pointer eventsxx</summary>
@@ -54,6 +56,7 @@
     <p xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</p>
     <p xml:lang="pt">Traduz vários eventos dos dispositivos de entrada em eventos do teclado e do rato</p>
     <p xml:lang="sl">Prevaja različne dogodke na vhodni napravi v dogodke na tipkovnici in kazalniku</p>
+    <p xml:lang="sv">Översätt diverse inmatningsenhetshändelser till tangentbords- och pekarhändelser</p>
     <p xml:lang="tr">Çeşitli girdi aygıtı olaylarını klavye ve işaretçi olaylarına çevir</p>
     <p xml:lang="uk">Прив'язка різноманітних подій з пристроїв введення до подій клавіатури і вказівника</p>
     <p xml:lang="x-test">xxTranslate various input device events into keyboard and pointer eventsxx</p>
