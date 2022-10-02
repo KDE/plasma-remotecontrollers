@@ -1,0 +1,33 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the plasma-remotecontrollers package.
+#
+# Steve Allewell <steve.allewell@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-remotecontrollers\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:50+0000\n"
+"PO-Revision-Date: 2022-08-29 12:07+0100\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.08.0\n"
+
+#: notificationsmanager.cpp:27
+#, kde-format
+msgid "Controller connected"
+msgstr "Controller connected"
+
+#: notificationsmanager.cpp:37
+#, kde-format
+msgid "Controller Disconnected"
+msgstr "Controller Disconnected"
+
+#: wiimote/wiimote.cpp:22
+#, kde-format
+msgid "What Nintendo Wii remote controllers are called"
+msgstr "What Nintendo Wii remote controllers are called"

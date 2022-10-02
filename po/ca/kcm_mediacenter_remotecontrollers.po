@@ -1,0 +1,386 @@
+# Translation of kcm_mediacenter_remotecontrollers.po to Catalan
+# Copyright (C) 2022 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep M. Ferrer <txemaq@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-remotecontrollers\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-23 00:47+0000\n"
+"PO-Revision-Date: 2022-07-23 17:05+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Josep M. Ferrer"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "txemaq@gmail.com"
+
+#: keydisplayprovider.cpp:14
+#, kde-format
+msgid "Play"
+msgstr "Reprodueix"
+
+#: keydisplayprovider.cpp:15
+#, kde-format
+msgid "Stop"
+msgstr "Atura"
+
+#: keydisplayprovider.cpp:16
+#, kde-format
+msgid "Pause"
+msgstr "Pausa"
+
+#: keydisplayprovider.cpp:17
+#, kde-format
+msgid "Rewind"
+msgstr "Rebobina"
+
+#: keydisplayprovider.cpp:18
+#, kde-format
+msgid "Fast Forward"
+msgstr "Avanç ràpid"
+
+#: keydisplayprovider.cpp:19
+#, kde-format
+msgid "Enter"
+msgstr "Retorn"
+
+#: keydisplayprovider.cpp:20
+#, kde-format
+msgid "Up"
+msgstr "Amunt"
+
+#: keydisplayprovider.cpp:21
+#, kde-format
+msgid "Down"
+msgstr "Avall"
+
+#: keydisplayprovider.cpp:22
+#, kde-format
+msgid "Right"
+msgstr "Dreta"
+
+#: keydisplayprovider.cpp:23
+#, kde-format
+msgid "Left"
+msgstr "Esquerra"
+
+#: keydisplayprovider.cpp:24
+#, kde-format
+msgid "Button 0"
+msgstr "Botó 0"
+
+#: keydisplayprovider.cpp:25
+#, kde-format
+msgid "Button 1"
+msgstr "Botó 1"
+
+#: keydisplayprovider.cpp:26
+#, kde-format
+msgid "Button 2"
+msgstr "Botó 2"
+
+#: keydisplayprovider.cpp:27
+#, kde-format
+msgid "Button 3"
+msgstr "Botó 3"
+
+#: keydisplayprovider.cpp:28
+#, kde-format
+msgid "Button 4"
+msgstr "Botó 4"
+
+#: keydisplayprovider.cpp:29
+#, kde-format
+msgid "Button 5"
+msgstr "Botó 5"
+
+#: keydisplayprovider.cpp:30
+#, kde-format
+msgid "Button 6"
+msgstr "Botó 6"
+
+#: keydisplayprovider.cpp:31
+#, kde-format
+msgid "Button 7"
+msgstr "Botó 7"
+
+#: keydisplayprovider.cpp:32
+#, kde-format
+msgid "Button 8"
+msgstr "Botó 8"
+
+#: keydisplayprovider.cpp:33
+#, kde-format
+msgid "Button 9"
+msgstr "Botó 9"
+
+#: keydisplayprovider.cpp:34
+#, kde-format
+msgid "Button Blue"
+msgstr "Botó blau"
+
+#: keydisplayprovider.cpp:35
+#, kde-format
+msgid "Button Green"
+msgstr "Botó verd"
+
+#: keydisplayprovider.cpp:36
+#, kde-format
+msgid "Button Yellow"
+msgstr "Botó groc"
+
+#: keydisplayprovider.cpp:37
+#, kde-format
+msgid "Button Red"
+msgstr "Botó vermell"
+
+#: keydisplayprovider.cpp:38
+#, kde-format
+msgid "Channel Up"
+msgstr "Canal següent"
+
+#: keydisplayprovider.cpp:39
+#, kde-format
+msgid "Channel Down"
+msgstr "Canal anterior"
+
+#: keydisplayprovider.cpp:40 package/contents/ui/+mediacenter/main.qml:97
+#, kde-format
+msgid "Exit"
+msgstr "Surt"
+
+#: keydisplayprovider.cpp:41
+#, kde-format
+msgid "Back"
+msgstr "Enrere"
+
+#: keydisplayprovider.cpp:42 keydisplayprovider.cpp:43
+#, kde-format
+msgid "Home"
+msgstr "Inici"
+
+#: keydisplayprovider.cpp:44
+#, kde-format
+msgid "Menu"
+msgstr "Menú"
+
+#: keydisplayprovider.cpp:45
+#, kde-format
+msgid "Info"
+msgstr "Informació"
+
+#: keydisplayprovider.cpp:46
+#, kde-format
+msgid "Subtitle"
+msgstr "Subtítols"
+
+#: keydisplayprovider.cpp:47
+#, kde-format
+msgid "Left Meta"
+msgstr "Meta esquerra"
+
+#: keydisplayprovider.cpp:48
+#, kde-format
+msgid "Games"
+msgstr "Jocs"
+
+#: keydisplayprovider.cpp:49
+#, kde-format
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: keydisplayprovider.cpp:51
+#, kde-format
+msgid "Mode"
+msgstr "Mode"
+
+#: keydisplayprovider.cpp:52
+#, kde-format
+msgid "Start"
+msgstr "Inicia"
+
+#: keydisplayprovider.cpp:53
+#, kde-format
+msgid "Gamepad X / Gamepad Square"
+msgstr "Botó X / Botó quadrat"
+
+#: keydisplayprovider.cpp:54
+#, kde-format
+msgid "Gamepad A / Gamepad Cross"
+msgstr "Botó A / Botó creu"
+
+#: keydisplayprovider.cpp:55
+#, kde-format
+msgid "Gamepad B / Gamepad Circle"
+msgstr "Botó B / Botó cercle"
+
+#: keydisplayprovider.cpp:56
+#, kde-format
+msgid "Gamepad Y / Gamepad Triangle"
+msgstr "Botó Y / Botó triangle"
+
+#: keydisplayprovider.cpp:57
+#, kde-format
+msgid "Trigger Left-1"
+msgstr "Activador esquerre-1"
+
+#: keydisplayprovider.cpp:58
+#, kde-format
+msgid "Trigger Right-1"
+msgstr "Activador dret-1"
+
+#: keydisplayprovider.cpp:59
+#, kde-format
+msgid "Trigger Left-2"
+msgstr "Activador esquerre-2"
+
+#: keydisplayprovider.cpp:60
+#, kde-format
+msgid "Trigger Right-2"
+msgstr "Activador dret-2"
+
+#: keydisplayprovider.cpp:61
+#, kde-format
+msgid "DPad Up"
+msgstr "Tecla amunt"
+
+#: keydisplayprovider.cpp:62
+#, kde-format
+msgid "DPad Down"
+msgstr "Tecla avall"
+
+#: keydisplayprovider.cpp:63
+#, kde-format
+msgid "DPad Left"
+msgstr "Tecla esquerra"
+
+#: keydisplayprovider.cpp:64
+#, kde-format
+msgid "DPad Right"
+msgstr "Tecla dreta"
+
+#: keydisplayprovider.cpp:65
+#, kde-format
+msgid "Select"
+msgstr "Selecció"
+
+#: keymapmodel.cpp:53 keymapmodel.cpp:124
+#, kde-format
+msgid "Button Left"
+msgstr "Botó esquerre"
+
+#: keymapmodel.cpp:63 keymapmodel.cpp:134
+#, kde-format
+msgid "Button Right"
+msgstr "Botó dret"
+
+#: keymapmodel.cpp:73 keymapmodel.cpp:144
+#, kde-format
+msgid "Button Up"
+msgstr "Botó amunt"
+
+#: keymapmodel.cpp:83 keymapmodel.cpp:154
+#, kde-format
+msgid "Button Down"
+msgstr "Botó avall"
+
+#: keymapmodel.cpp:93 keymapmodel.cpp:164
+#, kde-format
+msgid "Button Enter"
+msgstr "Botó d'entrada"
+
+#: keymapmodel.cpp:103 keymapmodel.cpp:174
+#, kde-format
+msgid "Button Back"
+msgstr "Botó enrere"
+
+#: keymapmodel.cpp:113 keymapmodel.cpp:184
+#, kde-format
+msgid "Button Home"
+msgstr "Botó inici"
+
+#: package/contents/ui/+mediacenter/DeviceMap.qml:37
+#: package/contents/ui/DeviceMap.qml:45
+#, kde-format
+msgid "Bind TV Remote Keys To Buttons"
+msgstr "Vincula les tecles del controlador del televisor als botons"
+
+#: package/contents/ui/+mediacenter/DeviceMap.qml:39
+#: package/contents/ui/DeviceMap.qml:47
+#, kde-format
+msgid "Bind Wii Remote Keys To Buttons"
+msgstr "Vincula les tecles del controlador de la Wii als botons"
+
+#: package/contents/ui/+mediacenter/DeviceMap.qml:41
+#: package/contents/ui/DeviceMap.qml:49
+#, kde-format
+msgid "Bind Gamepad Keys To Buttons"
+msgstr "Vincula les tecles del comandament de joc als botons"
+
+#: package/contents/ui/+mediacenter/DeviceSetupView.qml:152
+#, kde-format
+msgid "Go back [←] to return to device selection"
+msgstr "Torneu enrere [←] per a retornar a la selecció de dispositius"
+
+#: package/contents/ui/+mediacenter/main.qml:23
+#: package/contents/ui/+mediacenter/main.qml:67 package/contents/ui/main.qml:21
+#, kde-format
+msgid "Remote Controllers"
+msgstr "Controls remots"
+
+#: package/contents/ui/+mediacenter/main.qml:132
+#, kde-format
+msgid "Found Devices"
+msgstr "Dispositius trobats"
+
+#: package/contents/ui/+mediacenter/main.qml:132
+#, kde-format
+msgid "No Devices Found"
+msgstr "No s'ha trobat cap dispositiu"
+
+#: package/contents/ui/+mediacenter/main.qml:184
+#: package/contents/ui/main.qml:128
+#, kde-format
+msgid "Select Key On Your TV Remote For %1"
+msgstr "Seleccioneu una tecla en el control remot del televisor per %1"
+
+#: package/contents/ui/+mediacenter/main.qml:215
+#: package/contents/ui/main.qml:159
+#, kde-format
+msgid "Select Key On Your Gamepad For %1"
+msgstr "Seleccioneu una tecla en el comandament de joc per %1"
+
+#: package/contents/ui/main.qml:22
+#, kde-format
+msgid "This module lets you configure remote controllers."
+msgstr "Aquest mòdul permet configurar els controls remots."
+
+#: package/contents/ui/main.qml:53
+#, kde-format
+msgid "Device:"
+msgstr "Dispositiu:"
+
+#: package/contents/ui/main.qml:95
+#, kde-format
+msgid "No remote controllers available."
+msgstr "No hi ha cap controls remot disponible."
+
+#: remotecontroller.cpp:26
+#, kde-format
+msgid "Configure Remote Controllers"
+msgstr "Configuració dels controls remots"

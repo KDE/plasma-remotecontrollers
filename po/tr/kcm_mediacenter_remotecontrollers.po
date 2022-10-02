@@ -1,0 +1,384 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the plasma-remotecontrollers package.
+#
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-remotecontrollers\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-23 00:47+0000\n"
+"PO-Revision-Date: 2022-07-23 12:49+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Emir SARI"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "emir_sari@icloud.com"
+
+#: keydisplayprovider.cpp:14
+#, kde-format
+msgid "Play"
+msgstr "Oynat"
+
+#: keydisplayprovider.cpp:15
+#, kde-format
+msgid "Stop"
+msgstr "Durdur"
+
+#: keydisplayprovider.cpp:16
+#, kde-format
+msgid "Pause"
+msgstr "Duraklat"
+
+#: keydisplayprovider.cpp:17
+#, kde-format
+msgid "Rewind"
+msgstr "Geri Sar"
+
+#: keydisplayprovider.cpp:18
+#, kde-format
+msgid "Fast Forward"
+msgstr "İleri Sar"
+
+#: keydisplayprovider.cpp:19
+#, kde-format
+msgid "Enter"
+msgstr "Giriş"
+
+#: keydisplayprovider.cpp:20
+#, kde-format
+msgid "Up"
+msgstr "Yukarı"
+
+#: keydisplayprovider.cpp:21
+#, kde-format
+msgid "Down"
+msgstr "Aşağı"
+
+#: keydisplayprovider.cpp:22
+#, kde-format
+msgid "Right"
+msgstr "Sağ"
+
+#: keydisplayprovider.cpp:23
+#, kde-format
+msgid "Left"
+msgstr "Sol"
+
+#: keydisplayprovider.cpp:24
+#, kde-format
+msgid "Button 0"
+msgstr "Düğme 0"
+
+#: keydisplayprovider.cpp:25
+#, kde-format
+msgid "Button 1"
+msgstr "Düğme 1"
+
+#: keydisplayprovider.cpp:26
+#, kde-format
+msgid "Button 2"
+msgstr "Düğme 2"
+
+#: keydisplayprovider.cpp:27
+#, kde-format
+msgid "Button 3"
+msgstr "Düğme 3"
+
+#: keydisplayprovider.cpp:28
+#, kde-format
+msgid "Button 4"
+msgstr "Düğme 4"
+
+#: keydisplayprovider.cpp:29
+#, kde-format
+msgid "Button 5"
+msgstr "Düğme 5"
+
+#: keydisplayprovider.cpp:30
+#, kde-format
+msgid "Button 6"
+msgstr "Düğme 6"
+
+#: keydisplayprovider.cpp:31
+#, kde-format
+msgid "Button 7"
+msgstr "Düğme 7"
+
+#: keydisplayprovider.cpp:32
+#, kde-format
+msgid "Button 8"
+msgstr "Düğme 8"
+
+#: keydisplayprovider.cpp:33
+#, kde-format
+msgid "Button 9"
+msgstr "Düğme 9"
+
+#: keydisplayprovider.cpp:34
+#, kde-format
+msgid "Button Blue"
+msgstr "Mavi Düğme"
+
+#: keydisplayprovider.cpp:35
+#, kde-format
+msgid "Button Green"
+msgstr "Yeşil Düğme"
+
+#: keydisplayprovider.cpp:36
+#, kde-format
+msgid "Button Yellow"
+msgstr "Sarı Düğme"
+
+#: keydisplayprovider.cpp:37
+#, kde-format
+msgid "Button Red"
+msgstr "Kırmızı Düğme"
+
+#: keydisplayprovider.cpp:38
+#, kde-format
+msgid "Channel Up"
+msgstr "Kanal Yukarı"
+
+#: keydisplayprovider.cpp:39
+#, kde-format
+msgid "Channel Down"
+msgstr "Kanal Aşağı"
+
+#: keydisplayprovider.cpp:40 package/contents/ui/+mediacenter/main.qml:97
+#, kde-format
+msgid "Exit"
+msgstr "Çık"
+
+#: keydisplayprovider.cpp:41
+#, kde-format
+msgid "Back"
+msgstr "Geri"
+
+#: keydisplayprovider.cpp:42 keydisplayprovider.cpp:43
+#, kde-format
+msgid "Home"
+msgstr "Ana Ekran"
+
+#: keydisplayprovider.cpp:44
+#, kde-format
+msgid "Menu"
+msgstr "Menü"
+
+#: keydisplayprovider.cpp:45
+#, kde-format
+msgid "Info"
+msgstr "Bilgi"
+
+#: keydisplayprovider.cpp:46
+#, kde-format
+msgid "Subtitle"
+msgstr "Altyazı"
+
+#: keydisplayprovider.cpp:47
+#, kde-format
+msgid "Left Meta"
+msgstr "Sol Meta"
+
+#: keydisplayprovider.cpp:48
+#, kde-format
+msgid "Games"
+msgstr "Oyunlar"
+
+#: keydisplayprovider.cpp:49
+#, kde-format
+msgid "Cancel"
+msgstr "İptal"
+
+#: keydisplayprovider.cpp:51
+#, kde-format
+msgid "Mode"
+msgstr "Kip"
+
+#: keydisplayprovider.cpp:52
+#, kde-format
+msgid "Start"
+msgstr "Başlat"
+
+#: keydisplayprovider.cpp:53
+#, kde-format
+msgid "Gamepad X / Gamepad Square"
+msgstr "Oyun Pedi X / Oyun Pedi Kare"
+
+#: keydisplayprovider.cpp:54
+#, kde-format
+msgid "Gamepad A / Gamepad Cross"
+msgstr "Oyun Pedi A Oyun Pedi Çarpı"
+
+#: keydisplayprovider.cpp:55
+#, kde-format
+msgid "Gamepad B / Gamepad Circle"
+msgstr "Oyun Pedi B / Oyun Pedi Daire"
+
+#: keydisplayprovider.cpp:56
+#, kde-format
+msgid "Gamepad Y / Gamepad Triangle"
+msgstr "Oyun Pedi Y / Oyun Pedi Üçgen"
+
+#: keydisplayprovider.cpp:57
+#, kde-format
+msgid "Trigger Left-1"
+msgstr "Tetik Sol 1"
+
+#: keydisplayprovider.cpp:58
+#, kde-format
+msgid "Trigger Right-1"
+msgstr "Tetik Sağ 1"
+
+#: keydisplayprovider.cpp:59
+#, kde-format
+msgid "Trigger Left-2"
+msgstr "Tetik Sol 2"
+
+#: keydisplayprovider.cpp:60
+#, kde-format
+msgid "Trigger Right-2"
+msgstr "Tetik Sağ 2"
+
+#: keydisplayprovider.cpp:61
+#, kde-format
+msgid "DPad Up"
+msgstr "DPad Yukarı"
+
+#: keydisplayprovider.cpp:62
+#, kde-format
+msgid "DPad Down"
+msgstr "DPad Aşağı"
+
+#: keydisplayprovider.cpp:63
+#, kde-format
+msgid "DPad Left"
+msgstr "DPad Sol"
+
+#: keydisplayprovider.cpp:64
+#, kde-format
+msgid "DPad Right"
+msgstr "DPad Sağ"
+
+#: keydisplayprovider.cpp:65
+#, kde-format
+msgid "Select"
+msgstr "Seç"
+
+#: keymapmodel.cpp:53 keymapmodel.cpp:124
+#, kde-format
+msgid "Button Left"
+msgstr "Sol Düğme"
+
+#: keymapmodel.cpp:63 keymapmodel.cpp:134
+#, kde-format
+msgid "Button Right"
+msgstr "Sağ Düğme"
+
+#: keymapmodel.cpp:73 keymapmodel.cpp:144
+#, kde-format
+msgid "Button Up"
+msgstr "Yukarı Düğme"
+
+#: keymapmodel.cpp:83 keymapmodel.cpp:154
+#, kde-format
+msgid "Button Down"
+msgstr "Aşağı Düğme"
+
+#: keymapmodel.cpp:93 keymapmodel.cpp:164
+#, kde-format
+msgid "Button Enter"
+msgstr "Giriş Düğmesi"
+
+#: keymapmodel.cpp:103 keymapmodel.cpp:174
+#, kde-format
+msgid "Button Back"
+msgstr "Geri Düğmesi"
+
+#: keymapmodel.cpp:113 keymapmodel.cpp:184
+#, kde-format
+msgid "Button Home"
+msgstr "Ana Ekran Düğmesi"
+
+#: package/contents/ui/+mediacenter/DeviceMap.qml:37
+#: package/contents/ui/DeviceMap.qml:45
+#, kde-format
+msgid "Bind TV Remote Keys To Buttons"
+msgstr "TV Uzaktan Kumanda Düğmelerini Bağıntıla"
+
+#: package/contents/ui/+mediacenter/DeviceMap.qml:39
+#: package/contents/ui/DeviceMap.qml:47
+#, kde-format
+msgid "Bind Wii Remote Keys To Buttons"
+msgstr "Wii Kumanda Düğmelerini Bağıntıla"
+
+#: package/contents/ui/+mediacenter/DeviceMap.qml:41
+#: package/contents/ui/DeviceMap.qml:49
+#, kde-format
+msgid "Bind Gamepad Keys To Buttons"
+msgstr "Oyun Pedi Düğmelerini Bağıntıla"
+
+#: package/contents/ui/+mediacenter/DeviceSetupView.qml:152
+#, kde-format
+msgid "Go back [←] to return to device selection"
+msgstr "Aygıt seçimine geri dönmek için geri [←] gidin"
+
+#: package/contents/ui/+mediacenter/main.qml:23
+#: package/contents/ui/+mediacenter/main.qml:67 package/contents/ui/main.qml:21
+#, kde-format
+msgid "Remote Controllers"
+msgstr "Uzaktan Kumandalar"
+
+#: package/contents/ui/+mediacenter/main.qml:132
+#, kde-format
+msgid "Found Devices"
+msgstr "Bulunan Aygıtlar"
+
+#: package/contents/ui/+mediacenter/main.qml:132
+#, kde-format
+msgid "No Devices Found"
+msgstr "Aygıt Bulunamadı"
+
+#: package/contents/ui/+mediacenter/main.qml:184
+#: package/contents/ui/main.qml:128
+#, kde-format
+msgid "Select Key On Your TV Remote For %1"
+msgstr "%1 için TV Kumandanızda Düğme Seçin"
+
+#: package/contents/ui/+mediacenter/main.qml:215
+#: package/contents/ui/main.qml:159
+#, kde-format
+msgid "Select Key On Your Gamepad For %1"
+msgstr "%1 için Oyun Pedinizde Düğme Seçin"
+
+#: package/contents/ui/main.qml:22
+#, kde-format
+msgid "This module lets you configure remote controllers."
+msgstr "Bu modül, uzaktan kumandalarınızı yapılandırmanıza izin verir."
+
+#: package/contents/ui/main.qml:53
+#, kde-format
+msgid "Device:"
+msgstr "Aygıt:"
+
+#: package/contents/ui/main.qml:95
+#, kde-format
+msgid "No remote controllers available."
+msgstr "Kullanılabilir uzaktan kumanda yok."
+
+#: remotecontroller.cpp:26
+#, kde-format
+msgid "Configure Remote Controllers"
+msgstr "Uzaktan Kumandaları Yapılandır"
