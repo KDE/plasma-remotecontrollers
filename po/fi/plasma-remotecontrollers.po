@@ -1,0 +1,33 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the plasma-remotecontrollers package.
+# Tommi Nieminen <translator@legisign.org>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-remotecontrollers\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-08-27 00:50+0000\n"
+"PO-Revision-Date: 2022-08-30 13:49+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#: notificationsmanager.cpp:27
+#, kde-format
+msgid "Controller connected"
+msgstr "Kaukosäädin kytketty"
+
+#: notificationsmanager.cpp:37
+#, kde-format
+msgid "Controller Disconnected"
+msgstr "Kaukosäädin irrotettu"
+
+#: wiimote/wiimote.cpp:22
+#, kde-format
+msgid "What Nintendo Wii remote controllers are called"
+msgstr "Miksi Nintendon Wiin kaukosäätimiä kutsutaan"
