@@ -7,6 +7,7 @@
   <name xml:lang="en-GB">Plasma Remote Controllers</name>
   <name xml:lang="es">Mandos a distancia de Plasma</name>
   <name xml:lang="eu">Plasmaren urruneko aginteak</name>
+  <name xml:lang="fi">Plasma-kaukosäätimet</name>
   <name xml:lang="fr">Télécommandes sous Plasma</name>
   <name xml:lang="it">Controller remoti di Plasma</name>
   <name xml:lang="nl">Plasma afstandsbedieningen</name>
@@ -25,6 +26,7 @@
   <summary xml:lang="en-GB">Translate various input device events into keyboard and pointer events</summary>
   <summary xml:lang="es">Traducir diversos eventos de dispositivos de entrada en eventos de teclado y del puntero</summary>
   <summary xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</summary>
+  <summary xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</summary>
   <summary xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</summary>
   <summary xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</summary>
   <summary xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</summary>
@@ -52,6 +54,7 @@
     <p xml:lang="en-GB">Translate various input device events into keyboard and pointer events</p>
     <p xml:lang="es">Traducir diversos eventos de dispositivos de entrada en eventos de teclado y del puntero</p>
     <p xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</p>
+    <p xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</p>
     <p xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</p>
     <p xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</p>
     <p xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</p>
