@@ -49,6 +49,8 @@ Q_SIGNALS:
     void deviceDisconnected(Device*);
 
 private:
+    bool appInhibited(const QString &appId) const;
+
     bool m_enabled = true;
     QVector<Device*> m_connectedDevices;
     QScopedPointer<AbstractSystem> m_inputSystem;

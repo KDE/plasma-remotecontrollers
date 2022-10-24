@@ -66,7 +66,7 @@ ControllerManager::ControllerManager(QObject *parent)
     m_appsModel = new TaskManager::TasksModel(this);
     connect(m_appsModel, &TaskManager::TasksModel::activeTaskChanged, this, [this] {
         const QString appId = m_appsModel->activeTask().data(TaskManager::AbstractTasksModel::AppId).toString();
-        m_enabled = !m_settings->applications().contains(appId);
+        m_enabled = !appInhibited(appId);
     });
     connect(m_appsModel, &TaskManager::TasksModel::rowsAboutToBeRemoved, this, &ControllerManager::refreshApps);
     connect(m_appsModel, &TaskManager::TasksModel::rowsInserted, this, &ControllerManager::refreshApps);
@@ -185,7 +185,7 @@ void ControllerManager::refreshApps()
             }
             action = new QAction(appName);
             action->setCheckable(true);
-            action->setChecked(m_settings->applications().contains(appId));
+            action->setChecked(appInhibited(appId));
             action->setProperty("appId", appId);
             connect(action, &QAction::toggled, this, [this, action] (bool checked) {
                 if (checked) {
@@ -207,4 +207,17 @@ void ControllerManager::refreshApps()
         menu->removeAction(action);
         delete m_appActions.take(action->property("appId").toString());
     }
+}
+
+bool ControllerManager::appInhibited(const QString &appId) const
+{
+    const auto inhibitedApps = m_settings->applications();
+    for (const auto &inhibitedApp : inhibitedApps) {
+        const QRegularExpression rx(QRegularExpression::wildcardToRegularExpression(inhibitedApp));
+        const auto match = rx.match(appId);
+        if (match.isValid()) {
+            return true;
+        }
+    }
+    return false;
 }
