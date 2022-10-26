@@ -167,7 +167,7 @@ msgstr "Ix"
 #: keydisplayprovider.cpp:41
 #, kde-format
 msgid "Back"
-msgstr "Enrere"
+msgstr "Arrere"
 
 #: keydisplayprovider.cpp:42 keydisplayprovider.cpp:43
 #, kde-format
@@ -307,7 +307,7 @@ msgstr "Botó d'entrada"
 #: keymapmodel.cpp:103 keymapmodel.cpp:174
 #, kde-format
 msgid "Button Back"
-msgstr "Botó enrere"
+msgstr "Botó arrere"
 
 #: keymapmodel.cpp:113 keymapmodel.cpp:184
 #, kde-format
@@ -335,7 +335,7 @@ msgstr "Vincula les tecles del comandament de joc als botons"
 #: package/contents/ui/+mediacenter/DeviceSetupView.qml:152
 #, kde-format
 msgid "Go back [←] to return to device selection"
-msgstr "Torneu enrere [←] per a retornar a la selecció de dispositius"
+msgstr "Torneu arrere [←] per a retornar a la selecció de dispositius"
 
 #: package/contents/ui/+mediacenter/main.qml:23
 #: package/contents/ui/+mediacenter/main.qml:67 package/contents/ui/main.qml:21
