@@ -56,7 +56,8 @@ ControllerManager::ControllerManager(QObject *parent)
     m_sni->setIconByName("input-gamepad");
     m_sni->setStandardActionsEnabled(false);
     m_sni->setContextMenu(new QMenu);
-    m_sni->setToolTipTitle(i18n("Remote Controllers"));
+    m_sni->setTitle(i18n("Remote Controllers"));
+    m_sni->setToolTipTitle(m_sni->title());
     m_sni->setToolTipSubTitle(i18n("Configure Inhibited Apps"));
 
     auto section = new QAction(i18n("Inhibitions"));
