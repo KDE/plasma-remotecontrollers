@@ -49,114 +49,13 @@ find_package(LibTaskManager REQUIRED)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
-ecm_qt_declare_logging_category(SRCS HEADER plasmarc-evdev-debug.h IDENTIFIER PLASMARC_EVDEV CATEGORY_NAME org.kde.plasma.remotecontrollers.evdev DESCRIPTION "Plasma Remote Controllers - evdev" DEFAULT_SEVERITY Info EXPORT PLASMARC)
-
 set(CMAKE_CXX_STANDARD 17)
 
 find_package(PlasmaWaylandProtocols REQUIRED)
 find_package(QtWaylandScanner REQUIRED)
 
-ecm_add_qtwayland_client_protocol(SRCS
-    PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
-    BASENAME fake-input
-)
-
-add_executable(plasma-remotecontrollers
-    src/main.cpp
-    src/controllermanager.cpp
-    src/notificationsmanager.cpp
-    src/device.cpp
-    src/abstractsystem.cpp
-    src/uinputsystem.cpp
-    src/kwinfakeinputsystem.cpp
-    src/evdev/evdevcontroller.cpp
-    src/evdev/evdevdbusinterface.cpp
-    src/devicesmodel.cpp
-    ${SRCS}
-)
-
-target_link_libraries(plasma-remotecontrollers
-    ${CMAKE_DL_LIBS}
-    Qt5::Core
-    Qt5::DBus
-    Qt5::Gui
-    Qt5::WaylandClient
-    KF5::ConfigCore
-    KF5::Notifications
-    KF5::Solid
-    KF5::I18n
-    KF5::DBusAddons
-    KF5::CoreAddons
-    PW::LibTaskManager
-    PkgConfig::Evdev
-    Wayland::Client
-)
-target_compile_definitions(plasma-remotecontrollers PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-
-add_library(remotecontrollersplugin SHARED)
-kconfig_add_kcfg_files(remotecontrollersplugin src/remotecontrollers.kcfgc GENERATE_MOC)
-kconfig_add_kcfg_files(plasma-remotecontrollers src/remotecontrollers.kcfgc GENERATE_MOC)
-
-target_sources(remotecontrollersplugin PRIVATE
-    src/remotecontrollersplugin.cpp
-    src/devicesmodel.cpp
-    src/controllermanager.cpp
-    src/notificationsmanager.cpp
-    src/device.cpp
-    src/abstractsystem.cpp
-    src/uinputsystem.cpp
-    src/kwinfakeinputsystem.cpp
-    src/evdev/evdevcontroller.cpp
-    src/evdev/evdevdbusinterface.cpp
-    ${SRCS}
-)
-
-target_link_libraries(remotecontrollersplugin
-    ${CMAKE_DL_LIBS}
-    Qt::Quick
-    Qt5::Core
-    Qt5::DBus
-    Qt5::Gui
-    Qt5::WaylandClient
-    KF5::ConfigCore
-    KF5::Notifications
-    KF5::Solid
-    KF5::I18n
-    PW::LibTaskManager
-    PkgConfig::Evdev
-    Wayland::Client
-)
-
-if(XWiimote_FOUND)
-	set(WIIMOTE_SRCS
-		src/wiimote/wiimotecontroller.cpp
-		src/wiimote/wiimote.cpp)
-    target_sources(plasma-remotecontrollers PUBLIC ${WIIMOTE_SRCS})
-    target_sources(remotecontrollersplugin PUBLIC ${WIIMOTE_SRCS})
-    target_link_libraries(plasma-remotecontrollers PkgConfig::XWiimote)
-	target_link_libraries(remotecontrollersplugin PkgConfig::XWiimote)
-    add_definitions(-DHAS_XWIIMOTE)
-endif()
-
-if (TARGET PkgConfig::Libcec)
-	set(LIBCEC_SRCS src/libcec/ceccontroller.cpp)
-	target_sources(plasma-remotecontrollers PUBLIC ${LIBCEC_SRCS})
-    target_sources(remotecontrollersplugin PUBLIC ${LIBCEC_SRCS})
-	target_link_libraries(plasma-remotecontrollers PkgConfig::Libcec)
-    target_link_libraries(remotecontrollersplugin PkgConfig::Libcec)
-    add_definitions(-DHAS_LIBCEC)
-endif()
-
-
-install(TARGETS remotecontrollersplugin DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/remotecontrollers)
-install(FILES src/qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/remotecontrollers)
-
+add_subdirectory(src)
 add_subdirectory(kcm)
-
-install(FILES src/libcec/org.kde.plasma-remotecontrollers.CEC.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})
-install(FILES src/evdev/org.kde.plasma-remotecontrollers.EVDEV.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})
-
-install(TARGETS plasma-remotecontrollers DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 configure_file(org.kde.plasma-remotecontrollers.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop DESTINATION ${KDE_INSTALL_SYSCONFDIR}/xdg/autostart)
