@@ -30,6 +30,7 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Solid
     CoreAddons
     Declarative
+    DBusAddons
     KCMUtils
     Package
     WindowSystem
@@ -84,10 +85,13 @@ target_link_libraries(plasma-remotecontrollers
     KF5::Notifications
     KF5::Solid
     KF5::I18n
+    KF5::DBusAddons
+    KF5::CoreAddons
     PW::LibTaskManager
     PkgConfig::Evdev
     Wayland::Client
 )
+target_compile_definitions(plasma-remotecontrollers PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
 
 add_library(remotecontrollersplugin SHARED)
 kconfig_add_kcfg_files(remotecontrollersplugin src/remotecontrollers.kcfgc GENERATE_MOC)

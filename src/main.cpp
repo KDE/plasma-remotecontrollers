@@ -15,10 +15,13 @@
 #endif // HAS_XWIIMOTE
 
 #include <QApplication>
+#include <QCommandLineParser>
 #include <QDebug>
 #include <QDBusConnection>
 #include <KLocalizedString>
 
+#include <KAboutData>
+#include <KDBusService>
 #include <fcntl.h>
 #include <unistd.h>
 
@@ -27,6 +30,33 @@ int main(int argc, char *argv[])
     // KStatusNotifierItem needs a QApplication
     QApplication app(argc, argv);
     KLocalizedString::setApplicationDomain("plasma-remotecontrollers");
+
+    KAboutData about(QStringLiteral("plasma-remotecontrollers"),
+                     i18n("Plasma Remote Controllers"), PROJECT_VERSION,
+                     i18n("System update status notifier"), KAboutLicense::GPL,
+                     i18n("© 2022 Plasma Development Team"));
+    about.setProductName("Plasma Bigscreen/Remote Controllers");
+    about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"),
+                        i18nc("EMAIL OF TRANSLATORS", "Your emails"));
+
+    KAboutData::setApplicationData(about);
+
+    KDBusService::StartupOptions startup = {};
+    {
+        QCommandLineParser parser;
+        QCommandLineOption replaceOption({QStringLiteral("replace")},
+                                        i18n("Replace an existing instance"));
+        parser.addOption(replaceOption);
+        about.setupCommandLine(&parser);
+        parser.process(app);
+        about.processCommandLine(&parser);
+
+        if (parser.isSet(replaceOption)) {
+            startup |= KDBusService::Replace;
+        }
+    }
+
+    KDBusService service(KDBusService::Unique | startup);
 
     new EvdevController();
 
