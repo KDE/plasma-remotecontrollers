@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-27 00:48+0000\n"
+"POT-Creation-Date: 2022-10-28 00:47+0000\n"
 "PO-Revision-Date: 2022-08-30 13:49+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -22,14 +22,46 @@ msgstr ""
 msgid "Remote Controllers"
 msgstr ""
 
-#: controllermanager.cpp:60
+#: controllermanager.cpp:61
 #, kde-format
 msgid "Configure Inhibited Apps"
 msgstr ""
 
-#: controllermanager.cpp:62
+#: controllermanager.cpp:63
 #, kde-format
 msgid "Inhibitions"
+msgstr ""
+
+#: main.cpp:35
+#, kde-format
+msgid "Plasma Remote Controllers"
+msgstr ""
+
+#: main.cpp:36
+#, kde-format
+msgid "System update status notifier"
+msgstr ""
+
+#: main.cpp:37
+#, kde-format
+msgid "© 2022 Plasma Development Team"
+msgstr ""
+
+#: main.cpp:39
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: main.cpp:48
+#, kde-format
+msgid "Replace an existing instance"
 msgstr ""
 
 #: notificationsmanager.cpp:27
