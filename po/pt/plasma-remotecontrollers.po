@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-28 00:47+0000\n"
-"PO-Revision-Date: 2022-10-27 23:57+0100\n"
+"PO-Revision-Date: 2022-10-28 11:42+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -34,37 +34,36 @@ msgid "Inhibitions"
 msgstr "Inibições"
 
 #: main.cpp:35
-#, fuzzy, kde-format
-#| msgid "Remote Controllers"
+#, kde-format
 msgid "Plasma Remote Controllers"
-msgstr "Comandos à Distância"
+msgstr "Comandos à Distância do Plasma"
 
 #: main.cpp:36
 #, kde-format
 msgid "System update status notifier"
-msgstr ""
+msgstr "Notificação do estado de actualização do sistema"
 
 #: main.cpp:37
 #, kde-format
 msgid "© 2022 Plasma Development Team"
-msgstr ""
+msgstr "© 2022 da Equipa de Desenvolvimento do Plasma"
 
 #: main.cpp:39
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "José Nuno Pires"
 
 #: main.cpp:40
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "zepires@gmail.com"
 
 #: main.cpp:48
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Substituir uma instância existente"
 
 #: notificationsmanager.cpp:27
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-28 00:47+0000\n"
-"PO-Revision-Date: 2022-09-03 21:56+0200\n"
+"PO-Revision-Date: 2022-10-28 06:57+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,54 +16,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.08.1\n"
 
 #: controllermanager.cpp:59
 #, kde-format
 msgid "Remote Controllers"
-msgstr ""
+msgstr "Daljinski upravljalniki"
 
 #: controllermanager.cpp:61
 #, kde-format
 msgid "Configure Inhibited Apps"
-msgstr ""
+msgstr "Konfiguriraj zadržane aplikacije"
 
 #: controllermanager.cpp:63
 #, kde-format
 msgid "Inhibitions"
-msgstr ""
+msgstr "Zadržanosti"
 
 #: main.cpp:35
 #, kde-format
 msgid "Plasma Remote Controllers"
-msgstr ""
+msgstr "Plasma daljinski upravljalniki"
 
 #: main.cpp:36
 #, kde-format
 msgid "System update status notifier"
-msgstr ""
+msgstr "Obvestilnik stanja osvežitve sistema"
 
 #: main.cpp:37
 #, kde-format
 msgid "© 2022 Plasma Development Team"
-msgstr ""
+msgstr "© 2022 Razvojna ekipa Plasma"
 
 #: main.cpp:39
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Matjaž Jeran"
 
 #: main.cpp:40
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "matjaz.jeran@amis.net"
 
 #: main.cpp:48
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Zamenjaj obstoječi pojavek"
 
 #: notificationsmanager.cpp:27
 #, kde-format
@@ -78,4 +78,4 @@ msgstr "Krmilnik odklopljen"
 #: wiimote/wiimote.cpp:22
 #, kde-format
 msgid "What Nintendo Wii remote controllers are called"
-msgstr "Kateri Nintendo Wii krmilniki so klicani"
+msgstr "Kateri Nintendo krmilniki Wii so klicani"

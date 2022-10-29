@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-28 00:47+0000\n"
-"PO-Revision-Date: 2022-10-27 12:21+0200\n"
+"PO-Revision-Date: 2022-10-28 11:17+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -33,37 +33,36 @@ msgid "Inhibitions"
 msgstr "Schorsingen"
 
 #: main.cpp:35
-#, fuzzy, kde-format
-#| msgid "Remote Controllers"
+#, kde-format
 msgid "Plasma Remote Controllers"
-msgstr "Afstandsbedieningen"
+msgstr "Plasma afstandsbedieningen"
 
 #: main.cpp:36
 #, kde-format
 msgid "System update status notifier"
-msgstr ""
+msgstr "Statusmeldingenprogramma voor bijwerken van systeem"
 
 #: main.cpp:37
 #, kde-format
 msgid "© 2022 Plasma Development Team"
-msgstr ""
+msgstr "© 2022 Ontwikkelteam van Plasma"
 
 #: main.cpp:39
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Freek de Kruijf - t/m 2022"
 
 #: main.cpp:40
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "freekdekruijf@kde.nl"
 
 #: main.cpp:48
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Een bestaand exemplaar vervangen"
 
 #: notificationsmanager.cpp:27
 #, kde-format
