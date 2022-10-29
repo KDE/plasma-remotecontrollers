@@ -166,6 +166,6 @@ ecm_install_icons(
         22-devices-input-tvremote-menu.svg
         22-devices-input-tvremote-back.svg # Copy of actions/22/system-log-out as I can't symlink it from here
 
-    DESTINATION ${ICON_INSTALL_DIR}
+    DESTINATION ${KDE_INSTALL_ICONDIR}
     THEME hicolor
 )

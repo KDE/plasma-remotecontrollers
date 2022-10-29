@@ -1,9 +1,12 @@
 ecm_qt_declare_logging_category(SRCS HEADER plasmarc-evdev-debug.h IDENTIFIER PLASMARC_EVDEV CATEGORY_NAME org.kde.plasma.remotecontrollers.evdev DESCRIPTION "Plasma Remote Controllers - evdev" DEFAULT_SEVERITY Info EXPORT PLASMARC)
 
-ecm_add_qtwayland_client_protocol(SRCS
-    PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
-    BASENAME fake-input
-)
+if (QT_MAJOR_VERSION STREQUAL "5")
+    ecm_add_qtwayland_client_protocol(SRCS
+        PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
+        BASENAME fake-input
+    )
+endif()
+
 qt_add_dbus_interface(SRCS ${SCREENSAVER_DBUS_INTERFACE} screensaver_interface)
 
 add_executable(plasma-remotecontrollers
@@ -20,12 +23,19 @@ add_executable(plasma-remotecontrollers
     ${SRCS}
 )
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    qt_generate_wayland_protocol_client_sources(plasma-remotecontrollers
+        FILES
+            "${PLASMA_WAYLAND_PROTOCOLS_DIR}/keystate.xml"
+    )
+endif()
+
 target_link_libraries(plasma-remotecontrollers
     ${CMAKE_DL_LIBS}
-    Qt5::Core
-    Qt5::DBus
-    Qt5::Gui
-    Qt5::WaylandClient
+    Qt::Core
+    Qt::DBus
+    Qt::Gui
+    Qt::WaylandClient
     KF5::ConfigCore
     KF5::Notifications
     KF5::Solid
@@ -59,10 +69,10 @@ target_sources(remotecontrollersplugin PRIVATE
 target_link_libraries(remotecontrollersplugin
     ${CMAKE_DL_LIBS}
     Qt::Quick
-    Qt5::Core
-    Qt5::DBus
-    Qt5::Gui
-    Qt5::WaylandClient
+    Qt::Core
+    Qt::DBus
+    Qt::Gui
+    Qt::WaylandClient
     KF5::ConfigCore
     KF5::Notifications
     KF5::Solid
