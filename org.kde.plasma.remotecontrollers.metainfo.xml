@@ -32,7 +32,7 @@
   <summary xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</summary>
   <summary xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</summary>
   <summary xml:lang="pt">Traduz vários eventos dos dispositivos de entrada em eventos do teclado e do rato</summary>
-  <summary xml:lang="ru">Обработка событий устройств ввода и их преобразование в действия мышью в ввод с клавиатуры</summary>
+  <summary xml:lang="ru">Обработка событий устройств ввода и их преобразование в действия мышью и ввод с клавиатуры</summary>
   <summary xml:lang="sl">Prevaja različne dogodke na vhodni napravi v dogodke na tipkovnici in kazalniku</summary>
   <summary xml:lang="sv">Översätt diverse inmatningsenhetshändelser till tangentbords- och pekarhändelser</summary>
   <summary xml:lang="tr">Çeşitli girdi aygıtı olaylarını klavye ve işaretçi olaylarına çevir</summary>
@@ -60,7 +60,7 @@
     <p xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</p>
     <p xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</p>
     <p xml:lang="pt">Traduz vários eventos dos dispositivos de entrada em eventos do teclado e do rato</p>
-    <p xml:lang="ru">Обработка событий устройств ввода и их преобразование в действия мышью в ввод с клавиатуры</p>
+    <p xml:lang="ru">Обработка событий устройств ввода и их преобразование в действия мышью и ввод с клавиатуры</p>
     <p xml:lang="sl">Prevaja različne dogodke na vhodni napravi v dogodke na tipkovnici in kazalniku</p>
     <p xml:lang="sv">Översätt diverse inmatningsenhetshändelser till tangentbords- och pekarhändelser</p>
     <p xml:lang="tr">Çeşitli girdi aygıtı olaylarını klavye ve işaretçi olaylarına çevir</p>
