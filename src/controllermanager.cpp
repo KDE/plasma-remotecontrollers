@@ -22,6 +22,7 @@
 #include <taskmanager/abstracttasksmodel.h>
 
 #include "remotecontrollers.h"
+#include "screensaver_interface.h"
 
 class NoOpInputSystem : public AbstractSystem
 {
@@ -151,10 +152,13 @@ QVector<Device*> ControllerManager::connectedDevices()
     return m_connectedDevices;
 }
 
-void ControllerManager::emitKey(int key, bool pressed) const
+void ControllerManager::emitKey(int key, bool pressed)
 {
-    if (!m_enabled)
+    if (!m_enabled) {
+        // Make sure the system knows that it's being interacted with
+        simulateUserActivity();
         return;
+    }
 
     m_inputSystem->emitKey(key, pressed);
 }
@@ -221,4 +225,16 @@ bool ControllerManager::appInhibited(const QString &appId) const
         }
     }
     return false;
+}
+
+void ControllerManager::simulateUserActivity()
+{
+    const auto current = QDateTime::currentDateTimeUtc();
+    if (!m_lastSimulated.isNull() && m_lastSimulated.secsTo(current) < 60) {
+        return;
+    }
+
+    m_lastSimulated = current;
+    OrgFreedesktopScreenSaverInterface iface(QStringLiteral("org.freedesktop.ScreenSaver"), QStringLiteral("/ScreenSaver"), QDBusConnection::sessionBus());
+    iface.SimulateUserActivity();
 }

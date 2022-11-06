@@ -4,6 +4,7 @@ ecm_add_qtwayland_client_protocol(SRCS
     PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
     BASENAME fake-input
 )
+qt_add_dbus_interface(SRCS ${SCREENSAVER_DBUS_INTERFACE} screensaver_interface)
 
 add_executable(plasma-remotecontrollers
     main.cpp

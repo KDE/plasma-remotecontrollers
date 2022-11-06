@@ -36,6 +36,8 @@ find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     WindowSystem
 )
 find_package(Wayland REQUIRED COMPONENTS Client)
+find_package(ScreenSaverDBusInterface CONFIG REQUIRED)
+
 pkg_check_modules(Libcec IMPORTED_TARGET libcec>=6)
 add_feature_info(Libcec Libcec_FOUND "Adds support forr CEC devices")
 

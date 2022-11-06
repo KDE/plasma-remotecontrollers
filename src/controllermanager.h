@@ -10,6 +10,7 @@
 
 #include <QHash>
 #include <QObject>
+#include <QDateTime>
 
 class AbstractSystem;
 class KStatusNotifierItem;
@@ -39,7 +40,7 @@ public:
     void noopInput();
 
 public slots:
-    void emitKey(int key, bool pressed) const;
+    void emitKey(int key, bool pressed);
     void removeDevice(int deviceIndex);
     QVector<Device*> connectedDevices();
     void refreshApps();
@@ -49,6 +50,7 @@ Q_SIGNALS:
     void deviceDisconnected(Device*);
 
 private:
+    void simulateUserActivity();
     bool appInhibited(const QString &appId) const;
 
     bool m_enabled = true;
@@ -58,4 +60,6 @@ private:
     TaskManager::TasksModel *m_appsModel = nullptr;
     QHash<QString, QAction *> m_appActions;
     QScopedPointer<RemoteControllersSettings> m_settings;
+
+    QDateTime m_lastSimulated;
 };
