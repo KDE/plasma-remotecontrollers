@@ -147,34 +147,38 @@ CECController::CECController()
     m_cecAdapter->InitVideoStandalone();
 }
 
-void CECController::run()
-{
+void CECController::discoverDevices() {
     cec_adapter_descriptor devices[10];
+    int8_t deviceCount = m_cecAdapter->DetectAdapters(devices, 10, nullptr, true);
 
-    while (true) {
-        usleep(LOOPTIME); // Don't hug the CPU
-        int devices_found = m_cecAdapter->DetectAdapters(devices, 10);
+    if (deviceCount <= 0) {
+        qWarning() << "No CEC devices found";
+        return;
+    }
 
-        if (devices_found == 0)
+    for (int8_t i = 0; i < deviceCount; i++) {
+        QString uniqueIdentifier = devices[i].strComName;
+        if (ControllerManager::instance().isConnected(uniqueIdentifier))
             continue;
 
-        for (int i = 0; i < devices_found; i++) {
-            QString uniqueIdentifier = devices[i].strComName;
-            if (ControllerManager::instance().isConnected(uniqueIdentifier))
-                continue;
-
-            if (!m_cecAdapter->Open(devices[i].strComName)) {
-                qWarning() << "Could not open CEC device " << devices[i].strComPath << " " << devices[i].strComName;
-                return;
-            }
-
-            // TODO: detect and handle disconnects
-            Device* device = new Device(DeviceCEC, "CEC Controller", devices[i].strComName);
-            ControllerManager::instance().newDevice(device);
+        if (!m_cecAdapter->Open(devices[i].strComName)) {
+            qWarning() << "Could not open CEC device " << devices[i].strComPath << " " << devices[i].strComName;
+            return;
         }
+
+        // TODO: detect and handle disconnects
+        Device* device = new Device(DeviceCEC, "CEC Controller", devices[i].strComName);
+        ControllerManager::instance().newDevice(device);
     }
 }
 
+void CECController::run()
+{
+    while (m_cecAdapter->GetActiveDevices().size() == 0) {
+        discoverDevices();
+        sleep(20);
+    }
+}
 
 CECController::~CECController() = default;
 

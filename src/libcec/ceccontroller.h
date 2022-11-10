@@ -26,6 +26,7 @@ public:
     ~CECController() override;
 
     void run() override;
+    void discoverDevices();
 
 public Q_SLOTS:
     Q_SCRIPTABLE int sendNextKey();
