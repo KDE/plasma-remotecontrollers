@@ -174,7 +174,7 @@ void CECController::discoverDevices() {
 
 void CECController::run()
 {
-    while (m_cecAdapter->GetActiveDevices().size() == 0) {
+    while (m_cecAdapter->GetActiveDevices().IsEmpty()) {
         discoverDevices();
         sleep(20);
     }
