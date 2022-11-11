@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:47+0000\n"
+"POT-Creation-Date: 2022-11-11 00:48+0000\n"
 "PO-Revision-Date: 2022-10-28 11:42+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -18,17 +18,17 @@ msgstr ""
 "X-POFile-SpellExtra: Nintendo Wii\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: controllermanager.cpp:59
+#: controllermanager.cpp:60
 #, kde-format
 msgid "Remote Controllers"
 msgstr "Comandos à Distância"
 
-#: controllermanager.cpp:61
+#: controllermanager.cpp:62
 #, kde-format
 msgid "Configure Inhibited Apps"
 msgstr "Configurar as Aplicações Inibidas"
 
-#: controllermanager.cpp:63
+#: controllermanager.cpp:64
 #, kde-format
 msgid "Inhibitions"
 msgstr "Inibições"
