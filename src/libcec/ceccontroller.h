@@ -8,7 +8,7 @@
 #pragma once
 
 #include <QDebug>
-#include <QThread>
+#include <QObject>
 
 #include <libcec/cec.h>
 
@@ -16,7 +16,7 @@
 
 using namespace CEC;
 
-class CECController : public QThread
+class CECController : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.plasma-remotecontrollers.CEC")
@@ -25,7 +25,6 @@ public:
     explicit CECController();
     ~CECController() override;
 
-    void run() override;
     void discoverDevices();
 
 public Q_SLOTS:

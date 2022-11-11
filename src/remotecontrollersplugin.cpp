@@ -24,7 +24,6 @@ RemoteControllersPlugin::RemoteControllersPlugin(QObject *parent)
 
 #ifdef HAS_LIBCEC
     m_cecController = new CECController();
-    m_cecController->start();
 #endif
 
 #ifdef HAS_XWIIMOTE

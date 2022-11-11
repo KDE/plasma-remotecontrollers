@@ -61,8 +61,7 @@ int main(int argc, char *argv[])
     new EvdevController();
 
 #ifdef HAS_LIBCEC
-    CECController* ct = new CECController();
-    ct->start();
+    new CECController();
 #endif
     
 #ifdef HAS_XWIIMOTE

@@ -14,6 +14,8 @@
 #include <KSharedConfig>
 #include <KConfigGroup>
 
+#include <Solid/DeviceNotifier>
+
 #include <iostream> // Workaround for libcec bug
 #include <libcec/cec.h>
 #include <libcec/cecloader.h>
@@ -145,6 +147,10 @@ CECController::CECController()
 
     // Init video on targets that need this
     m_cecAdapter->InitVideoStandalone();
+
+    auto notifier = Solid::DeviceNotifier::instance();
+    connect(notifier, &Solid::DeviceNotifier::deviceAdded, this, &CECController::discoverDevices);
+    discoverDevices();
 }
 
 void CECController::discoverDevices() {
@@ -169,14 +175,6 @@ void CECController::discoverDevices() {
         // TODO: detect and handle disconnects
         Device* device = new Device(DeviceCEC, "CEC Controller", devices[i].strComName);
         ControllerManager::instance().newDevice(device);
-    }
-}
-
-void CECController::run()
-{
-    while (m_cecAdapter->GetActiveDevices().IsEmpty()) {
-        discoverDevices();
-        sleep(20);
     }
 }
 
