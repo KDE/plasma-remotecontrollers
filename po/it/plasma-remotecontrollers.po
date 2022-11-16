@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-11 00:48+0000\n"
-"PO-Revision-Date: 2022-08-31 11:25+0200\n"
+"PO-Revision-Date: 2022-11-03 12:33+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,54 +15,54 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #: controllermanager.cpp:60
 #, kde-format
 msgid "Remote Controllers"
-msgstr ""
+msgstr "Telecomandi"
 
 #: controllermanager.cpp:62
 #, kde-format
 msgid "Configure Inhibited Apps"
-msgstr ""
+msgstr "Configura le applicazioni inibite"
 
 #: controllermanager.cpp:64
 #, kde-format
 msgid "Inhibitions"
-msgstr ""
+msgstr "Inibizioni"
 
 #: main.cpp:35
 #, kde-format
 msgid "Plasma Remote Controllers"
-msgstr ""
+msgstr "Controller remoti di Plasma"
 
 #: main.cpp:36
 #, kde-format
 msgid "System update status notifier"
-msgstr ""
+msgstr "Notifiche sullo stato di aggiornamento del sistema"
 
 #: main.cpp:37
 #, kde-format
 msgid "© 2022 Plasma Development Team"
-msgstr ""
+msgstr "© 2022 La squadra di sviluppo di Plasma"
 
 #: main.cpp:39
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Vincenzo Reale"
 
 #: main.cpp:40
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "smart2128vr@gmail.com"
 
 #: main.cpp:48
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Sostituisci un'istanza esistente"
 
 #: notificationsmanager.cpp:27
 #, kde-format
