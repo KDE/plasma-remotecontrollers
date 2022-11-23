@@ -2,6 +2,7 @@
 <component type="desktop-application">
   <id>org.kde.plasma.remotecontrollers</id>
   <name>Plasma Remote Controllers</name>
+  <name xml:lang="ar">أجهزة تحكم عن بعد ببلازما</name>
   <name xml:lang="ca">Controls remots del Plasma</name>
   <name xml:lang="ca-valencia">Controls remots de Plasma</name>
   <name xml:lang="en-GB">Plasma Remote Controllers</name>
@@ -21,6 +22,7 @@
   <name xml:lang="uk">Дистанційне керування Плазмою</name>
   <name xml:lang="x-test">xxPlasma Remote Controllersxx</name>
   <summary>Translate various input device events into keyboard and pointer events</summary>
+  <summary xml:lang="ar">تحول مختلف أحداث أجهزة الإدخال إلى أحداث لوحة مفاتيح و مؤشر</summary>
   <summary xml:lang="ca">Tradueix diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</summary>
   <summary xml:lang="ca-valencia">Traduïx diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</summary>
   <summary xml:lang="en-GB">Translate various input device events into keyboard and pointer events</summary>
@@ -49,6 +51,7 @@
     <p>
       Translate various input device events into keyboard and pointer events
     </p>
+    <p xml:lang="ar">تحول مختلف أحداث أجهزة الإدخال إلى أحداث لوحة مفاتيح و مؤشر</p>
     <p xml:lang="ca">Tradueix diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</p>
     <p xml:lang="ca-valencia">Traduïx diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</p>
     <p xml:lang="en-GB">Translate various input device events into keyboard and pointer events</p>
