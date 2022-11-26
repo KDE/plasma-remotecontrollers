@@ -73,6 +73,14 @@ ControllerManager::ControllerManager(QObject *parent)
     connect(m_appsModel, &TaskManager::TasksModel::rowsAboutToBeRemoved, this, &ControllerManager::refreshApps);
     connect(m_appsModel, &TaskManager::TasksModel::rowsInserted, this, &ControllerManager::refreshApps);
     connect(m_appsModel, &TaskManager::TasksModel::modelReset, this, &ControllerManager::refreshApps);
+
+    // Mark the SNI as passive after 10' without usage
+    m_lastUsed.setInterval(10 * 60 * 1000);
+    m_lastUsed.setSingleShot(true);
+    connect(&m_lastUsed, &QTimer::timeout, this, [this] {
+        m_sni->setStatus(KStatusNotifierItem::Passive);
+    });
+
     refreshApps();
 }
 
@@ -96,6 +104,7 @@ void ControllerManager::newDevice(Device *device)
     if (device->getDeviceType() != DeviceCEC)
         emit deviceConnected(device);
 
+    m_lastUsed.start();
     m_sni->setStatus(KStatusNotifierItem::Active);
 }
 
@@ -109,6 +118,7 @@ void ControllerManager::deviceRemoved(Device *device)
     }
 
     m_sni->setStatus(m_connectedDevices.count() > 0 ? KStatusNotifierItem::Active : KStatusNotifierItem::Passive);
+    m_lastUsed.start();
 }
 
 void ControllerManager::removeDevice(int deviceIndex)
@@ -154,6 +164,8 @@ QVector<Device*> ControllerManager::connectedDevices()
 
 void ControllerManager::emitKey(int key, bool pressed)
 {
+    m_sni->setStatus(KStatusNotifierItem::Active);
+    m_lastUsed.start();
     if (!m_enabled) {
         // Make sure the system knows that it's being interacted with
         simulateUserActivity();
