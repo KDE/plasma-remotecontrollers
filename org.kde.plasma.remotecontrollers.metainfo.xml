@@ -20,6 +20,7 @@
   <name xml:lang="tr">Plasma Uzaktan Kumandalar</name>
   <name xml:lang="uk">Дистанційне керування Плазмою</name>
   <name xml:lang="x-test">xxPlasma Remote Controllersxx</name>
+  <name xml:lang="zh-CN">Plasma 遥控器</name>
   <summary>Translate various input device events into keyboard and pointer events</summary>
   <summary xml:lang="ca">Tradueix diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</summary>
   <summary xml:lang="ca-valencia">Traduïx diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</summary>
@@ -39,6 +40,7 @@
   <summary xml:lang="tr">Çeşitli girdi aygıtı olaylarını klavye ve işaretçi olaylarına çevir</summary>
   <summary xml:lang="uk">Прив'язка різноманітних подій з пристроїв введення до подій клавіатури і вказівника</summary>
   <summary xml:lang="x-test">xxTranslate various input device events into keyboard and pointer eventsxx</summary>
+  <summary xml:lang="zh-CN">将各种输入设备事件转换为键盘和指针事件</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL and LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL</project_license>
   <supports>
@@ -68,6 +70,7 @@
     <p xml:lang="tr">Çeşitli girdi aygıtı olaylarını klavye ve işaretçi olaylarına çevir</p>
     <p xml:lang="uk">Прив'язка різноманітних подій з пристроїв введення до подій клавіатури і вказівника</p>
     <p xml:lang="x-test">xxTranslate various input device events into keyboard and pointer eventsxx</p>
+    <p xml:lang="zh-CN">将各种输入设备事件转换为键盘和指针事件</p>
   </description>
   <project_group>KDE</project_group>
   <launchable type="desktop-id">org.kde.plasma-remotecontrollers.desktop</launchable>
