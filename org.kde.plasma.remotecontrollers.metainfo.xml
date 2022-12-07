@@ -11,6 +11,7 @@
   <name xml:lang="fi">Plasma-kaukosäätimet</name>
   <name xml:lang="fr">Télécommandes sous Plasma</name>
   <name xml:lang="it">Controller remoti di Plasma</name>
+  <name xml:lang="ka">Plasma დაშორებული კონტროლერები</name>
   <name xml:lang="nl">Plasma afstandsbedieningen</name>
   <name xml:lang="pl">Pady Plazmy</name>
   <name xml:lang="pt">Comandos à Distância do Plasma</name>
@@ -32,6 +33,7 @@
   <summary xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</summary>
   <summary xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</summary>
   <summary xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</summary>
+  <summary xml:lang="ka">თარგმნეთ სხვადასხვა შეყვანის მოწყობილობების მოვლენები კლავიატურისა და თაგუნის მოვლენებში</summary>
   <summary xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</summary>
   <summary xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</summary>
   <summary xml:lang="pt">Traduz vários eventos dos dispositivos de entrada em eventos do teclado e do rato</summary>
@@ -62,6 +64,7 @@
     <p xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</p>
     <p xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</p>
     <p xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</p>
+    <p xml:lang="ka">თარგმნეთ სხვადასხვა შეყვანის მოწყობილობების მოვლენები კლავიატურისა და თაგუნის მოვლენებში</p>
     <p xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</p>
     <p xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</p>
     <p xml:lang="pt">Traduz vários eventos dos dispositivos de entrada em eventos do teclado e do rato</p>
