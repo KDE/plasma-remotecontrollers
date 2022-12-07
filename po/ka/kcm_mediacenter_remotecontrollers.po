@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-23 00:47+0000\n"
-"PO-Revision-Date: 2022-12-01 22:42+0100\n"
+"PO-Revision-Date: 2022-12-06 08:43+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -317,19 +317,19 @@ msgstr "ღილაკი Home"
 #: package/contents/ui/DeviceMap.qml:45
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
-msgstr ""
+msgstr "TV-ის პულტის კლავიშების ღილაკებზე მიბმა"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:39
 #: package/contents/ui/DeviceMap.qml:47
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
-msgstr ""
+msgstr "Wii-ის პულტის კლავიშების ღილაკებზე მიბმა"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:41
 #: package/contents/ui/DeviceMap.qml:49
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
-msgstr ""
+msgstr "Gamepad-ის პულტის კლავიშების ღილაკებზე მიბმა"
 
 #: package/contents/ui/+mediacenter/DeviceSetupView.qml:152
 #, kde-format
@@ -356,13 +356,13 @@ msgstr "მოწყობილობების პოვნა ვერ მ
 #: package/contents/ui/main.qml:128
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
-msgstr ""
+msgstr "აირჩიეთ %1-სთვის კლავიშა TV-ის პულტზე"
 
 #: package/contents/ui/+mediacenter/main.qml:215
 #: package/contents/ui/main.qml:159
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
-msgstr ""
+msgstr "აირჩიეთ %1-სთვის კლავიშა Gamepad-ის პულტზე"
 
 #: package/contents/ui/main.qml:22
 #, kde-format
