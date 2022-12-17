@@ -39,7 +39,7 @@
   <summary xml:lang="sk">Preklad rôznych udalostí vstupného zariadenia na udalosti klávesnice a ukazovateľa</summary>
   <summary xml:lang="sl">Prevaja različne dogodke na vhodni napravi v dogodke na tipkovnici in kazalniku</summary>
   <summary xml:lang="sv">Översätt diverse inmatningsenhetshändelser till tangentbords- och pekarhändelser</summary>
-  <summary xml:lang="tr">Çeşitli girdi aygıtı olaylarını klavye ve işaretçi olaylarına çevir</summary>
+  <summary xml:lang="tr">Çeşitli giriş aygıtı olaylarını klavye ve işaretçi olaylarına çevir</summary>
   <summary xml:lang="uk">Прив'язка різноманітних подій з пристроїв введення до подій клавіатури і вказівника</summary>
   <summary xml:lang="x-test">xxTranslate various input device events into keyboard and pointer eventsxx</summary>
   <summary xml:lang="zh-CN">将各种输入设备事件转换为键盘和指针事件</summary>
@@ -70,7 +70,7 @@
     <p xml:lang="sk">Preklad rôznych udalostí vstupného zariadenia na udalosti klávesnice a ukazovateľa</p>
     <p xml:lang="sl">Prevaja različne dogodke na vhodni napravi v dogodke na tipkovnici in kazalniku</p>
     <p xml:lang="sv">Översätt diverse inmatningsenhetshändelser till tangentbords- och pekarhändelser</p>
-    <p xml:lang="tr">Çeşitli girdi aygıtı olaylarını klavye ve işaretçi olaylarına çevir</p>
+    <p xml:lang="tr">Çeşitli giriş aygıtı olaylarını klavye ve işaretçi olaylarına çevir</p>
     <p xml:lang="uk">Прив'язка різноманітних подій з пристроїв введення до подій клавіатури і вказівника</p>
     <p xml:lang="x-test">xxTranslate various input device events into keyboard and pointer eventsxx</p>
     <p xml:lang="zh-CN">将各种输入设备事件转换为键盘和指针事件</p>
