@@ -17,7 +17,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 
 find_package(PkgConfig REQUIRED)
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     DBus
     Gui
@@ -54,7 +54,9 @@ feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 set(CMAKE_CXX_STANDARD 17)
 
 find_package(PlasmaWaylandProtocols REQUIRED)
-find_package(QtWaylandScanner REQUIRED)
+if (QT_MAJOR_VERSION EQUAL "5")
+    find_package(QtWaylandScanner REQUIRED)
+endif()
 
 add_subdirectory(src)
 add_subdirectory(kcm)
@@ -64,7 +66,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.deskt
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.plasma-remotecontrollers.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 install(FILES plasma-remotecontrollersrc DESTINATION ${KDE_INSTALL_CONFDIR})
-install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
+install(FILES plasma-remotecontrollers.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 install(FILES 40-uinput.rules DESTINATION ${KDE_INSTALL_LIBDIR}/udev/rules.d)
 
 install(FILES org.kde.plasma.remotecontrollers.metainfo.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
