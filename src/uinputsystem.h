@@ -16,8 +16,8 @@ class UInputSystem : public AbstractSystem
 public:
     UInputSystem();
 
-    bool init();
-    void emitKey(int key, bool pressed);
+    bool init() override;
+    void emitKey(int key, bool pressed) override;
 
 private:
     void emitEvent(int type, int code, int val);
