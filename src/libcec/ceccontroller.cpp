@@ -13,6 +13,7 @@
 #include <QDBusConnection>
 #include <KSharedConfig>
 #include <KConfigGroup>
+#include <KLocalizedString>
 
 #include <Solid/DeviceNotifier>
 
@@ -133,7 +134,7 @@ CECController::CECController()
     libcec_configuration cecConfig;
     cecConfig.Clear();
     cecConfig.bActivateSource = 0;
-    snprintf(cecConfig.strDeviceName, LIBCEC_OSD_NAME_SIZE, "plasma-rc");
+    snprintf(cecConfig.strDeviceName, LIBCEC_OSD_NAME_SIZE, "%s", qPrintable(i18n("KDE Plasma")));
     cecConfig.clientVersion = LIBCEC_VERSION_CURRENT;
     cecConfig.deviceTypes.Add(CEC_DEVICE_TYPE_RECORDING_DEVICE);
     cecConfig.callbacks = &m_cecCallbacks;
