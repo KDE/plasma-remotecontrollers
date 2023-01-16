@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:48+0000\n"
+"POT-Creation-Date: 2023-01-16 00:59+0000\n"
 "PO-Revision-Date: 2022-10-28 11:17+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -31,6 +31,11 @@ msgstr "Geschorste toepassingen configureren"
 #, kde-format
 msgid "Inhibitions"
 msgstr "Schorsingen"
+
+#: libcec/ceccontroller.cpp:137
+#, kde-format
+msgid "KDE Plasma"
+msgstr ""
 
 #: main.cpp:35
 #, kde-format

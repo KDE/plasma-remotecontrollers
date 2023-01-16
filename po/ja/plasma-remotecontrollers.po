@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:48+0000\n"
+"POT-Creation-Date: 2023-01-16 00:59+0000\n"
 "PO-Revision-Date: 2022-08-28 20:31-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -27,6 +27,11 @@ msgstr ""
 #: controllermanager.cpp:64
 #, kde-format
 msgid "Inhibitions"
+msgstr ""
+
+#: libcec/ceccontroller.cpp:137
+#, kde-format
+msgid "KDE Plasma"
 msgstr ""
 
 #: main.cpp:35

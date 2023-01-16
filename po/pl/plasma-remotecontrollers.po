@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:48+0000\n"
+"POT-Creation-Date: 2023-01-16 00:59+0000\n"
 "PO-Revision-Date: 2023-01-04 20:50+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -32,6 +32,11 @@ msgstr "Ustawienia uśpionych aplikacji"
 #, kde-format
 msgid "Inhibitions"
 msgstr "Uśpienia"
+
+#: libcec/ceccontroller.cpp:137
+#, kde-format
+msgid "KDE Plasma"
+msgstr ""
 
 #: main.cpp:35
 #, kde-format
