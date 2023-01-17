@@ -383,4 +383,4 @@ msgstr "No hi ha cap controls remot disponible."
 #: remotecontroller.cpp:26
 #, kde-format
 msgid "Configure Remote Controllers"
-msgstr "Configuració dels controls remots"
+msgstr "Configureu els controls remots"
