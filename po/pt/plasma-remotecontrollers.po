@@ -36,7 +36,7 @@ msgstr "Inibições"
 #: libcec/ceccontroller.cpp:137
 #, kde-format
 msgid "KDE Plasma"
-msgstr ""
+msgstr "Plasma do KDE"
 
 #: main.cpp:35
 #, kde-format
