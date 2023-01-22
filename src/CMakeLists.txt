@@ -58,7 +58,7 @@ kconfig_add_kcfg_files(remotecontrollersplugin remotecontrollers.kcfgc GENERATE_
 kconfig_add_kcfg_files(plasma-remotecontrollers remotecontrollers.kcfgc GENERATE_MOC)
 
 target_sources(remotecontrollersplugin PRIVATE
-    remotecontrollersplugin.cpp
+    remotecontrollersplugin.cpp remotecontrollersplugin.h
     devicesmodel.cpp
     controllermanager.cpp
     notificationsmanager.cpp
@@ -89,7 +89,7 @@ target_link_libraries(remotecontrollersplugin
 
 if(XWiimote_FOUND)
     set(WIIMOTE_SRCS
-        wiimote/wiimotecontroller.cpp
+        wiimote/wiimotecontroller.cpp wiimote/wiimotecontroller.h
         wiimote/wiimote.cpp)
     target_sources(plasma-remotecontrollers PUBLIC ${WIIMOTE_SRCS})
     target_sources(remotecontrollersplugin PUBLIC ${WIIMOTE_SRCS})
@@ -99,7 +99,7 @@ if(XWiimote_FOUND)
 endif()
 
 if (TARGET PkgConfig::Libcec)
-    set(LIBCEC_SRCS libcec/ceccontroller.cpp)
+    set(LIBCEC_SRCS libcec/ceccontroller.cpp libcec/ceccontroller.h)
     target_sources(plasma-remotecontrollers PUBLIC ${LIBCEC_SRCS})
     target_sources(remotecontrollersplugin PUBLIC ${LIBCEC_SRCS})
     target_link_libraries(plasma-remotecontrollers PkgConfig::Libcec)
