@@ -1,3 +1,5 @@
+# Ignore the following files
 .kdev4
-/build*
-CMakeLists.txt.user
+/build*/
+CMakeLists.txt.user*
+/compile_commands.json
