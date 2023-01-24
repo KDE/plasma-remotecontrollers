@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the plasma-remotecontrollers package.
 #
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-16 00:59+0000\n"
-"PO-Revision-Date: 2022-11-22 21:48+0400\n"
+"PO-Revision-Date: 2023-01-23 20:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -36,7 +36,7 @@ msgstr "المثبطات"
 #: libcec/ceccontroller.cpp:137
 #, kde-format
 msgid "KDE Plasma"
-msgstr ""
+msgstr "سطح مكتب بلازما"
 
 #: main.cpp:35
 #, kde-format
