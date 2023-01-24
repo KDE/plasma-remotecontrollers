@@ -3,6 +3,7 @@
 [Desktop Entry]
 Name=Plasma Remotecontrollers
 Name[ar]=متحكم عن بعد لبلازما
+Name[be]=Кантролеры дыстанцыйнага кіравання Plasma
 Name[ca]=Controls remots del Plasma
 Name[ca@valencia]=Controls remots de Plasma
 Name[en_GB]=Plasma Remotecontrollers
@@ -29,6 +30,7 @@ Name[zh_CN]=Plasma 无线控制器
 Name[zh_TW]=Plasma Remotecontrollers
 Comment=Translates events from various input devices to native key presses
 Comment[ar]=يترجم الأحداث من أجهزة الإدخال المختلفة إلى كبسات مفاتيح أصلية
+Comment[be]=Перавод сігналаў з розных прылад уводу ў сігналы націскання клавіш
 Comment[ca]=Tradueix esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles
 Comment[ca@valencia]=Traduïx esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles
 Comment[en_GB]=Translates events from various input devices to native key presses
