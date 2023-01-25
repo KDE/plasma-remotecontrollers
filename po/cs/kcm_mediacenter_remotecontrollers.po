@@ -1,389 +1,384 @@
-# Zmicier <zmicerturok@gmail.com>, 2023.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the plasma-remotecontrollers package.
+# Vit Pelcak <vit@pelcak.org>, 2023.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
+"Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-23 00:47+0000\n"
-"PO-Revision-Date: 2023-01-23 15:16\n"
-"Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
-"Language-Team: Belarusian\n"
-"Language: be\n"
+"PO-Revision-Date: 2023-01-24 15:42+0100\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
-"%100>=11 && n%100<=14 ? 2 : 3);\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 22.12.1\n"
-"X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
-"X-Crowdin-Project-ID: 127\n"
-"X-Crowdin-Language: be\n"
-"X-Crowdin-File: /main/be/plasma-remotecontrollers/"
-"kcm_mediacenter_remotecontrollers.po\n"
-"X-Crowdin-File-ID: 9096\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Antikruk"
+msgstr "Vít Pelčák"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "nashtlumach@gmail.com"
+msgstr "vit@pelcak.org"
 
 #: keydisplayprovider.cpp:14
 #, kde-format
 msgid "Play"
-msgstr "Прайграць"
+msgstr "Přehrát"
 
 #: keydisplayprovider.cpp:15
 #, kde-format
 msgid "Stop"
-msgstr "Спыніць"
+msgstr "Zastavit"
 
 #: keydisplayprovider.cpp:16
 #, kde-format
 msgid "Pause"
-msgstr "Прыпыніць"
+msgstr "Pozastavit"
 
 #: keydisplayprovider.cpp:17
 #, kde-format
 msgid "Rewind"
-msgstr "Пераматаць назад"
+msgstr "Přetočit zpět"
 
 #: keydisplayprovider.cpp:18
 #, kde-format
 msgid "Fast Forward"
-msgstr "Пераматаць уперад"
+msgstr "Rychle vpřed"
 
 #: keydisplayprovider.cpp:19
 #, kde-format
 msgid "Enter"
-msgstr "Увод"
+msgstr "Enter"
 
 #: keydisplayprovider.cpp:20
 #, kde-format
 msgid "Up"
-msgstr "Уверх"
+msgstr "Nahoru"
 
 #: keydisplayprovider.cpp:21
 #, kde-format
 msgid "Down"
-msgstr "Уніз"
+msgstr "Dolů"
 
 #: keydisplayprovider.cpp:22
 #, kde-format
 msgid "Right"
-msgstr "Управа"
+msgstr "Vpravo"
 
 #: keydisplayprovider.cpp:23
 #, kde-format
 msgid "Left"
-msgstr "Улева"
+msgstr "Vlevo"
 
 #: keydisplayprovider.cpp:24
 #, kde-format
 msgid "Button 0"
-msgstr "Кнопка 0"
+msgstr "Tlačítko 0"
 
 #: keydisplayprovider.cpp:25
 #, kde-format
 msgid "Button 1"
-msgstr "Кнопка 1"
+msgstr "Tlačítko 1"
 
 #: keydisplayprovider.cpp:26
 #, kde-format
 msgid "Button 2"
-msgstr "Кнопка 2"
+msgstr "Tlačítko 2"
 
 #: keydisplayprovider.cpp:27
 #, kde-format
 msgid "Button 3"
-msgstr "Кнопка 3"
+msgstr "Tlačítko 3"
 
 #: keydisplayprovider.cpp:28
 #, kde-format
 msgid "Button 4"
-msgstr "Кнопка 4"
+msgstr "Tlačítko 4"
 
 #: keydisplayprovider.cpp:29
 #, kde-format
 msgid "Button 5"
-msgstr "Кнопка 5"
+msgstr "Tlačítko 5"
 
 #: keydisplayprovider.cpp:30
 #, kde-format
 msgid "Button 6"
-msgstr "Кнопка 6"
+msgstr "Tlačítko 6"
 
 #: keydisplayprovider.cpp:31
 #, kde-format
 msgid "Button 7"
-msgstr "Кнопка 7"
+msgstr "Tlačítko 7"
 
 #: keydisplayprovider.cpp:32
 #, kde-format
 msgid "Button 8"
-msgstr "Кнопка 8"
+msgstr "Tlačítko 8"
 
 #: keydisplayprovider.cpp:33
 #, kde-format
 msgid "Button 9"
-msgstr "Кнопка 9"
+msgstr "Tlačítko 9"
 
 #: keydisplayprovider.cpp:34
 #, kde-format
 msgid "Button Blue"
-msgstr "Сіняя кнопка"
+msgstr ""
 
 #: keydisplayprovider.cpp:35
 #, kde-format
 msgid "Button Green"
-msgstr "Зялёная кнопка"
+msgstr ""
 
 #: keydisplayprovider.cpp:36
 #, kde-format
 msgid "Button Yellow"
-msgstr "Жоўтая кнопка"
+msgstr ""
 
 #: keydisplayprovider.cpp:37
 #, kde-format
 msgid "Button Red"
-msgstr "Чырвоная кнопка"
+msgstr ""
 
 #: keydisplayprovider.cpp:38
 #, kde-format
 msgid "Channel Up"
-msgstr "Канал уверх"
+msgstr ""
 
 #: keydisplayprovider.cpp:39
 #, kde-format
 msgid "Channel Down"
-msgstr "Канал уніз"
+msgstr ""
 
 #: keydisplayprovider.cpp:40 package/contents/ui/+mediacenter/main.qml:97
 #, kde-format
 msgid "Exit"
-msgstr "Выйсці"
+msgstr "Ukončit"
 
 #: keydisplayprovider.cpp:41
 #, kde-format
 msgid "Back"
-msgstr "Назад"
+msgstr "Zpět"
 
 #: keydisplayprovider.cpp:42 keydisplayprovider.cpp:43
 #, kde-format
 msgid "Home"
-msgstr "Хатні каталог"
+msgstr "Domů"
 
 #: keydisplayprovider.cpp:44
 #, kde-format
 msgid "Menu"
-msgstr "Меню"
+msgstr "Nabídka"
 
 #: keydisplayprovider.cpp:45
 #, kde-format
 msgid "Info"
-msgstr "Звесткі"
+msgstr "Informace"
 
 #: keydisplayprovider.cpp:46
 #, kde-format
 msgid "Subtitle"
-msgstr "Субцітры"
+msgstr "Titulky"
 
 #: keydisplayprovider.cpp:47
 #, kde-format
 msgid "Left Meta"
-msgstr "Левая клавіша Meta"
+msgstr ""
 
 #: keydisplayprovider.cpp:48
 #, kde-format
 msgid "Games"
-msgstr "Гульні"
+msgstr "Hry"
 
 #: keydisplayprovider.cpp:49
 #, kde-format
 msgid "Cancel"
-msgstr "Скасаваць"
+msgstr "Zrušit"
 
 #: keydisplayprovider.cpp:51
 #, kde-format
 msgid "Mode"
-msgstr "Рэжым"
+msgstr "Režim"
 
 #: keydisplayprovider.cpp:52
 #, kde-format
 msgid "Start"
-msgstr "Пачаць"
+msgstr "Spustit"
 
 #: keydisplayprovider.cpp:53
 #, kde-format
 msgid "Gamepad X / Gamepad Square"
-msgstr "X / Квадрат геймпада"
+msgstr ""
 
 #: keydisplayprovider.cpp:54
 #, kde-format
 msgid "Gamepad A / Gamepad Cross"
-msgstr "A / Крыж геймпада"
+msgstr ""
 
 #: keydisplayprovider.cpp:55
 #, kde-format
 msgid "Gamepad B / Gamepad Circle"
-msgstr "B / Круг геймпада"
+msgstr ""
 
 #: keydisplayprovider.cpp:56
 #, kde-format
 msgid "Gamepad Y / Gamepad Triangle"
-msgstr "Y / Трохвугольнік геймпада"
+msgstr ""
 
 #: keydisplayprovider.cpp:57
 #, kde-format
 msgid "Trigger Left-1"
-msgstr "Левы трыгер - 1"
+msgstr ""
 
 #: keydisplayprovider.cpp:58
 #, kde-format
 msgid "Trigger Right-1"
-msgstr "Правы трыгер - 1"
+msgstr ""
 
 #: keydisplayprovider.cpp:59
 #, kde-format
 msgid "Trigger Left-2"
-msgstr "Левы трыгер - 2"
+msgstr ""
 
 #: keydisplayprovider.cpp:60
 #, kde-format
 msgid "Trigger Right-2"
-msgstr "Правы трыгер - 2"
+msgstr ""
 
 #: keydisplayprovider.cpp:61
 #, kde-format
 msgid "DPad Up"
-msgstr "DPad уверх"
+msgstr ""
 
 #: keydisplayprovider.cpp:62
 #, kde-format
 msgid "DPad Down"
-msgstr "DPad уніз"
+msgstr ""
 
 #: keydisplayprovider.cpp:63
 #, kde-format
 msgid "DPad Left"
-msgstr "DPad улева"
+msgstr ""
 
 #: keydisplayprovider.cpp:64
 #, kde-format
 msgid "DPad Right"
-msgstr "DPad управа"
+msgstr ""
 
 #: keydisplayprovider.cpp:65
 #, kde-format
 msgid "Select"
-msgstr "Абраць"
+msgstr "Vybrat"
 
 #: keymapmodel.cpp:53 keymapmodel.cpp:124
 #, kde-format
 msgid "Button Left"
-msgstr "Кнопка \"Улева\""
+msgstr ""
 
 #: keymapmodel.cpp:63 keymapmodel.cpp:134
 #, kde-format
 msgid "Button Right"
-msgstr "Кнопка \"Управа\""
+msgstr ""
 
 #: keymapmodel.cpp:73 keymapmodel.cpp:144
 #, kde-format
 msgid "Button Up"
-msgstr "Кнопка \"Уверх\""
+msgstr ""
 
 #: keymapmodel.cpp:83 keymapmodel.cpp:154
 #, kde-format
 msgid "Button Down"
-msgstr "Кнопка \"Уніз\""
+msgstr ""
 
 #: keymapmodel.cpp:93 keymapmodel.cpp:164
 #, kde-format
 msgid "Button Enter"
-msgstr "Кнопка \"Enter\""
+msgstr ""
 
 #: keymapmodel.cpp:103 keymapmodel.cpp:174
 #, kde-format
 msgid "Button Back"
-msgstr "Кнопка \"Назад\""
+msgstr ""
 
 #: keymapmodel.cpp:113 keymapmodel.cpp:184
 #, kde-format
 msgid "Button Home"
-msgstr "Кнопка \"Home\""
+msgstr ""
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:37
 #: package/contents/ui/DeviceMap.qml:45
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
-msgstr "Прывязаць клавішы пульта ад тэлевізара да кнопак"
+msgstr ""
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:39
 #: package/contents/ui/DeviceMap.qml:47
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
-msgstr "Прывязаць клавішы кантролера Wii да кнопак"
+msgstr ""
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:41
 #: package/contents/ui/DeviceMap.qml:49
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
-msgstr "Прывязаць клавішы геймпада да кнопак"
+msgstr ""
 
 #: package/contents/ui/+mediacenter/DeviceSetupView.qml:152
 #, kde-format
 msgid "Go back [←] to return to device selection"
-msgstr "Назад [←], каб вярнуцца да выбару прылады"
+msgstr ""
 
 #: package/contents/ui/+mediacenter/main.qml:23
 #: package/contents/ui/+mediacenter/main.qml:67 package/contents/ui/main.qml:21
 #, kde-format
 msgid "Remote Controllers"
-msgstr "Кантролеры дыстанцыйнага кіравання"
+msgstr ""
 
 #: package/contents/ui/+mediacenter/main.qml:132
 #, kde-format
 msgid "Found Devices"
-msgstr "Пошук прылад"
+msgstr ""
 
 #: package/contents/ui/+mediacenter/main.qml:132
 #, kde-format
 msgid "No Devices Found"
-msgstr "Не знойдзена прылад"
+msgstr ""
 
 #: package/contents/ui/+mediacenter/main.qml:184
 #: package/contents/ui/main.qml:128
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
-msgstr "Абярыце клавішу на пульце дыстанцыйнага кіравання тэлевізарам для %1"
+msgstr ""
 
 #: package/contents/ui/+mediacenter/main.qml:215
 #: package/contents/ui/main.qml:159
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
-msgstr "Абярыце клавішу на геймпадзе для %1"
+msgstr ""
 
 #: package/contents/ui/main.qml:22
 #, kde-format
 msgid "This module lets you configure remote controllers."
-msgstr "Гэты модуль дазваляе наладжваць кантролеры дыстанцыйнага кіравання."
+msgstr ""
 
 #: package/contents/ui/main.qml:53
 #, kde-format
 msgid "Device:"
-msgstr "Прылада:"
+msgstr "Zařízení:"
 
 #: package/contents/ui/main.qml:95
 #, kde-format
 msgid "No remote controllers available."
-msgstr "Няма даступных кантролераў."
+msgstr ""
 
 #: remotecontroller.cpp:26
 #, kde-format
 msgid "Configure Remote Controllers"
-msgstr "Наладжванне кантролераў дыстанцыйнага кіравання"
+msgstr ""
