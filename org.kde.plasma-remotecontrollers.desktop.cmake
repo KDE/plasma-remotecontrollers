@@ -11,6 +11,7 @@ Name[eu]=Plasmaren urruneko aginteak
 Name[fi]=Plasma-kaukosäätimet
 Name[fr]=Contrôleurs distants de Plasma
 Name[hu]=Plasma távirányítók
+Name[ia]=Controlatores remote de Plasma
 Name[it]=Plasma Remotecontrollers
 Name[ka]=Plasma Remotecontrollers
 Name[ko]=Plasma 리모콘
