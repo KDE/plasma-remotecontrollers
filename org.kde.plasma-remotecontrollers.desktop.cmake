@@ -38,6 +38,7 @@ Comment[eu]=Hainbat sarrerako gailuren gertaerak berezko tekla-sakatzeetara itzu
 Comment[fi]=Muuttaa eri syötelaitteiden tapahtumat näppäinpainalluksiksi
 Comment[fr]=Traduit les évènements à partir de divers périphériques d'entrée en des appuis natifs de touches
 Comment[hu]=A különböző beviteli eszközökről érkező eseményeket lefordítása natív billentyűleütésekké
+Comment[ia]=Traduce eventos ex varie dispositivo de egresso a pressiones de clave native
 Comment[it]=Traduce gli eventi da vari dispositivi di immissione in pressioni di tasti nativi
 Comment[ka]=შეყვანის სხვადასხვა მოწყობილობებიდან მოსული სიგნალის ჩვეულებრივ ღილაკებში თარგმნა
 Comment[ko]=다양한 입력 장치 이벤트를 키 입력으로 전환
