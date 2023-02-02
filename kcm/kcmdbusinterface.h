@@ -13,7 +13,7 @@
 class KcmDbusInterface : public QObject
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.plasma-remotecontrollers.KCM")
+    Q_CLASSINFO("D-Bus Interface", "org.kde.plasma.remotecontrollers.KCM")
 
 public:
     explicit KcmDbusInterface(QObject *parent = nullptr);

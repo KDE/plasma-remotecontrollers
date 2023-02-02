@@ -96,7 +96,7 @@ void RemoteController::setGamepadKeyConfig(const QString &button, const QString 
 
 int RemoteController::cecKeyFromRemotePress()
 {
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.plasma-remotecontrollers", "/CEC", "", "sendNextKey");
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/CEC", "", "sendNextKey");
     QDBusMessage response = QDBusConnection::sessionBus().call(msg);
     QList<QVariant> responseArg = response.arguments();
     return responseArg.at(0).toInt();

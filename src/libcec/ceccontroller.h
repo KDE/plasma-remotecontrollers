@@ -19,7 +19,7 @@ using namespace CEC;
 class CECController : public QObject
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.plasma-remotecontrollers.CEC")
+    Q_CLASSINFO("D-Bus Interface", "org.kde.plasma.remotecontrollers.CEC")
 
 public:
     explicit CECController();
