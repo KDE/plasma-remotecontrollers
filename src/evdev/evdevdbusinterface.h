@@ -12,7 +12,7 @@
 class EvdevDbusInterface : public QObject
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.plasma-remotecontrollers.EVDEV")
+    Q_CLASSINFO("D-Bus Interface", "org.kde.plasma.remotecontrollers.EVDEV")
 
 public:
     explicit EvdevDbusInterface(QObject *parent = nullptr);

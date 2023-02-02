@@ -13,17 +13,17 @@
 KcmDbusInterface::KcmDbusInterface(QObject *parent)
     : QObject(parent)
 {
-    if (!QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.plasma-remotecontrollers")) {
-        QDBusConnection::sessionBus().registerService("org.kde.plasma-remotecontrollers");
+    if (!QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.plasma.remotecontrollers")) {
+        QDBusConnection::sessionBus().registerService("org.kde.plasma.remotecontrollers");
     }
     QDBusConnection::sessionBus().registerObject("/KCM", this, QDBusConnection::ExportAllSlots);
     QDBusConnectionInterface *iface = QDBusConnection::sessionBus().interface();
     QDBusConnection dbus = QDBusConnection::sessionBus();
 
     if (iface) {
-        if (iface->isServiceRegistered("org.kde.plasma-remotecontrollers")) {
+        if (iface->isServiceRegistered("org.kde.plasma.remotecontrollers")) {
             if (dbus.isConnected()) {
-                dbus.connect("org.kde.plasma-remotecontrollers", "/EVDEV", "org.kde.plasma.remotecontrollers.EVDEV", "keyPress", this, SLOT(evdevKeyPress(const QDBusMessage&)));
+                dbus.connect("org.kde.plasma.remotecontrollers", "/EVDEV", "org.kde.plasma.remotecontrollers.EVDEV", "keyPress", this, SLOT(evdevKeyPress(const QDBusMessage&)));
             } else {
                 qWarning() << "DBus connection is not connected.";                    
             }

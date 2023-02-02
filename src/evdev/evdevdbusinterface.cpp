@@ -6,8 +6,8 @@
 EvdevDbusInterface::EvdevDbusInterface(QObject *parent)
     : QObject(parent)
 {
-    if (!QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.plasma-remotecontrollers")) {
-        QDBusConnection::sessionBus().registerService("org.kde.plasma-remotecontrollers");
+    if (!QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.plasma.remotecontrollers")) {
+        QDBusConnection::sessionBus().registerService("org.kde.plasma.remotecontrollers");
     }
     QDBusConnection::sessionBus().registerObject("/EVDEV", this, QDBusConnection::ExportAllSignals | QDBusConnection::ExportAllSlots);
 }

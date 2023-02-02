@@ -83,7 +83,7 @@ void CECController::handleCompleteEvent(const int keycode, const int keyduration
 
 CECController::CECController()
 {
-    QDBusConnection::sessionBus().registerService("org.kde.plasma-remotecontrollers");
+    QDBusConnection::sessionBus().registerService("org.kde.plasma.remotecontrollers");
     QDBusConnection::sessionBus().registerObject("/CEC", this, QDBusConnection::ExportScriptableSlots);
 
     QObject::connect(this, &CECController::keyPress,

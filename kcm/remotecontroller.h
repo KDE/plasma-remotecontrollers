@@ -18,7 +18,7 @@ class KcmDbusInterface;
 class RemoteController : public KQuickAddons::ConfigModule
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.plasma-remotecontrollers.KCM")
+    Q_CLASSINFO("D-Bus Interface", "org.kde.plasma.remotecontrollers.KCM")
     Q_PROPERTY(KeyMapModel *keyMapModel READ keyMapModel CONSTANT)
 
 public:
