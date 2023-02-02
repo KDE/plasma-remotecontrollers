@@ -214,3 +214,12 @@ bool CECController::hdmiCecSupported()
     }
     return false;
 }
+
+bool CECController::sendKey(uchar cecKeycode, cec_logical_address address)
+{
+    if (!m_cecAdapter->SendKeypress(address, static_cast<cec_user_control_code>(cecKeycode), true)) {
+        return false;
+    }
+    m_cecAdapter->SendKeyRelease(address);
+    return true;
+}

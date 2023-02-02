@@ -30,6 +30,7 @@ public:
 public Q_SLOTS:
     Q_SCRIPTABLE int sendNextKey();
     Q_SCRIPTABLE bool hdmiCecSupported();
+    Q_SCRIPTABLE bool sendKey(uchar, cec_logical_address address = CECDEVICE_TV);
 
 Q_SIGNALS:
     void keyPress(int keyCode, bool pressed);
