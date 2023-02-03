@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:59+0000\n"
+"POT-Creation-Date: 2023-02-03 01:01+0000\n"
 "PO-Revision-Date: 2023-01-23 20:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -33,7 +33,7 @@ msgstr "اضبط التطبيقات المثبطة"
 msgid "Inhibitions"
 msgstr "المثبطات"
 
-#: libcec/ceccontroller.cpp:137
+#: libcec/ceccontroller.cpp:141
 #, kde-format
 msgid "KDE Plasma"
 msgstr "سطح مكتب بلازما"
