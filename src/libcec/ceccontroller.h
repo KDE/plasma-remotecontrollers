@@ -33,6 +33,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE bool sendKey(uchar, cec_logical_address address = CECDEVICE_TV);
     Q_SCRIPTABLE bool powerOnDevices(cec_logical_address address = CECDEVICE_TV);
     Q_SCRIPTABLE bool powerOffDevices(cec_logical_address address = CECDEVICE_BROADCAST);
+    Q_SCRIPTABLE bool makeActiveSource();
 
 Q_SIGNALS:
     void keyPress(int keyCode, bool pressed);
