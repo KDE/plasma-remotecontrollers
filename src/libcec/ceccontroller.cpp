@@ -245,3 +245,13 @@ bool CECController::sendKey(uchar cecKeycode, cec_logical_address address)
     m_cecAdapter->SendKeyRelease(address);
     return true;
 }
+
+bool CECController::powerOnDevices(cec_logical_address address)
+{
+    return m_cecAdapter->PowerOnDevices(address);
+}
+
+bool CECController::powerOffDevices(cec_logical_address address)
+{
+    return m_cecAdapter->StandbyDevices(address);
+}
