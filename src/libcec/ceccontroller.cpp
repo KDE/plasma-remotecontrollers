@@ -255,3 +255,8 @@ bool CECController::powerOffDevices(cec_logical_address address)
 {
     return m_cecAdapter->StandbyDevices(address);
 }
+
+bool CECController::makeActiveSource()
+{
+    return m_cecAdapter->SetActiveSource();
+}
