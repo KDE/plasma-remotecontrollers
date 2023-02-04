@@ -11,6 +11,7 @@
 
 #include <QDebug>
 #include <QDBusConnection>
+#include <QDBusMetaType>
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -32,6 +33,22 @@ bool CECController::m_nativeNavMode = true;
 int CECController::m_caughtInput = -1;
 int CECController::m_hitcommand;
 
+
+QDBusArgument& operator<<(QDBusArgument& arg, const cec_logical_address& address) {
+    arg.beginStructure();
+    arg << static_cast<uchar>(address);
+    arg.endStructure();
+    return arg;
+}
+
+const QDBusArgument& operator>>(const QDBusArgument& arg, cec_logical_address& address) {
+    uchar value;
+    arg.beginStructure();
+    arg >> value;
+    arg.endStructure();
+    address = static_cast<cec_logical_address>(value);
+    return arg;
+}
 
 void CECController::handleCecKeypress(void* param, const cec_keypress* key)
 {
@@ -83,6 +100,7 @@ void CECController::handleCompleteEvent(const int keycode, const int keyduration
 
 CECController::CECController()
 {
+    qDBusRegisterMetaType<cec_logical_address>();
     QDBusConnection::sessionBus().registerService("org.kde.plasma.remotecontrollers");
     QDBusConnection::sessionBus().registerObject("/CEC", this, QDBusConnection::ExportScriptableSlots);
 
