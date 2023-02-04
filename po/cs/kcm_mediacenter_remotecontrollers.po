@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-07-23 00:47+0000\n"
-"PO-Revision-Date: 2023-01-24 15:42+0100\n"
+"PO-Revision-Date: 2023-01-27 15:27+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -130,22 +130,22 @@ msgstr "Tlačítko 9"
 #: keydisplayprovider.cpp:34
 #, kde-format
 msgid "Button Blue"
-msgstr ""
+msgstr "Modré tlačítko"
 
 #: keydisplayprovider.cpp:35
 #, kde-format
 msgid "Button Green"
-msgstr ""
+msgstr "Zelené tlačítko"
 
 #: keydisplayprovider.cpp:36
 #, kde-format
 msgid "Button Yellow"
-msgstr ""
+msgstr "Žluté tlačítko"
 
 #: keydisplayprovider.cpp:37
 #, kde-format
 msgid "Button Red"
-msgstr ""
+msgstr "Červené tlačítko"
 
 #: keydisplayprovider.cpp:38
 #, kde-format
@@ -344,7 +344,7 @@ msgstr ""
 #: package/contents/ui/+mediacenter/main.qml:132
 #, kde-format
 msgid "Found Devices"
-msgstr ""
+msgstr "Nalezená zařízení"
 
 #: package/contents/ui/+mediacenter/main.qml:132
 #, kde-format
