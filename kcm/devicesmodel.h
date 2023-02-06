@@ -8,7 +8,6 @@
 
 #include <QAbstractListModel>
 #include <QObject>
-#include "device.h"
 
 class DevicesModel : public QAbstractListModel
 {
@@ -25,10 +24,8 @@ public:
 
     Q_ENUM(DeviceRoles)
 
-    explicit DevicesModel(QObject *parent = nullptr);
-    ~DevicesModel() override;
-    static DevicesModel* instance();
-
+    explicit DevicesModel(QObject *parent = 0);
+    ~DevicesModel();
     QHash<int, QByteArray> roleNames() const override;
 
     int count() const;
@@ -37,8 +34,16 @@ public:
     QModelIndex indexOf(const QString &uniqueIdentifier) const;
     Q_INVOKABLE QVariantMap get(int index) const;
     Q_INVOKABLE void load();
-    void deviceConnected(Device*);
-    void deviceDisconnected(Device*);
+    void deviceConnected(QString uniqueIdentifier);
+    void deviceDisconnected(QString uniqueIdentifier);
+
+    // Dbus interface implementation
+    QStringList getConnectedDevices();
+    QString getDeviceName(const QString &uniqueIdentifier);
+    int getDeviceType(const QString &uniqueIdentifier);
+    QString getDeviceIconName(const QString &uniqueIdentifier);
+    void setNoop();
+    void releaseNoop();
 
 Q_SIGNALS:
     void devicesChanged();
@@ -46,7 +51,7 @@ Q_SIGNALS:
 
 private:
     QHash<int, QByteArray> m_roleNames;
-    QList<Device*> m_devices;
+    QList<QVariantMap> m_devices;
 };
 
 

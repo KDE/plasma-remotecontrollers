@@ -14,7 +14,7 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kcm 1.1 as KCM
 import org.kde.mycroft.bigscreen 1.0 as BigScreen
-import org.kde.plasma.remotecontrollers 1.0 as PlasmaRemoteControllers
+import org.kde.private.kcm.remotecontrollers 1.0
 import "+mediacenter/delegates" as Delegates
 
 KCM.SimpleKCM {
@@ -26,14 +26,14 @@ KCM.SimpleKCM {
     topPadding: 0
     rightPadding: Kirigami.Units.smallSpacing
     bottomPadding: 0
-    property var supportedControllers: PlasmaRemoteControllers.DevicesModel
+    property var supportedControllers: kcm.devicesModel
 
     Component.onCompleted: {
         connectionView.forceActiveFocus();
     }
 
     Connections {
-        target: PlasmaRemoteControllers.DevicesModel
+        target: kcm.devicesModel
         onDevicesChanged: {
             if(connectionView.count > 0) {
                 deviceSetupView.currentDevice = connectionView.currentItem
