@@ -7,11 +7,11 @@
 #pragma once
 
 #include "device.h"
-
 #include <QHash>
 #include <QObject>
 #include <QDateTime>
 #include <QTimer>
+#include "controllermanagerdbusinterface.h"
 
 class AbstractSystem;
 class KStatusNotifierItem;
@@ -23,6 +23,7 @@ namespace TaskManager
     class TasksModel;
 }
 
+class ControllerManagerDBusInterface;
 class ControllerManager : public QObject
 {
     Q_OBJECT
@@ -40,6 +41,9 @@ public:
     /** Have input not forward events to the OS */
     void noopInput();
 
+    /** Have input forward events to the OS */
+    void releaseNoop();
+
 public slots:
     void emitKey(int key, bool pressed);
     void removeDevice(int deviceIndex);
@@ -53,6 +57,7 @@ Q_SIGNALS:
 private:
     void simulateUserActivity();
     bool appInhibited(const QString &appId) const;
+    ControllerManagerDBusInterface *m_dbusInterface = nullptr;
 
     bool m_enabled = true;
     QVector<Device*> m_connectedDevices;

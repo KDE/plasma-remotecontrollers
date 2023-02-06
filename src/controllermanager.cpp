@@ -8,7 +8,6 @@
 #include "notificationsmanager.h"
 #include "uinputsystem.h"
 #include "kwinfakeinputsystem.h"
-#include "devicesmodel.h"
 
 #include <KSharedConfig>
 #include <KConfigGroup>
@@ -37,6 +36,7 @@ public:
 
 ControllerManager::ControllerManager(QObject *parent)
     : QObject(parent)
+    , m_dbusInterface(new ControllerManagerDBusInterface(this))
     , m_settings(new RemoteControllersSettings)
 {
     // Setup notifications
@@ -80,7 +80,7 @@ ControllerManager::ControllerManager(QObject *parent)
     connect(&m_lastUsed, &QTimer::timeout, this, [this] {
         m_sni->setStatus(KStatusNotifierItem::Passive);
     });
-
+    
     refreshApps();
 }
 
@@ -101,9 +101,10 @@ void ControllerManager::newDevice(Device *device)
     m_connectedDevices.append(device);
 
     // Don't send notifications for CEC devices, since we expect them to always be available
-    if (device->getDeviceType() != DeviceCEC)
+    if (device->getDeviceType() != DeviceCEC) {
         emit deviceConnected(device);
-
+        emit m_dbusInterface->deviceConnected(device->getUniqueIdentifier());
+    }
     m_lastUsed.start();
     m_sni->setStatus(KStatusNotifierItem::Active);
 }
@@ -116,6 +117,7 @@ void ControllerManager::deviceRemoved(Device *device)
     for (int i = 0; i < m_connectedDevices.size(); i++) {
         m_connectedDevices[i]->setIndex(i);
     }
+    emit m_dbusInterface->deviceDisconnected(device->getUniqueIdentifier());
 
     m_sni->setStatus(m_connectedDevices.count() > 0 ? KStatusNotifierItem::Active : KStatusNotifierItem::Passive);
     m_lastUsed.start();
@@ -185,6 +187,17 @@ void ControllerManager::noopInput()
     m_inputSystem.reset(new NoOpInputSystem);
 }
 
+void ControllerManager::releaseNoop()
+{
+    m_inputSystem.reset(new UInputSystem);
+    if (!m_inputSystem->init()) {
+        m_inputSystem.reset(new KWinFakeInputSystem);
+        if (!m_inputSystem->init()) {
+            m_inputSystem.reset(new NoOpInputSystem);
+        }
+    }
+}
+
 void ControllerManager::refreshApps()
 {
     auto menu = m_sni->contextMenu();
@@ -232,7 +245,7 @@ bool ControllerManager::appInhibited(const QString &appId) const
     for (const auto &inhibitedApp : inhibitedApps) {
         const QRegularExpression rx(QRegularExpression::wildcardToRegularExpression(inhibitedApp));
         const auto match = rx.match(appId);
-        if (match.isValid()) {
+        if (match.hasMatch()) {
             return true;
         }
     }
