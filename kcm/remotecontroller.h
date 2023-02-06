@@ -12,6 +12,7 @@
 #include <QDBusVariant>
 #include "kcmdbusinterface.h"
 #include "keymapmodel.h"
+#include "devicesmodel.h"
 
 class KeyMapModel;
 class KcmDbusInterface;
@@ -20,11 +21,13 @@ class RemoteController : public KQuickAddons::ConfigModule
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.plasma.remotecontrollers.KCM")
     Q_PROPERTY(KeyMapModel *keyMapModel READ keyMapModel CONSTANT)
+    Q_PROPERTY(DevicesModel *devicesModel READ devicesModel CONSTANT)
 
 public:
     explicit RemoteController(QObject *parent = nullptr, const QVariantList &list = QVariantList());
     ~RemoteController() override;
     KcmDbusInterface kcmDbusInterface;
+    DevicesModel *devicesModel();
     KeyMapModel *keyMapModel();
 
 public Q_SLOTS:
@@ -32,6 +35,8 @@ public Q_SLOTS:
     QString gamepadKeyConfig(const QString &key);
     void setCecKeyConfig(const QString &button, const QString &key);
     void setGamepadKeyConfig(const QString &button, const QString &key);
+    void acquireNoOp();
+    void releaseNoOp();
     int cecKeyFromRemotePress();
 
 Q_SIGNALS:
@@ -40,6 +45,7 @@ Q_SIGNALS:
     void gamepadKeyPressed(int keyCode);
 
 private:
+    DevicesModel *m_devicesModel;
     KeyMapModel *m_keyMapModel;
 };
 

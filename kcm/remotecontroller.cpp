@@ -19,6 +19,7 @@ K_PLUGIN_CLASS_WITH_JSON(RemoteController, "kcm_mediacenter_remotecontrollers.js
 
 RemoteController::RemoteController(QObject *parent, const QVariantList &args)
     : KQuickAddons::ConfigModule(parent, args)
+    , m_devicesModel(new DevicesModel(this))
     , m_keyMapModel(new KeyMapModel(this))
 {
     setButtons(Help);
@@ -36,6 +37,7 @@ RemoteController::RemoteController(QObject *parent, const QVariantList &args)
 
     const QByteArray uri("org.kde.private.kcm.remotecontrollers");
     qmlRegisterUncreatableType<KeyMapModel>(uri, 1, 0, "KeyMapModel", QStringLiteral("Cannot create an item of type KeyMapModel"));
+    qmlRegisterUncreatableType<DevicesModel>(uri, 1, 0, "DevicesModel", QStringLiteral("Cannot create an item of type DevicesModel"));
 }
 
 RemoteController::~RemoteController()
@@ -94,6 +96,18 @@ void RemoteController::setGamepadKeyConfig(const QString &button, const QString 
     m_keyMapModel->refresh();
 }
 
+void RemoteController::acquireNoOp()
+{
+    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "acquireNoOp");
+    QDBusConnection::sessionBus().call(message);
+}
+
+void RemoteController::releaseNoOp()
+{
+    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "releaseNoOp");
+    QDBusConnection::sessionBus().call(message);
+}
+
 int RemoteController::cecKeyFromRemotePress()
 {
     QDBusMessage msg = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/CEC", "", "sendNextKey");
@@ -108,6 +122,14 @@ KeyMapModel *RemoteController::keyMapModel()
         m_keyMapModel = new KeyMapModel(this);
     }
     return m_keyMapModel;
+}
+
+DevicesModel *RemoteController::devicesModel()
+{
+    if (!m_devicesModel) {
+        m_devicesModel = new DevicesModel(this);
+    }
+    return m_devicesModel;
 }
 
 #include "remotecontroller.moc"

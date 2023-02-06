@@ -8,7 +8,22 @@
 
 #include <QAbstractListModel>
 #include <QObject>
-#include "device.h"
+#include <QDBusInterface>
+
+class ControllerManagerDBusInterface : public QDBusInterface
+{
+    Q_OBJECT
+
+public:
+    ControllerManagerDBusInterface(const QString &service, const QString &path, const char *interface, const QDBusConnection &connection, QObject *parent = nullptr)
+        : QDBusInterface(service, path, interface, connection, parent)
+    {
+    }
+
+signals:
+    void deviceConnected(const QString &deviceName);
+    void deviceDisconnected(const QString &deviceName);
+};
 
 class DevicesModel : public QAbstractListModel
 {
@@ -26,9 +41,7 @@ public:
     Q_ENUM(DeviceRoles)
 
     explicit DevicesModel(QObject *parent = nullptr);
-    ~DevicesModel() override;
-    static DevicesModel* instance();
-
+    ~DevicesModel();
     QHash<int, QByteArray> roleNames() const override;
 
     int count() const;
@@ -37,8 +50,16 @@ public:
     QModelIndex indexOf(const QString &uniqueIdentifier) const;
     Q_INVOKABLE QVariantMap get(int index) const;
     Q_INVOKABLE void load();
-    void deviceConnected(Device*);
-    void deviceDisconnected(Device*);
+
+    // Dbus interface implementation
+    QStringList connectedDevices();
+    QString deviceName(const QString &uniqueIdentifier);
+    int deviceType(const QString &uniqueIdentifier);
+    QString deviceIconName(const QString &uniqueIdentifier);
+
+public Q_SLOTS:
+    void deviceConnected(const QString &uniqueIdentifier);
+    void deviceDisconnected(const QString &uniqueIdentifier);
 
 Q_SIGNALS:
     void devicesChanged();
@@ -46,7 +67,7 @@ Q_SIGNALS:
 
 private:
     QHash<int, QByteArray> m_roleNames;
-    QList<Device*> m_devices;
+    QList<QVariantMap> m_devices;
 };
 
 
