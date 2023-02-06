@@ -13,7 +13,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kcm 1.2 as KCM
-import org.kde.plasma.remotecontrollers 1.0 as PlasmaRemoteControllers
+import org.kde.private.kcm.remotecontrollers 1.0
 import "delegates" as Delegates
 
 KCM.ScrollViewKCM {
@@ -24,9 +24,17 @@ KCM.ScrollViewKCM {
     Component.onCompleted: {
         connectionView.forceActiveFocus();
     }
+
+    function listProperty(item)
+    {
+        for (var p in item)
+        console.log(p + ": " + item[p]);
+    }
+
     
     Connections {
-        target: PlasmaRemoteControllers.DevicesModel
+        target: kcm.devicesModel
+
         onDevicesChanged: {
             if(connectionView.count > 0) {
                 deviceSetupView.deviceName = connectionView.model.get(connectionView.currentIndex).deviceName
@@ -47,7 +55,7 @@ KCM.ScrollViewKCM {
             ComboBox {
                 id: connectionView
                 focus: true
-                model:  PlasmaRemoteControllers.DevicesModel
+                model:  kcm.devicesModel
                 Layout.alignment: Qt.AlignTop
                 Layout.preferredHeight: Kirigami.Units.gridUnit * 4
                 Kirigami.FormData.label: i18n("Device:")
@@ -116,8 +124,13 @@ KCM.ScrollViewKCM {
         }
 
         onOpened: {
+            kcm.setNoop()
             var getCecKey = kcm.cecKeyFromRemotePress()
             keyCodeRecieved(getCecKey)
+        }
+
+        onClosed: {
+            kcm.releaseNoop()
         }
 
         contentItem: Item {
@@ -137,6 +150,14 @@ KCM.ScrollViewKCM {
         width: parent.width * 0.70
         height: parent.height * 0.10
         property var keyType
+
+        onOpened: {
+            kcm.setNoop()
+        }
+
+        onClosed: {
+            kcm.releaseNoop()
+        }
 
         Connections {
             target: kcm

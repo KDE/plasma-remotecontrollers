@@ -6,8 +6,8 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kcm_mediacenter_remotecontrollers\")
 
 ########### next target ###############
 
-set(kcm_mediacenter_remotecontrollers_PART_SRCS remotecontroller.cpp kcmdbusinterface.cpp keydisplayprovider.cpp keymapmodel.cpp
-    remotecontroller.h kcmdbusinterface.h keydisplayprovider.h keymapmodel.h)
+set(kcm_mediacenter_remotecontrollers_PART_SRCS remotecontroller.cpp kcmdbusinterface.cpp keydisplayprovider.cpp keymapmodel.cpp devicesmodel.cpp
+    remotecontroller.h kcmdbusinterface.h keydisplayprovider.h keymapmodel.h devicesmodel.h)
 
 add_library(kcm_mediacenter_remotecontrollers MODULE ${kcm_mediacenter_remotecontrollers_PART_SRCS})
 
