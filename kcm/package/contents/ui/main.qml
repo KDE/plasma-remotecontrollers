@@ -24,13 +24,6 @@ KCM.ScrollViewKCM {
     Component.onCompleted: {
         connectionView.forceActiveFocus();
     }
-
-    function listProperty(item)
-    {
-        for (var p in item)
-        console.log(p + ": " + item[p]);
-    }
-
     
     Connections {
         target: kcm.devicesModel
