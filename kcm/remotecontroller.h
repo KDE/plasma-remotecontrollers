@@ -35,8 +35,8 @@ public Q_SLOTS:
     QString gamepadKeyConfig(const QString &key);
     void setCecKeyConfig(const QString &button, const QString &key);
     void setGamepadKeyConfig(const QString &button, const QString &key);
-    void setNoop();
-    void releaseNoop();
+    void acquireNoOp();
+    void releaseNoOp();
     int cecKeyFromRemotePress();
 
 Q_SIGNALS:

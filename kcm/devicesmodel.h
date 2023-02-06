@@ -34,16 +34,16 @@ public:
     QModelIndex indexOf(const QString &uniqueIdentifier) const;
     Q_INVOKABLE QVariantMap get(int index) const;
     Q_INVOKABLE void load();
-    void deviceConnected(QString uniqueIdentifier);
-    void deviceDisconnected(QString uniqueIdentifier);
 
     // Dbus interface implementation
-    QStringList getConnectedDevices();
+    QStringList connectedDevices();
     QString getDeviceName(const QString &uniqueIdentifier);
     int getDeviceType(const QString &uniqueIdentifier);
     QString getDeviceIconName(const QString &uniqueIdentifier);
-    void setNoop();
-    void releaseNoop();
+
+public Q_SLOTS:
+    void deviceConnected(const QString &uniqueIdentifier);
+    void deviceDisconnected(const QString &uniqueIdentifier);
 
 Q_SIGNALS:
     void devicesChanged();

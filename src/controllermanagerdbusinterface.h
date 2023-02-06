@@ -23,8 +23,8 @@ public Q_SLOTS:
     Q_SCRIPTABLE QString getDeviceName(const QString &uniqueIdentifier);
     Q_SCRIPTABLE int getDeviceType(const QString &uniqueIdentifier);
     Q_SCRIPTABLE QString getDeviceIconName(const QString &uniqueIdentifier);
-    Q_SCRIPTABLE void setNoop();
-    Q_SCRIPTABLE void releaseNoop();
+    Q_SCRIPTABLE void acquireNoOp();
+    Q_SCRIPTABLE void releaseNoOp();
 
 Q_SIGNALS:
     void deviceConnected(const QString &uniqueIdentifier);

@@ -96,15 +96,15 @@ void RemoteController::setGamepadKeyConfig(const QString &button, const QString 
     m_keyMapModel->refresh();
 }
 
-void RemoteController::setNoop()
+void RemoteController::acquireNoOp()
 {
-    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "setNoop");
+    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "acquireNoOp");
     QDBusConnection::sessionBus().call(message);
 }
 
-void RemoteController::releaseNoop()
+void RemoteController::releaseNoOp()
 {
-    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "releaseNoop");
+    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "releaseNoOp");
     QDBusConnection::sessionBus().call(message);
 }
 

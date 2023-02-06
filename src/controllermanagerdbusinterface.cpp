@@ -65,12 +65,12 @@ Q_SCRIPTABLE QString ControllerManagerDBusInterface::getDeviceIconName(const QSt
     return QString();
 }
 
-Q_SCRIPTABLE void ControllerManagerDBusInterface::setNoop()
+Q_SCRIPTABLE void ControllerManagerDBusInterface::acquireNoOp()
 {
     ControllerManager::instance().noopInput();
 }
 
-Q_SCRIPTABLE void ControllerManagerDBusInterface::releaseNoop()
+Q_SCRIPTABLE void ControllerManagerDBusInterface::releaseNoOp()
 {
     ControllerManager::instance().releaseNoop();
 }

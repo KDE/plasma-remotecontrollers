@@ -6,6 +6,7 @@
 #include "devicesmodel.h"
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
+#include <QDBusInterface>
 #include <QDBusMessage>
 #include <QDBusArgument>
 #include <QDebug>
@@ -18,9 +19,11 @@ DevicesModel::DevicesModel(QObject *parent)
     m_roleNames[DeviceUniqueIdentifierRole] = "deviceUniqueIdentifier";
     m_roleNames[DeviceIconNameRole] = "deviceIconName";
 
-    // We want to listen for signals from the dbus interface
-    // QDBusConnection::sessionBus().connect(QString(), "/ControllerManager", "org.kde.plasma.remotecontrollers", "deviceConnected", this, &DevicesModel::deviceConnected);
-    // QDBusConnection::sessionBus().connect(QString(), "/ControllerManager", "org.kde.plasma.remotecontrollers", "deviceDisconnected", this, &DevicesModel::deviceDisconnected);
+    QDBusInterface *iface = new QDBusInterface("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", QDBusConnection::sessionBus(), this);
+    if(iface->isValid()) {
+        connect(iface, SIGNAL(deviceConnected(QString)), this, SLOT(deviceConnected(QString)));
+        connect(iface, SIGNAL(deviceDisconnected(QString)), this, SLOT(deviceDisconnected(QString)));
+    }
 
     load();
 }
@@ -94,14 +97,11 @@ void DevicesModel::load()
 {
     beginResetModel();
     m_devices.clear();
-    qDebug() << "Loading devices...";
 
-    // We will get a QStringList of connectedDevices from the getConnectedDevices method in the dbus interface
-    QStringList connectedDevices = getConnectedDevices();
-    // We need to build a list of devices from the connectedDevices QStringList
+    QStringList devices = connectedDevices();
+
     QVariantMap device;
-    for (const QString &uniqueIdentifier : connectedDevices) {
-        qDebug() << "Found device:" << uniqueIdentifier;
+    for (const QString &uniqueIdentifier : devices) {
         device["deviceName"] = getDeviceName(uniqueIdentifier);
         device["deviceType"] = getDeviceType(uniqueIdentifier);
         device["deviceUniqueIdentifier"] = uniqueIdentifier;
@@ -109,13 +109,10 @@ void DevicesModel::load()
         m_devices.append(device);
     }
 
-    for (const QVariantMap &device : m_devices) {
-        qDebug() << "Device:" << device;
-    }
     endResetModel();
 }
 
-void DevicesModel::deviceConnected(QString uniqueIdentifier)
+void DevicesModel::deviceConnected(const QString &uniqueIdentifier)
 {
     QVariantMap device;
     device["deviceName"] = getDeviceName(uniqueIdentifier);
@@ -127,7 +124,7 @@ void DevicesModel::deviceConnected(QString uniqueIdentifier)
     endInsertRows();
 }
 
-void DevicesModel::deviceDisconnected(QString uniqueIdentifier)
+void DevicesModel::deviceDisconnected(const QString &uniqueIdentifier)
 {
     for (int i = 0; i < m_devices.size(); ++i) {
         if (m_devices[i]["deviceUniqueIdentifier"] == uniqueIdentifier) {
@@ -139,17 +136,13 @@ void DevicesModel::deviceDisconnected(QString uniqueIdentifier)
     }
 }
 
-QStringList DevicesModel::getConnectedDevices()
+QStringList DevicesModel::connectedDevices()
 {
-    // we will get a QStringList of uniqueIdentifiers fro the getConnectedDevices method in the dbus interface
     QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "getConnectedDevices");
     QDBusMessage reply = QDBusConnection::sessionBus().call(message);
     if (reply.type() == QDBusMessage::ErrorMessage) {
-        qDebug() << "Error getting connected devices:" << reply.errorMessage();
         return QStringList();
     }
-    qDebug() << "Reply:" << reply.arguments();
-    // Reply is like this: Reply: (QVariant(QStringList, ("/org/kde/solid/udev/sys/devices/pci0000:00/0000:00:14.0/usb1/1-3/1-3:1.0/0003:2563:0580.000E/input/input179/event256")))
     QStringList uniqueIdentifiers;
     QVariant variant = reply.arguments().at(0);
     QStringList list = variant.value<QStringList>();
@@ -158,49 +151,37 @@ QStringList DevicesModel::getConnectedDevices()
 
 QString DevicesModel::getDeviceName(const QString &uniqueIdentifier)
 {
-    // we will get a QString of deviceName fro the getDeviceName method in the dbus interface
-    qDebug() << "Getting device name for" << uniqueIdentifier;
     QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "getDeviceName");
     message << uniqueIdentifier;
     QDBusMessage reply = QDBusConnection::sessionBus().call(message);
     if (reply.type() == QDBusMessage::ErrorMessage) {
-        qDebug() << "Error getting device name:" << reply.errorMessage();
         return QString();
     }
     QString deviceName;
-    qDebug() << "Reply Name:" << reply.arguments();
     QVariant variant = reply.arguments().at(0);
     return variant.value<QString>();
 }
 
 int DevicesModel::getDeviceType(const QString &uniqueIdentifier)
 {
-    // we will get a int of deviceType fro the getDeviceType method in the dbus interface
-    qDebug() << "Getting device type for" << uniqueIdentifier;
     QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "getDeviceType");
     message << uniqueIdentifier;
     QDBusMessage reply = QDBusConnection::sessionBus().call(message);
     if (reply.type() == QDBusMessage::ErrorMessage) {
-        qDebug() << "Error getting device type:" << reply.errorMessage();
         return -1;
     }
-    qDebug() << "Reply Device Type:" << reply.arguments();
     QVariant variant = reply.arguments().at(0);
     return variant.value<int>();
 }
 
 QString DevicesModel::getDeviceIconName(const QString &uniqueIdentifier)
 {
-    // we will get a QString of deviceIconName fro the getDeviceIconName method in the dbus interface
-    qDebug() << "Getting device icon name for" << uniqueIdentifier;
     QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "getDeviceIconName");
     message << uniqueIdentifier;
     QDBusMessage reply = QDBusConnection::sessionBus().call(message);
     if (reply.type() == QDBusMessage::ErrorMessage) {
-        qDebug() << "Error getting device icon name:" << reply.errorMessage();
         return QString();
     }
-    qDebug() << "Reply Device Icon Name:" << reply.arguments();
     QVariant variant = reply.arguments().at(0);
     return variant.value<QString>();
 }

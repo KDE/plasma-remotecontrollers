@@ -1,6 +1,12 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node>
   <interface name="org.kde.plasma.remotecontrollers.ControllerManager">
+    <signal name="deviceConnected">
+      <arg type="s"/>
+    </signal>
+    <signal name="deviceDisconnected">
+      <arg type="s"/>
+    </signal>
     <method name="getConnectedDevices">
       <arg type="as" direction="out"/>
     </method>
@@ -16,9 +22,9 @@
       <arg type="s" direction="in"/>
       <arg type="s" direction="out"/>
     </method>
-    <method name="setNoop">
+    <method name="acquireNoOp">
     </method>
-    <method name="releaseNoop">
+    <method name="releaseNoOp">
     </method>
   </interface>
 </node>
