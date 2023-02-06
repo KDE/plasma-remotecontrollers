@@ -102,10 +102,10 @@ void DevicesModel::load()
 
     QVariantMap device;
     for (const QString &uniqueIdentifier : devices) {
-        device["deviceName"] = getDeviceName(uniqueIdentifier);
-        device["deviceType"] = getDeviceType(uniqueIdentifier);
+        device["deviceName"] = deviceName(uniqueIdentifier);
+        device["deviceType"] = deviceType(uniqueIdentifier);
         device["deviceUniqueIdentifier"] = uniqueIdentifier;
-        device["deviceIconName"] = getDeviceIconName(uniqueIdentifier);
+        device["deviceIconName"] = deviceIconName(uniqueIdentifier);
         m_devices.append(device);
     }
 
@@ -115,10 +115,10 @@ void DevicesModel::load()
 void DevicesModel::deviceConnected(const QString &uniqueIdentifier)
 {
     QVariantMap device;
-    device["deviceName"] = getDeviceName(uniqueIdentifier);
-    device["deviceType"] = getDeviceType(uniqueIdentifier);
+    device["deviceName"] = deviceName(uniqueIdentifier);
+    device["deviceType"] = deviceType(uniqueIdentifier);
     device["deviceUniqueIdentifier"] = uniqueIdentifier;
-    device["deviceIconName"] = getDeviceIconName(uniqueIdentifier);
+    device["deviceIconName"] = deviceIconName(uniqueIdentifier);
     beginInsertRows(QModelIndex(), m_devices.size(), m_devices.size());
     m_devices.append(device);
     endInsertRows();
@@ -138,7 +138,7 @@ void DevicesModel::deviceDisconnected(const QString &uniqueIdentifier)
 
 QStringList DevicesModel::connectedDevices()
 {
-    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "getConnectedDevices");
+    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "connectedDevices");
     QDBusMessage reply = QDBusConnection::sessionBus().call(message);
     if (reply.type() == QDBusMessage::ErrorMessage) {
         return QStringList();
@@ -149,9 +149,9 @@ QStringList DevicesModel::connectedDevices()
     return list;
 }
 
-QString DevicesModel::getDeviceName(const QString &uniqueIdentifier)
+QString DevicesModel::deviceName(const QString &uniqueIdentifier)
 {
-    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "getDeviceName");
+    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "deviceName");
     message << uniqueIdentifier;
     QDBusMessage reply = QDBusConnection::sessionBus().call(message);
     if (reply.type() == QDBusMessage::ErrorMessage) {
@@ -162,9 +162,9 @@ QString DevicesModel::getDeviceName(const QString &uniqueIdentifier)
     return variant.value<QString>();
 }
 
-int DevicesModel::getDeviceType(const QString &uniqueIdentifier)
+int DevicesModel::deviceType(const QString &uniqueIdentifier)
 {
-    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "getDeviceType");
+    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "deviceType");
     message << uniqueIdentifier;
     QDBusMessage reply = QDBusConnection::sessionBus().call(message);
     if (reply.type() == QDBusMessage::ErrorMessage) {
@@ -174,9 +174,9 @@ int DevicesModel::getDeviceType(const QString &uniqueIdentifier)
     return variant.value<int>();
 }
 
-QString DevicesModel::getDeviceIconName(const QString &uniqueIdentifier)
+QString DevicesModel::deviceIconName(const QString &uniqueIdentifier)
 {
-    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "getDeviceIconName");
+    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "deviceIconName");
     message << uniqueIdentifier;
     QDBusMessage reply = QDBusConnection::sessionBus().call(message);
     if (reply.type() == QDBusMessage::ErrorMessage) {

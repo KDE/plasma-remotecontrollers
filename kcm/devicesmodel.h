@@ -37,9 +37,9 @@ public:
 
     // Dbus interface implementation
     QStringList connectedDevices();
-    QString getDeviceName(const QString &uniqueIdentifier);
-    int getDeviceType(const QString &uniqueIdentifier);
-    QString getDeviceIconName(const QString &uniqueIdentifier);
+    QString deviceName(const QString &uniqueIdentifier);
+    int deviceType(const QString &uniqueIdentifier);
+    QString deviceIconName(const QString &uniqueIdentifier);
 
 public Q_SLOTS:
     void deviceConnected(const QString &uniqueIdentifier);

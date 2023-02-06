@@ -7,18 +7,18 @@
     <signal name="deviceDisconnected">
       <arg type="s"/>
     </signal>
-    <method name="getConnectedDevices">
+    <method name="connectedDevices">
       <arg type="as" direction="out"/>
     </method>
-    <method name="getDeviceName">
+    <method name="deviceName">
       <arg type="s" direction="in"/>
       <arg type="s" direction="out"/>
     </method>
-    <method name="getDeviceType">
+    <method name="deviceType">
       <arg type="i" direction="in"/>
       <arg type="i" direction="out"/>
     </method>
-    <method name="getDeviceIconName">
+    <method name="deviceIconName">
       <arg type="s" direction="in"/>
       <arg type="s" direction="out"/>
     </method>

@@ -20,7 +20,7 @@ ControllerManagerDBusInterface::~ControllerManagerDBusInterface()
 {
 }
 
-Q_SCRIPTABLE QStringList ControllerManagerDBusInterface::getConnectedDevices()
+Q_SCRIPTABLE QStringList ControllerManagerDBusInterface::connectedDevices()
 {
     auto connected_devices = ControllerManager::instance().connectedDevices();
     QStringList deviceList;
@@ -31,7 +31,7 @@ Q_SCRIPTABLE QStringList ControllerManagerDBusInterface::getConnectedDevices()
     return deviceList;
 }
 
-Q_SCRIPTABLE QString ControllerManagerDBusInterface::getDeviceName(const QString &uniqueIdentifier)
+Q_SCRIPTABLE QString ControllerManagerDBusInterface::deviceName(const QString &uniqueIdentifier)
 {
     QVector<Device*> devices = ControllerManager::instance().connectedDevices();
     for (auto device : devices) {
@@ -42,7 +42,7 @@ Q_SCRIPTABLE QString ControllerManagerDBusInterface::getDeviceName(const QString
     return QString();
 }
 
-Q_SCRIPTABLE int ControllerManagerDBusInterface::getDeviceType(const QString &uniqueIdentifier)
+Q_SCRIPTABLE int ControllerManagerDBusInterface::deviceType(const QString &uniqueIdentifier)
 {
     QVector<Device*> devices = ControllerManager::instance().connectedDevices();
     for (auto device : devices) {
@@ -54,7 +54,7 @@ Q_SCRIPTABLE int ControllerManagerDBusInterface::getDeviceType(const QString &un
     return -1;
 }
 
-Q_SCRIPTABLE QString ControllerManagerDBusInterface::getDeviceIconName(const QString &uniqueIdentifier)
+Q_SCRIPTABLE QString ControllerManagerDBusInterface::deviceIconName(const QString &uniqueIdentifier)
 {
     QVector<Device*> devices = ControllerManager::instance().connectedDevices();
     for (auto device : devices) {

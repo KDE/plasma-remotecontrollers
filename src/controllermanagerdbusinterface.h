@@ -19,10 +19,10 @@ public:
     ~ControllerManagerDBusInterface() override;
 
 public Q_SLOTS:
-    Q_SCRIPTABLE QStringList getConnectedDevices();
-    Q_SCRIPTABLE QString getDeviceName(const QString &uniqueIdentifier);
-    Q_SCRIPTABLE int getDeviceType(const QString &uniqueIdentifier);
-    Q_SCRIPTABLE QString getDeviceIconName(const QString &uniqueIdentifier);
+    Q_SCRIPTABLE QStringList connectedDevices();
+    Q_SCRIPTABLE QString deviceName(const QString &uniqueIdentifier);
+    Q_SCRIPTABLE int deviceType(const QString &uniqueIdentifier);
+    Q_SCRIPTABLE QString deviceIconName(const QString &uniqueIdentifier);
     Q_SCRIPTABLE void acquireNoOp();
     Q_SCRIPTABLE void releaseNoOp();
 
