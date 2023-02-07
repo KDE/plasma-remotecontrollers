@@ -51,6 +51,7 @@ private:
     void deviceRemoved(const QString &udi);
     libevdev *const m_device;
     const QString m_udi;
+    const QMap<int, QList<int>> m_buttons;
 };
 
 

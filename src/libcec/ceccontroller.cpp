@@ -197,6 +197,7 @@ void CECController::discoverDevices() {
 
         // TODO: detect and handle disconnects
         Device* device = new Device(DeviceCEC, "CEC Controller", devices[i].strComName);
+        device->setUsedKeys(QSet<int>(m_keyCodeTranslation.cbegin(), m_keyCodeTranslation.cend()));
         ControllerManager::instance().newDevice(device);
     }
 }

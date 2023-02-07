@@ -18,11 +18,12 @@ public:
 
     bool init() override;
     void emitKey(int key, bool pressed) override;
-
+    void setSupportedKeys(const QSet<int> &keys) override;
 private:
     void emitEvent(int type, int code, int val);
 
-    int m_fd;
+    int m_fd = -1;
+    QSet<int> m_supportedKeys;
 };
 
 #endif // UINPUTSYSTEM_H

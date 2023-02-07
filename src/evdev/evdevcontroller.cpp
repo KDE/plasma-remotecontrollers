@@ -85,9 +85,30 @@ EvdevDevice::EvdevDevice(const QString& path, libevdev *device, EvdevController 
     , m_controller(controller)
     , m_device(device)
     , m_udi(path)
+    , m_buttons ({
+        { BTN_MODE, { KEY_LEFTMETA } },
+        { BTN_START, { KEY_GAMES } },
+        { BTN_SOUTH, { KEY_ENTER } },
+        { BTN_EAST, { KEY_CANCEL } },
+        { BTN_WEST, { KEY_MENU } },
+        { BTN_TL, { KEY_LEFTSHIFT, KEY_TAB } },
+        { BTN_TR, { KEY_TAB } },
+        { BTN_TL2, { KEY_BACK } },
+        { BTN_TR2, { KEY_FORWARD } },
+        { BTN_DPAD_UP, { KEY_UP } },
+        { BTN_DPAD_DOWN, { KEY_DOWN } },
+        { BTN_DPAD_LEFT, { KEY_LEFT } },
+        { BTN_DPAD_RIGHT, { KEY_RIGHT } }
+    })
 {
     auto notifier = Solid::DeviceNotifier::instance();
     connect(notifier, &Solid::DeviceNotifier::deviceRemoved, this, &EvdevDevice::deviceRemoved);
+
+    QSet<int> keys;
+    for (auto keyCombination : m_buttons) {
+        keys += QSet<int>(keyCombination.cbegin(), keyCombination.cend());
+    }
+    setUsedKeys(keys);
 }
 
 EvdevDevice::~EvdevDevice()
@@ -143,22 +164,7 @@ void EvdevDevice::readNow()
 void EvdevDevice::processEvent(struct input_event& ev)
 {
     if (ev.type == EV_KEY) {
-        static const QMap<int, QVector<int>> s_buttons = {
-            { BTN_MODE, { KEY_LEFTMETA } },
-            { BTN_START, { KEY_GAMES } },
-            { BTN_SOUTH, { KEY_ENTER } },
-            { BTN_EAST, { KEY_CANCEL } },
-            { BTN_WEST, { KEY_MENU } },
-            { BTN_TL, { KEY_LEFTSHIFT, KEY_TAB } },
-            { BTN_TR, { KEY_TAB } },
-            { BTN_TL2, { KEY_BACK } },
-            { BTN_TR2, { KEY_FORWARD } },
-            { BTN_DPAD_UP, { KEY_UP } },
-            { BTN_DPAD_DOWN, { KEY_DOWN } },
-            { BTN_DPAD_LEFT, { KEY_LEFT } },
-            { BTN_DPAD_RIGHT, { KEY_RIGHT } }
-        };
-        const auto nativeKeyCodes = s_buttons.value(ev.code);
+        const auto nativeKeyCodes = m_buttons.value(ev.code);
 
         if (!nativeKeyCodes.isEmpty()) {
             for (auto code : nativeKeyCodes) {

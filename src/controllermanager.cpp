@@ -31,7 +31,6 @@ public:
         Q_UNUSED(key)
         Q_UNUSED(pressed)
     }
-
 };
 
 ControllerManager::ControllerManager(QObject *parent)
@@ -93,6 +92,9 @@ ControllerManager &ControllerManager::instance()
 void ControllerManager::newDevice(Device *device)
 {
     qInfo() << "New device connected:" << device->getName();
+
+    m_usedKeys += device->usedKeys();
+    m_inputSystem->setSupportedKeys(m_usedKeys);
 
     device->setIndex(m_connectedDevices.size());
 

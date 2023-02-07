@@ -7,6 +7,7 @@
 #pragma once
 
 #include <QObject>
+#include <QSet>
 
 #include <unistd.h>
 
@@ -32,6 +33,10 @@ public:
     DeviceType getDeviceType();
     QString iconName() const;
 
+    /// needs to be called before newDevice() is called
+    void setUsedKeys(const QSet<int> &keys) { m_usedKeys = keys; }
+    QSet<int> usedKeys() const { return m_usedKeys; }
+
 public slots:
     virtual void watchEvents() { return; };
 
@@ -43,4 +48,5 @@ protected:
     QString m_uniqueIdentifier;
     QString m_name;
     DeviceType m_deviceType;
+    QSet<int> m_usedKeys;
 };
