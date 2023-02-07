@@ -10,6 +10,7 @@
 #include <QHash>
 #include <QObject>
 #include <QDateTime>
+#include <QSet>
 #include <QTimer>
 #include "controllermanagerdbusinterface.h"
 
@@ -69,4 +70,5 @@ private:
     QTimer m_lastUsed;
 
     QDateTime m_lastSimulated;
+    QSet<int> m_usedKeys;
 };

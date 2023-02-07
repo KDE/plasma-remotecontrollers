@@ -9,6 +9,7 @@
 #define ABSTRACTSYSTEM_H
 
 #include <QObject>
+#include <QSet>
 
 class AbstractSystem : public QObject
 {
@@ -16,6 +17,10 @@ class AbstractSystem : public QObject
 public:
     virtual bool init() = 0;
     virtual void emitKey(int key, bool pressed) = 0;
+
+    virtual void setSupportedKeys(const QSet<int> &keys) {
+        Q_UNUSED(keys);
+    }
 };
 
 #endif
