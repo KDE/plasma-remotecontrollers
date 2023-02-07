@@ -70,8 +70,8 @@ bool EvdevController::addDevice(const Solid::Device &device)
         return false;
     }
 
-    qCInfo(PLASMARC_EVDEV) << "Added evdev device:" << device.displayName();
-    auto evdevDevice = new EvdevDevice(device.udi(), dev);
+    qCInfo(PLASMARC_EVDEV) << "Added evdev device:" << device.udi();
+    auto evdevDevice = new EvdevDevice(device.udi(), dev, this);
     ControllerManager::instance().newDevice(evdevDevice);
 
     auto notifier = new QSocketNotifier(fd, QSocketNotifier::Read, this);
@@ -80,14 +80,9 @@ bool EvdevController::addDevice(const Solid::Device &device)
     return true;
 }
 
-EvdevController &EvdevController::instance()
-{
-    static EvdevController instance;
-    return instance;
-}
-
-EvdevDevice::EvdevDevice(const QString& path, libevdev *device)
+EvdevDevice::EvdevDevice(const QString& path, libevdev *device, EvdevController *controller)
     : Device(DeviceGamepad, QString::fromUtf8(libevdev_get_name(device)), path)
+    , m_controller(controller)
     , m_device(device)
     , m_udi(path)
 {
@@ -118,7 +113,7 @@ void EvdevDevice::setKey(int key, bool pressed)
     } else {
         m_pressedKeys.remove(key);
     }
-    EvdevController::instance().m_dbusInterface.emitKeyPress(key);
+    m_controller->m_dbusInterface.emitKeyPress(key);
     ControllerManager::instance().emitKey(key, pressed);
 }
 
@@ -167,7 +162,7 @@ void EvdevDevice::processEvent(struct input_event& ev)
 
         if (!nativeKeyCodes.isEmpty()) {
             for (auto code : nativeKeyCodes) {
-                EvdevController::instance().m_dbusInterface.emitKeyPress(ev.code);
+                m_controller->m_dbusInterface.emitKeyPress(ev.code);
                 ControllerManager::instance().emitKey(code, ev.value);
             }
             return;

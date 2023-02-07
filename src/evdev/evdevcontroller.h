@@ -21,8 +21,8 @@ class EvdevController : public QObject
 {
 public:
     explicit EvdevController();
-    static EvdevController &instance();
     bool addDevice(const Solid::Device &device);
+
     EvdevDbusInterface m_dbusInterface;
 };
 
@@ -31,7 +31,7 @@ class EvdevDevice : public Device
     Q_OBJECT
 
 public:
-    explicit EvdevDevice(const QString &udi, libevdev *device);
+    explicit EvdevDevice(const QString &udi, libevdev *device, EvdevController* controller);
     ~EvdevDevice() override;
 
     libevdev *device() const {
@@ -46,6 +46,7 @@ private:
     void processEvent(struct input_event &ev);
     void setKey(int key, bool pressed);
 
+    EvdevController *const m_controller;
     QSet<int> m_pressedKeys;
     void deviceRemoved(const QString &udi);
     libevdev *const m_device;
