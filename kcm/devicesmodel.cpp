@@ -19,10 +19,10 @@ DevicesModel::DevicesModel(QObject *parent)
     m_roleNames[DeviceUniqueIdentifierRole] = "deviceUniqueIdentifier";
     m_roleNames[DeviceIconNameRole] = "deviceIconName";
 
-    QDBusInterface *iface = new QDBusInterface("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", QDBusConnection::sessionBus(), this);
+    ControllerManagerDBusInterface *iface = new ControllerManagerDBusInterface("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", QDBusConnection::sessionBus(), this);
     if(iface->isValid()) {
-        connect(iface, SIGNAL(deviceConnected(QString)), this, SLOT(deviceConnected(QString)));
-        connect(iface, SIGNAL(deviceDisconnected(QString)), this, SLOT(deviceDisconnected(QString)));
+        connect(iface, &ControllerManagerDBusInterface::deviceConnected, this, &DevicesModel::deviceConnected);
+        connect(iface, &ControllerManagerDBusInterface::deviceDisconnected, this, &DevicesModel::deviceDisconnected);
     }
 
     load();

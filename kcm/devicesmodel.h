@@ -8,6 +8,22 @@
 
 #include <QAbstractListModel>
 #include <QObject>
+#include <QDBusInterface>
+
+class ControllerManagerDBusInterface : public QDBusInterface
+{
+    Q_OBJECT
+
+public:
+    ControllerManagerDBusInterface(const QString &service, const QString &path, const char *interface, const QDBusConnection &connection, QObject *parent = nullptr)
+        : QDBusInterface(service, path, interface, connection, parent)
+    {
+    }
+
+signals:
+    void deviceConnected(const QString &deviceName);
+    void deviceDisconnected(const QString &deviceName);
+};
 
 class DevicesModel : public QAbstractListModel
 {
@@ -24,7 +40,7 @@ public:
 
     Q_ENUM(DeviceRoles)
 
-    explicit DevicesModel(QObject *parent = 0);
+    explicit DevicesModel(QObject *parent = nullptr);
     ~DevicesModel();
     QHash<int, QByteArray> roleNames() const override;
 
