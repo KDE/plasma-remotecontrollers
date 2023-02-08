@@ -37,7 +37,7 @@ class Wiimote : public Device
     Q_OBJECT
 
 public:
-    explicit Wiimote(struct xwii_iface *iface, QString sysPath);
+    explicit Wiimote(struct xwii_iface *iface, const QString &sysPath);
     ~Wiimote();
 
     WiimoteDevtypes getDevType();

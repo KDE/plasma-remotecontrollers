@@ -40,8 +40,8 @@ public Q_SLOTS:
     int cecKeyFromRemotePress();
 
 Q_SIGNALS:
-    void cecConfigChanged(const QString button);
-    void gamepadConfigChanged(const QString button);
+    void cecConfigChanged(const QString &button);
+    void gamepadConfigChanged(const QString &button);
     void gamepadKeyPressed(int keyCode);
 
 private:

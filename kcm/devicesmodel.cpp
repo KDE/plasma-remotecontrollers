@@ -143,10 +143,7 @@ QStringList DevicesModel::connectedDevices()
     if (reply.type() == QDBusMessage::ErrorMessage) {
         return QStringList();
     }
-    QStringList uniqueIdentifiers;
-    QVariant variant = reply.arguments().at(0);
-    QStringList list = variant.value<QStringList>();
-    return list;
+    return reply.arguments().at(0).toStringList();
 }
 
 QString DevicesModel::deviceName(const QString &uniqueIdentifier)
@@ -157,9 +154,7 @@ QString DevicesModel::deviceName(const QString &uniqueIdentifier)
     if (reply.type() == QDBusMessage::ErrorMessage) {
         return QString();
     }
-    QString deviceName;
-    QVariant variant = reply.arguments().at(0);
-    return variant.value<QString>();
+    return reply.arguments().at(0).toString();
 }
 
 int DevicesModel::deviceType(const QString &uniqueIdentifier)

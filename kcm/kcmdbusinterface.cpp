@@ -23,7 +23,7 @@ KcmDbusInterface::KcmDbusInterface(QObject *parent)
     if (iface) {
         if (iface->isServiceRegistered("org.kde.plasma.remotecontrollers")) {
             if (dbus.isConnected()) {
-                dbus.connect("org.kde.plasma.remotecontrollers", "/EVDEV", "org.kde.plasma.remotecontrollers.EVDEV", "keyPress", this, SLOT(evdevKeyPress(const QDBusMessage&)));
+                dbus.connect("org.kde.plasma.remotecontrollers", "/EVDEV", "org.kde.plasma.remotecontrollers.EVDEV", "keyPress", this, SLOT(evdevKeyPress(QDBusMessage)));
             } else {
                 qWarning() << "DBus connection is not connected.";                    
             }
