@@ -9,10 +9,10 @@
 #include <QDebug>
 
 Device::Device(DeviceType deviceType, QString name, QString uniqueIdentifier)
+    : m_uniqueIdentifier(uniqueIdentifier)
+    , m_name(name)
+    , m_deviceType(deviceType)
 {
-    m_deviceType = deviceType;
-    m_name = name;
-    m_uniqueIdentifier = uniqueIdentifier;
 }
 
 void Device::setIndex(int index)

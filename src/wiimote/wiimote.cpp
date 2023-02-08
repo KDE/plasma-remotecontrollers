@@ -15,11 +15,11 @@
 #include <linux/input-event-codes.h>
 #include <unistd.h>
 
-Wiimote::Wiimote(struct xwii_iface *iface, QString sysPath)
+Wiimote::Wiimote(struct xwii_iface *iface, const QString &sysPath)
 {
     m_iface = iface;
     m_uniqueIdentifier = sysPath;
-    m_name = i18n("What Nintendo Wii remote controllers are called", "Wii Remote");
+    m_name = i18nc("What Nintendo Wii remote controllers are called", "Wii Remote");
     m_deviceType = DeviceWiimote;
 
     int ret;
