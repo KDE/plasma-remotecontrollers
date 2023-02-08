@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-23 00:47+0000\n"
+"POT-Creation-Date: 2023-02-08 04:20+0000\n"
 "PO-Revision-Date: 2022-07-23 12:33+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -352,13 +352,13 @@ msgid "No Devices Found"
 msgstr "Geen apparaten gevonden"
 
 #: package/contents/ui/+mediacenter/main.qml:184
-#: package/contents/ui/main.qml:128
+#: package/contents/ui/main.qml:134
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "Toets op uw afstandsbediening voor tv selecteren voor %1"
 
 #: package/contents/ui/+mediacenter/main.qml:215
-#: package/contents/ui/main.qml:159
+#: package/contents/ui/main.qml:173
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "Toets op uw afstandsbediening voor gamepad selecteren voor %1"
@@ -368,17 +368,17 @@ msgstr "Toets op uw afstandsbediening voor gamepad selecteren voor %1"
 msgid "This module lets you configure remote controllers."
 msgstr "Deze module laat u afstandsbedieningen configureren."
 
-#: package/contents/ui/main.qml:53
+#: package/contents/ui/main.qml:54
 #, kde-format
 msgid "Device:"
 msgstr "Apparaat:"
 
-#: package/contents/ui/main.qml:95
+#: package/contents/ui/main.qml:96
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Geen afstandsbedieningen beschikbaar."
 
-#: remotecontroller.cpp:26
+#: remotecontroller.cpp:27
 #, kde-format
 msgid "Configure Remote Controllers"
 msgstr "Afstandsbedieningen configureren"

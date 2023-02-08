@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-23 00:47+0000\n"
+"POT-Creation-Date: 2023-02-08 04:20+0000\n"
 "PO-Revision-Date: 2022-11-22 22:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -353,13 +353,13 @@ msgid "No Devices Found"
 msgstr "لم يُعثر على أجهزة"
 
 #: package/contents/ui/+mediacenter/main.qml:184
-#: package/contents/ui/main.qml:128
+#: package/contents/ui/main.qml:134
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "اختر مفتاح على متحكم تلفازك لـ%1"
 
 #: package/contents/ui/+mediacenter/main.qml:215
-#: package/contents/ui/main.qml:159
+#: package/contents/ui/main.qml:173
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "اختر مفتاح على مقبض ألعاب لـ%1"
@@ -369,17 +369,17 @@ msgstr "اختر مفتاح على مقبض ألعاب لـ%1"
 msgid "This module lets you configure remote controllers."
 msgstr "تسمح لك هذه الوحدة بضبط المتحكمات عن بعد."
 
-#: package/contents/ui/main.qml:53
+#: package/contents/ui/main.qml:54
 #, kde-format
 msgid "Device:"
 msgstr "الجهاز:"
 
-#: package/contents/ui/main.qml:95
+#: package/contents/ui/main.qml:96
 #, kde-format
 msgid "No remote controllers available."
 msgstr "لا يوجد أجهزة تحكم عن بعد."
 
-#: remotecontroller.cpp:26
+#: remotecontroller.cpp:27
 #, kde-format
 msgid "Configure Remote Controllers"
 msgstr "اضبط أجهزة تحكم عن بعد"
