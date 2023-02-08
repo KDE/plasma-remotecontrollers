@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-23 00:47+0000\n"
+"POT-Creation-Date: 2023-02-08 01:02+0000\n"
 "PO-Revision-Date: 2022-07-25 08:27+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -353,13 +353,13 @@ msgid "No Devices Found"
 msgstr "Ni najdenih naprav"
 
 #: package/contents/ui/+mediacenter/main.qml:184
-#: package/contents/ui/main.qml:128
+#: package/contents/ui/main.qml:134
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "Izberite tipko na TV daljincu za %1"
 
 #: package/contents/ui/+mediacenter/main.qml:215
-#: package/contents/ui/main.qml:159
+#: package/contents/ui/main.qml:173
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "Izberite tipko na igralni konzoli za %1"
@@ -369,17 +369,17 @@ msgstr "Izberite tipko na igralni konzoli za %1"
 msgid "This module lets you configure remote controllers."
 msgstr "Ta modula omogoča konfiguriranje oddaljenih krmilnikov."
 
-#: package/contents/ui/main.qml:53
+#: package/contents/ui/main.qml:54
 #, kde-format
 msgid "Device:"
 msgstr "Naprava:"
 
-#: package/contents/ui/main.qml:95
+#: package/contents/ui/main.qml:96
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Oddaljenih krmilnikov ni na voljo."
 
-#: remotecontroller.cpp:26
+#: remotecontroller.cpp:27
 #, kde-format
 msgid "Configure Remote Controllers"
 msgstr "Konfiguriraj oddaljene krmilnike"

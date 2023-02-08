@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-23 00:47+0000\n"
+"POT-Creation-Date: 2023-02-08 01:02+0000\n"
 "PO-Revision-Date: 2022-08-17 21:15+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -350,13 +350,13 @@ msgid "No Devices Found"
 msgstr "Aucun périphérique trouvé"
 
 #: package/contents/ui/+mediacenter/main.qml:184
-#: package/contents/ui/main.qml:128
+#: package/contents/ui/main.qml:134
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "Sélectionner une touche pour votre télécommande TV pour %1"
 
 #: package/contents/ui/+mediacenter/main.qml:215
-#: package/contents/ui/main.qml:159
+#: package/contents/ui/main.qml:173
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "Sélectionner une touche pour votre Gamepad pour %1"
@@ -366,17 +366,17 @@ msgstr "Sélectionner une touche pour votre Gamepad pour %1"
 msgid "This module lets you configure remote controllers."
 msgstr "Ce module vous permet de configurer les télé-commandes."
 
-#: package/contents/ui/main.qml:53
+#: package/contents/ui/main.qml:54
 #, kde-format
 msgid "Device:"
 msgstr "Périphérique :"
 
-#: package/contents/ui/main.qml:95
+#: package/contents/ui/main.qml:96
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Aucune télécommande disponible."
 
-#: remotecontroller.cpp:26
+#: remotecontroller.cpp:27
 #, kde-format
 msgid "Configure Remote Controllers"
 msgstr "Configurer les télé-commandes"
