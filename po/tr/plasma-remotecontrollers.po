@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 01:01+0000\n"
+"POT-Creation-Date: 2023-02-09 01:04+0000\n"
 "PO-Revision-Date: 2023-01-16 22:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 22.12.1\n"
 
-#: controllermanager.cpp:60
+#: controllermanager.cpp:59
 #, kde-format
 msgid "Remote Controllers"
 msgstr "Uzaktan Kumandalar"
 
-#: controllermanager.cpp:62
+#: controllermanager.cpp:61
 #, kde-format
 msgid "Configure Inhibited Apps"
 msgstr "Yasaklanan Uygulamaları Yapılandır"
 
-#: controllermanager.cpp:64
+#: controllermanager.cpp:63
 #, kde-format
 msgid "Inhibitions"
 msgstr "Yasaklamalar"
@@ -81,5 +81,9 @@ msgstr "Kumanda bağlantısı kesildi"
 
 #: wiimote/wiimote.cpp:22
 #, kde-format
-msgid "What Nintendo Wii remote controllers are called"
-msgstr "Nintendo Wii kumandalarının nice adlandırılacağı"
+msgctxt "What Nintendo Wii remote controllers are called"
+msgid "Wii Remote"
+msgstr ""
+
+#~ msgid "What Nintendo Wii remote controllers are called"
+#~ msgstr "Nintendo Wii kumandalarının nice adlandırılacağı"

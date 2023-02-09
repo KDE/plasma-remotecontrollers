@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 01:01+0000\n"
+"POT-Creation-Date: 2023-02-09 01:04+0000\n"
 "PO-Revision-Date: 2023-01-23 20:12+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,17 +18,17 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: controllermanager.cpp:60
+#: controllermanager.cpp:59
 #, kde-format
 msgid "Remote Controllers"
 msgstr "أجهزة تحكم عن بعد"
 
-#: controllermanager.cpp:62
+#: controllermanager.cpp:61
 #, kde-format
 msgid "Configure Inhibited Apps"
 msgstr "اضبط التطبيقات المثبطة"
 
-#: controllermanager.cpp:64
+#: controllermanager.cpp:63
 #, kde-format
 msgid "Inhibitions"
 msgstr "المثبطات"
@@ -82,5 +82,9 @@ msgstr "فُصل المتحكم"
 
 #: wiimote/wiimote.cpp:22
 #, kde-format
-msgid "What Nintendo Wii remote controllers are called"
-msgstr "ما تسمى وحدات التحكم عن بعد Nintendo Wii"
+msgctxt "What Nintendo Wii remote controllers are called"
+msgid "Wii Remote"
+msgstr ""
+
+#~ msgid "What Nintendo Wii remote controllers are called"
+#~ msgstr "ما تسمى وحدات التحكم عن بعد Nintendo Wii"

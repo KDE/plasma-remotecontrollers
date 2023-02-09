@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 01:01+0000\n"
+"POT-Creation-Date: 2023-02-09 01:04+0000\n"
 "PO-Revision-Date: 2022-09-01 16:26+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -15,17 +15,17 @@ msgstr ""
 "X-Generator: Lokalize 22.04.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: controllermanager.cpp:60
+#: controllermanager.cpp:59
 #, kde-format
 msgid "Remote Controllers"
 msgstr ""
 
-#: controllermanager.cpp:62
+#: controllermanager.cpp:61
 #, kde-format
 msgid "Configure Inhibited Apps"
 msgstr ""
 
-#: controllermanager.cpp:64
+#: controllermanager.cpp:63
 #, kde-format
 msgid "Inhibitions"
 msgstr ""
@@ -79,5 +79,9 @@ msgstr "Ovládač odpojený"
 
 #: wiimote/wiimote.cpp:22
 #, kde-format
-msgid "What Nintendo Wii remote controllers are called"
-msgstr "Ako sa volajú diaľkové ovládače Nintendo Wii"
+msgctxt "What Nintendo Wii remote controllers are called"
+msgid "Wii Remote"
+msgstr ""
+
+#~ msgid "What Nintendo Wii remote controllers are called"
+#~ msgstr "Ako sa volajú diaľkové ovládače Nintendo Wii"

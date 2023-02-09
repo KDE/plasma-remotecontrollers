@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-07 01:01+0000\n"
+"POT-Creation-Date: 2023-02-09 01:04+0000\n"
 "PO-Revision-Date: 2023-01-16 12:07+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -17,17 +17,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.1\n"
 
-#: controllermanager.cpp:60
+#: controllermanager.cpp:59
 #, kde-format
 msgid "Remote Controllers"
 msgstr "Afstandsbedieningen"
 
-#: controllermanager.cpp:62
+#: controllermanager.cpp:61
 #, kde-format
 msgid "Configure Inhibited Apps"
 msgstr "Geschorste toepassingen configureren"
 
-#: controllermanager.cpp:64
+#: controllermanager.cpp:63
 #, kde-format
 msgid "Inhibitions"
 msgstr "Schorsingen"
@@ -81,5 +81,9 @@ msgstr "Verbinding met controller verbroken"
 
 #: wiimote/wiimote.cpp:22
 #, kde-format
-msgid "What Nintendo Wii remote controllers are called"
-msgstr "Hoe Nintendo Wii afstandsbedieningen wordt genoemd"
+msgctxt "What Nintendo Wii remote controllers are called"
+msgid "Wii Remote"
+msgstr ""
+
+#~ msgid "What Nintendo Wii remote controllers are called"
+#~ msgstr "Hoe Nintendo Wii afstandsbedieningen wordt genoemd"

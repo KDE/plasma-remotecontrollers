@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-08 01:02+0000\n"
-"PO-Revision-Date: 2022-12-06 08:43+0100\n"
+"PO-Revision-Date: 2023-02-08 07:16+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -356,13 +356,13 @@ msgstr "მოწყობილობების პოვნა ვერ მ
 #: package/contents/ui/main.qml:134
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
-msgstr "აირჩიეთ %1-სთვის კლავიშა TV-ის პულტზე"
+msgstr "აირჩიეთ %1-სთვის ღილაკი TV-ის პულტზე"
 
 #: package/contents/ui/+mediacenter/main.qml:215
 #: package/contents/ui/main.qml:173
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
-msgstr "აირჩიეთ %1-სთვის კლავიშა Gamepad-ის პულტზე"
+msgstr "აირჩიეთ %1-სთვის ღილაკი Gamepad-ის პულტზე"
 
 #: package/contents/ui/main.qml:22
 #, kde-format
