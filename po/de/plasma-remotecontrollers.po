@@ -1,33 +1,35 @@
 # German translations for plasma-remotecontrollers package.
 # Copyright (C) 2022 This file is copyright:
 # This file is distributed under the same license as the plasma-remotecontrollers package.
-# Automatically generated, 2022.
+# Alois Spitzbart <spitz234@hotmail.com>, 2023.
 #
+# Automatically generated, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:59+0000\n"
-"PO-Revision-Date: 2022-09-16 10:01+0200\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2023-02-09 03:11+0000\n"
+"PO-Revision-Date: 2023-02-08 20:38+0100\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 22.12.1\n"
 
-#: controllermanager.cpp:60
+#: controllermanager.cpp:59
 #, kde-format
 msgid "Remote Controllers"
-msgstr ""
+msgstr "Fernbedienungen"
 
-#: controllermanager.cpp:62
+#: controllermanager.cpp:61
 #, kde-format
 msgid "Configure Inhibited Apps"
 msgstr ""
 
-#: controllermanager.cpp:64
+#: controllermanager.cpp:63
 #, kde-format
 msgid "Inhibitions"
 msgstr ""
@@ -35,51 +37,55 @@ msgstr ""
 #: libcec/ceccontroller.cpp:137
 #, kde-format
 msgid "KDE Plasma"
-msgstr ""
+msgstr "KDE Plasma"
 
 #: main.cpp:35
 #, kde-format
 msgid "Plasma Remote Controllers"
-msgstr ""
+msgstr "Plasma-Fernbedienungen"
 
 #: main.cpp:36
 #, kde-format
 msgid "System update status notifier"
-msgstr ""
+msgstr "Statusbenachrichtigungen für Systemaktualisierungen"
 
 #: main.cpp:37
 #, kde-format
 msgid "© 2022 Plasma Development Team"
-msgstr ""
+msgstr "Copyright © 2022 Plasma Development Team"
 
 #: main.cpp:39
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Deutsches KDE-Übersetzerteam"
 
 #: main.cpp:40
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "kde-i18n-de@kde.org"
 
 #: main.cpp:48
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Eine bestehende Instanz ersetzen"
 
 #: notificationsmanager.cpp:27
 #, kde-format
 msgid "Controller connected"
-msgstr ""
+msgstr "Controller angeschlossen"
 
 #: notificationsmanager.cpp:37
 #, kde-format
 msgid "Controller Disconnected"
-msgstr ""
+msgstr "Controller wurde getrennt"
 
 #: wiimote/wiimote.cpp:22
 #, kde-format
-msgid "What Nintendo Wii remote controllers are called"
+msgctxt "What Nintendo Wii remote controllers are called"
+msgid "Wii Remote"
 msgstr ""
+
+#~ msgid "What Nintendo Wii remote controllers are called"
+#~ msgstr "Wie die Nintendo Wii-Fernbedienungen bezeichnet werden"
