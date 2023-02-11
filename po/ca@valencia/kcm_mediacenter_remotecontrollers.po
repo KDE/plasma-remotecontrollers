@@ -1,15 +1,15 @@
 # Translation of kcm_mediacenter_remotecontrollers.po to Catalan (Valencian)
-# Copyright (C) 2022 This_file_is_part_of_KDE
+# Copyright (C) 2022-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-08 04:20+0000\n"
-"PO-Revision-Date: 2022-07-23 17:05+0200\n"
+"PO-Revision-Date: 2023-02-09 10:04+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -324,7 +324,7 @@ msgstr "Vincula les tecles del controlador del televisor als botons"
 #: package/contents/ui/DeviceMap.qml:47
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
-msgstr "Vincula les tecles del controlador de la Wii als botons"
+msgstr "Vincula les tecles del controlador remot de la Wii amb els botons"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:41
 #: package/contents/ui/DeviceMap.qml:49

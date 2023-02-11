@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-09 03:11+0000\n"
-"PO-Revision-Date: 2023-01-17 08:18+0100\n"
+"PO-Revision-Date: 2023-02-10 09:21+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: controllermanager.cpp:59
 #, kde-format
@@ -84,7 +84,7 @@ msgstr "Krmilnik odklopljen"
 #, kde-format
 msgctxt "What Nintendo Wii remote controllers are called"
 msgid "Wii Remote"
-msgstr ""
+msgstr "Oddaljeni Wii"
 
 #~ msgid "What Nintendo Wii remote controllers are called"
 #~ msgstr "Kateri Nintendo krmilniki Wii so klicani"
