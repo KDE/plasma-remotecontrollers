@@ -17,18 +17,12 @@
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteController, "kcm_mediacenter_remotecontrollers.json")
 
-RemoteController::RemoteController(QObject *parent, const QVariantList &args)
-    : KQuickAddons::ConfigModule(parent, args)
+RemoteController::RemoteController(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
+    : KQuickAddons::ConfigModule(parent, metaData, args)
     , m_devicesModel(new DevicesModel(this))
     , m_keyMapModel(new KeyMapModel(this))
 {
     setButtons(Help);
-    KAboutData *about = new KAboutData(QStringLiteral("kcm_mediacenter_remotecontrollers"), //
-                                       i18n("Configure Remote Controllers"),
-                                       QStringLiteral("2.0"),
-                                       QString(),
-                                       KAboutLicense::LGPL);
-    setAboutData(about);
 
     // connect to the evdevKeyPressed signal from kcmDbusInterface
     connect(&kcmDbusInterface, &KcmDbusInterface::evdevKeyPressed, this, [this](int keyCode) {

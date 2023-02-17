@@ -24,7 +24,7 @@ class RemoteController : public KQuickAddons::ConfigModule
     Q_PROPERTY(DevicesModel *devicesModel READ devicesModel CONSTANT)
 
 public:
-    explicit RemoteController(QObject *parent = nullptr, const QVariantList &list = QVariantList());
+    explicit RemoteController(QObject *parent, const KPluginMetaData &metaData, const QVariantList &list = QVariantList());
     ~RemoteController() override;
     KcmDbusInterface kcmDbusInterface;
     DevicesModel *devicesModel();
