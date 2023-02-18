@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 01:02+0000\n"
+"POT-Creation-Date: 2023-02-18 01:01+0000\n"
 "PO-Revision-Date: 2022-11-22 22:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -379,7 +379,5 @@ msgstr "الجهاز:"
 msgid "No remote controllers available."
 msgstr "لا يوجد أجهزة تحكم عن بعد."
 
-#: remotecontroller.cpp:27
-#, kde-format
-msgid "Configure Remote Controllers"
-msgstr "اضبط أجهزة تحكم عن بعد"
+#~ msgid "Configure Remote Controllers"
+#~ msgstr "اضبط أجهزة تحكم عن بعد"

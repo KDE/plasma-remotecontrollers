@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 01:02+0000\n"
+"POT-Creation-Date: 2023-02-18 01:01+0000\n"
 "PO-Revision-Date: 2022-08-07 11:35+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -378,7 +378,5 @@ msgstr "Device:"
 msgid "No remote controllers available."
 msgstr "No remote controllers available."
 
-#: remotecontroller.cpp:27
-#, kde-format
-msgid "Configure Remote Controllers"
-msgstr "Configure Remote Controllers"
+#~ msgid "Configure Remote Controllers"
+#~ msgstr "Configure Remote Controllers"

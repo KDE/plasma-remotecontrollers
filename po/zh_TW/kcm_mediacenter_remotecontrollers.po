@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 01:02+0000\n"
+"POT-Creation-Date: 2023-02-18 01:01+0000\n"
 "PO-Revision-Date: 2022-07-23 10:58+0800\n"
 "Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
 "Language-Team: none\n"
@@ -380,7 +380,5 @@ msgstr "裝置："
 msgid "No remote controllers available."
 msgstr "沒有可用的遙控器。"
 
-#: remotecontroller.cpp:27
-#, kde-format
-msgid "Configure Remote Controllers"
-msgstr "設定遙控器"
+#~ msgid "Configure Remote Controllers"
+#~ msgstr "設定遙控器"
