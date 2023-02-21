@@ -89,9 +89,9 @@
   <project_group>KDE</project_group>
   <launchable type="desktop-id">org.kde.plasma-remotecontrollers.desktop</launchable>
   <releases>
+    <release version="5.27.1" date="2023-02-21"/>
     <release version="5.27.0" date="2023-02-14"/>
     <release version="5.26.5" date="2023-01-03"/>
     <release version="5.26.4" date="2022-11-29"/>
-    <release version="5.26.3" date="2022-11-08"/>
   </releases>
 </component>
