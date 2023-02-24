@@ -42,6 +42,7 @@
   <summary xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</summary>
   <summary xml:lang="ka">თარგმნეთ სხვადასხვა შეყვანის მოწყობილობების მოვლენები კლავიატურისა და თაგუნის მოვლენებში</summary>
   <summary xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</summary>
+  <summary xml:lang="nn">Gjer om ulike inneinings-hendingar til tastatur- og musepeikar-hendingar</summary>
   <summary xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</summary>
   <summary xml:lang="pt">Traduz vários eventos dos dispositivos de entrada em eventos do teclado e do rato</summary>
   <summary xml:lang="ru">Обработка событий устройств ввода и их преобразование в действия мышью и ввод с клавиатуры</summary>
@@ -76,6 +77,7 @@
     <p xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</p>
     <p xml:lang="ka">თარგმნეთ სხვადასხვა შეყვანის მოწყობილობების მოვლენები კლავიატურისა და თაგუნის მოვლენებში</p>
     <p xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</p>
+    <p xml:lang="nn">Gjer om ulike inneinings-hendingar til tastatur- og musepeikar-hendingar</p>
     <p xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</p>
     <p xml:lang="pt">Traduz vários eventos dos dispositivos de entrada em eventos do teclado e do rato</p>
     <p xml:lang="ru">Обработка событий устройств ввода и их преобразование в действия мышью и ввод с клавиатуры</p>
