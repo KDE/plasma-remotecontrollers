@@ -1,15 +1,15 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the plasma-remotecontrollers package.
 #
-# Steve Allewell <steve.allewell@gmail.com>, 2022.
+# Steve Allewell <steve.allewell@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-09 03:11+0000\n"
-"PO-Revision-Date: 2022-12-31 15:52+0000\n"
+"PO-Revision-Date: 2023-02-27 22:42+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: English <kde-i18n-doc@kde.org>\n"
+"Language-Team: English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgstr "Inhibitions"
 #: libcec/ceccontroller.cpp:137
 #, kde-format
 msgid "KDE Plasma"
-msgstr ""
+msgstr "KDE Plasma"
 
 #: main.cpp:35
 #, kde-format
@@ -83,7 +83,7 @@ msgstr "Controller Disconnected"
 #, kde-format
 msgctxt "What Nintendo Wii remote controllers are called"
 msgid "Wii Remote"
-msgstr ""
+msgstr "Wii Remote"
 
 #~ msgid "What Nintendo Wii remote controllers are called"
 #~ msgstr "What Nintendo Wii remote controllers are called"
