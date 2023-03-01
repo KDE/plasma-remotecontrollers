@@ -149,7 +149,7 @@ KCM.ScrollViewKCM {
         }
 
         onClosed: {
-            kcm.releaseNoop()
+            kcm.releaseNoOp()
         }
 
         Connections {

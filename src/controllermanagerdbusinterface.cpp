@@ -72,5 +72,5 @@ Q_SCRIPTABLE void ControllerManagerDBusInterface::acquireNoOp()
 
 Q_SCRIPTABLE void ControllerManagerDBusInterface::releaseNoOp()
 {
-    ControllerManager::instance().releaseNoop();
+    ControllerManager::instance().resetInputSystem();
 }

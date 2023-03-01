@@ -43,7 +43,7 @@ public:
     void noopInput();
 
     /** Have input forward events to the OS */
-    void releaseNoop();
+    void resetInputSystem();
 
 public slots:
     void emitKey(int key, bool pressed);
