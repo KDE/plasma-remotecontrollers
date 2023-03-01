@@ -48,7 +48,7 @@ void UInputSystem::emitEvent(int type, int code, int val)
 
 void UInputSystem::setSupportedKeys(const QSet<int>& keys)
 {
-    if (keys == m_supportedKeys) {
+    if (m_fd > 0 && keys == m_supportedKeys) {
         return;
     }
     if (m_fd > 0) {
