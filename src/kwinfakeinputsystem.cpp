@@ -10,8 +10,8 @@
 #include <QWaylandClientExtensionTemplate>
 #include <KLocalizedString>
 #include <QDebug>
-#include <linux/input-event-codes.h>
 #include <QtGlobal>
+#include "plasmarc-debug.h"
 
 class FakeInput : public QWaylandClientExtensionTemplate<FakeInput>, public QtWayland::org_kde_kwin_fake_input
 {
@@ -31,6 +31,10 @@ public:
 bool KWinFakeInputSystem::init()
 {
     m_ext = new FakeInput;
+    if (!m_ext->isInitialized()) {
+        qCWarning(PLASMARC) << "Could not initialise the org_kde_kwin_fake_input implementation";
+        return false;
+    }
     m_ext->setParent(this);
     if (!m_ext->isActive()) {
         return false;

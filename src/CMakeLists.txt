@@ -1,4 +1,5 @@
 ecm_qt_declare_logging_category(SRCS HEADER plasmarc-evdev-debug.h IDENTIFIER PLASMARC_EVDEV CATEGORY_NAME org.kde.plasma.remotecontrollers.evdev DESCRIPTION "Plasma Remote Controllers - evdev" DEFAULT_SEVERITY Info EXPORT PLASMARC)
+ecm_qt_declare_logging_category(SRCS HEADER plasmarc-debug.h IDENTIFIER PLASMARC CATEGORY_NAME org.kde.plasma.remotecontrollers DESCRIPTION "Plasma Remote Controllers" DEFAULT_SEVERITY Info EXPORT PLASMARC)
 
 add_executable(plasma-remotecontrollers)
 if (QT_MAJOR_VERSION EQUAL "5")
@@ -47,6 +48,7 @@ target_link_libraries(plasma-remotecontrollers
     KF5::I18n
     KF5::DBusAddons
     KF5::CoreAddons
+    KF5::WindowSystem
     PW::LibTaskManager
     PkgConfig::Evdev
     Wayland::Client

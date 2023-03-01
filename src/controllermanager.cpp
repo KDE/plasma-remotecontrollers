@@ -13,8 +13,8 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KStatusNotifierItem>
+#include <KWindowSystem>
 #include <QAction>
-#include <QDebug>
 #include <QMenu>
 
 #include <taskmanager/tasksmodel.h>
@@ -22,6 +22,7 @@
 
 #include "remotecontrollers.h"
 #include "screensaver_interface.h"
+#include "plasmarc-debug.h"
 
 class NoOpInputSystem : public AbstractSystem
 {
@@ -44,13 +45,7 @@ ControllerManager::ControllerManager(QObject *parent)
     QObject::connect(this, &ControllerManager::deviceDisconnected,
                      &NotificationsManager::instance(), &NotificationsManager::notifyDisconnectedDevice);
 
-    m_inputSystem.reset(new UInputSystem);
-    if (!m_inputSystem->init()) {
-        m_inputSystem.reset(new KWinFakeInputSystem);
-        if (!m_inputSystem->init()) {
-            m_inputSystem.reset(new NoOpInputSystem);
-        }
-    }
+    resetInputSystem();
 
     m_sni = new KStatusNotifierItem(QStringLiteral("org.kde.plasma.remotecontrollers"), this);
     m_sni->setIconByName("input-gamepad");
@@ -189,14 +184,23 @@ void ControllerManager::noopInput()
     m_inputSystem.reset(new NoOpInputSystem);
 }
 
-void ControllerManager::releaseNoop()
+void ControllerManager::resetInputSystem()
 {
-    m_inputSystem.reset(new UInputSystem);
-    if (!m_inputSystem->init()) {
-        m_inputSystem.reset(new KWinFakeInputSystem);
-        if (!m_inputSystem->init()) {
-            m_inputSystem.reset(new NoOpInputSystem);
+    m_inputSystem.reset();
+    std::unique_ptr<AbstractSystem> inputSystem(new UInputSystem);
+    if (inputSystem->init()) {
+        m_inputSystem.reset(inputSystem.release());
+    }
+
+    if (!m_inputSystem && KWindowSystem::isPlatformWayland()) {
+        std::unique_ptr<AbstractSystem> inputSystem(new KWinFakeInputSystem);
+        if (inputSystem->init()) {
+            m_inputSystem.reset(inputSystem.release());
         }
+    }
+    if (!m_inputSystem) {
+        m_inputSystem.reset(new NoOpInputSystem);
+        qCWarning(PLASMARC) << "Could not find an input system, plasma-remotecontrollers will not be able to send events";
     }
 }
 
