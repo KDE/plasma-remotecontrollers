@@ -55,3 +55,5 @@ private:
 
     static void handleCompleteEvent(const int keycode, const int keyduration, const int opcode);
 };
+
+Q_DECLARE_METATYPE(CEC::cec_logical_address);
