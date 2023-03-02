@@ -261,3 +261,13 @@ bool CECController::makeActiveSource()
 {
     return m_cecAdapter->SetActiveSource();
 }
+
+bool CECController::setOSDName(const QString& name)
+{
+    libcec_configuration cecConfig;
+    if (!m_cecAdapter->GetCurrentConfiguration(&cecConfig)) {
+        return false;
+    }
+    snprintf(cecConfig.strDeviceName, LIBCEC_OSD_NAME_SIZE, "%s", qPrintable(name));
+    return m_cecAdapter->SetConfiguration(&cecConfig);
+}

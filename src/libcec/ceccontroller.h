@@ -34,6 +34,7 @@ public Q_SLOTS:
     Q_SCRIPTABLE bool powerOnDevices(CEC::cec_logical_address address = CECDEVICE_TV);
     Q_SCRIPTABLE bool powerOffDevices(CEC::cec_logical_address address = CECDEVICE_BROADCAST);
     Q_SCRIPTABLE bool makeActiveSource();
+    Q_SCRIPTABLE bool setOSDName(const QString&);
 
 Q_SIGNALS:
     void keyPress(int keyCode, bool pressed);
