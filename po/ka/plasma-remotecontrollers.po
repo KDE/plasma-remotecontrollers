@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-09 03:11+0000\n"
+"POT-Creation-Date: 2023-03-03 03:04+0000\n"
 "PO-Revision-Date: 2023-02-13 09:11+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: controllermanager.cpp:59
+#: controllermanager.cpp:54
 #, kde-format
 msgid "Remote Controllers"
 msgstr "დაშორებული კონტროლერები"
 
-#: controllermanager.cpp:61
+#: controllermanager.cpp:56
 #, kde-format
 msgid "Configure Inhibited Apps"
 msgstr "ჩაკეტილი აპების მორგება"
 
-#: controllermanager.cpp:63
+#: controllermanager.cpp:58
 #, kde-format
 msgid "Inhibitions"
 msgstr "ჩაკეტვები"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-09 03:11+0000\n"
+"POT-Creation-Date: 2023-03-03 03:04+0000\n"
 "PO-Revision-Date: 2023-02-16 11:11+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -18,17 +18,17 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: controllermanager.cpp:59
+#: controllermanager.cpp:54
 #, kde-format
 msgid "Remote Controllers"
 msgstr "أجهزة تحكم عن بعد"
 
-#: controllermanager.cpp:61
+#: controllermanager.cpp:56
 #, kde-format
 msgid "Configure Inhibited Apps"
 msgstr "اضبط التطبيقات المثبطة"
 
-#: controllermanager.cpp:63
+#: controllermanager.cpp:58
 #, kde-format
 msgid "Inhibitions"
 msgstr "المثبطات"

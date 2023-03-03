@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-09 03:11+0000\n"
+"POT-Creation-Date: 2023-03-03 03:04+0000\n"
 "PO-Revision-Date: 2023-02-24 12:59\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -18,17 +18,17 @@ msgstr ""
 "remotecontrollers.pot\n"
 "X-Crowdin-File-ID: 40920\n"
 
-#: controllermanager.cpp:59
+#: controllermanager.cpp:54
 #, kde-format
 msgid "Remote Controllers"
 msgstr "遥控器"
 
-#: controllermanager.cpp:61
+#: controllermanager.cpp:56
 #, kde-format
 msgid "Configure Inhibited Apps"
 msgstr "配置禁止的应用"
 
-#: controllermanager.cpp:63
+#: controllermanager.cpp:58
 #, kde-format
 msgid "Inhibitions"
 msgstr "禁止应用"
