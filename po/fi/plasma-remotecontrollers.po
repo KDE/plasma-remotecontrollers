@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the plasma-remotecontrollers package.
-# Tommi Nieminen <translator@legisign.org>, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-03 03:04+0000\n"
-"PO-Revision-Date: 2022-08-30 13:49+0300\n"
+"PO-Revision-Date: 2023-03-04 20:00+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,59 +15,59 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: controllermanager.cpp:54
 #, kde-format
 msgid "Remote Controllers"
-msgstr ""
+msgstr "Kaukosäätimet"
 
 #: controllermanager.cpp:56
 #, kde-format
 msgid "Configure Inhibited Apps"
-msgstr ""
+msgstr "Aseta estetyt sovellukset"
 
 #: controllermanager.cpp:58
 #, kde-format
 msgid "Inhibitions"
-msgstr ""
+msgstr "Estot"
 
 #: libcec/ceccontroller.cpp:137
 #, kde-format
 msgid "KDE Plasma"
-msgstr ""
+msgstr "KDE Plasma"
 
 #: main.cpp:35
 #, kde-format
 msgid "Plasma Remote Controllers"
-msgstr ""
+msgstr "Plasma-kaukosäätimet"
 
 #: main.cpp:36
 #, kde-format
 msgid "System update status notifier"
-msgstr ""
+msgstr "Järjestelmän päivitystilan ilmoitin"
 
 #: main.cpp:37
 #, kde-format
 msgid "© 2022 Plasma Development Team"
-msgstr ""
+msgstr "© 2022 Plasma-kehitysryhmä"
 
 #: main.cpp:39
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Tommi Nieminen"
 
 #: main.cpp:40
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "translator@legisign.org"
 
 #: main.cpp:48
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Korvaa olemassa oleva instanssi"
 
 #: notificationsmanager.cpp:27
 #, kde-format
@@ -83,7 +83,7 @@ msgstr "Kaukosäädin irrotettu"
 #, kde-format
 msgctxt "What Nintendo Wii remote controllers are called"
 msgid "Wii Remote"
-msgstr ""
+msgstr "Wii-kaukosäädin"
 
 #~ msgid "What Nintendo Wii remote controllers are called"
 #~ msgstr "Miksi Nintendon Wiin kaukosäätimiä kutsutaan"
