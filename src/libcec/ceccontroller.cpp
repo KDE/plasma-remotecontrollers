@@ -104,9 +104,6 @@ CECController::CECController()
     QDBusConnection::sessionBus().registerService("org.kde.plasma.remotecontrollers");
     QDBusConnection::sessionBus().registerObject("/CEC", this, QDBusConnection::ExportScriptableSlots);
 
-    QObject::connect(this, &CECController::keyPress,
-                     &ControllerManager::instance(), &ControllerManager::emitKey);
-
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup generalGroup = config->group("General");
 
