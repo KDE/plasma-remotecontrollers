@@ -35,10 +35,6 @@ public Q_SLOTS:
     Q_SCRIPTABLE bool powerOffDevices(CEC::cec_logical_address address = CECDEVICE_BROADCAST);
     Q_SCRIPTABLE bool makeActiveSource();
 
-Q_SIGNALS:
-    void keyPress(int keyCode, bool pressed);
-    void pressedKey(int keycode);
-
 private:
     ICECAdapter* m_cecAdapter = nullptr;
     ICECCallbacks m_cecCallbacks;
