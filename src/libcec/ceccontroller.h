@@ -38,6 +38,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     Q_SCRIPTABLE void enterStandby();
+    Q_SCRIPTABLE bool sourceActivated(bool active);
 
 private:
     ICECAdapter* m_cecAdapter = nullptr;
@@ -50,6 +51,7 @@ private:
 
     static void handleCecKeypress(void* param, const cec_keypress* key);
     static void handleCommandReceived(void* param, const cec_command* command);
+    static void handleSourceActivated(void* param, const cec_logical_address address, uint8_t activated);
 
     static int m_hitcommand;
 

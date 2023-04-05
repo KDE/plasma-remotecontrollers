@@ -66,6 +66,13 @@ void CECController::handleCommandReceived(void* param, const cec_command* comman
     }
 }
 
+void CECController::handleSourceActivated(void* param, const cec_logical_address address, uint8_t activated)
+{
+    Q_UNUSED(address);
+    CECController* self = static_cast<CECController*>(param);
+    QMetaObject::invokeMethod(self, "sourceActivated", Q_ARG(bool, activated));
+}
+
 void CECController::handleCompleteEvent(const int keycode, const int keyduration, const int opcode)
 {
     Q_UNUSED(keyduration);
@@ -151,7 +158,7 @@ CECController::CECController()
     m_cecCallbacks.Clear();
     m_cecCallbacks.keyPress = &CECController::handleCecKeypress;
     m_cecCallbacks.commandReceived = &CECController::handleCommandReceived;
-
+    m_cecCallbacks.sourceActivated = &CECController::handleSourceActivated;
 
     libcec_configuration cecConfig;
     cecConfig.Clear();

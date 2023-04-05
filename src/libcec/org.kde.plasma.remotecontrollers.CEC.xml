@@ -3,6 +3,9 @@
   <interface name="org.kde.plasma.remotecontrollers.CEC">
     <signal name="enterStandby">
     </signal>
+    <signal name="sourceActivated">
+      <arg type="b" direction="out"/>
+    </signal>
     <method name="sendNextKey">
       <arg type="i" direction="out"/>
     </method>
