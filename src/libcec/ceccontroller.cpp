@@ -59,8 +59,11 @@ void CECController::handleCecKeypress(void* param, const cec_keypress* key)
 
 void CECController::handleCommandReceived(void* param, const cec_command* command)
 {
-    Q_UNUSED(param);
+    CECController* self = static_cast<CECController*>(param);
     m_hitcommand = command->opcode;
+    if (m_hitcommand == CEC_OPCODE_STANDBY) {
+        QMetaObject::invokeMethod(self, "enterStandby");
+    }
 }
 
 void CECController::handleCompleteEvent(const int keycode, const int keyduration, const int opcode)
@@ -102,7 +105,7 @@ CECController::CECController()
 {
     qDBusRegisterMetaType<cec_logical_address>();
     QDBusConnection::sessionBus().registerService("org.kde.plasma.remotecontrollers");
-    QDBusConnection::sessionBus().registerObject("/CEC", this, QDBusConnection::ExportScriptableSlots);
+    QDBusConnection::sessionBus().registerObject("/CEC", this, QDBusConnection::ExportScriptableSlots | QDBusConnection::ExportScriptableSignals);
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup generalGroup = config->group("General");
@@ -157,6 +160,7 @@ CECController::CECController()
     cecConfig.clientVersion = LIBCEC_VERSION_CURRENT;
     cecConfig.deviceTypes.Add(CEC_DEVICE_TYPE_RECORDING_DEVICE);
     cecConfig.callbacks = &m_cecCallbacks;
+    cecConfig.callbackParam = this;
 
     m_cecAdapter = LibCecInitialise(&cecConfig);
 

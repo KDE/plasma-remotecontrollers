@@ -36,6 +36,9 @@ public Q_SLOTS:
     Q_SCRIPTABLE bool makeActiveSource();
     Q_SCRIPTABLE bool setOSDName(const QString&);
 
+Q_SIGNALS:
+    Q_SCRIPTABLE void enterStandby();
+
 private:
     ICECAdapter* m_cecAdapter = nullptr;
     ICECCallbacks m_cecCallbacks;
