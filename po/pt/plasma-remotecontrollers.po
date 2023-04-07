@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 00:49+0000\n"
+"POT-Creation-Date: 2023-04-07 00:48+0000\n"
 "PO-Revision-Date: 2023-02-15 15:11+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -33,7 +33,7 @@ msgstr "Configurar as Aplicações Inibidas"
 msgid "Inhibitions"
 msgstr "Inibições"
 
-#: libcec/ceccontroller.cpp:159
+#: libcec/ceccontroller.cpp:156
 #, kde-format
 msgid "KDE Plasma"
 msgstr "Plasma do KDE"

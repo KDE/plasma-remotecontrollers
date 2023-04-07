@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 00:49+0000\n"
+"POT-Creation-Date: 2023-04-07 00:48+0000\n"
 "PO-Revision-Date: 2023-02-09 08:48+0200\n"
 "Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -33,7 +33,7 @@ msgstr "Налаштувати заборонені програми"
 msgid "Inhibitions"
 msgstr "Заборони"
 
-#: libcec/ceccontroller.cpp:159
+#: libcec/ceccontroller.cpp:156
 #, kde-format
 msgid "KDE Plasma"
 msgstr "Плазма KDE"
