@@ -3,8 +3,8 @@ project(plasma-remotecontrollers)
 set(PROJECT_VERSION "5.27.80")
 set(PROJECT_VERSION_MAJOR 5)
 
-set(QT_MIN_VERSION "5.15.2")
-set(KF_MIN_VERSION "5.68.0")
+set(QT_MIN_VERSION "6.4.0")
+set(KF_MIN_VERSION "5.240.0")
 
 find_package(ECM CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -17,13 +17,13 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 
 find_package(PkgConfig REQUIRED)
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     DBus
     Gui
     WaylandClient
 )
-find_package(KF5 ${KF_MIN_VERSION} COMPONENTS REQUIRED
+find_package(KF6 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     Config
     Notifications
     I18n
@@ -54,9 +54,6 @@ feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 set(CMAKE_CXX_STANDARD 17)
 
 find_package(PlasmaWaylandProtocols REQUIRED)
-if (QT_MAJOR_VERSION EQUAL "5")
-    find_package(QtWaylandScanner REQUIRED)
-endif()
 
 add_subdirectory(src)
 add_subdirectory(kcm)

@@ -12,9 +12,9 @@ kcmutils_generate_desktop_file (kcm_mediacenter_remotecontrollers)
 
 target_link_libraries(kcm_mediacenter_remotecontrollers
     Qt::DBus
-    KF5::I18n
-    KF5::KCMUtils
-    KF5::QuickAddons
+    KF6::I18n
+    KF6::KCMUtils
+    KF6::QuickAddons
 )
 
 kpackage_install_package(package kcm_mediacenter_remotecontrollers kcms)

@@ -2,15 +2,7 @@ ecm_qt_declare_logging_category(SRCS HEADER plasmarc-evdev-debug.h IDENTIFIER PL
 ecm_qt_declare_logging_category(SRCS HEADER plasmarc-debug.h IDENTIFIER PLASMARC CATEGORY_NAME org.kde.plasma.remotecontrollers DESCRIPTION "Plasma Remote Controllers" DEFAULT_SEVERITY Info EXPORT PLASMARC)
 
 add_executable(plasma-remotecontrollers)
-if (QT_MAJOR_VERSION EQUAL "5")
-    ecm_add_qtwayland_client_protocol(SRCS
-        PROTOCOL ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml
-        BASENAME fake-input
-    )
-else()
-    qt6_generate_wayland_protocol_client_sources(plasma-remotecontrollers FILES
-        ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml)
-endif()
+qt6_generate_wayland_protocol_client_sources(plasma-remotecontrollers FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml)
 qt_add_dbus_interface(SRCS ${SCREENSAVER_DBUS_INTERFACE} screensaver_interface)
 
 target_sources(plasma-remotecontrollers PRIVATE
@@ -42,13 +34,13 @@ target_link_libraries(plasma-remotecontrollers
     Qt::DBus
     Qt::Gui
     Qt::WaylandClient
-    KF5::ConfigCore
-    KF5::Notifications
-    KF5::Solid
-    KF5::I18n
-    KF5::DBusAddons
-    KF5::CoreAddons
-    KF5::WindowSystem
+    KF6::ConfigCore
+    KF6::Notifications
+    KF6::Solid
+    KF6::I18n
+    KF6::DBusAddons
+    KF6::CoreAddons
+    KF6::WindowSystem
     PW::LibTaskManager
     PkgConfig::Evdev
     Wayland::Client
