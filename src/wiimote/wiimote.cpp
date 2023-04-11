@@ -111,7 +111,7 @@ void Wiimote::watchEvents()
         case XWII_EVENT_GONE:
             // TODO: we don't always get this event
             // https://github.com/dvdhrm/xwiimote/issues/99
-            emit deviceDisconnected(m_index);
+            Q_EMIT deviceDisconnected(m_index);
             break;
         case XWII_EVENT_WATCH:
             handleWatch();
@@ -178,7 +178,7 @@ void Wiimote::handleKeypress(struct xwii_event *event)
         return;
     }
 
-    emit keyPress(nativeKeyCode, pressed);
+    Q_EMIT keyPress(nativeKeyCode, pressed);
 }
 
 void Wiimote::handleNunchuk(struct xwii_event *event)
@@ -193,23 +193,23 @@ void Wiimote::handleNunchuk(struct xwii_event *event)
             // pow(val, 1/4) for smoother interpolation around the origin
             val = event->v.abs[0].x * 12;
             if (val > 1000) {
-                emit keyPress(KEY_RIGHT, true);
-                emit keyPress(KEY_RIGHT, false);
+                Q_EMIT keyPress(KEY_RIGHT, true);
+                Q_EMIT keyPress(KEY_RIGHT, false);
                 m_previousNunchukAxisTime = event->time.tv_sec;
             } else if (val < -1000) {
-                emit keyPress(KEY_LEFT, true);
-                emit keyPress(KEY_LEFT, false);
+                Q_EMIT keyPress(KEY_LEFT, true);
+                Q_EMIT keyPress(KEY_LEFT, false);
                 m_previousNunchukAxisTime = event->time.tv_sec;
             }
             
             val = event->v.abs[0].y * 12;
             if (val > 1000) {
-                emit keyPress(KEY_UP, true);
-                emit keyPress(KEY_UP, false);
+                Q_EMIT keyPress(KEY_UP, true);
+                Q_EMIT keyPress(KEY_UP, false);
                 m_previousNunchukAxisTime = event->time.tv_sec;
             } else if (val < -1000) {
-                emit keyPress(KEY_DOWN, true);
-                emit keyPress(KEY_DOWN, false);
+                Q_EMIT keyPress(KEY_DOWN, true);
+                Q_EMIT keyPress(KEY_DOWN, false);
                 m_previousNunchukAxisTime = event->time.tv_sec;
             }
         }

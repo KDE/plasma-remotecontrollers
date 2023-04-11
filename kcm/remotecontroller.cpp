@@ -11,8 +11,8 @@
 #include <KPluginFactory>
 #include <KSharedConfig>
 #include <QDBusConnection>
-#include <QDBusMessage>
 #include <QDBusConnectionInterface>
+#include <QDBusMessage>
 #include <QtQml>
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteController, "kcm_mediacenter_remotecontrollers.json")
@@ -26,10 +26,10 @@ RemoteController::RemoteController(QObject *parent, const KPluginMetaData &metaD
 
     // connect to the evdevKeyPressed signal from kcmDbusInterface
     connect(&kcmDbusInterface, &KcmDbusInterface::evdevKeyPressed, this, [this](int keyCode) {
-        emit gamepadKeyPressed(keyCode);
+        Q_EMIT gamepadKeyPressed(keyCode);
     });
 
-    const QByteArray uri("org.kde.private.kcm.remotecontrollers");
+    const char *uri = "org.kde.private.kcm.remotecontrollers";
     qmlRegisterUncreatableType<KeyMapModel>(uri, 1, 0, "KeyMapModel", QStringLiteral("Cannot create an item of type KeyMapModel"));
     qmlRegisterUncreatableType<DevicesModel>(uri, 1, 0, "DevicesModel", QStringLiteral("Cannot create an item of type DevicesModel"));
 }
@@ -70,7 +70,7 @@ void RemoteController::setCecKeyConfig(const QString &button, const QString &key
     if (grp.isValid()) {
         grp.writeEntry(button, key);
         grp.sync();
-        emit cecConfigChanged(button);
+        Q_EMIT cecConfigChanged(button);
     }
 
     m_keyMapModel->refresh();
@@ -84,7 +84,7 @@ void RemoteController::setGamepadKeyConfig(const QString &button, const QString 
     if (grp.isValid()) {
         grp.writeEntry(button, key);
         grp.sync();
-        emit gamepadConfigChanged(button);
+        Q_EMIT gamepadConfigChanged(button);
     }
 
     m_keyMapModel->refresh();
@@ -92,13 +92,19 @@ void RemoteController::setGamepadKeyConfig(const QString &button, const QString 
 
 void RemoteController::acquireNoOp()
 {
-    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "acquireNoOp");
+    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers",
+                                                          "/ControllerManager",
+                                                          "org.kde.plasma.remotecontrollers.ControllerManager",
+                                                          "acquireNoOp");
     QDBusConnection::sessionBus().call(message);
 }
 
 void RemoteController::releaseNoOp()
 {
-    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "releaseNoOp");
+    QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers",
+                                                          "/ControllerManager",
+                                                          "org.kde.plasma.remotecontrollers.ControllerManager",
+                                                          "releaseNoOp");
     QDBusConnection::sessionBus().call(message);
 }
 

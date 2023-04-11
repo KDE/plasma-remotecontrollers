@@ -99,8 +99,8 @@ void ControllerManager::newDevice(Device *device)
 
     // Don't send notifications for CEC devices, since we expect them to always be available
     if (device->getDeviceType() != DeviceCEC) {
-        emit deviceConnected(device);
-        emit m_dbusInterface->deviceConnected(device->getUniqueIdentifier());
+        Q_EMIT deviceConnected(device);
+        Q_EMIT m_dbusInterface->deviceConnected(device->getUniqueIdentifier());
     }
     m_lastUsed.start();
     m_sni->setStatus(KStatusNotifierItem::Active);
@@ -109,12 +109,12 @@ void ControllerManager::newDevice(Device *device)
 void ControllerManager::deviceRemoved(Device *device)
 {
     qInfo() << "Device disconnected:" << device->getName();
-    emit deviceDisconnected(device);
+    Q_EMIT deviceDisconnected(device);
     m_connectedDevices.removeOne(device);
     for (int i = 0; i < m_connectedDevices.size(); i++) {
         m_connectedDevices[i]->setIndex(i);
     }
-    emit m_dbusInterface->deviceDisconnected(device->getUniqueIdentifier());
+    Q_EMIT m_dbusInterface->deviceDisconnected(device->getUniqueIdentifier());
 
     m_sni->setStatus(m_connectedDevices.count() > 0 ? KStatusNotifierItem::Active : KStatusNotifierItem::Passive);
     m_lastUsed.start();
@@ -127,7 +127,7 @@ void ControllerManager::removeDevice(int deviceIndex)
 
     qInfo() << "Device disconnected:" << removedDevice->getName();
 
-    emit deviceDisconnected(removedDevice);
+    Q_EMIT deviceDisconnected(removedDevice);
     delete removedDevice;
     
     // Reset indexes

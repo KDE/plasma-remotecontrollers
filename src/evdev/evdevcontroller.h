@@ -39,7 +39,7 @@ public:
     }
     void readNow();
 
-signals:
+Q_SIGNALS:
     void keyPress(int keyCode, bool pressed);
 
 private:

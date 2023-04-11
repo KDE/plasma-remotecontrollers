@@ -45,7 +45,7 @@ public:
     /** Have input forward events to the OS */
     void resetInputSystem();
 
-public slots:
+public Q_SLOTS:
     void emitKey(int key, bool pressed);
     void removeDevice(int deviceIndex);
     QVector<Device*> connectedDevices();

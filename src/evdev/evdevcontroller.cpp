@@ -5,24 +5,24 @@
  */
 
 #include "evdevcontroller.h"
-#include "plasmarc-evdev-debug.h"
 #include "../controllermanager.h"
+#include "plasmarc-evdev-debug.h"
 #include <Solid/Block>
-#include <Solid/GenericInterface>
 #include <Solid/Device>
 #include <Solid/DeviceNotifier>
+#include <Solid/GenericInterface>
 
 #include <QDirIterator>
 #include <QFile>
 #include <QSocketNotifier>
 
-#include <linux/input-event-codes.h>
 #include <fcntl.h>
+#include <linux/input-event-codes.h>
 
 EvdevController::EvdevController()
 {
     auto notifier = Solid::DeviceNotifier::instance();
-    auto refresh = [this] (const QString &udi) {
+    auto refresh = [this](const QString &udi) {
         Solid::Device device(udi);
         if (device.is<Solid::Block>()) {
             qCInfo(PLASMARC_EVDEV) << "Trying device on evdev:" << device.product() << device.as<Solid::Block>()->device();
@@ -47,7 +47,8 @@ bool EvdevController::addDevice(const Solid::Device &device)
 
     qDebug() << "trying" << device.udi() << device.displayName() << inputDevice->device();
     struct libevdev *dev = NULL;
-    int fd = open(QFile::encodeName(inputDevice->device()), O_RDONLY|O_NONBLOCK);
+    QByteArray encoded(QFile::encodeName(inputDevice->device()));
+    int fd = open(encoded.constData(), O_RDONLY | O_NONBLOCK);
     if (fd < 0) {
         qCDebug(PLASMARC_EVDEV) << "Failed to open" << inputDevice->device() << strerror(errno);
         libevdev_free(dev);
@@ -61,9 +62,7 @@ bool EvdevController::addDevice(const Solid::Device &device)
         libevdev_free(dev);
         return false;
     }
-    if (!libevdev_has_event_type(dev, EV_ABS) ||
-        !libevdev_has_event_code(dev, EV_KEY, BTN_MODE))
-    {
+    if (!libevdev_has_event_type(dev, EV_ABS) || !libevdev_has_event_code(dev, EV_KEY, BTN_MODE)) {
         qCDebug(PLASMARC_EVDEV) << "This device does not look like a remote controller:" << libevdev_get_name(dev);
         close(fd);
         libevdev_free(dev);
@@ -80,26 +79,26 @@ bool EvdevController::addDevice(const Solid::Device &device)
     return true;
 }
 
-EvdevDevice::EvdevDevice(const QString& path, libevdev *device, EvdevController *controller)
+EvdevDevice::EvdevDevice(const QString &path, libevdev *device, EvdevController *controller)
     : Device(DeviceGamepad, QString::fromUtf8(libevdev_get_name(device)), path)
     , m_controller(controller)
     , m_device(device)
     , m_udi(path)
-    , m_buttons ({
-        { BTN_MODE, { KEY_LEFTMETA } },
-        { BTN_START, { KEY_GAMES } },
-        { BTN_SOUTH, { KEY_ENTER } },
-        { BTN_EAST, { KEY_CANCEL } },
-        { BTN_WEST, { KEY_MENU } },
-        { BTN_TL, { KEY_LEFTSHIFT, KEY_TAB } },
-        { BTN_TR, { KEY_TAB } },
-        { BTN_TL2, { KEY_BACK } },
-        { BTN_TR2, { KEY_FORWARD } },
-        { BTN_DPAD_UP, { KEY_UP } },
-        { BTN_DPAD_DOWN, { KEY_DOWN } },
-        { BTN_DPAD_LEFT, { KEY_LEFT } },
-        { BTN_DPAD_RIGHT, { KEY_RIGHT } }
-    })
+    , m_buttons({
+          {BTN_MODE, {KEY_LEFTMETA}},
+          {BTN_START, {KEY_GAMES}},
+          {BTN_SOUTH, {KEY_ENTER}},
+          {BTN_EAST, {KEY_CANCEL}},
+          {BTN_WEST, {KEY_MENU}},
+          {BTN_TL, {KEY_LEFTSHIFT, KEY_TAB}},
+          {BTN_TR, {KEY_TAB}},
+          {BTN_TL2, {KEY_BACK}},
+          {BTN_TR2, {KEY_FORWARD}},
+          {BTN_DPAD_UP, {KEY_UP}},
+          {BTN_DPAD_DOWN, {KEY_DOWN}},
+          {BTN_DPAD_LEFT, {KEY_LEFT}},
+          {BTN_DPAD_RIGHT, {KEY_RIGHT}},
+      })
 {
     auto notifier = Solid::DeviceNotifier::instance();
     connect(notifier, &Solid::DeviceNotifier::deviceRemoved, this, &EvdevDevice::deviceRemoved);
@@ -116,7 +115,7 @@ EvdevDevice::~EvdevDevice()
     libevdev_free(m_device);
 }
 
-void EvdevDevice::deviceRemoved(const QString& udi)
+void EvdevDevice::deviceRemoved(const QString &udi)
 {
     if (m_udi == udi) {
         deleteLater();
@@ -147,7 +146,7 @@ void EvdevDevice::readNow()
         qDebug() << "nothing to read";
     } else if (ret < 0) {
         qWarning() << "Error while reading" << strerror(errno);
-        if(errno == 19) {
+        if (errno == 19) {
             ControllerManager::instance().deviceRemoved(this);
             deleteLater();
         }
@@ -161,7 +160,7 @@ void EvdevDevice::readNow()
         readNow();
 }
 
-void EvdevDevice::processEvent(struct input_event& ev)
+void EvdevDevice::processEvent(struct input_event &ev)
 {
     if (ev.type == EV_KEY) {
         const auto nativeKeyCodes = m_buttons.value(ev.code);
@@ -176,14 +175,14 @@ void EvdevDevice::processEvent(struct input_event& ev)
         qCDebug(PLASMARC_EVDEV) << "Ignoring Key:" << libevdev_event_type_get_name(ev.type) << libevdev_event_code_get_name(ev.type, ev.code) << ev.value;
     } else if (ev.type == EV_ABS) {
         switch (ev.code) {
-            case ABS_HAT0Y:
-                setKey(KEY_DOWN, ev.value > 0);
-                setKey(KEY_UP, ev.value < 0);
-                return;
-            case ABS_HAT0X:
-                setKey(KEY_RIGHT, ev.value > 0);
-                setKey(KEY_LEFT, ev.value < 0);
-                return;
+        case ABS_HAT0Y:
+            setKey(KEY_DOWN, ev.value > 0);
+            setKey(KEY_UP, ev.value < 0);
+            return;
+        case ABS_HAT0X:
+            setKey(KEY_RIGHT, ev.value > 0);
+            setKey(KEY_LEFT, ev.value < 0);
+            return;
         }
     }
 }

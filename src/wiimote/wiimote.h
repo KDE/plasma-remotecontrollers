@@ -42,7 +42,7 @@ public:
 
     WiimoteDevtypes getDevType();
 
-public slots:
+public Q_SLOTS:
     void watchEvents() override;
 
 Q_SIGNALS:

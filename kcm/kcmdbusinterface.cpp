@@ -39,5 +39,5 @@ void KcmDbusInterface::evdevKeyPress(const QDBusMessage& msg)
 {
     QList<QVariant> arguments = msg.arguments();
     int keyCode = arguments.at(0).toInt();
-    emit evdevKeyPressed(keyCode);
+    Q_EMIT evdevKeyPressed(keyCode);
 }

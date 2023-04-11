@@ -23,7 +23,7 @@ public:
     explicit WiimoteController();
     ~WiimoteController();
 
-public slots:
+public Q_SLOTS:
     void deviceDetection();
 
 Q_SIGNALS:
@@ -38,6 +38,6 @@ class WiimoteEventWatcher : public QObject
 {
     Q_OBJECT
 
-public slots:
+public Q_SLOTS:
     void watchEvents();
 };

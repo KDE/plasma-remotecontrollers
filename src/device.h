@@ -37,7 +37,7 @@ public:
     void setUsedKeys(const QSet<int> &keys) { m_usedKeys = keys; }
     QSet<int> usedKeys() const { return m_usedKeys; }
 
-public slots:
+public Q_SLOTS:
     virtual void watchEvents() { return; };
 
 Q_SIGNALS:

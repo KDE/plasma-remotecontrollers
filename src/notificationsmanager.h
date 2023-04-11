@@ -17,7 +17,7 @@ class NotificationsManager : public QObject
 public:
     static NotificationsManager &instance();
 
-public slots:
+public Q_SLOTS:
     void notifyNewDevice(Device* device);
     void notifyDisconnectedDevice(Device* device);
 
