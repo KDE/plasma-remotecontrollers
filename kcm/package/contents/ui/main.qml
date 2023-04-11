@@ -27,7 +27,7 @@ KCM.ScrollViewKCM {
     Connections {
         target: kcm.devicesModel
 
-        onDevicesChanged: {
+        function onDevicesChanged() {
             if(connectionView.count > 0) {
                 deviceSetupView.deviceName = connectionView.model.get(connectionView.currentIndex).deviceName
                 deviceSetupView.deviceIcon = connectionView.model.get(connectionView.currentIndex).deviceIconName
@@ -153,7 +153,7 @@ KCM.ScrollViewKCM {
 
         Connections {
             target: kcm
-            onGamepadKeyPressed: {
+            function onGamepadKeyPressed(keyCode) {
                 if(keySetupGamepadPopUp.opened) {
                     if(kcm.gamepadKeyConfig("ButtonEnter") == keyCode) {
                         deviceSetupView.ignoreEvent = true       
