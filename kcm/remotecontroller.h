@@ -7,16 +7,16 @@
 #ifndef RemoteControllers_H
 #define RemoteControllers_H
 
-#include <KQuickAddons/ConfigModule>
-#include <KConfigGroup>
-#include <QDBusVariant>
+#include "devicesmodel.h"
 #include "kcmdbusinterface.h"
 #include "keymapmodel.h"
-#include "devicesmodel.h"
+#include <KConfigGroup>
+#include <KQuickConfigModule>
+#include <QDBusVariant>
 
 class KeyMapModel;
 class KcmDbusInterface;
-class RemoteController : public KQuickAddons::ConfigModule
+class RemoteController : public KQuickConfigModule
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.plasma.remotecontrollers.KCM")
@@ -24,7 +24,7 @@ class RemoteController : public KQuickAddons::ConfigModule
     Q_PROPERTY(DevicesModel *devicesModel READ devicesModel CONSTANT)
 
 public:
-    explicit RemoteController(QObject *parent, const KPluginMetaData &metaData, const QVariantList &list = QVariantList());
+    explicit RemoteController(QObject *parent, const KPluginMetaData &metaData, const QVariantList &list);
     ~RemoteController() override;
     KcmDbusInterface kcmDbusInterface;
     DevicesModel *devicesModel();

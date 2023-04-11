@@ -6,7 +6,7 @@ set(PROJECT_VERSION_MAJOR 5)
 set(QT_MIN_VERSION "6.4.0")
 set(KF_MIN_VERSION "5.240.0")
 
-find_package(ECM CONFIG REQUIRED)
+find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(FeatureSummary)
@@ -15,6 +15,8 @@ include(ECMInstallIcons)
 include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
+
+remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 find_package(PkgConfig REQUIRED)
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS

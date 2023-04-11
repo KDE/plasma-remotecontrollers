@@ -1,26 +1,31 @@
 /*
     SPDX-FileCopyrightText: 2022 Aditya Mehra <aix.m@outlook.com>
-    SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
+    SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR
+   LicenseRef-KDE-Accepted-GPL
 */
 
 #ifndef DEVICESMODEL_H
 #define DEVICESMODEL_H
 
 #include <QAbstractListModel>
-#include <QObject>
 #include <QDBusInterface>
+#include <QObject>
 
 class ControllerManagerDBusInterface : public QDBusInterface
 {
     Q_OBJECT
 
 public:
-    ControllerManagerDBusInterface(const QString &service, const QString &path, const char *interface, const QDBusConnection &connection, QObject *parent = nullptr)
-        : QDBusInterface(service, path, interface, connection, parent)
+    ControllerManagerDBusInterface(const QString &service,
+                                   const QString &path,
+                                   const char *interface,
+                                   const QDBusConnection &connection,
+                                   QObject *parent = nullptr)
+        : QDBusInterface(service, path, QString::fromLatin1(interface), connection, parent)
     {
     }
 
-signals:
+Q_SIGNALS:
     void deviceConnected(const QString &deviceName);
     void deviceDisconnected(const QString &deviceName);
 };
@@ -35,7 +40,7 @@ public:
         DeviceTypeRole = Qt::UserRole + 1,
         DeviceNameRole,
         DeviceUniqueIdentifierRole,
-        DeviceIconNameRole
+        DeviceIconNameRole,
     };
 
     Q_ENUM(DeviceRoles)
@@ -69,6 +74,5 @@ private:
     QHash<int, QByteArray> m_roleNames;
     QList<QVariantMap> m_devices;
 };
-
 
 #endif // DEVICESMODEL_H
