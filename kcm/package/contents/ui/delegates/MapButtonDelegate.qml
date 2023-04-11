@@ -7,11 +7,10 @@
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14
-import org.kde.plasma.components 2.0 as PlasmaComponents
-import org.kde.plasma.components 3.0 as PlasmaComponents3
+import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kirigami 2.12 as Kirigami
 
-PlasmaComponents3.Button {
+PlasmaComponents.Button {
     id: btnMap
     implicitWidth: parent.width
     padding: Kirigami.Units.largeSpacing

@@ -9,10 +9,9 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents2
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kirigami 2.12 as Kirigami
-import QtGraphicalEffects 1.14
+import Qt5Compat.GraphicalEffects
 
 Item {
     id: deviceView
