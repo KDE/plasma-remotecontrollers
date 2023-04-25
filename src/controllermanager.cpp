@@ -17,8 +17,8 @@
 #include <QAction>
 #include <QMenu>
 
-#include <taskmanager/tasksmodel.h>
-#include <taskmanager/abstracttasksmodel.h>
+#include <abstracttasksmodel.h>
+#include <tasksmodel.h>
 
 #include "remotecontrollers.h"
 #include "screensaver_interface.h"
