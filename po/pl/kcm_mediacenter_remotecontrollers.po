@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 01:01+0000\n"
+"POT-Creation-Date: 2023-05-02 00:50+0000\n"
 "PO-Revision-Date: 2022-08-06 08:26+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -314,19 +314,19 @@ msgid "Button Home"
 msgstr "Przycisk domu"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:37
-#: package/contents/ui/DeviceMap.qml:45
+#: package/contents/ui/DeviceMap.qml:44
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr "Przypisz przyciski pilota TV do przycisków"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:39
-#: package/contents/ui/DeviceMap.qml:47
+#: package/contents/ui/DeviceMap.qml:46
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr "Przypisz przyciski pilota Wii do przycisków"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:41
-#: package/contents/ui/DeviceMap.qml:49
+#: package/contents/ui/DeviceMap.qml:48
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr "Przypisz przyciski pada do przycisków"
@@ -353,31 +353,29 @@ msgid "No Devices Found"
 msgstr "Nie znaleziono żadnych urządzeń"
 
 #: package/contents/ui/+mediacenter/main.qml:184
-#: package/contents/ui/main.qml:134
+#: package/contents/ui/main.qml:133
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "Wybierz przycisk na swoim pilocie TV dla %1"
 
 #: package/contents/ui/+mediacenter/main.qml:215
-#: package/contents/ui/main.qml:173
+#: package/contents/ui/main.qml:172
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "Wybierz przycisk na swoim padzie do gier dla %1"
 
-#: package/contents/ui/main.qml:22
-#, kde-format
-msgid "This module lets you configure remote controllers."
-msgstr "Ten człon umożliwia ustawienie pilotów."
-
-#: package/contents/ui/main.qml:54
+#: package/contents/ui/main.qml:53
 #, kde-format
 msgid "Device:"
 msgstr "Urządzenie:"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:95
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Nie znaleziono żadnego pilota."
+
+#~ msgid "This module lets you configure remote controllers."
+#~ msgstr "Ten człon umożliwia ustawienie pilotów."
 
 #~ msgid "Configure Remote Controllers"
 #~ msgstr "Ustawienia pilotów"

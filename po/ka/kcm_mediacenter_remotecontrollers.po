@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 01:01+0000\n"
+"POT-Creation-Date: 2023-05-02 00:50+0000\n"
 "PO-Revision-Date: 2023-02-08 07:16+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -314,19 +314,19 @@ msgid "Button Home"
 msgstr "ღილაკი Home"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:37
-#: package/contents/ui/DeviceMap.qml:45
+#: package/contents/ui/DeviceMap.qml:44
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr "TV-ის პულტის კლავიშების ღილაკებზე მიბმა"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:39
-#: package/contents/ui/DeviceMap.qml:47
+#: package/contents/ui/DeviceMap.qml:46
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr "Wii-ის პულტის კლავიშების ღილაკებზე მიბმა"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:41
-#: package/contents/ui/DeviceMap.qml:49
+#: package/contents/ui/DeviceMap.qml:48
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr "Gamepad-ის პულტის კლავიშების ღილაკებზე მიბმა"
@@ -353,31 +353,29 @@ msgid "No Devices Found"
 msgstr "მოწყობილობების პოვნა ვერ მოხერხდა"
 
 #: package/contents/ui/+mediacenter/main.qml:184
-#: package/contents/ui/main.qml:134
+#: package/contents/ui/main.qml:133
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "აირჩიეთ %1-სთვის ღილაკი TV-ის პულტზე"
 
 #: package/contents/ui/+mediacenter/main.qml:215
-#: package/contents/ui/main.qml:173
+#: package/contents/ui/main.qml:172
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "აირჩიეთ %1-სთვის ღილაკი Gamepad-ის პულტზე"
 
-#: package/contents/ui/main.qml:22
-#, kde-format
-msgid "This module lets you configure remote controllers."
-msgstr "ეს მოდული საშუალებას გაძლევთ, დაშორებული კონტროლერები მოირგოთ."
-
-#: package/contents/ui/main.qml:54
+#: package/contents/ui/main.qml:53
 #, kde-format
 msgid "Device:"
 msgstr "მოწყობიობა:"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:95
 #, kde-format
 msgid "No remote controllers available."
 msgstr "დაშორებული კონტროლერები მიუწვდომელია."
+
+#~ msgid "This module lets you configure remote controllers."
+#~ msgstr "ეს მოდული საშუალებას გაძლევთ, დაშორებული კონტროლერები მოირგოთ."
 
 #~ msgid "Configure Remote Controllers"
 #~ msgstr "დაშორებული კონტროლერების მორგება"

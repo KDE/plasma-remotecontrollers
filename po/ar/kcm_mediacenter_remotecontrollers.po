@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 01:01+0000\n"
+"POT-Creation-Date: 2023-05-02 00:50+0000\n"
 "PO-Revision-Date: 2022-11-22 22:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -314,19 +314,19 @@ msgid "Button Home"
 msgstr "زر البيت"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:37
-#: package/contents/ui/DeviceMap.qml:45
+#: package/contents/ui/DeviceMap.qml:44
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr "اربط مفاتيح متحكم التلفاز بالأزرار"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:39
-#: package/contents/ui/DeviceMap.qml:47
+#: package/contents/ui/DeviceMap.qml:46
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr "اربط مفاتيح متحكم ويي بالأزرار"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:41
-#: package/contents/ui/DeviceMap.qml:49
+#: package/contents/ui/DeviceMap.qml:48
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr "اربط مفاتيح مقبض الألعاب بالأزرار"
@@ -353,31 +353,29 @@ msgid "No Devices Found"
 msgstr "لم يُعثر على أجهزة"
 
 #: package/contents/ui/+mediacenter/main.qml:184
-#: package/contents/ui/main.qml:134
+#: package/contents/ui/main.qml:133
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "اختر مفتاح على متحكم تلفازك لـ%1"
 
 #: package/contents/ui/+mediacenter/main.qml:215
-#: package/contents/ui/main.qml:173
+#: package/contents/ui/main.qml:172
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "اختر مفتاح على مقبض ألعاب لـ%1"
 
-#: package/contents/ui/main.qml:22
-#, kde-format
-msgid "This module lets you configure remote controllers."
-msgstr "تسمح لك هذه الوحدة بضبط المتحكمات عن بعد."
-
-#: package/contents/ui/main.qml:54
+#: package/contents/ui/main.qml:53
 #, kde-format
 msgid "Device:"
 msgstr "الجهاز:"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:95
 #, kde-format
 msgid "No remote controllers available."
 msgstr "لا يوجد أجهزة تحكم عن بعد."
+
+#~ msgid "This module lets you configure remote controllers."
+#~ msgstr "تسمح لك هذه الوحدة بضبط المتحكمات عن بعد."
 
 #~ msgid "Configure Remote Controllers"
 #~ msgstr "اضبط أجهزة تحكم عن بعد"

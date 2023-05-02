@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 01:01+0000\n"
+"POT-Creation-Date: 2023-05-02 00:50+0000\n"
 "PO-Revision-Date: 2022-07-25 08:27+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -314,19 +314,19 @@ msgid "Button Home"
 msgstr "Gumb domov"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:37
-#: package/contents/ui/DeviceMap.qml:45
+#: package/contents/ui/DeviceMap.qml:44
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr "Pripni tipke TV daljinca na gumbe"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:39
-#: package/contents/ui/DeviceMap.qml:47
+#: package/contents/ui/DeviceMap.qml:46
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr "Pripni Wii oddaljene tipke na gumbe"
 
 #: package/contents/ui/+mediacenter/DeviceMap.qml:41
-#: package/contents/ui/DeviceMap.qml:49
+#: package/contents/ui/DeviceMap.qml:48
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr "Pripni tipke igralne konzole na gumbe"
@@ -353,31 +353,29 @@ msgid "No Devices Found"
 msgstr "Ni najdenih naprav"
 
 #: package/contents/ui/+mediacenter/main.qml:184
-#: package/contents/ui/main.qml:134
+#: package/contents/ui/main.qml:133
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "Izberite tipko na TV daljincu za %1"
 
 #: package/contents/ui/+mediacenter/main.qml:215
-#: package/contents/ui/main.qml:173
+#: package/contents/ui/main.qml:172
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "Izberite tipko na igralni konzoli za %1"
 
-#: package/contents/ui/main.qml:22
-#, kde-format
-msgid "This module lets you configure remote controllers."
-msgstr "Ta modula omogoča konfiguriranje oddaljenih krmilnikov."
-
-#: package/contents/ui/main.qml:54
+#: package/contents/ui/main.qml:53
 #, kde-format
 msgid "Device:"
 msgstr "Naprava:"
 
-#: package/contents/ui/main.qml:96
+#: package/contents/ui/main.qml:95
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Oddaljenih krmilnikov ni na voljo."
+
+#~ msgid "This module lets you configure remote controllers."
+#~ msgstr "Ta modula omogoča konfiguriranje oddaljenih krmilnikov."
 
 #~ msgid "Configure Remote Controllers"
 #~ msgstr "Konfiguriraj oddaljene krmilnike"
