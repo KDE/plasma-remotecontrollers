@@ -22,3 +22,4 @@ Dependencies:
     'frameworks/plasma-framework': '@latest'
     'frameworks/solid': '@latest'
     'plasma/plasma-workspace': '@same'
+    'third-party/wayland': '@latest'
