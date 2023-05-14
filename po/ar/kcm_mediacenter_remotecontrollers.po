@@ -236,22 +236,22 @@ msgstr "مثلث مقبض الألعاب / Y  في مقبض الألعاب"
 #: keydisplayprovider.cpp:57
 #, kde-format
 msgid "Trigger Left-1"
-msgstr "تطلق يسار-١"
+msgstr "تطلق يسار-1"
 
 #: keydisplayprovider.cpp:58
 #, kde-format
 msgid "Trigger Right-1"
-msgstr "تطلق يمين-١"
+msgstr "تطلق يمين-1"
 
 #: keydisplayprovider.cpp:59
 #, kde-format
 msgid "Trigger Left-2"
-msgstr "تطلق يسار-٢"
+msgstr "تطلق يسار-2"
 
 #: keydisplayprovider.cpp:60
 #, kde-format
 msgid "Trigger Right-2"
-msgstr "تطلق يمين-٢"
+msgstr "تطلق يمين-2"
 
 #: keydisplayprovider.cpp:61
 #, kde-format
