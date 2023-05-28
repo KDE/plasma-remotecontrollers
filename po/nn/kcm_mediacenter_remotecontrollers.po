@@ -341,8 +341,7 @@ msgid "Go back [←] to return to device selection"
 msgstr "Trykk tilbake («←») for å velja ny eining"
 
 #: package/contents/ui/+mediacenter/main.qml:23
-#: package/contents/ui/+mediacenter/main.qml:67
-#: package/contents/ui/main.qml:21
+#: package/contents/ui/+mediacenter/main.qml:67 package/contents/ui/main.qml:21
 #, kde-format
 msgid "Remote Controllers"
 msgstr "Fjernkontrollar"
