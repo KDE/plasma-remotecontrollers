@@ -17,8 +17,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(RemoteController, "kcm_mediacenter_remotecontrollers.json")
 
-RemoteController::RemoteController(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
-    : KQuickConfigModule(parent, metaData, args)
+RemoteController::RemoteController(QObject *parent, const KPluginMetaData &metaData)
+    : KQuickConfigModule(parent, metaData)
     , m_devicesModel(new DevicesModel(this))
     , m_keyMapModel(new KeyMapModel(this))
 {
