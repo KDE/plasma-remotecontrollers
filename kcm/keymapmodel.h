@@ -15,7 +15,7 @@ class KeyMapModel : public QAbstractListModel
     Q_OBJECT
 
 public:
-    explicit KeyMapModel(QObject *parent = 0);
+    explicit KeyMapModel(QObject *parent = nullptr);
     ~KeyMapModel();
     QHash<int, QByteArray> roleNames() const override;
     int rowCount(const QModelIndex &) const override;
