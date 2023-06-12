@@ -13,6 +13,7 @@
   <name xml:lang="eu">Plasmaren urruneko aginteak</name>
   <name xml:lang="fi">Plasma-kaukosäätimet</name>
   <name xml:lang="fr">Télécommandes sous Plasma</name>
+  <name xml:lang="gl">Mandos a distancia de Plasma</name>
   <name xml:lang="it">Controller remoti di Plasma</name>
   <name xml:lang="ka">Plasma დაშორებული კონტროლერები</name>
   <name xml:lang="ko">Plasma 리모콘</name>
@@ -40,6 +41,7 @@
   <summary xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</summary>
   <summary xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</summary>
   <summary xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</summary>
+  <summary xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro.</summary>
   <summary xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</summary>
   <summary xml:lang="ka">თარგმნეთ სხვადასხვა შეყვანის მოწყობილობების მოვლენები კლავიატურისა და თაგუნის მოვლენებში</summary>
   <summary xml:lang="ko">다양한 입력 장치 이벤트를 키보드와 포인터 이벤트로 변환</summary>
@@ -76,6 +78,7 @@
     <p xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</p>
     <p xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</p>
     <p xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</p>
+    <p xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro.</p>
     <p xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</p>
     <p xml:lang="ka">თარგმნეთ სხვადასხვა შეყვანის მოწყობილობების მოვლენები კლავიატურისა და თაგუნის მოვლენებში</p>
     <p xml:lang="ko">다양한 입력 장치 이벤트를 키보드와 포인터 이벤트로 변환</p>
