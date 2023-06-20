@@ -9,6 +9,7 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14
 import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kirigami 2.12 as Kirigami
 import Qt5Compat.GraphicalEffects
@@ -59,7 +60,7 @@ Item {
 
                 Rectangle {
                     id: dIcon
-                    Layout.preferredWidth: PlasmaCore.Units.iconSizes.huge
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.huge
                     Layout.preferredHeight: width
                     radius: 100
                     color: Kirigami.Theme.backgroundColor
@@ -67,7 +68,7 @@ Item {
                     PlasmaCore.IconItem {
                         id: deviceIconStatus
                         anchors.centerIn: parent
-                        width: PlasmaCore.Units.iconSizes.large - Kirigami.Units.largeSpacing
+                        width: Kirigami.Units.iconSizes.large - Kirigami.Units.largeSpacing
                         height: width
                         source: deviceView.deviceIcon
                     }

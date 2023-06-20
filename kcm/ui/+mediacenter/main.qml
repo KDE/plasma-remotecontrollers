@@ -9,7 +9,7 @@ import QtQuick.Layouts 1.14
 import QtQuick 2.14
 import QtQuick.Window 2.14
 import QtQuick.Controls 2.14
-import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kcmutils as KCM
@@ -89,8 +89,8 @@ KCM.SimpleKCM {
                     RowLayout {
                         anchors.centerIn: parent
                         Kirigami.Icon {
-                            Layout.preferredWidth: PlasmaCore.Units.iconSizes.small
-                            Layout.preferredHeight: PlasmaCore.Units.iconSizes.small
+                            Layout.preferredWidth: Kirigami.Units.iconSizes.small
+                            Layout.preferredHeight: Kirigami.Units.iconSizes.small
                             source: "window-close"
                         }
                         Label {
@@ -128,7 +128,7 @@ KCM.SimpleKCM {
                     focus: true
                     model:  supportedControllers
                     Layout.alignment: Qt.AlignTop
-                    cellWidth: (PlasmaCore.Units.iconSizes.huge + Kirigami.Units.largeSpacing*6)
+                    cellWidth: (Kirigami.Units.iconSizes.huge + Kirigami.Units.largeSpacing*6)
                     title: supportedControllers.count > 0 ? i18n("Found Devices") : i18n("No Devices Found")
                     currentIndex: 0
                     delegate: Delegates.DeviceDelegate{}
