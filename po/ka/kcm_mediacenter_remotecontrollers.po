@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:48+0000\n"
+"POT-Creation-Date: 2023-06-22 00:50+0000\n"
 "PO-Revision-Date: 2023-02-08 07:16+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -158,7 +158,7 @@ msgstr "არხით მაღლა"
 msgid "Channel Down"
 msgstr "არხით დაბლა"
 
-#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:97
+#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:96
 #, kde-format
 msgid "Exit"
 msgstr "გასვლა"
@@ -333,37 +333,37 @@ msgstr "Gamepad-ის პულტის კლავიშების ღი�
 msgid "Go back [←] to return to device selection"
 msgstr "მოწყობილობის არჩევანზე დასაბრუნებლად დააწექით [←] უკან გასვლას"
 
-#: ui/+mediacenter/main.qml:23 ui/+mediacenter/main.qml:67 ui/main.qml:21
+#: ui/+mediacenter/main.qml:22 ui/+mediacenter/main.qml:66 ui/main.qml:20
 #, kde-format
 msgid "Remote Controllers"
 msgstr "დაშორებული კონტროლერები"
 
-#: ui/+mediacenter/main.qml:132
+#: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "Found Devices"
 msgstr "ნაპოვნი მოწყობილობები"
 
-#: ui/+mediacenter/main.qml:132
+#: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "No Devices Found"
 msgstr "მოწყობილობების პოვნა ვერ მოხერხდა"
 
-#: ui/+mediacenter/main.qml:184 ui/main.qml:133
+#: ui/+mediacenter/main.qml:183 ui/main.qml:132
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "აირჩიეთ %1-სთვის ღილაკი TV-ის პულტზე"
 
-#: ui/+mediacenter/main.qml:215 ui/main.qml:172
+#: ui/+mediacenter/main.qml:214 ui/main.qml:171
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "აირჩიეთ %1-სთვის ღილაკი Gamepad-ის პულტზე"
 
-#: ui/main.qml:53
+#: ui/main.qml:52
 #, kde-format
 msgid "Device:"
 msgstr "მოწყობიობა:"
 
-#: ui/main.qml:95
+#: ui/main.qml:94
 #, kde-format
 msgid "No remote controllers available."
 msgstr "დაშორებული კონტროლერები მიუწვდომელია."

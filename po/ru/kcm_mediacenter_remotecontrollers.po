@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:48+0000\n"
+"POT-Creation-Date: 2023-06-22 00:50+0000\n"
 "PO-Revision-Date: 2022-11-02 14:25+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -159,7 +159,7 @@ msgstr "Следующий канал"
 msgid "Channel Down"
 msgstr "Предыдущий канал"
 
-#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:97
+#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:96
 #, kde-format
 msgid "Exit"
 msgstr "Выход"
@@ -335,37 +335,37 @@ msgstr "Привязать клавиши игрового контроллер�
 msgid "Go back [←] to return to device selection"
 msgstr "Нажмите [←] для возврата к выбору устройства"
 
-#: ui/+mediacenter/main.qml:23 ui/+mediacenter/main.qml:67 ui/main.qml:21
+#: ui/+mediacenter/main.qml:22 ui/+mediacenter/main.qml:66 ui/main.qml:20
 #, kde-format
 msgid "Remote Controllers"
 msgstr "Дистанционные контроллеры"
 
-#: ui/+mediacenter/main.qml:132
+#: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "Found Devices"
 msgstr "Найденные устройства"
 
-#: ui/+mediacenter/main.qml:132
+#: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "No Devices Found"
 msgstr "Не найдено ни одного устройства"
 
-#: ui/+mediacenter/main.qml:184 ui/main.qml:133
+#: ui/+mediacenter/main.qml:183 ui/main.qml:132
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "Выберите клавишу на пульте ТВ для действия %1"
 
-#: ui/+mediacenter/main.qml:215 ui/main.qml:172
+#: ui/+mediacenter/main.qml:214 ui/main.qml:171
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "Выберите клавишу на игровом контроллере для действия %1"
 
-#: ui/main.qml:53
+#: ui/main.qml:52
 #, kde-format
 msgid "Device:"
 msgstr "Устройство:"
 
-#: ui/main.qml:95
+#: ui/main.qml:94
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Не найдено ни одного дистанционного контроллера."

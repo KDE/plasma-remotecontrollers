@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:48+0000\n"
+"POT-Creation-Date: 2023-06-22 00:50+0000\n"
 "PO-Revision-Date: 2023-02-08 13:51\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -162,7 +162,7 @@ msgstr "Канал уверх"
 msgid "Channel Down"
 msgstr "Канал уніз"
 
-#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:97
+#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:96
 #, kde-format
 msgid "Exit"
 msgstr "Выйсці"
@@ -337,37 +337,37 @@ msgstr "Прывязаць клавішы геймпада да кнопак"
 msgid "Go back [←] to return to device selection"
 msgstr "Назад [←], каб вярнуцца да выбару прылады"
 
-#: ui/+mediacenter/main.qml:23 ui/+mediacenter/main.qml:67 ui/main.qml:21
+#: ui/+mediacenter/main.qml:22 ui/+mediacenter/main.qml:66 ui/main.qml:20
 #, kde-format
 msgid "Remote Controllers"
 msgstr "Кантролеры дыстанцыйнага кіравання"
 
-#: ui/+mediacenter/main.qml:132
+#: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "Found Devices"
 msgstr "Пошук прылад"
 
-#: ui/+mediacenter/main.qml:132
+#: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "No Devices Found"
 msgstr "Не знойдзена прылад"
 
-#: ui/+mediacenter/main.qml:184 ui/main.qml:133
+#: ui/+mediacenter/main.qml:183 ui/main.qml:132
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "Абярыце клавішу на пульце дыстанцыйнага кіравання тэлевізарам для %1"
 
-#: ui/+mediacenter/main.qml:215 ui/main.qml:172
+#: ui/+mediacenter/main.qml:214 ui/main.qml:171
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "Абярыце клавішу на геймпадзе для %1"
 
-#: ui/main.qml:53
+#: ui/main.qml:52
 #, kde-format
 msgid "Device:"
 msgstr "Прылада:"
 
-#: ui/main.qml:95
+#: ui/main.qml:94
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Няма даступных кантролераў."

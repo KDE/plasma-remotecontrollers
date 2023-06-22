@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:48+0000\n"
+"POT-Creation-Date: 2023-06-22 00:50+0000\n"
 "PO-Revision-Date: 2022-11-22 22:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -158,7 +158,7 @@ msgstr "قناة للأعلى"
 msgid "Channel Down"
 msgstr "قناة للأسفل"
 
-#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:97
+#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:96
 #, kde-format
 msgid "Exit"
 msgstr "اخرج"
@@ -333,37 +333,37 @@ msgstr "اربط مفاتيح مقبض الألعاب بالأزرار"
 msgid "Go back [←] to return to device selection"
 msgstr "زر الخلف [←] لترجع تحديد جهاز"
 
-#: ui/+mediacenter/main.qml:23 ui/+mediacenter/main.qml:67 ui/main.qml:21
+#: ui/+mediacenter/main.qml:22 ui/+mediacenter/main.qml:66 ui/main.qml:20
 #, kde-format
 msgid "Remote Controllers"
 msgstr "أجهزة تحكم عن بعد"
 
-#: ui/+mediacenter/main.qml:132
+#: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "Found Devices"
 msgstr "الأجهزة الموجودة"
 
-#: ui/+mediacenter/main.qml:132
+#: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "No Devices Found"
 msgstr "لم يُعثر على أجهزة"
 
-#: ui/+mediacenter/main.qml:184 ui/main.qml:133
+#: ui/+mediacenter/main.qml:183 ui/main.qml:132
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "اختر مفتاح على متحكم تلفازك لـ%1"
 
-#: ui/+mediacenter/main.qml:215 ui/main.qml:172
+#: ui/+mediacenter/main.qml:214 ui/main.qml:171
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "اختر مفتاح على مقبض ألعاب لـ%1"
 
-#: ui/main.qml:53
+#: ui/main.qml:52
 #, kde-format
 msgid "Device:"
 msgstr "الجهاز:"
 
-#: ui/main.qml:95
+#: ui/main.qml:94
 #, kde-format
 msgid "No remote controllers available."
 msgstr "لا يوجد أجهزة تحكم عن بعد."

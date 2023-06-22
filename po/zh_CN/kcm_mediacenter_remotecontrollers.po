@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-08 00:48+0000\n"
+"POT-Creation-Date: 2023-06-22 00:50+0000\n"
 "PO-Revision-Date: 2023-06-17 04:12\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -158,7 +158,7 @@ msgstr "频道向上"
 msgid "Channel Down"
 msgstr "频道向下"
 
-#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:97
+#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:96
 #, kde-format
 msgid "Exit"
 msgstr "退出"
@@ -333,37 +333,37 @@ msgstr "绑定游戏控制器到按键"
 msgid "Go back [←] to return to device selection"
 msgstr "返回 [←] 到设备选择"
 
-#: ui/+mediacenter/main.qml:23 ui/+mediacenter/main.qml:67 ui/main.qml:21
+#: ui/+mediacenter/main.qml:22 ui/+mediacenter/main.qml:66 ui/main.qml:20
 #, kde-format
 msgid "Remote Controllers"
 msgstr "遥控器"
 
-#: ui/+mediacenter/main.qml:132
+#: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "Found Devices"
 msgstr "已发现的设备"
 
-#: ui/+mediacenter/main.qml:132
+#: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "No Devices Found"
 msgstr "未发现设备"
 
-#: ui/+mediacenter/main.qml:184 ui/main.qml:133
+#: ui/+mediacenter/main.qml:183 ui/main.qml:132
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "为 %1 选择您的电视遥控器按钮"
 
-#: ui/+mediacenter/main.qml:215 ui/main.qml:172
+#: ui/+mediacenter/main.qml:214 ui/main.qml:171
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "为 %1 选择您的游戏控制器按钮"
 
-#: ui/main.qml:53
+#: ui/main.qml:52
 #, kde-format
 msgid "Device:"
 msgstr "设备："
 
-#: ui/main.qml:95
+#: ui/main.qml:94
 #, kde-format
 msgid "No remote controllers available."
 msgstr "没有可用的遥控器。"
