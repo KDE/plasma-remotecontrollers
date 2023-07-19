@@ -238,3 +238,5 @@ void KeyMapModel::refresh()
     load();
     endResetModel();
 }
+
+#include "moc_keymapmodel.cpp"

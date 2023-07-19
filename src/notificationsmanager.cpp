@@ -39,3 +39,5 @@ void NotificationsManager::notifyDisconnectedDevice(Device* device)
     notification->setIconName(device->iconName());
     notification->sendEvent();
 }
+
+#include "moc_notificationsmanager.cpp"

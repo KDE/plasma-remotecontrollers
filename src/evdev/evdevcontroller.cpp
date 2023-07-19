@@ -186,3 +186,5 @@ void EvdevDevice::processEvent(struct input_event &ev)
         }
     }
 }
+
+#include "moc_evdevcontroller.cpp"

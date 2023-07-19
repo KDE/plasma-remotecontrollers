@@ -6,3 +6,5 @@
  */
 
 #include "abstractsystem.h"
+
+#include "moc_abstractsystem.cpp"

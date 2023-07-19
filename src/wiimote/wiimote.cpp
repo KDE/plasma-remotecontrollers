@@ -242,3 +242,5 @@ Wiimote::~Wiimote()
 {
     xwii_iface_unref(m_iface);
 }
+
+#include "moc_wiimote.cpp"

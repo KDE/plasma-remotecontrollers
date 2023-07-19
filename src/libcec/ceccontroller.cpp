@@ -279,3 +279,5 @@ bool CECController::setOSDName(const QString& name)
     snprintf(cecConfig.strDeviceName, LIBCEC_OSD_NAME_SIZE, "%s", qPrintable(name));
     return m_cecAdapter->SetConfiguration(&cecConfig);
 }
+
+#include "moc_ceccontroller.cpp"

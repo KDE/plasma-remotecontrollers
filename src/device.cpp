@@ -43,3 +43,5 @@ QString Device::iconName() const
 }
 
 Device::~Device() = default;
+
+#include "moc_device.cpp"

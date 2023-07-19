@@ -109,3 +109,5 @@ QString KeyDisplayProvider::keyIcon(const int &key, const QString &deviceType) c
     }
     return QString();
 }
+
+#include "moc_keydisplayprovider.cpp"

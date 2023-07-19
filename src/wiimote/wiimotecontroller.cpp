@@ -87,3 +87,5 @@ void WiimoteEventWatcher::watchEvents()
         usleep(LOOPTIME_WII); // Don't hug the CPU
     }
 }
+
+#include "moc_wiimotecontroller.cpp"

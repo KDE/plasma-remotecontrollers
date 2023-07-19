@@ -74,3 +74,5 @@ Q_SCRIPTABLE void ControllerManagerDBusInterface::releaseNoOp()
 {
     ControllerManager::instance().resetInputSystem();
 }
+
+#include "moc_controllermanagerdbusinterface.cpp"

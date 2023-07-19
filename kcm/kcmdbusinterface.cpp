@@ -41,3 +41,5 @@ void KcmDbusInterface::evdevKeyPress(const QDBusMessage& msg)
     int keyCode = arguments.at(0).toInt();
     Q_EMIT evdevKeyPressed(keyCode);
 }
+
+#include "moc_kcmdbusinterface.cpp"

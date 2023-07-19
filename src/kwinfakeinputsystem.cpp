@@ -47,3 +47,5 @@ void KWinFakeInputSystem::emitKey(int key, bool pressed)
 {
     m_ext->keyboard_key(key, pressed);
 }
+
+#include "moc_kwinfakeinputsystem.cpp"

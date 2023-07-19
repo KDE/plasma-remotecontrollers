@@ -133,3 +133,5 @@ DevicesModel *RemoteController::devicesModel()
 }
 
 #include "remotecontroller.moc"
+
+#include "moc_remotecontroller.cpp"

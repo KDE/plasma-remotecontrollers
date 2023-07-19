@@ -24,3 +24,5 @@ void EvdevDbusInterface::emitKeyPress(int keyCode)
     msg.setArguments(arguments);
     QDBusConnection::sessionBus().send(msg);
 }
+
+#include "moc_evdevdbusinterface.cpp"

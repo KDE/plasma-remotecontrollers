@@ -269,3 +269,5 @@ void ControllerManager::simulateUserActivity()
     OrgFreedesktopScreenSaverInterface iface(QStringLiteral("org.freedesktop.ScreenSaver"), QStringLiteral("/ScreenSaver"), QDBusConnection::sessionBus());
     iface.SimulateUserActivity();
 }
+
+#include "moc_controllermanager.cpp"

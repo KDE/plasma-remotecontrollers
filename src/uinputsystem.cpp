@@ -80,3 +80,5 @@ void UInputSystem::setSupportedKeys(const QSet<int>& keys)
     ioctl(m_fd, UI_DEV_SETUP, &usetup);
     ioctl(m_fd, UI_DEV_CREATE);
 }
+
+#include "moc_uinputsystem.cpp"
