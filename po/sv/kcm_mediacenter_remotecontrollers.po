@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-08 04:20+0000\n"
-"PO-Revision-Date: 2023-08-03 19:59+0200\n"
+"PO-Revision-Date: 2023-08-05 07:17+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -366,7 +366,7 @@ msgstr "Välj knapp på handkontrollen för %1"
 #: package/contents/ui/main.qml:22
 #, kde-format
 msgid "This module lets you configure remote controllers."
-msgstr ""
+msgstr "Modulen låter dig anpassa fjärrkontroller."
 
 #: package/contents/ui/main.qml:54
 #, kde-format
@@ -379,7 +379,6 @@ msgid "No remote controllers available."
 msgstr "Inga fjärrkontroller tillgängliga."
 
 #: remotecontroller.cpp:27
-#, fuzzy, kde-format
-#| msgid "Remote Controllers"
+#, kde-format
 msgid "Configure Remote Controllers"
-msgstr "Fjärrkontroller"
+msgstr "Anpassa fjärrkontroller"
