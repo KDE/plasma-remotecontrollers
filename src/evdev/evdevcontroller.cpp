@@ -74,7 +74,7 @@ bool EvdevController::addDevice(const Solid::Device &device)
     auto evdevDevice = new EvdevDevice(device.udi(), dev, this);
     ControllerManager::instance().newDevice(evdevDevice);
 
-    auto notifier = new QSocketNotifier(fd, QSocketNotifier::Read, this);
+    auto notifier = new QSocketNotifier(fd, QSocketNotifier::Read, evdevDevice);
     connect(notifier, &QSocketNotifier::activated, evdevDevice, &EvdevDevice::readNow);
 
     return true;
