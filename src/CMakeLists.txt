@@ -41,6 +41,7 @@ target_link_libraries(plasma-remotecontrollers
     KF6::DBusAddons
     KF6::CoreAddons
     KF6::WindowSystem
+    KF6::StatusNotifierItem
     PW::LibTaskManager
     PkgConfig::Evdev
     Wayland::Client

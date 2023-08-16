@@ -36,6 +36,7 @@ find_package(KF6 ${KF_MIN_VERSION} COMPONENTS REQUIRED
     KCMUtils
     Package
     WindowSystem
+    StatusNotifierItem
 )
 find_package(Wayland REQUIRED COMPONENTS Client)
 find_package(ScreenSaverDBusInterface CONFIG REQUIRED)
