@@ -64,7 +64,7 @@ Item {
                     radius: 100
                     color: Kirigami.Theme.backgroundColor
                     
-                    PlasmaCore.IconItem {
+                    Kirigami.Icon {
                         id: deviceIconStatus
                         anchors.centerIn: parent
                         width: Kirigami.Units.iconSizes.large - Kirigami.Units.largeSpacing

@@ -48,7 +48,7 @@ BigScreen.AbstractDelegate {
             height: width
             y: deviceItemLayout.height / 2 - deviceSvgIcon.height / 2
             
-            PlasmaCore.IconItem {
+            Kirigami.Icon {
                 anchors.centerIn: parent
                 source: model.deviceIconName
                 width: Kirigami.Units.iconSizes.large
