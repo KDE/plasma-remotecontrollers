@@ -8,7 +8,7 @@ set(kcm_mediacenter_remotecontrollers_SRCS remotecontroller.cpp kcmdbusinterface
     remotecontroller.h kcmdbusinterface.h keydisplayprovider.h keymapmodel.h devicesmodel.h)
 
 kcmutils_add_qml_kcm(kcm_mediacenter_remotecontrollers SOURCES ${kcm_mediacenter_remotecontrollers_SRCS})
-target_link_libraries(kcm_mediacenter_remotecontrollers
+target_link_libraries(kcm_mediacenter_remotecontrollers PRIVATE
     Qt::DBus
     KF6::I18n
     KF6::KCMUtilsQuick
