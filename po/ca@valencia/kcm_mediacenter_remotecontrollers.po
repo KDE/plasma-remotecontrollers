@@ -368,9 +368,3 @@ msgstr "Dispositiu:"
 #, kde-format
 msgid "No remote controllers available."
 msgstr "No hi ha cap controls remot disponible."
-
-#~ msgid "This module lets you configure remote controllers."
-#~ msgstr "Este mòdul permet configurar els controls remots."
-
-#~ msgid "Configure Remote Controllers"
-#~ msgstr "Configureu els controls remots"
