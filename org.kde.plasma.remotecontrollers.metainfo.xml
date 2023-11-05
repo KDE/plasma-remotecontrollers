@@ -29,7 +29,6 @@
   <name xml:lang="sv">Plasma fjärrkontroller</name>
   <name xml:lang="tr">Plasma Uzaktan Kumandalar</name>
   <name xml:lang="uk">Дистанційне керування Плазмою</name>
-  <name xml:lang="x-test">xxPlasma Remote Controllersxx</name>
   <name xml:lang="zh-CN">Plasma 遥控器</name>
   <name xml:lang="zh-TW">Plasma 遙控器</name>
   <summary>Translate various input device events into keyboard and pointer events</summary>
@@ -58,7 +57,6 @@
   <summary xml:lang="sv">Översätt diverse inmatningsenhetshändelser till tangentbords- och pekarhändelser</summary>
   <summary xml:lang="tr">Çeşitli giriş aygıtı olaylarını klavye ve işaretçi olaylarına çevir</summary>
   <summary xml:lang="uk">Прив'язка різноманітних подій з пристроїв введення до подій клавіатури і вказівника</summary>
-  <summary xml:lang="x-test">xxTranslate various input device events into keyboard and pointer eventsxx</summary>
   <summary xml:lang="zh-CN">将各种输入设备事件转换为键盘和指针事件</summary>
   <summary xml:lang="zh-TW">將各種輸入裝置事件翻譯成鍵盤與游標事件</summary>
   <metadata_license>CC0-1.0</metadata_license>
@@ -97,7 +95,6 @@
     <p xml:lang="sv">Översätt diverse inmatningsenhetshändelser till tangentbords- och pekarhändelser</p>
     <p xml:lang="tr">Çeşitli giriş aygıtı olaylarını klavye ve işaretçi olaylarına çevir</p>
     <p xml:lang="uk">Прив'язка різноманітних подій з пристроїв введення до подій клавіатури і вказівника</p>
-    <p xml:lang="x-test">xxTranslate various input device events into keyboard and pointer eventsxx</p>
     <p xml:lang="zh-CN">将各种输入设备事件转换为键盘和指针事件</p>
     <p xml:lang="zh-TW">將各種輸入裝置事件翻譯成鍵盤與游標事件</p>
   </description>
