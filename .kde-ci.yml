@@ -20,5 +20,5 @@ Dependencies:
     'frameworks/kwidgetsaddons': '@latest'
     'frameworks/kwindowsystem': '@latest'
     'frameworks/solid': '@latest'
-    'plasma/plasma-framework': 'kf5'
+    'plasma/libplasma': 'kf5'
     'plasma/plasma-workspace': '@same'
