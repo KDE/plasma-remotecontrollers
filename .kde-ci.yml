@@ -20,6 +20,6 @@ Dependencies:
     'frameworks/kwindowsystem': '@latest-kf6'
     'frameworks/solid': '@latest-kf6'
     'frameworks/kstatusnotifieritem': '@latest-kf6'
-    'plasma/plasma-framework': '@same'
+    'plasma/libplasma': '@same'
     'plasma/plasma-workspace': '@same'
     'third-party/wayland': '@latest'
