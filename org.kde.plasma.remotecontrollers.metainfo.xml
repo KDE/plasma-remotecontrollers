@@ -8,6 +8,7 @@
   <name xml:lang="cs">Dálkové ovladače Plasma</name>
   <name xml:lang="de">Plasma-Fernbedienungen</name>
   <name xml:lang="en-GB">Plasma Remote Controllers</name>
+  <name xml:lang="eo">Plasma-Teleregiloj</name>
   <name xml:lang="es">Mandos a distancia de Plasma</name>
   <name xml:lang="eu">Plasmaren urruneko aginteak</name>
   <name xml:lang="fi">Plasma-kaukosäätimet</name>
@@ -36,6 +37,7 @@
   <summary xml:lang="ca-valencia">Traduïx diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</summary>
   <summary xml:lang="de">Wandelt verschiedene Ereignisse von Eingabegeräten in Tastatur- und Zeigerereignisse um</summary>
   <summary xml:lang="en-GB">Translate various input device events into keyboard and pointer events</summary>
+  <summary xml:lang="eo">Traduku viajn variajn enig-aparatajn eventojn en klavar- kaj montril-eventojn</summary>
   <summary xml:lang="es">Traducir diversos eventos de dispositivos de entrada en eventos de teclado y del puntero</summary>
   <summary xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</summary>
   <summary xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</summary>
@@ -73,6 +75,7 @@
     <p xml:lang="ca-valencia">Traduïx diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</p>
     <p xml:lang="de">Wandelt verschiedene Ereignisse von Eingabegeräten in Tastatur- und Zeigerereignisse um</p>
     <p xml:lang="en-GB">Translate various input device events into keyboard and pointer events</p>
+    <p xml:lang="eo">Traduku viajn variajn enig-aparatajn eventojn en klavar- kaj montril-eventojn</p>
     <p xml:lang="es">Traducir diversos eventos de dispositivos de entrada en eventos de teclado y del puntero</p>
     <p xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</p>
     <p xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</p>
