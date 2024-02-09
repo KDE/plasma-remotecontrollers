@@ -35,8 +35,8 @@
   <summary>Translate various input device events into keyboard and pointer events</summary>
   <summary xml:lang="ar">تحول مختلف أحداث أجهزة الإدخال إلى أحداث لوحة مفاتيح و مؤشر</summary>
   <summary xml:lang="be">Перавод сігналаў прылад ўводу ў сігналы клавіятуры і курсора</summary>
-  <summary xml:lang="ca">Tradueix diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</summary>
-  <summary xml:lang="ca-valencia">Traduïx diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</summary>
+  <summary xml:lang="ca">Tradueix diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i punter</summary>
+  <summary xml:lang="ca-valencia">Traduïx diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i punter</summary>
   <summary xml:lang="de">Wandelt verschiedene Ereignisse von Eingabegeräten in Tastatur- und Zeigerereignisse um</summary>
   <summary xml:lang="en-GB">Translate various input device events into keyboard and pointer events</summary>
   <summary xml:lang="eo">Traduku viajn variajn enig-aparatajn eventojn en klavar- kaj montril-eventojn</summary>
@@ -74,8 +74,8 @@
     </p>
     <p xml:lang="ar">تحول مختلف أحداث أجهزة الإدخال إلى أحداث لوحة مفاتيح و مؤشر</p>
     <p xml:lang="be">Перавод сігналаў прылад ўводу ў сігналы клавіятуры і курсора</p>
-    <p xml:lang="ca">Tradueix diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</p>
-    <p xml:lang="ca-valencia">Traduïx diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i apuntador</p>
+    <p xml:lang="ca">Tradueix diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i punter</p>
+    <p xml:lang="ca-valencia">Traduïx diversos esdeveniments del dispositiu d'entrada en esdeveniments de teclat i punter</p>
     <p xml:lang="de">Wandelt verschiedene Ereignisse von Eingabegeräten in Tastatur- und Zeigerereignisse um</p>
     <p xml:lang="en-GB">Translate various input device events into keyboard and pointer events</p>
     <p xml:lang="eo">Traduku viajn variajn enig-aparatajn eventojn en klavar- kaj montril-eventojn</p>
