@@ -1,0 +1,368 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the plasma-remotecontrollers package.
+#
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-remotecontrollers\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"PO-Revision-Date: 2024-03-07 23:20+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "צוות התרגום של KDE ישראל"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-l10n-he@kde.org"
+
+#: keydisplayprovider.cpp:14
+#, kde-format
+msgid "Play"
+msgstr "נגינה"
+
+#: keydisplayprovider.cpp:15
+#, kde-format
+msgid "Stop"
+msgstr "עצירה"
+
+#: keydisplayprovider.cpp:16
+#, kde-format
+msgid "Pause"
+msgstr "השהיה"
+
+#: keydisplayprovider.cpp:17
+#, kde-format
+msgid "Rewind"
+msgstr "החזרה אחורה"
+
+#: keydisplayprovider.cpp:18
+#, kde-format
+msgid "Fast Forward"
+msgstr "הרצה קדימה"
+
+#: keydisplayprovider.cpp:19
+#, kde-format
+msgid "Enter"
+msgstr "אנטר"
+
+#: keydisplayprovider.cpp:20
+#, kde-format
+msgid "Up"
+msgstr "למעלה"
+
+#: keydisplayprovider.cpp:21
+#, kde-format
+msgid "Down"
+msgstr "למטה"
+
+#: keydisplayprovider.cpp:22
+#, kde-format
+msgid "Right"
+msgstr "ימינה"
+
+#: keydisplayprovider.cpp:23
+#, kde-format
+msgid "Left"
+msgstr "שמאלה"
+
+#: keydisplayprovider.cpp:24
+#, kde-format
+msgid "Button 0"
+msgstr "כפתור 0"
+
+#: keydisplayprovider.cpp:25
+#, kde-format
+msgid "Button 1"
+msgstr "כפתור 1"
+
+#: keydisplayprovider.cpp:26
+#, kde-format
+msgid "Button 2"
+msgstr "כפתור 2"
+
+#: keydisplayprovider.cpp:27
+#, kde-format
+msgid "Button 3"
+msgstr "כפתור 3"
+
+#: keydisplayprovider.cpp:28
+#, kde-format
+msgid "Button 4"
+msgstr "כפתור 4"
+
+#: keydisplayprovider.cpp:29
+#, kde-format
+msgid "Button 5"
+msgstr "כפתור 5"
+
+#: keydisplayprovider.cpp:30
+#, kde-format
+msgid "Button 6"
+msgstr "כפתור 6"
+
+#: keydisplayprovider.cpp:31
+#, kde-format
+msgid "Button 7"
+msgstr "כפתור 7"
+
+#: keydisplayprovider.cpp:32
+#, kde-format
+msgid "Button 8"
+msgstr "כפתור 8"
+
+#: keydisplayprovider.cpp:33
+#, kde-format
+msgid "Button 9"
+msgstr "כפתור 9"
+
+#: keydisplayprovider.cpp:34
+#, kde-format
+msgid "Button Blue"
+msgstr "כפתור כחול"
+
+#: keydisplayprovider.cpp:35
+#, kde-format
+msgid "Button Green"
+msgstr "כפתור ירוק"
+
+#: keydisplayprovider.cpp:36
+#, kde-format
+msgid "Button Yellow"
+msgstr "כפתור צהוב"
+
+#: keydisplayprovider.cpp:37
+#, kde-format
+msgid "Button Red"
+msgstr "כפתור אדום"
+
+#: keydisplayprovider.cpp:38
+#, kde-format
+msgid "Channel Up"
+msgstr "ערוץ למעלה"
+
+#: keydisplayprovider.cpp:39
+#, kde-format
+msgid "Channel Down"
+msgstr "ערוץ למטה"
+
+#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:96
+#, kde-format
+msgid "Exit"
+msgstr "יציאה"
+
+#: keydisplayprovider.cpp:41
+#, kde-format
+msgid "Back"
+msgstr "חזרה"
+
+#: keydisplayprovider.cpp:42 keydisplayprovider.cpp:43
+#, kde-format
+msgid "Home"
+msgstr "בית"
+
+#: keydisplayprovider.cpp:44
+#, kde-format
+msgid "Menu"
+msgstr "תפריט"
+
+#: keydisplayprovider.cpp:45
+#, kde-format
+msgid "Info"
+msgstr "מידע"
+
+#: keydisplayprovider.cpp:46
+#, kde-format
+msgid "Subtitle"
+msgstr "כתוביות"
+
+#: keydisplayprovider.cpp:47
+#, kde-format
+msgid "Left Meta"
+msgstr "מטא שמאלי"
+
+#: keydisplayprovider.cpp:48
+#, kde-format
+msgid "Games"
+msgstr "משחקים"
+
+#: keydisplayprovider.cpp:49
+#, kde-format
+msgid "Cancel"
+msgstr "ביטול"
+
+#: keydisplayprovider.cpp:51
+#, kde-format
+msgid "Mode"
+msgstr "מצב"
+
+#: keydisplayprovider.cpp:52
+#, kde-format
+msgid "Start"
+msgstr "התחלה"
+
+#: keydisplayprovider.cpp:53
+#, kde-format
+msgid "Gamepad X / Gamepad Square"
+msgstr "X בבקר משחק / ריבוע בבקר משחק"
+
+#: keydisplayprovider.cpp:54
+#, kde-format
+msgid "Gamepad A / Gamepad Cross"
+msgstr "A בבקר משחק / איקס בבקר משחק"
+
+#: keydisplayprovider.cpp:55
+#, kde-format
+msgid "Gamepad B / Gamepad Circle"
+msgstr "B בבקר משחק / עיגול בבקר משחק"
+
+#: keydisplayprovider.cpp:56
+#, kde-format
+msgid "Gamepad Y / Gamepad Triangle"
+msgstr "Y בבקר משחק / משולש בבקר משחק"
+
+#: keydisplayprovider.cpp:57
+#, kde-format
+msgid "Trigger Left-1"
+msgstr "טריגר שמאל 1"
+
+#: keydisplayprovider.cpp:58
+#, kde-format
+msgid "Trigger Right-1"
+msgstr "טריגר ימין 1"
+
+#: keydisplayprovider.cpp:59
+#, kde-format
+msgid "Trigger Left-2"
+msgstr "טריגר שמאל 2"
+
+#: keydisplayprovider.cpp:60
+#, kde-format
+msgid "Trigger Right-2"
+msgstr "טריגר ימין 2"
+
+#: keydisplayprovider.cpp:61
+#, kde-format
+msgid "DPad Up"
+msgstr "למעלה במשטח כיוונים"
+
+#: keydisplayprovider.cpp:62
+#, kde-format
+msgid "DPad Down"
+msgstr "למטה במשטח כיוונים"
+
+#: keydisplayprovider.cpp:63
+#, kde-format
+msgid "DPad Left"
+msgstr "שמאלה במשטח כיוונים"
+
+#: keydisplayprovider.cpp:64
+#, kde-format
+msgid "DPad Right"
+msgstr "ימינה במשטח כיוונים"
+
+#: keydisplayprovider.cpp:65
+#, kde-format
+msgid "Select"
+msgstr "בחירה"
+
+#: keymapmodel.cpp:53 keymapmodel.cpp:124
+#, kde-format
+msgid "Button Left"
+msgstr "כפתור שמאל"
+
+#: keymapmodel.cpp:63 keymapmodel.cpp:134
+#, kde-format
+msgid "Button Right"
+msgstr "כפתור ימין"
+
+#: keymapmodel.cpp:73 keymapmodel.cpp:144
+#, kde-format
+msgid "Button Up"
+msgstr "כפתור למעלה"
+
+#: keymapmodel.cpp:83 keymapmodel.cpp:154
+#, kde-format
+msgid "Button Down"
+msgstr "כפתור למטה"
+
+#: keymapmodel.cpp:93 keymapmodel.cpp:164
+#, kde-format
+msgid "Button Enter"
+msgstr "כפתור אנטר"
+
+#: keymapmodel.cpp:103 keymapmodel.cpp:174
+#, kde-format
+msgid "Button Back"
+msgstr "כפתור חזרה"
+
+#: keymapmodel.cpp:113 keymapmodel.cpp:184
+#, kde-format
+msgid "Button Home"
+msgstr "כפתור בית"
+
+#: ui/+mediacenter/DeviceMap.qml:37 ui/DeviceMap.qml:44
+#, kde-format
+msgid "Bind TV Remote Keys To Buttons"
+msgstr "איגוד מקשי שלט הטלוויזיה לכפתורים"
+
+#: ui/+mediacenter/DeviceMap.qml:39 ui/DeviceMap.qml:46
+#, kde-format
+msgid "Bind Wii Remote Keys To Buttons"
+msgstr "איגוד מקשי שלט Wii לכפתורים"
+
+#: ui/+mediacenter/DeviceMap.qml:41 ui/DeviceMap.qml:48
+#, kde-format
+msgid "Bind Gamepad Keys To Buttons"
+msgstr "איגוד מקשי בקרי משחק לכפתורים"
+
+#: ui/+mediacenter/DeviceSetupView.qml:152
+#, kde-format
+msgid "Go back [←] to return to device selection"
+msgstr "יש ללחוץ על [→] כדי לחזור לבחירת ההתקנים"
+
+#: ui/+mediacenter/main.qml:22 ui/+mediacenter/main.qml:66 ui/main.qml:20
+#, kde-format
+msgid "Remote Controllers"
+msgstr "שלטים"
+
+#: ui/+mediacenter/main.qml:131
+#, kde-format
+msgid "Found Devices"
+msgstr "נמצאו התקנים"
+
+#: ui/+mediacenter/main.qml:131
+#, kde-format
+msgid "No Devices Found"
+msgstr "לא נמצאו התקנים"
+
+#: ui/+mediacenter/main.qml:183 ui/main.qml:132
+#, kde-format
+msgid "Select Key On Your TV Remote For %1"
+msgstr "נא לבחור כפתור בשלט הטלוויזיה שלך עבור %1"
+
+#: ui/+mediacenter/main.qml:214 ui/main.qml:171
+#, kde-format
+msgid "Select Key On Your Gamepad For %1"
+msgstr "נא לבחור כפתור בבקר המשחק שלך עבור %1"
+
+#: ui/main.qml:52
+#, kde-format
+msgid "Device:"
+msgstr "התקן:"
+
+#: ui/main.qml:94
+#, kde-format
+msgid "No remote controllers available."
+msgstr "אין שלטים זמינים."
