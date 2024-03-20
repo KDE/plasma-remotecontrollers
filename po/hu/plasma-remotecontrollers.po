@@ -1,0 +1,86 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the plasma-remotecontrollers package.
+#
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-remotecontrollers\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-07 02:39+0000\n"
+"PO-Revision-Date: 2024-03-19 10:42+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 24.04.70\n"
+
+#: controllermanager.cpp:54
+#, kde-format
+msgid "Remote Controllers"
+msgstr "Távvezérlők"
+
+#: controllermanager.cpp:56
+#, kde-format
+msgid "Configure Inhibited Apps"
+msgstr "Tiltott alkalmazások beállítása"
+
+#: controllermanager.cpp:58
+#, kde-format
+msgid "Inhibitions"
+msgstr "Tiltások"
+
+#: libcec/ceccontroller.cpp:134
+#, kde-format
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+#: main.cpp:35
+#, kde-format
+msgid "Plasma Remote Controllers"
+msgstr "Plasma Távvezérlők"
+
+#: main.cpp:36
+#, kde-format
+msgid "System update status notifier"
+msgstr "Rendszerfrissítés állapotértesítő"
+
+#: main.cpp:37
+#, kde-format
+msgid "© 2022 Plasma Development Team"
+msgstr "© A Plasma fejlesztői, 2022."
+
+#: main.cpp:39
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kiszel Kristóf"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ulysses@fsf.hu"
+
+#: main.cpp:48
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Meglévő példány cseréje"
+
+#: notificationsmanager.cpp:27
+#, kde-format
+msgid "Controller connected"
+msgstr "Vezérlő csatlakoztatva"
+
+#: notificationsmanager.cpp:37
+#, kde-format
+msgid "Controller Disconnected"
+msgstr "Vezérlő leválasztva"
+
+#: wiimote/wiimote.cpp:22
+#, kde-format
+msgctxt "What Nintendo Wii remote controllers are called"
+msgid "Wii Remote"
+msgstr "Wii Remote"
