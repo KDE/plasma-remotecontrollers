@@ -1,19 +1,19 @@
-# Xavier Besnard <xavier.besnard@kde.org>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:36+0000\n"
-"PO-Revision-Date: 2023-02-11 16:27+0100\n"
+"PO-Revision-Date: 2024-05-07 08:41+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: controllermanager.cpp:54
 #, kde-format
@@ -48,7 +48,7 @@ msgstr "Notificateur d'état pour les mises à jour du système"
 #: main.cpp:37
 #, kde-format
 msgid "© 2022 Plasma Development Team"
-msgstr "©  - 2022 L'équipe de développement de Plasma"
+msgstr "© 2022 L'équipe de développement de Plasma"
 
 #: main.cpp:39
 #, kde-format
