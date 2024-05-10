@@ -18,7 +18,9 @@
 #include <QCommandLineParser>
 #include <QDebug>
 #include <QDBusConnection>
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 #include <KAboutData>
 #include <KDBusService>
@@ -58,14 +60,22 @@ int main(int argc, char *argv[])
 
     KDBusService service(KDBusService::Unique | startup);
 
-    new EvdevController();
+    KSharedConfigPtr config = KSharedConfig::openConfig();
+    KConfigGroup generalGroup = config->group("General");
+    if (generalGroup.readEntry("EnableEvdev", true)) {
+        new EvdevController();
+    }
 
 #ifdef HAS_LIBCEC
-    new CECController();
+    if (generalGroup.readEntry("EnableCEC", true)) {
+        new CECController();
+    }
 #endif
-    
+
 #ifdef HAS_XWIIMOTE
-    new WiimoteController();
+    if (generalGroup.readEntry("EnableWiimote", true)) {
+        new WiimoteController();
+    }
 #endif // HAS_XWIIMOTE
 
     if (!QDBusConnection::sessionBus().isConnected()) {
