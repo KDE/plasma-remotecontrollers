@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2024-05-12 00:40+0000\n"
 "PO-Revision-Date: 2023-02-23 18:38+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -39,34 +39,34 @@ msgstr "Hemming"
 msgid "KDE Plasma"
 msgstr "KDE Plasma"
 
-#: main.cpp:35
+#: main.cpp:37
 #, kde-format
 msgid "Plasma Remote Controllers"
 msgstr "Fjernkontrollar for Plasma"
 
-#: main.cpp:36
+#: main.cpp:38
 #, kde-format
 msgid "System update status notifier"
 msgstr "Varsling om systemoppdatering"
 
-#: main.cpp:37
+#: main.cpp:39
 #, kde-format
 msgid "© 2022 Plasma Development Team"
 msgstr "© 2022 Utviklingslaget for Plasma"
 
-#: main.cpp:39
+#: main.cpp:41
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Karl Ove Hufthammer"
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "karl@huftis.org"
 
-#: main.cpp:48
+#: main.cpp:50
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Erstatt ein instans som finst frå før"

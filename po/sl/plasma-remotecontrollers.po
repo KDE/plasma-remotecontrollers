@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2024-05-12 00:40+0000\n"
 "PO-Revision-Date: 2023-02-10 09:04+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -38,34 +38,34 @@ msgstr "Zadržanosti"
 msgid "KDE Plasma"
 msgstr "KDE Plasma"
 
-#: main.cpp:35
+#: main.cpp:37
 #, kde-format
 msgid "Plasma Remote Controllers"
 msgstr "Plasma daljinski upravljalniki"
 
-#: main.cpp:36
+#: main.cpp:38
 #, kde-format
 msgid "System update status notifier"
 msgstr "Obvestilnik stanja osvežitve sistema"
 
-#: main.cpp:37
+#: main.cpp:39
 #, kde-format
 msgid "© 2022 Plasma Development Team"
 msgstr "© 2022 Razvojna ekipa Plasma"
 
-#: main.cpp:39
+#: main.cpp:41
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Matjaž Jeran"
 
-#: main.cpp:40
+#: main.cpp:42
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "matjaz.jeran@amis.net"
 
-#: main.cpp:48
+#: main.cpp:50
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Zamenjaj obstoječi pojavek"
