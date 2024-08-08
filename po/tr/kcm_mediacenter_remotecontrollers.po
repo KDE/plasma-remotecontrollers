@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-remotecontrollers package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:36+0000\n"
-"PO-Revision-Date: 2022-07-23 12:49+0300\n"
+"PO-Revision-Date: 2024-08-08 00:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -215,22 +215,22 @@ msgstr "Başlat"
 #: keydisplayprovider.cpp:53
 #, kde-format
 msgid "Gamepad X / Gamepad Square"
-msgstr "Oyun Pedi X / Oyun Pedi Kare"
+msgstr "Oyun Kolu Çarpı / Oyun Kolu Kare"
 
 #: keydisplayprovider.cpp:54
 #, kde-format
 msgid "Gamepad A / Gamepad Cross"
-msgstr "Oyun Pedi A Oyun Pedi Çarpı"
+msgstr "Oyun Kolu A / Oyun Kolu Çarpı"
 
 #: keydisplayprovider.cpp:55
 #, kde-format
 msgid "Gamepad B / Gamepad Circle"
-msgstr "Oyun Pedi B / Oyun Pedi Daire"
+msgstr "Oyun Kolu B / Oyun Kolu Daire"
 
 #: keydisplayprovider.cpp:56
 #, kde-format
 msgid "Gamepad Y / Gamepad Triangle"
-msgstr "Oyun Pedi Y / Oyun Pedi Üçgen"
+msgstr "Oyun Kolu Y / Oyun Kolu Üçgen"
 
 #: keydisplayprovider.cpp:57
 #, kde-format
@@ -315,17 +315,17 @@ msgstr "Ana Ekran Düğmesi"
 #: ui/+mediacenter/DeviceMap.qml:37 ui/DeviceMap.qml:44
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
-msgstr "TV Uzaktan Kumanda Düğmelerini Bağıntıla"
+msgstr "TV Uzaktan Kumandası Düğmelerini Bağıntıla"
 
 #: ui/+mediacenter/DeviceMap.qml:39 ui/DeviceMap.qml:46
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
-msgstr "Wii Kumanda Düğmelerini Bağıntıla"
+msgstr "Wii Kumandası Düğmelerini Bağıntıla"
 
 #: ui/+mediacenter/DeviceMap.qml:41 ui/DeviceMap.qml:48
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
-msgstr "Oyun Pedi Düğmelerini Bağıntıla"
+msgstr "Oyun Kolu Düğmelerini Bağıntıla"
 
 #: ui/+mediacenter/DeviceSetupView.qml:152
 #, kde-format
@@ -350,12 +350,12 @@ msgstr "Aygıt Bulunamadı"
 #: ui/+mediacenter/main.qml:183 ui/main.qml:132
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
-msgstr "%1 için TV Kumandanızda Düğme Seçin"
+msgstr "%1 için TV Kumandasında Düğme Seç"
 
 #: ui/+mediacenter/main.qml:214 ui/main.qml:171
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
-msgstr "%1 için Oyun Pedinizde Düğme Seçin"
+msgstr "%1 için Oyun Kolunda Düğme Seç"
 
 #: ui/main.qml:52
 #, kde-format
