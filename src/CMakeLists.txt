@@ -2,7 +2,10 @@ ecm_qt_declare_logging_category(SRCS HEADER plasmarc-evdev-debug.h IDENTIFIER PL
 ecm_qt_declare_logging_category(SRCS HEADER plasmarc-debug.h IDENTIFIER PLASMARC CATEGORY_NAME org.kde.plasma.remotecontrollers DESCRIPTION "Plasma Remote Controllers" DEFAULT_SEVERITY Info EXPORT PLASMARC)
 
 add_executable(plasma-remotecontrollers)
-qt6_generate_wayland_protocol_client_sources(plasma-remotecontrollers FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml)
+if (Qt6_VERSION VERSION_GREATER_EQUAL "6.8.0")
+    set(private_code_option  "PRIVATE_CODE")
+endif()
+qt6_generate_wayland_protocol_client_sources(plasma-remotecontrollers FILES ${PLASMA_WAYLAND_PROTOCOLS_DIR}/fake-input.xml ${private_code_option})
 qt_add_dbus_interface(SRCS ${SCREENSAVER_DBUS_INTERFACE} screensaver_interface)
 
 target_sources(plasma-remotecontrollers PRIVATE
