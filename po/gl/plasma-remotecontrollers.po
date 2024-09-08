@@ -50,7 +50,7 @@ msgstr "Notificador do estado das actualizacións do sistema"
 #: main.cpp:39
 #, kde-format
 msgid "© 2022 Plasma Development Team"
-msgstr "© 2022 Equipo de desenvolvemento de Plasma"
+msgstr "© 2022 Equipo desenvolvedor de Plasma"
 
 #: main.cpp:41
 #, kde-format
