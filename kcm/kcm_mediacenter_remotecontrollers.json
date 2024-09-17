@@ -87,11 +87,13 @@
     "X-KDE-Keywords[ia]": "Remote Controllers,Remote,Controller,remote controllers,remote,controller,wii,cec,hdmi-cec",
     "X-KDE-Keywords[it]": "telecomandi,telecomando,controller,telecomandi,telecomando,controller,wii,cec,hdmi-cec",
     "X-KDE-Keywords[ka]": "Remote Controllers,Remote,Controller,remote controllers,remote,controller,wii,cec,hdmi-cec,პულტი,დაშორებული მართვა",
+    "X-KDE-Keywords[nl]": "Afstandsbedieningen,Op afstand,Controller,afstandsbedieningen,op afstand,controller,wii,cec,hdmi-cec",
     "X-KDE-Keywords[sl]": "Daljinski upravljalniki,daljinski upravljalnik,krmilnik,daljinski upravljalniki,daljinski upravljalnik,krmilnik,wii,cec,hdmi-cec",
     "X-KDE-Keywords[sv]": "Fjärrkontroller,Fjärr,Kontroll,fjärrkontroller,fjärr,kontroller,wii,cec,hdmi-cec",
     "X-KDE-Keywords[tr]": "uzaktan kumanda,kumanda,denetimci,kol,uzaktan kumandalar,kollar,wii,cec,hdmi-cec",
     "X-KDE-Keywords[uk]": "Remote Controllers,Remote,Controller,remote controllers,remote,controller,wii,cec,hdmi-cec,дистанційне керування,пульт,контролер,віддалені контролери",
     "X-KDE-Keywords[x-test]": "xxRemote Controllersxx,xxRemotexx,xxControllerxx,xxremote controllersxx,xxremotexx,xxcontrollerxx,xxwiixx,xxcecxx,xxhdmi-cecxx",
+    "X-KDE-Keywords[zh_TW]": "遠端控制器,遙控器,遙控",
     "X-KDE-System-Settings-Parent-Category": "hardware",
     "X-KDE-Weight": 20
 }
