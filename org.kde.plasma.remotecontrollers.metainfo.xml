@@ -21,6 +21,7 @@
   <name xml:lang="it">Controller remoti di Plasma</name>
   <name xml:lang="ka">Plasma დაშორებული კონტროლერები</name>
   <name xml:lang="ko">Plasma 리모콘</name>
+  <name xml:lang="lv">„Plasma“ tālvadības pultis</name>
   <name xml:lang="nl">Plasma afstandsbedieningen</name>
   <name xml:lang="nn">Fjernkontrollar for Plasma</name>
   <name xml:lang="pl">Pady Plazmy</name>
@@ -53,6 +54,7 @@
   <summary xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</summary>
   <summary xml:lang="ka">თარგმნეთ სხვადასხვა შეყვანის მოწყობილობების მოვლენები კლავიატურისა და თაგუნის მოვლენებში</summary>
   <summary xml:lang="ko">다양한 입력 장치 이벤트를 키보드와 포인터 이벤트로 변환</summary>
+  <summary xml:lang="lv">Tulkot dažādus ievades ierīču notikumus par tastatūras un rādītāja notikumiem.</summary>
   <summary xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</summary>
   <summary xml:lang="nn">Gjer om ulike inneinings-hendingar til tastatur- og musepeikar-hendingar</summary>
   <summary xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</summary>
@@ -94,6 +96,7 @@
     <p xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</p>
     <p xml:lang="ka">თარგმნეთ სხვადასხვა შეყვანის მოწყობილობების მოვლენები კლავიატურისა და თაგუნის მოვლენებში</p>
     <p xml:lang="ko">다양한 입력 장치 이벤트를 키보드와 포인터 이벤트로 변환</p>
+    <p xml:lang="lv">Tulkot dažādus ievades ierīču notikumus par tastatūras un rādītāja notikumiem.</p>
     <p xml:lang="nl">Verschillende invoerapparaatgebeurtenissen vertalen in toetsenbord- en aanwijzergebeurtenissen</p>
     <p xml:lang="nn">Gjer om ulike inneinings-hendingar til tastatur- og musepeikar-hendingar</p>
     <p xml:lang="pl">Tłumaczy naciśnięcia na urządzeniach na naciśnięcia klawiatury i ruchy wskaźnika</p>
