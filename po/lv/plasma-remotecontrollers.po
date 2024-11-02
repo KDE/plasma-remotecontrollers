@@ -1,0 +1,87 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the plasma-remotecontrollers package.
+#
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma-remotecontrollers\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"PO-Revision-Date: 2024-10-30 14:20+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 24.08.2\n"
+
+#: controllermanager.cpp:54
+#, kde-format
+msgid "Remote Controllers"
+msgstr "Tālvadības pultis"
+
+#: controllermanager.cpp:56
+#, kde-format
+msgid "Configure Inhibited Apps"
+msgstr "Konfigurēt nomāktās programmas"
+
+#: controllermanager.cpp:58
+#, kde-format
+msgid "Inhibitions"
+msgstr "Nomākšana"
+
+#: libcec/ceccontroller.cpp:166
+#, kde-format
+msgid "KDE Plasma"
+msgstr "KDE „Plasma“"
+
+#: main.cpp:37
+#, kde-format
+msgid "Plasma Remote Controllers"
+msgstr "„Plasma“ tālvadības pultis"
+
+#: main.cpp:38
+#, kde-format
+msgid "System update status notifier"
+msgstr "Sistēmas atjauninājumu statusa paziņotājs"
+
+#: main.cpp:39
+#, kde-format
+msgid "© 2022 Plasma Development Team"
+msgstr "© 2022 „Plasma“ izstrādātāju komanda"
+
+#: main.cpp:41
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Toms Trasūns"
+
+#: main.cpp:42
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "toms.trasuns@posteo.net"
+
+#: main.cpp:50
+#, kde-format
+msgid "Replace an existing instance"
+msgstr "Aizvietot jau pastāvošu instanci"
+
+#: notificationsmanager.cpp:27
+#, kde-format
+msgid "Controller connected"
+msgstr "Pults vai kontrolieris nav pievienots"
+
+#: notificationsmanager.cpp:37
+#, kde-format
+msgid "Controller Disconnected"
+msgstr "Pults vai kontrolieris ir atvienots"
+
+#: wiimote/wiimote.cpp:22
+#, kde-format
+msgctxt "What Nintendo Wii remote controllers are called"
+msgid "Wii Remote"
+msgstr "„Wii“ kontrolieris"
