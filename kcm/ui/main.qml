@@ -85,20 +85,13 @@ KCM.ScrollViewKCM {
             Layout.fillWidth: true                
             Layout.fillHeight: true
         }
+    }
 
-        Item {
-            id: noViewAvailable
-            visible: connectionView.count == 0 ? 1 : 0
-
-            Kirigami.Heading {
-                text: i18n("No remote controllers available.")
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                level: 2
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-            }
-        }
+    Kirigami.PlaceholderMessage {
+        anchors.centerIn: parent
+        text: i18n("No remote controllers available.")
+        visible: connectionView.count == 0 ? 1 : 0
+        width: parent.width - (Kirigami.Units.largeSpacing * 8)
     }
 
     Popup {

@@ -82,7 +82,6 @@ Item {
                     level: 2
                     maximumLineCount: 2
                     elide: Text.ElideRight
-                    color: PlasmaCore.ColorScope.textColor
                     text: i18n(deviceView.deviceName)
                 }
             }

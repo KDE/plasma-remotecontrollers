@@ -46,6 +46,8 @@ Item {
                     return i18n("Bind Wii Remote Keys To Buttons");
                 case 2:
                     return i18n("Bind Gamepad Keys To Buttons");
+                default:
+                    return "";
             }
         }
 
@@ -63,7 +65,7 @@ Item {
                 clip: true
                 model: KItemModels.KSortFilterProxyModel { 
                     sourceModel: kcm.keyMapModel
-                    filterRole: "DeviceTypeRole"
+                    filterRoleName: "DeviceTypeRole"
                     filterRowCallback: function(source_row, source_parent) {
                         var filter_device = deviceMap.deviceType == 0 ? "CEC" : "GAMEPAD"
                         return sourceModel.data(sourceModel.index(source_row, 0, source_parent), KeyMapModel.DeviceTypeRole).indexOf(filter_device) !== -1;
