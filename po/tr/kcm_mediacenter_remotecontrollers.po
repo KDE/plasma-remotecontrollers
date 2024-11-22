@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2024-11-22 00:42+0000\n"
 "PO-Revision-Date: 2024-08-08 00:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -347,12 +347,12 @@ msgstr "Bulunan Aygıtlar"
 msgid "No Devices Found"
 msgstr "Aygıt Bulunamadı"
 
-#: ui/+mediacenter/main.qml:183 ui/main.qml:132
+#: ui/+mediacenter/main.qml:183 ui/main.qml:125
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "%1 için TV Kumandasında Düğme Seç"
 
-#: ui/+mediacenter/main.qml:214 ui/main.qml:171
+#: ui/+mediacenter/main.qml:214 ui/main.qml:164
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "%1 için Oyun Kolunda Düğme Seç"
@@ -362,7 +362,7 @@ msgstr "%1 için Oyun Kolunda Düğme Seç"
 msgid "Device:"
 msgstr "Aygıt:"
 
-#: ui/main.qml:94
+#: ui/main.qml:92
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Kullanılabilir uzaktan kumanda yok."

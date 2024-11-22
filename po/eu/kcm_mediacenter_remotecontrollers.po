@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2024-11-22 00:42+0000\n"
 "PO-Revision-Date: 2022-08-11 15:12+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -350,12 +350,12 @@ msgstr "Aurkitutako gailuak"
 msgid "No Devices Found"
 msgstr "Ez da gailurik aurkitu"
 
-#: ui/+mediacenter/main.qml:183 ui/main.qml:132
+#: ui/+mediacenter/main.qml:183 ui/main.qml:125
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "Hautatu zure TBko urruneko tekla bat %1(e)rako"
 
-#: ui/+mediacenter/main.qml:214 ui/main.qml:171
+#: ui/+mediacenter/main.qml:214 ui/main.qml:164
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "Hautatu zure Gamepad-eko tekla bat %1(e)rako"
@@ -365,7 +365,7 @@ msgstr "Hautatu zure Gamepad-eko tekla bat %1(e)rako"
 msgid "Device:"
 msgstr "Gailua:"
 
-#: ui/main.qml:94
+#: ui/main.qml:92
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Ez dago urruneko aginterik."

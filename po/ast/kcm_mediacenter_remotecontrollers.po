@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2024-11-22 00:42+0000\n"
 "PO-Revision-Date: 2024-03-27 22:40+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -347,12 +347,12 @@ msgstr ""
 msgid "No Devices Found"
 msgstr ""
 
-#: ui/+mediacenter/main.qml:183 ui/main.qml:132
+#: ui/+mediacenter/main.qml:183 ui/main.qml:125
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr ""
 
-#: ui/+mediacenter/main.qml:214 ui/main.qml:171
+#: ui/+mediacenter/main.qml:214 ui/main.qml:164
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr ""
@@ -362,7 +362,7 @@ msgstr ""
 msgid "Device:"
 msgstr ""
 
-#: ui/main.qml:94
+#: ui/main.qml:92
 #, kde-format
 msgid "No remote controllers available."
 msgstr ""
