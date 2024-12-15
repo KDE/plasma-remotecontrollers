@@ -55,13 +55,13 @@ msgstr "© 2022 प्लाज्मा विकास दल"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #: main.cpp:42
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: main.cpp:50
 #, kde-format
@@ -82,4 +82,4 @@ msgstr "नियन्त्रकः विच्छिन्नः"
 #, kde-format
 msgctxt "What Nintendo Wii remote controllers are called"
 msgid "Wii Remote"
-msgstr ""
+msgstr "Wii रिमोट"
