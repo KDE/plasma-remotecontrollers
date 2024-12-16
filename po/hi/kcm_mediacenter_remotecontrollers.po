@@ -1,4 +1,4 @@
-# Sanskrit translations for plasma-remotecontrollers package.
+# Hindi translations for plasma-remotecontrollers package.
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-remotecontrollers package.
 # Kali <EMAIL@ADDRESS>, 2024.
@@ -8,34 +8,33 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:42+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"PO-Revision-Date: 2024-12-15 17:36+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
-"Language: sa\n"
+"Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n>2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "भवतः नामानि"
+msgstr "तुम्हारे नाम"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "भवतः ईमेलपत्राणि"
+msgstr "आपके ईमेल"
 
 #: keydisplayprovider.cpp:14
 #, kde-format
 msgid "Play"
-msgstr "क्रीडतु"
+msgstr "खेल"
 
 #: keydisplayprovider.cpp:15
 #, kde-format
 msgid "Stop"
-msgstr "विरमतु"
+msgstr "रुकना"
 
 #: keydisplayprovider.cpp:16
 #, kde-format
@@ -45,107 +44,107 @@ msgstr "विराम"
 #: keydisplayprovider.cpp:17
 #, kde-format
 msgid "Rewind"
-msgstr "पश्चात्तापं कुरुत"
+msgstr "रिवाइंड"
 
 #: keydisplayprovider.cpp:18
 #, kde-format
 msgid "Fast Forward"
-msgstr "शीघ्रं अग्रे गच्छतु"
+msgstr "तेजी से आगे बढ़ना"
 
 #: keydisplayprovider.cpp:19
 #, kde-format
 msgid "Enter"
-msgstr "प्रवेश"
+msgstr "प्रवेश करना"
 
 #: keydisplayprovider.cpp:20
 #, kde-format
 msgid "Up"
-msgstr "उपरि"
+msgstr "ऊपर"
 
 #: keydisplayprovider.cpp:21
 #, kde-format
 msgid "Down"
-msgstr "अधः"
+msgstr "नीचे"
 
 #: keydisplayprovider.cpp:22
 #, kde-format
 msgid "Right"
-msgstr "दक्षिणः"
+msgstr "सही"
 
 #: keydisplayprovider.cpp:23
 #, kde-format
 msgid "Left"
-msgstr "वामः"
+msgstr "बाएं"
 
 #: keydisplayprovider.cpp:24
 #, kde-format
 msgid "Button 0"
-msgstr "बटनं 0"
+msgstr "बटन 0"
 
 #: keydisplayprovider.cpp:25
 #, kde-format
 msgid "Button 1"
-msgstr "बटनम् १"
+msgstr "बटन 1"
 
 #: keydisplayprovider.cpp:26
 #, kde-format
 msgid "Button 2"
-msgstr "बटनम् २"
+msgstr "बटन 2"
 
 #: keydisplayprovider.cpp:27
 #, kde-format
 msgid "Button 3"
-msgstr "बटनम् 3"
+msgstr "बटन 3"
 
 #: keydisplayprovider.cpp:28
 #, kde-format
 msgid "Button 4"
-msgstr "बटनम् ४"
+msgstr "बटन 4"
 
 #: keydisplayprovider.cpp:29
 #, kde-format
 msgid "Button 5"
-msgstr "बटनम् ५"
+msgstr "बटन 5"
 
 #: keydisplayprovider.cpp:30
 #, kde-format
 msgid "Button 6"
-msgstr "बटनम् ६"
+msgstr "बटन 6"
 
 #: keydisplayprovider.cpp:31
 #, kde-format
 msgid "Button 7"
-msgstr "बटनम् 7"
+msgstr "बटन 7"
 
 #: keydisplayprovider.cpp:32
 #, kde-format
 msgid "Button 8"
-msgstr "बटनम् 8"
+msgstr "बटन 8"
 
 #: keydisplayprovider.cpp:33
 #, kde-format
 msgid "Button 9"
-msgstr "बटनम् ९"
+msgstr "बटन 9"
 
 #: keydisplayprovider.cpp:34
 #, kde-format
 msgid "Button Blue"
-msgstr "बटन नील"
+msgstr "बटन नीला"
 
 #: keydisplayprovider.cpp:35
 #, kde-format
 msgid "Button Green"
-msgstr "बटन हरित"
+msgstr "बटन हरा"
 
 #: keydisplayprovider.cpp:36
 #, kde-format
 msgid "Button Yellow"
-msgstr "बटन पीत"
+msgstr "बटन पीला"
 
 #: keydisplayprovider.cpp:37
 #, kde-format
 msgid "Button Red"
-msgstr "बटनं लालम्"
+msgstr "बटन लाल"
 
 #: keydisplayprovider.cpp:38
 #, kde-format
@@ -160,17 +159,17 @@ msgstr "चैनल डाउन"
 #: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:96
 #, kde-format
 msgid "Exit"
-msgstr "निर्गम"
+msgstr "बाहर निकलना"
 
 #: keydisplayprovider.cpp:41
 #, kde-format
 msgid "Back"
-msgstr "पृष्ठभागः"
+msgstr "पीछे"
 
 #: keydisplayprovider.cpp:42 keydisplayprovider.cpp:43
 #, kde-format
 msgid "Home"
-msgstr "गृहम्‌"
+msgstr "घर"
 
 #: keydisplayprovider.cpp:44
 #, kde-format
@@ -180,37 +179,37 @@ msgstr "मेनू"
 #: keydisplayprovider.cpp:45
 #, kde-format
 msgid "Info"
-msgstr "Info"
+msgstr "जानकारी"
 
 #: keydisplayprovider.cpp:46
 #, kde-format
 msgid "Subtitle"
-msgstr "उपशीर्षकम्"
+msgstr "उपशीर्षक"
 
 #: keydisplayprovider.cpp:47
 #, kde-format
 msgid "Left Meta"
-msgstr "वाम मेटा"
+msgstr "बायाँ मेटा"
 
 #: keydisplayprovider.cpp:48
 #, kde-format
 msgid "Games"
-msgstr "क्रीडाः"
+msgstr "खेल"
 
 #: keydisplayprovider.cpp:49
 #, kde-format
 msgid "Cancel"
-msgstr "निरसयतु"
+msgstr "रद्द करना"
 
 #: keydisplayprovider.cpp:51
 #, kde-format
 msgid "Mode"
-msgstr "मोड्"
+msgstr "तरीका"
 
 #: keydisplayprovider.cpp:52
 #, kde-format
 msgid "Start"
-msgstr "प्रारंभः"
+msgstr "शुरू"
 
 #: keydisplayprovider.cpp:53
 #, kde-format
@@ -225,17 +224,17 @@ msgstr "गेमपैड ए / गेमपैड क्रॉस"
 #: keydisplayprovider.cpp:55
 #, kde-format
 msgid "Gamepad B / Gamepad Circle"
-msgstr "गेमपैड बी / गेमपैड वृत्त"
+msgstr "गेमपैड बी / गेमपैड सर्किल"
 
 #: keydisplayprovider.cpp:56
 #, kde-format
 msgid "Gamepad Y / Gamepad Triangle"
-msgstr "गेमपैड वाई / गेमपैड त्रिकोण"
+msgstr "गेमपैड Y / गेमपैड त्रिभुज"
 
 #: keydisplayprovider.cpp:57
 #, kde-format
 msgid "Trigger Left-1"
-msgstr "ट्रिगर वाम-1"
+msgstr "ट्रिगर बायाँ-1"
 
 #: keydisplayprovider.cpp:58
 #, kde-format
@@ -245,7 +244,7 @@ msgstr "ट्रिगर राइट-1"
 #: keydisplayprovider.cpp:59
 #, kde-format
 msgid "Trigger Left-2"
-msgstr "ट्रिगर वाम-2"
+msgstr "ट्रिगर लेफ्ट-2"
 
 #: keydisplayprovider.cpp:60
 #, kde-format
@@ -255,114 +254,114 @@ msgstr "ट्रिगर राइट-2"
 #: keydisplayprovider.cpp:61
 #, kde-format
 msgid "DPad Up"
-msgstr "DPad Up"
+msgstr "डीपैड अप"
 
 #: keydisplayprovider.cpp:62
 #, kde-format
 msgid "DPad Down"
-msgstr "DPad Down इति"
+msgstr "डीपैड डाउन"
 
 #: keydisplayprovider.cpp:63
 #, kde-format
 msgid "DPad Left"
-msgstr "DPad वाम"
+msgstr "डीपैड बायाँ"
 
 #: keydisplayprovider.cpp:64
 #, kde-format
 msgid "DPad Right"
-msgstr "DPad राइट्"
+msgstr "डीपैड राइट"
 
 #: keydisplayprovider.cpp:65
 #, kde-format
 msgid "Select"
-msgstr "विचि"
+msgstr "चुनना"
 
 #: keymapmodel.cpp:53 keymapmodel.cpp:124
 #, kde-format
 msgid "Button Left"
-msgstr "बटनं वामम्"
+msgstr "बटन बायाँ"
 
 #: keymapmodel.cpp:63 keymapmodel.cpp:134
 #, kde-format
 msgid "Button Right"
-msgstr "बटन राइट्"
+msgstr "बटन दायाँ"
 
 #: keymapmodel.cpp:73 keymapmodel.cpp:144
 #, kde-format
 msgid "Button Up"
-msgstr "बटन अप"
+msgstr "बटन लगाना"
 
 #: keymapmodel.cpp:83 keymapmodel.cpp:154
 #, kde-format
 msgid "Button Down"
-msgstr "बटनं अधः"
+msgstr "कालर के नीचे बटन लगी शर्ट"
 
 #: keymapmodel.cpp:93 keymapmodel.cpp:164
 #, kde-format
 msgid "Button Enter"
-msgstr "बटनं प्रविष्टम्"
+msgstr "बटन दर्ज करें"
 
 #: keymapmodel.cpp:103 keymapmodel.cpp:174
 #, kde-format
 msgid "Button Back"
-msgstr "बटनं पृष्ठतः"
+msgstr "बटन वापस"
 
 #: keymapmodel.cpp:113 keymapmodel.cpp:184
 #, kde-format
 msgid "Button Home"
-msgstr "बटन गृह"
+msgstr "बटन होम"
 
 #: ui/+mediacenter/DeviceMap.qml:37 ui/DeviceMap.qml:44
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
-msgstr "TV Remote Keys To Buttons बन्धनं कुर्वन्तु"
+msgstr "टीवी रिमोट की कुंजियों को बटनों से बांधें"
 
 #: ui/+mediacenter/DeviceMap.qml:39 ui/DeviceMap.qml:46
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
-msgstr "बटनं प्रति Wii दूरस्थकुंजी बाइंडं कुर्वन्तु"
+msgstr "Wii रिमोट कुंजियों को बटनों से बांधें"
 
 #: ui/+mediacenter/DeviceMap.qml:41 ui/DeviceMap.qml:48
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
-msgstr "Gamepad Keys To Buttons बाध्यं कुर्वन्तु"
+msgstr "गेमपैड कुंजियों को बटनों से बांधें"
 
 #: ui/+mediacenter/DeviceSetupView.qml:152
 #, kde-format
 msgid "Go back [←] to return to device selection"
-msgstr "उपकरणचयनं प्रति प्रत्यागन्तुं पुनः [←] गच्छन्तु"
+msgstr "डिवाइस चयन पर वापस जाने के लिए [←] पर जाएँ"
 
 #: ui/+mediacenter/main.qml:22 ui/+mediacenter/main.qml:66 ui/main.qml:20
 #, kde-format
 msgid "Remote Controllers"
-msgstr "दूरस्थ नियन्त्रकाः"
+msgstr "रिमोट कंट्रोलर"
 
 #: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "Found Devices"
-msgstr "प्राप्तयन्त्राणि"
+msgstr "पाए गए उपकरण"
 
 #: ui/+mediacenter/main.qml:131
 #, kde-format
 msgid "No Devices Found"
-msgstr "न यन्त्राणि लब्धानि"
+msgstr "कोई यंत्र नहीं मिले"
 
 #: ui/+mediacenter/main.qml:183 ui/main.qml:125
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
-msgstr "%1 कृते स्वस्य TV दूरस्थे कीलं चिनोतु"
+msgstr "%1 के लिए अपने टीवी रिमोट पर कुंजी चुनें"
 
 #: ui/+mediacenter/main.qml:214 ui/main.qml:164
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
-msgstr "%1 कृते स्वस्य गेमपैड् मध्ये कीलं चिनोतु"
+msgstr "%1 के लिए अपने गेमपैड पर कुंजी चुनें"
 
 #: ui/main.qml:52
 #, kde-format
 msgid "Device:"
-msgstr "उपकरणम्‌:"
+msgstr "उपकरण:"
 
 #: ui/main.qml:92
 #, kde-format
 msgid "No remote controllers available."
-msgstr "दूरनियन्त्रकाः न उपलभ्यन्ते।"
+msgstr "कोई रिमोट कंट्रोलर उपलब्ध नहीं है."
