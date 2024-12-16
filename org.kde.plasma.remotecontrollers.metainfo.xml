@@ -16,6 +16,7 @@
   <name xml:lang="fr">Télécommandes sous Plasma</name>
   <name xml:lang="gl">Mandos a distancia de Plasma</name>
   <name xml:lang="he">שלטים של פלזמה</name>
+  <name xml:lang="hi">प्लाज्मा रिमोट कंट्रोलर</name>
   <name xml:lang="hu">Plasma távvezérlők</name>
   <name xml:lang="ia">Controlatores remote de Plasma</name>
   <name xml:lang="it">Controller remoti di Plasma</name>
@@ -50,6 +51,7 @@
   <summary xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</summary>
   <summary xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro.</summary>
   <summary xml:lang="he">תרגום מגוון אירועים התקני קלט לאירועים מקלדת ומצביע</summary>
+  <summary xml:lang="hi">विभिन्न इनपुट डिवाइस ईवेंट को कीबोर्ड और पॉइंटर ईवेंट में अनुवाद करें</summary>
   <summary xml:lang="hu">A különböző beviteli eszközök eseményeinek lefordítása billentyűzet- és mutatóeseményekre</summary>
   <summary xml:lang="ia">Traduce varie eventos de dispositivo de entrata in eventos de claviero e punctator</summary>
   <summary xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</summary>
@@ -93,6 +95,7 @@
     <p xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</p>
     <p xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro.</p>
     <p xml:lang="he">תרגום מגוון אירועים התקני קלט לאירועים מקלדת ומצביע</p>
+    <p xml:lang="hi">विभिन्न इनपुट डिवाइस ईवेंट को कीबोर्ड और पॉइंटर ईवेंट में अनुवाद करें</p>
     <p xml:lang="hu">A különböző beviteli eszközök eseményeinek lefordítása billentyűzet- és mutatóeseményekre</p>
     <p xml:lang="ia">Traduce varie eventos de dispositivo de entrata in eventos de claviero e punctator</p>
     <p xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</p>
