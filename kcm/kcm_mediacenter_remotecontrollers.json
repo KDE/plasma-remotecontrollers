@@ -114,5 +114,8 @@
     "X-KDE-Keywords[zh_CN]": "Remote Controllers,Remote,Controller,remote controllers,remote,controller,wii,cec,hdmi-cec,yaokongqi,kongzhiqi,遥控器,控制器",
     "X-KDE-Keywords[zh_TW]": "遠端控制器,遙控器,遙控",
     "X-KDE-System-Settings-Parent-Category": "hardware",
-    "X-KDE-Weight": 20
+    "X-KDE-Weight": 20,
+    "X-KDE-OnlyShowOnQtPlatforms": [
+        "wayland"
+    ]
 }
