@@ -49,7 +49,7 @@
   <summary xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</summary>
   <summary xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</summary>
   <summary xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</summary>
-  <summary xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro.</summary>
+  <summary xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro</summary>
   <summary xml:lang="he">תרגום מגוון אירועים התקני קלט לאירועים מקלדת ומצביע</summary>
   <summary xml:lang="hi">विभिन्न इनपुट डिवाइस ईवेंट को कीबोर्ड और पॉइंटर ईवेंट में अनुवाद करें</summary>
   <summary xml:lang="hu">A különböző beviteli eszközök eseményeinek lefordítása billentyűzet- és mutatóeseményekre</summary>
@@ -93,7 +93,7 @@
     <p xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</p>
     <p xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</p>
     <p xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</p>
-    <p xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro.</p>
+    <p xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro</p>
     <p xml:lang="he">תרגום מגוון אירועים התקני קלט לאירועים מקלדת ומצביע</p>
     <p xml:lang="hi">विभिन्न इनपुट डिवाइस ईवेंट को कीबोर्ड और पॉइंटर ईवेंट में अनुवाद करें</p>
     <p xml:lang="hu">A különböző beviteli eszközök eseményeinek lefordítása billentyűzet- és mutatóeseményekre</p>
