@@ -43,7 +43,7 @@
   <summary xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</summary>
   <summary xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</summary>
   <summary xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</summary>
-  <summary xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro.</summary>
+  <summary xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro</summary>
   <summary xml:lang="hu">A különböző beviteli eszközök eseményeinek lefordítása billentyűzet- és mutatóeseményekre</summary>
   <summary xml:lang="ia">Traduce varie eventos de dispositivo de entrata in eventos de claviero e punctator</summary>
   <summary xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</summary>
@@ -82,7 +82,7 @@
     <p xml:lang="eu">Hainbat sarrerako gailuren gertaerak, teklatuko eta gailu erakusleko gertaera bihurtu</p>
     <p xml:lang="fi">Käännä eri syötelaitetapahtumia näppäimistö- ja hiiritapahtumiksi</p>
     <p xml:lang="fr">Traduire des évènements variés d'entrées de périphériques vers des évènements pour le clavier ou le pointeur de souris</p>
-    <p xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro.</p>
+    <p xml:lang="gl">Traduza varios eventos de dispositivos de entrada a eventos de teclado e punteiro</p>
     <p xml:lang="hu">A különböző beviteli eszközök eseményeinek lefordítása billentyűzet- és mutatóeseményekre</p>
     <p xml:lang="ia">Traduce varie eventos de dispositivo de entrata in eventos de claviero e punctator</p>
     <p xml:lang="it">Traduce vari eventi del dispositivo di input in eventi della tastiera e del puntatore</p>
