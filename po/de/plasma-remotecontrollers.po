@@ -59,7 +59,7 @@ msgstr "Copyright © 2022 Plasma Development Team"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Deutsches KDE-Übersetzerteam"
+msgstr "Deutsches KDE-Übersetzungsteam"
 
 #: main.cpp:40
 #, kde-format
