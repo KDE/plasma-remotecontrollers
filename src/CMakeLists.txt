@@ -69,6 +69,21 @@ if (TARGET PkgConfig::Libcec)
     add_definitions(-DHAS_LIBCEC)
 endif()
 
+if (TARGET SDL2::SDL2)
+    #add_subdirectory( gamecontroller )
+    set(JOYSTICK_SRCS
+        joystick/devicemodel.cpp
+        joystick/devicemodel.h
+        joystick/gamepad.cpp
+        joystick/gamepad.h
+        joystick/qjoystick.cpp
+        joystick/qjoystick.h
+    )
+    target_sources(plasma-remotecontrollers PUBLIC ${JOYSTICK_SRCS})
+    target_link_libraries(plasma-remotecontrollers SDL2::SDL2)
+endif()
+
+
 install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/remotecontrollers)
 
 install(FILES libcec/org.kde.plasma.remotecontrollers.CEC.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})
