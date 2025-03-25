@@ -69,6 +69,21 @@ if (TARGET PkgConfig::Libcec)
     add_definitions(-DHAS_LIBCEC)
 endif()
 
+if (SDL3_FOUND)
+    set(JOYSTICK_SRCS
+        sdljoystick/devicemodel.cpp
+        sdljoystick/devicemodel.h
+        sdljoystick/ksdljoystick.cpp
+        sdljoystick/ksdljoystick.h
+        sdljoystick/prjoystick.cpp
+        sdljoystick/prjoystick.h
+    )
+    target_sources(plasma-remotecontrollers PUBLIC ${JOYSTICK_SRCS})
+    target_link_libraries(plasma-remotecontrollers SDL3::SDL3)
+    add_definitions(-DHAS_SDL3)
+endif()
+
+
 install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/remotecontrollers)
 
 install(FILES libcec/org.kde.plasma.remotecontrollers.CEC.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR})

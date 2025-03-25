@@ -13,6 +13,11 @@
 #ifdef HAS_XWIIMOTE
 # include "wiimote/wiimotecontroller.h"
 #endif // HAS_XWIIMOTE
+#ifdef HAS_SDL3
+# include "sdljoystick/devicemodel.h"
+#endif // HAS_SDL3
+
+
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -36,7 +41,7 @@ int main(int argc, char *argv[])
     KAboutData about(QStringLiteral("plasma-remotecontrollers"),
                      i18n("Plasma Remote Controllers"), PROJECT_VERSION,
                      i18n("System update status notifier"), KAboutLicense::GPL,
-                     i18n("© 2022 Plasma Development Team"));
+                     i18n("© 2022-2025 Plasma Development Team"));
     about.setProductName("Plasma Bigscreen/Remote Controllers");
     about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"),
                         i18nc("EMAIL OF TRANSLATORS", "Your emails"));
@@ -62,7 +67,7 @@ int main(int argc, char *argv[])
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup generalGroup = config->group("General");
-    if (generalGroup.readEntry("EnableEvdev", true)) {
+    if (generalGroup.readEntry("EnableEvdev", false)) {
         new EvdevController();
     }
 
@@ -71,6 +76,13 @@ int main(int argc, char *argv[])
         new CECController();
     }
 #endif
+
+#ifdef HAS_SDL3
+    if (generalGroup.readEntry("EnableJoystick", true)) {
+        new DeviceModel();
+    }
+#endif // HAS_SDL3
+
 
 #ifdef HAS_XWIIMOTE
     if (generalGroup.readEntry("EnableWiimote", true)) {
