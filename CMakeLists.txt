@@ -42,7 +42,16 @@ find_package(Wayland REQUIRED COMPONENTS Client)
 find_package(ScreenSaverDBusInterface CONFIG REQUIRED)
 
 pkg_check_modules(Libcec IMPORTED_TARGET libcec>=6)
-add_feature_info(Libcec Libcec_FOUND "Adds support forr CEC devices")
+add_feature_info(Libcec Libcec_FOUND "Adds support for CEC devices")
+
+
+#find_package(SDL2 REQUIRED)
+find_package(SDL2 2.0.16)
+set_package_properties(SDL2 PROPERTIES
+        TYPE OPTIONAL
+        PURPOSE "Required for building Game Controller / joystick support"
+)
+#add_feature_info(SDL2 SDL2_FOUND "Required for building Game Controller / joystick support")
 
 pkg_check_modules(XWiimote IMPORTED_TARGET libxwiimote)
 add_feature_info(XWiimote XWiimote_FOUND "Adds support for Wiimotes, not currently recommended due to unmaintained Wiimote")
