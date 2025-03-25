@@ -27,7 +27,6 @@ Q_SCRIPTABLE QStringList ControllerManagerDBusInterface::connectedDevices()
     for (auto device : connected_devices) {
         deviceList << device->getUniqueIdentifier();
     }
-
     return deviceList;
 }
 
