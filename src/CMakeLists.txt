@@ -81,6 +81,7 @@ if (TARGET SDL2::SDL2)
     )
     target_sources(plasma-remotecontrollers PUBLIC ${JOYSTICK_SRCS})
     target_link_libraries(plasma-remotecontrollers SDL2::SDL2)
+    add_definitions(-DHAS_JOYSTICK)
 endif()
 
 

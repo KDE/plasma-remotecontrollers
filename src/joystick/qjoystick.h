@@ -1,10 +1,10 @@
-#ifndef QJOYSTICK_H
-#define QJOYSTICK_H
+#pragma once
 
 #include "gamepad.h"
+#include "device.h"
 #include <QObject>
 
-class QJoyStick : public QObject {
+class QJoyStick : public Device {
     Q_OBJECT
     Q_ENUMS(Direction)
 
@@ -30,7 +30,8 @@ public:
     };
     Q_ENUM(Direction)
 
-    explicit QJoyStick(QObject* parent = nullptr);
+    //explicit QJoyStick(QObject* parent = nullptr);
+    explicit QJoyStick(Gamepad* parent);
 
     Gamepad* device() const;
     void setDevice(Gamepad* gamepad);
@@ -65,6 +66,8 @@ Q_SIGNALS:
     void button2PressedChanged(bool pressed);
     void button3PressedChanged(bool pressed);
 
+    void keyPress(int keyCode, bool pressed);
+
 private:
     void initButtons();
     void initStick();
@@ -84,4 +87,3 @@ private:
     QList<SDL_GameControllerButton> m_buttons;
 };
 
-#endif // QJOYSTICK_H

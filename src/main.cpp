@@ -13,6 +13,11 @@
 #ifdef HAS_XWIIMOTE
 # include "wiimote/wiimotecontroller.h"
 #endif // HAS_XWIIMOTE
+#ifdef HAS_JOYSTICK
+# include "joystick/devicemodel.h"
+#endif // HAS_XWIIMOTE
+
+
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -62,7 +67,7 @@ int main(int argc, char *argv[])
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup generalGroup = config->group("General");
-    if (generalGroup.readEntry("EnableEvdev", true)) {
+    if (generalGroup.readEntry("EnableEvdev", false)) {
         new EvdevController();
     }
 
@@ -71,6 +76,13 @@ int main(int argc, char *argv[])
         new CECController();
     }
 #endif
+
+#ifdef HAS_JOYSTICK
+    if (generalGroup.readEntry("EnableJoystick", true)) {
+        new DeviceModel();
+    }
+#endif // HAS_JOYSTICK
+
 
 #ifdef HAS_XWIIMOTE
     if (generalGroup.readEntry("EnableWiimote", true)) {

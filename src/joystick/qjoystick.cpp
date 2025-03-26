@@ -2,8 +2,24 @@
 #include <QDebug>
 #include "qjoystick.h"
 
-QJoyStick::QJoyStick(QObject* parent)
-: QObject(parent) {}
+#include "../controllermanager.h"
+
+#include <linux/input-event-codes.h>
+
+// QJoyStick::QJoyStick(QObject* parent)
+// : Device(parent) {}
+
+QJoyStick::QJoyStick(Gamepad* gamepad)
+{
+    setDevice(gamepad);
+    m_uniqueIdentifier = gamepad->path();
+    m_name = gamepad->name();
+    m_deviceType = DeviceJoystick;
+
+    QObject::connect(this, &QJoyStick::keyPress,
+                     &ControllerManager::instance(), &ControllerManager::emitKey);
+}
+
 
 
 Gamepad* QJoyStick::device() const
@@ -108,8 +124,31 @@ QJoyStick::Direction QJoyStick::directionX() const {
 
 void QJoyStick::setDirectionX(Direction newDirection) {
     if (m_directionX != newDirection) {
+
+        // X axis, press
+        if (m_directionX == None && newDirection == Left) {
+            qDebug() << "emit left pressed";
+            Q_EMIT keyPress(KEY_LEFT, true);
+        }
+        if (m_directionX == None && newDirection == Right) {
+            qDebug() << "emit right pressed";
+            Q_EMIT keyPress(KEY_RIGHT, true);
+        }
+
+        // X axis, release
+        if (m_directionX == Left && newDirection == None) {
+            qDebug() << "emit left released";
+            Q_EMIT keyPress(KEY_LEFT, false);
+        }
+        if (m_directionX == Right && newDirection == None) {
+            qDebug() << "emit right released";
+            Q_EMIT keyPress(KEY_RIGHT, false);
+        }
+
         m_directionX = newDirection;
         Q_EMIT directionXChanged(m_directionX);
+
+
     }
 }
 
@@ -119,6 +158,26 @@ QJoyStick::Direction QJoyStick::directionY() const {
 
 void QJoyStick::setDirectionY(Direction newDirection) {
     if (m_directionY != newDirection) {
+
+        // X axis, press
+        if (m_directionY == None && newDirection == Up) {
+            qDebug() << "emit up pressed";
+            Q_EMIT keyPress(KEY_UP, true);
+        }
+        if (m_directionY == None && newDirection == Down) {
+            qDebug() << "emit down pressed";
+            Q_EMIT keyPress(KEY_DOWN, true);
+        }
+
+        // X axis, release
+        if (m_directionY == Up && newDirection == None) {
+            qDebug() << "emit up released";
+            Q_EMIT keyPress(KEY_UP, false);
+        }
+        if (m_directionY == Down && newDirection == None) {
+            qDebug() << "emit down released";
+            Q_EMIT keyPress(KEY_DOWN, false);
+        }
         m_directionY = newDirection;
         Q_EMIT directionYChanged(m_directionY);
     }
@@ -131,7 +190,10 @@ bool QJoyStick::button0Pressed() const {
 void QJoyStick::setButton0Pressed(bool pressed) {
     if (m_button0Pressed != pressed) {
         m_button0Pressed = pressed;
-        qDebug() << "button 1" <<m_button0Pressed;
+
+        Q_EMIT keyPress(KEY_ENTER, pressed);
+
+        qDebug() << "button 0 ENTER" << m_button0Pressed;
         Q_EMIT button0PressedChanged(m_button0Pressed);
     }
 }
@@ -144,6 +206,8 @@ bool QJoyStick::button1Pressed() const {
 void QJoyStick::setButton1Pressed(bool pressed) {
     if (m_button1Pressed != pressed) {
         m_button1Pressed = pressed;
+        Q_EMIT keyPress(KEY_LEFTCTRL, pressed);
+        qDebug() << "button 1 / LEFTCTRL" << m_button1Pressed;
         Q_EMIT button1PressedChanged(m_button1Pressed);
     }
 }
@@ -155,6 +219,8 @@ bool QJoyStick::button2Pressed() const {
 void QJoyStick::setButton2Pressed(bool pressed) {
     if (m_button2Pressed != pressed) {
         m_button2Pressed = pressed;
+        qDebug() << "button 2 ENTER" << m_button2Pressed;
+        Q_EMIT keyPress(KEY_ENTER, pressed);
         Q_EMIT button2PressedChanged(m_button2Pressed);
     }
 }
@@ -166,6 +232,8 @@ bool QJoyStick::button3Pressed() const {
 void QJoyStick::setButton3Pressed(bool pressed) {
     if (m_button3Pressed != pressed) {
         m_button3Pressed = pressed;
+        Q_EMIT keyPress(KEY_LEFTSHIFT, pressed);
+        qDebug() << "button 3 LEFTSHIFT" << m_button3Pressed;
         Q_EMIT button3PressedChanged(m_button3Pressed);
     }
 }

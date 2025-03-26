@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include "qjoystick.h"
+
 #include <QList>
 #include <QPointer>
 #include <QStandardItemModel>
@@ -43,5 +45,7 @@ private:
 
     // Map of sdl indexes to Gamepad devices
     QMap<int, Gamepad *> m_devices;
+    QMap<int, QJoyStick *> m_joysticks;
+
     QPointer<QTimer> m_timer;
 };
