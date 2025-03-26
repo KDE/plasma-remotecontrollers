@@ -14,7 +14,8 @@
 enum DeviceType {
     DeviceCEC,
     DeviceWiimote,
-    DeviceGamepad
+    DeviceGamepad,
+    DeviceJoystick
 };
 
 class Device : public QObject

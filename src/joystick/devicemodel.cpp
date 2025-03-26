@@ -17,6 +17,8 @@
 #include "gamepad.h"
 //#include "logging.h"
 
+#include "../controllermanager.h"
+
 // 100 ms while we have devices
 const int kShortPollTime = 100;
 // 2 seconds while we don't have any devices
@@ -126,6 +128,11 @@ void DeviceModel::addDevice(const int deviceIndex)
     // Now that we have a device poll every short poll time
     m_timer->setInterval(kShortPollTime);
     Q_EMIT devicesChanged();
+
+    qDebug() << "NEW JOYSTICK!";
+    auto qjoystick = new QJoyStick(m_devices[id]);
+    ControllerManager::instance().newDevice(qjoystick);
+
 }
 
 void DeviceModel::removeDevice(const int deviceIndex)
