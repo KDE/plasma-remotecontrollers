@@ -9,11 +9,13 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.kirigami 2.20 as Kirigami
-import org.kde.plasma.components 2.0 as PlasmaComponents2
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import org.kde.mycroft.bigscreen 1.0 as BigScreen
 import Qt5Compat.GraphicalEffects
+
+import org.kde.kirigami 2.20 as Kirigami
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.extras as PlasmaExtras
+import org.kde.bigscreen as BigScreen
+
 
 Rectangle {
     id: deviceView
@@ -35,13 +37,13 @@ Rectangle {
             deviceView.ignoreEvent = false
         }
     }
-    
+
     onActiveFocusChanged: {
         if(activeFocus){
             deviceMapView.forceActiveFocus()
         }
     }
-    
+
     ColumnLayout {
         id: colLayoutSettingsItem
         clip: true
@@ -58,7 +60,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.preferredHeight: parent.height * 0.10
         }
-        
+
         Item {
             Layout.fillWidth: true
             Layout.preferredHeight: dIcon.height + (label2.height + Kirigami.Units.largeSpacing * 2)
@@ -66,23 +68,23 @@ Rectangle {
 
             Rectangle {
                 id: dIcon
-                anchors.top: headrSept.bottom
+                anchors.top: parent.top
                 anchors.topMargin: Kirigami.Units.largeSpacing
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: Kirigami.Units.iconSizes.huge
                 height: width
                 radius: 100
                 color: Kirigami.Theme.backgroundColor
-                
+
                 Kirigami.Icon {
                     id: deviceIconStatus
                     anchors.centerIn: parent
                     width: Kirigami.Units.iconSizes.large
                     height: width
-                    source: currentDevice.deviceIconName
+                    source: currentDevice ? currentDevice.deviceIconName : ''
                 }
             }
-            
+
             Kirigami.Heading {
                 id: label2
                 width: parent.width
@@ -94,7 +96,7 @@ Rectangle {
                 maximumLineCount: 2
                 elide: Text.ElideRight
                 color: PlasmaCore.ColorScope.textColor
-                text: i18n(currentDevice.deviceName)
+                text: currentDevice ? currentDevice.deviceName : ''
             }
 
             Kirigami.Separator {
@@ -123,15 +125,15 @@ Rectangle {
         anchors.margins: Kirigami.Units.largeSpacing * 2
         height: Kirigami.Units.gridUnit * 2
 
-        PlasmaComponents2.Button {
+        PlasmaComponents.Button {
             id: backBtnSettingsItem
-            iconSource: "arrow-left"
+            icon.name: "arrow-left"
             Layout.alignment: Qt.AlignLeft
 
             KeyNavigation.up: deviceMapView
             KeyNavigation.down: deviceMapView
 
-            PlasmaComponents2.Highlight {
+            PlasmaExtras.Highlight {
                 z: -2
                 anchors.fill: parent
                 anchors.margins: -Kirigami.Units.gridUnit / 4

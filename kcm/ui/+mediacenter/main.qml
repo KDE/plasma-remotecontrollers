@@ -5,15 +5,17 @@
 
 */
 
-import QtQuick.Layouts 1.14
-import QtQuick 2.14
-import QtQuick.Window 2.14
-import QtQuick.Controls 2.14
-import org.kde.kirigami 2.20 as Kirigami
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Window
+import QtQuick.Controls
+
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.components as PlasmaComponents
 import org.kde.kcmutils as KCM
-import org.kde.mycroft.bigscreen 1.0 as BigScreen
+import org.kde.bigscreen as BigScreen
 import org.kde.private.kcm.remotecontrollers 1.0
+
 import "+mediacenter/delegates" as Delegates
 
 KCM.SimpleKCM {
@@ -21,20 +23,24 @@ KCM.SimpleKCM {
 
     title: i18n("Remote Controllers")
     background: null
+
     leftPadding: Kirigami.Units.smallSpacing
-    topPadding: 0
+    topPadding: Kirigami.Units.smallSpacing
     rightPadding: Kirigami.Units.smallSpacing
-    bottomPadding: 0
+    bottomPadding: Kirigami.Units.smallSpacing
+
     property var supportedControllers: kcm.devicesModel
 
-    Component.onCompleted: {
-        connectionView.forceActiveFocus();
+    onActiveFocusChanged: {
+        if (activeFocus) {
+            connectionView.forceActiveFocus();
+        }
     }
 
     Connections {
         target: kcm.devicesModel
         onDevicesChanged: {
-            if(connectionView.count > 0) {
+            if (connectionView.count > 0) {
                 deviceSetupView.currentDevice = connectionView.currentItem
                 deviceSetupView.deviceType = connectionView.currentItem.deviceType
             }
@@ -68,53 +74,10 @@ KCM.SimpleKCM {
         }
 
         Item {
-            id: footerMain
-            anchors.left: parent.left
-            anchors.right: deviceSetupView.left
-            anchors.leftMargin: -Kirigami.Units.largeSpacing
-            anchors.bottom: parent.bottom
-            implicitHeight: Kirigami.Units.gridUnit * 2
-
-            Button {
-                id: kcmcloseButton
-                implicitHeight: Kirigami.Units.gridUnit * 2
-                width: supportedControllers.count > 0 ? parent.width : (root.width + Kirigami.Units.largeSpacing)
-
-                background: Rectangle {
-                    color: kcmcloseButton.activeFocus ? Kirigami.Theme.highlightColor : Kirigami.Theme.backgroundColor
-                }
-
-                contentItem: Item {
-                    RowLayout {
-                        anchors.centerIn: parent
-                        Kirigami.Icon {
-                            Layout.preferredWidth: Kirigami.Units.iconSizes.small
-                            Layout.preferredHeight: Kirigami.Units.iconSizes.small
-                            source: "window-close"
-                        }
-                        Label {
-                            text: i18n("Exit")
-                        }
-                    }
-                }
-
-                Keys.onUpPressed: connectionView.forceActiveFocus()
-
-                onClicked: {
-                    Window.window.close()
-                }
-
-                Keys.onReturnPressed: {
-                    Window.window.close()
-                }
-            }
-        }
-
-        Item {
             clip: true
             anchors.left: parent.left
             anchors.top: headerAreaTop.bottom
-            anchors.bottom: footerMain.top
+            anchors.bottom: parent.bottom
             width: parent.width - deviceSetupView.width
 
             ColumnLayout {
@@ -125,20 +88,19 @@ KCM.SimpleKCM {
                 BigScreen.TileView {
                     id: connectionView
                     focus: true
-                    model:  supportedControllers
+                    model: supportedControllers
                     Layout.alignment: Qt.AlignTop
                     cellWidth: (Kirigami.Units.iconSizes.huge + Kirigami.Units.largeSpacing*6)
                     title: supportedControllers.count > 0 ? i18n("Found Devices") : i18n("No Devices Found")
                     currentIndex: 0
-                    delegate: Delegates.DeviceDelegate{}
-                    navigationDown: kcmcloseButton
+                    delegate: Delegates.DeviceDelegate {}
                     Behavior on x {
                         NumberAnimation {
                             duration: Kirigami.Units.longDuration * 2
                             easing.type: Easing.InOutQuad
                         }
                     }
-                    
+
                     onCurrentItemChanged: {
                         deviceSetupView.currentDevice = currentItem.device
                         deviceSetupView.deviceType = currentItem.deviceType
@@ -196,9 +158,9 @@ KCM.SimpleKCM {
             Connections {
                 target: kcm
                 onGamepadKeyPressed: {
-                    if(keySetupGamepadPopUp.opened) {
-                        if(kcm.gamepadKeyConfig("ButtonEnter") == keyCode) {
-                            deviceSetupView.ignoreEvent = true       
+                    if (keySetupGamepadPopUp.opened) {
+                        if (kcm.gamepadKeyConfig("ButtonEnter") == keyCode) {
+                            deviceSetupView.ignoreEvent = true
                         }
                         kcm.setGamepadKeyConfig(keySetupGamepadPopUp.keyType[1], keyCode)
                         keySetupGamepadPopUp.close()
