@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-22 00:42+0000\n"
+"POT-Creation-Date: 2025-07-11 00:45+0000\n"
 "PO-Revision-Date: 2024-02-11 18:56\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -162,7 +162,7 @@ msgstr "Канал уверх"
 msgid "Channel Down"
 msgstr "Канал уніз"
 
-#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:96
+#: keydisplayprovider.cpp:40
 #, kde-format
 msgid "Exit"
 msgstr "Выйсці"
@@ -317,47 +317,47 @@ msgstr "Кнопка \"Назад\""
 msgid "Button Home"
 msgstr "Кнопка \"Home\""
 
-#: ui/+mediacenter/DeviceMap.qml:37 ui/DeviceMap.qml:44
+#: ui/+mediacenter/DeviceMap.qml:38 ui/DeviceMap.qml:44
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr "Прывязаць клавішы пульта ад тэлевізара да кнопак"
 
-#: ui/+mediacenter/DeviceMap.qml:39 ui/DeviceMap.qml:46
+#: ui/+mediacenter/DeviceMap.qml:40 ui/DeviceMap.qml:46
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr "Прывязаць клавішы кантролера Wii да кнопак"
 
-#: ui/+mediacenter/DeviceMap.qml:41 ui/DeviceMap.qml:48
+#: ui/+mediacenter/DeviceMap.qml:42 ui/DeviceMap.qml:48
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr "Прывязаць клавішы геймпада да кнопак"
 
-#: ui/+mediacenter/DeviceSetupView.qml:152
+#: ui/+mediacenter/DeviceSetupView.qml:154
 #, kde-format
 msgid "Go back [←] to return to device selection"
 msgstr "Назад [←], каб вярнуцца да выбару прылады"
 
-#: ui/+mediacenter/main.qml:22 ui/+mediacenter/main.qml:66 ui/main.qml:20
+#: ui/+mediacenter/main.qml:24 ui/+mediacenter/main.qml:72 ui/main.qml:20
 #, kde-format
 msgid "Remote Controllers"
 msgstr "Кантролеры дыстанцыйнага кіравання"
 
-#: ui/+mediacenter/main.qml:131
+#: ui/+mediacenter/main.qml:94
 #, kde-format
 msgid "Found Devices"
 msgstr "Пошук прылад"
 
-#: ui/+mediacenter/main.qml:131
+#: ui/+mediacenter/main.qml:94
 #, kde-format
 msgid "No Devices Found"
 msgstr "Не знойдзена прылад"
 
-#: ui/+mediacenter/main.qml:183 ui/main.qml:125
+#: ui/+mediacenter/main.qml:145 ui/main.qml:125
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "Абярыце клавішу на пульце дыстанцыйнага кіравання тэлевізарам для %1"
 
-#: ui/+mediacenter/main.qml:214 ui/main.qml:164
+#: ui/+mediacenter/main.qml:176 ui/main.qml:164
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "Абярыце клавішу на геймпадзе для %1"

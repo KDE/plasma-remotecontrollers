@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-22 00:42+0000\n"
+"POT-Creation-Date: 2025-07-11 00:45+0000\n"
 "PO-Revision-Date: 2023-02-18 01:01+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Channel Down"
 msgstr ""
 
-#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:96
+#: keydisplayprovider.cpp:40
 #, kde-format
 msgid "Exit"
 msgstr ""
@@ -313,47 +313,47 @@ msgstr ""
 msgid "Button Home"
 msgstr ""
 
-#: ui/+mediacenter/DeviceMap.qml:37 ui/DeviceMap.qml:44
+#: ui/+mediacenter/DeviceMap.qml:38 ui/DeviceMap.qml:44
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr ""
 
-#: ui/+mediacenter/DeviceMap.qml:39 ui/DeviceMap.qml:46
+#: ui/+mediacenter/DeviceMap.qml:40 ui/DeviceMap.qml:46
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr ""
 
-#: ui/+mediacenter/DeviceMap.qml:41 ui/DeviceMap.qml:48
+#: ui/+mediacenter/DeviceMap.qml:42 ui/DeviceMap.qml:48
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr ""
 
-#: ui/+mediacenter/DeviceSetupView.qml:152
+#: ui/+mediacenter/DeviceSetupView.qml:154
 #, kde-format
 msgid "Go back [←] to return to device selection"
 msgstr ""
 
-#: ui/+mediacenter/main.qml:22 ui/+mediacenter/main.qml:66 ui/main.qml:20
+#: ui/+mediacenter/main.qml:24 ui/+mediacenter/main.qml:72 ui/main.qml:20
 #, kde-format
 msgid "Remote Controllers"
 msgstr ""
 
-#: ui/+mediacenter/main.qml:131
+#: ui/+mediacenter/main.qml:94
 #, kde-format
 msgid "Found Devices"
 msgstr ""
 
-#: ui/+mediacenter/main.qml:131
+#: ui/+mediacenter/main.qml:94
 #, kde-format
 msgid "No Devices Found"
 msgstr ""
 
-#: ui/+mediacenter/main.qml:183 ui/main.qml:125
+#: ui/+mediacenter/main.qml:145 ui/main.qml:125
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr ""
 
-#: ui/+mediacenter/main.qml:214 ui/main.qml:164
+#: ui/+mediacenter/main.qml:176 ui/main.qml:164
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr ""

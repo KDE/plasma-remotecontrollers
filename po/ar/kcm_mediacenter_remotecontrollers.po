@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-22 00:42+0000\n"
+"POT-Creation-Date: 2025-07-11 00:45+0000\n"
 "PO-Revision-Date: 2022-11-22 22:04+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -157,7 +157,7 @@ msgstr "قناة للأعلى"
 msgid "Channel Down"
 msgstr "قناة للأسفل"
 
-#: keydisplayprovider.cpp:40 ui/+mediacenter/main.qml:96
+#: keydisplayprovider.cpp:40
 #, kde-format
 msgid "Exit"
 msgstr "اخرج"
@@ -312,47 +312,47 @@ msgstr "زر الرجوع"
 msgid "Button Home"
 msgstr "زر البيت"
 
-#: ui/+mediacenter/DeviceMap.qml:37 ui/DeviceMap.qml:44
+#: ui/+mediacenter/DeviceMap.qml:38 ui/DeviceMap.qml:44
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr "اربط مفاتيح متحكم التلفاز بالأزرار"
 
-#: ui/+mediacenter/DeviceMap.qml:39 ui/DeviceMap.qml:46
+#: ui/+mediacenter/DeviceMap.qml:40 ui/DeviceMap.qml:46
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr "اربط مفاتيح متحكم ويي بالأزرار"
 
-#: ui/+mediacenter/DeviceMap.qml:41 ui/DeviceMap.qml:48
+#: ui/+mediacenter/DeviceMap.qml:42 ui/DeviceMap.qml:48
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr "اربط مفاتيح مقبض الألعاب بالأزرار"
 
-#: ui/+mediacenter/DeviceSetupView.qml:152
+#: ui/+mediacenter/DeviceSetupView.qml:154
 #, kde-format
 msgid "Go back [←] to return to device selection"
 msgstr "زر الخلف [←] لترجع تحديد جهاز"
 
-#: ui/+mediacenter/main.qml:22 ui/+mediacenter/main.qml:66 ui/main.qml:20
+#: ui/+mediacenter/main.qml:24 ui/+mediacenter/main.qml:72 ui/main.qml:20
 #, kde-format
 msgid "Remote Controllers"
 msgstr "أجهزة تحكم عن بعد"
 
-#: ui/+mediacenter/main.qml:131
+#: ui/+mediacenter/main.qml:94
 #, kde-format
 msgid "Found Devices"
 msgstr "الأجهزة الموجودة"
 
-#: ui/+mediacenter/main.qml:131
+#: ui/+mediacenter/main.qml:94
 #, kde-format
 msgid "No Devices Found"
 msgstr "لم يُعثر على أجهزة"
 
-#: ui/+mediacenter/main.qml:183 ui/main.qml:125
+#: ui/+mediacenter/main.qml:145 ui/main.qml:125
 #, kde-format
 msgid "Select Key On Your TV Remote For %1"
 msgstr "اختر مفتاح على متحكم تلفازك لـ%1"
 
-#: ui/+mediacenter/main.qml:214 ui/main.qml:164
+#: ui/+mediacenter/main.qml:176 ui/main.qml:164
 #, kde-format
 msgid "Select Key On Your Gamepad For %1"
 msgstr "اختر مفتاح على مقبض ألعاب لـ%1"
