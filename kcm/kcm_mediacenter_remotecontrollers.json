@@ -44,7 +44,8 @@
             "desktop"
         ],
         "Icon": "input-gamepad-symbolic",
-        "Name": "Remote Controllers"
+        "Name": "Remote Controllers",
+        "Name[x-test]": "xxRemote Controllersxx"
     },
     "X-DocPath": "kcontrol/desktopthemedetails/index.html",
     "X-KDE-Keywords": "Remote Controllers,Remote,Controller,remote controllers,remote,controller,wii,cec,hdmi-cec",
