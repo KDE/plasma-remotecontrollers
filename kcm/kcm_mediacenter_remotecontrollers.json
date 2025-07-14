@@ -45,6 +45,7 @@
         ],
         "Icon": "input-gamepad-symbolic",
         "Name": "Remote Controllers",
+        "Name[ca@valencia]": "Controls remots",
         "Name[ca]": "Controls remots",
         "Name[cs]": "Dálková ovládání",
         "Name[es]": "Mandos a distancia",
