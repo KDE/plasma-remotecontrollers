@@ -45,6 +45,7 @@
         ],
         "Icon": "input-gamepad-symbolic",
         "Name": "Remote Controllers",
+        "Name[ar]": "أجهزة تحكم عن بعد",
         "Name[ca@valencia]": "Controls remots",
         "Name[ca]": "Controls remots",
         "Name[cs]": "Dálková ovládání",
@@ -55,8 +56,10 @@
         "Name[ka]": "დაშორებული კონტროლერები",
         "Name[nl]": "Afstandsbedieningen",
         "Name[sl]": "Oddaljeni krmilniki",
+        "Name[tr]": "Uzaktan Kumandalar",
         "Name[uk]": "Дистанційне керування",
-        "Name[x-test]": "xxRemote Controllersxx"
+        "Name[x-test]": "xxRemote Controllersxx",
+        "Name[zh_CN]": "遥控器"
     },
     "X-DocPath": "kcontrol/desktopthemedetails/index.html",
     "X-KDE-Keywords": "Remote Controllers,Remote,Controller,remote controllers,remote,controller,wii,cec,hdmi-cec",
