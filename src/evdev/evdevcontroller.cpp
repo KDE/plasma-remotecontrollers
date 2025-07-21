@@ -88,7 +88,7 @@ EvdevDevice::EvdevDevice(const QString &path, libevdev *device, EvdevController 
           {BTN_MODE, {KEY_LEFTMETA}},
           {BTN_START, {KEY_GAMES}},
           {BTN_SOUTH, {KEY_ENTER}},
-          {BTN_EAST, {KEY_CANCEL}},
+          {BTN_EAST, {KEY_CANCEL, KEY_ESC}},
           {BTN_WEST, {KEY_MENU}},
           {BTN_TL, {KEY_LEFTSHIFT, KEY_TAB}},
           {BTN_TR, {KEY_TAB}},
