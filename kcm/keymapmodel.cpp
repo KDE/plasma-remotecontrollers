@@ -78,7 +78,7 @@ void KeyMapModel::load()
     map.insert("AssignedKeyIconRole", m_keyDisplayProvider->keyIcon(map.value("AssignedKeyRole").toInt(), QStringLiteral("CEC")));
     m_keyMap.append(map);
     map.clear();
-    
+
     map.insert("DeviceTypeRole", "CEC");
     map.insert("ButtonDisplayRole", i18n("Button Down"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonDown"));
@@ -150,7 +150,7 @@ void KeyMapModel::load()
     m_keyMap.append(map);
     map.clear();
 
-    map.insert("DeviceTypeRole", "GAMEPAD");    
+    map.insert("DeviceTypeRole", "GAMEPAD");
     map.insert("ButtonDisplayRole", i18n("Button Down"));
     map.insert("ButtonTypeRole", QStringLiteral("ButtonDown"));
     map.insert("ObjectNameRole", QStringLiteral("buttonDownConfigValue"));
@@ -237,6 +237,11 @@ void KeyMapModel::refresh()
     m_keyMap.clear();
     load();
     endResetModel();
+}
+
+KeyDisplayProvider *KeyMapModel::keyDisplayProvider() const
+{
+    return m_keyDisplayProvider;
 }
 
 #include "moc_keymapmodel.cpp"

@@ -13,6 +13,7 @@
 class KeyMapModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(KeyDisplayProvider *keyDisplayProvider READ keyDisplayProvider CONSTANT)
 
 public:
     explicit KeyMapModel(QObject *parent = nullptr);
@@ -25,6 +26,8 @@ public:
     void load();
     void refresh();
 
+    KeyDisplayProvider *keyDisplayProvider() const;
+
     enum Roles {
         DeviceTypeRole = Qt::UserRole + 1,
         ButtonDisplayRole,
@@ -36,7 +39,7 @@ public:
     };
 
     Q_ENUM(Roles)
-     
+
 private:
     QHash<int, QByteArray> m_roleNames;
     QVector<QVariantMap>  m_keyMap;

@@ -13,7 +13,9 @@ import org.kde.kirigami 2.20 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kcmutils as KCM
 import org.kde.private.kcm.remotecontrollers 1.0
-import "delegates" as Delegates
+
+import "desktop/delegates" as Delegates
+import "desktop"
 
 KCM.ScrollViewKCM {
     id: root
@@ -22,7 +24,7 @@ KCM.ScrollViewKCM {
     Component.onCompleted: {
         connectionView.forceActiveFocus();
     }
-    
+
     Connections {
         target: kcm.devicesModel
 
@@ -42,7 +44,7 @@ KCM.ScrollViewKCM {
         Kirigami.FormLayout {
             Layout.fillWidth: true
             Layout.preferredHeight: connectionView.implicitHeight
-            
+
             ComboBox {
                 id: connectionView
                 focus: true
@@ -82,7 +84,7 @@ KCM.ScrollViewKCM {
         DeviceSetupView {
             id: deviceSetupView
             visible: connectionView.count > 0 ? 1 : 0
-            Layout.fillWidth: true                
+            Layout.fillWidth: true
             Layout.fillHeight: true
         }
     }
@@ -148,7 +150,7 @@ KCM.ScrollViewKCM {
             function onGamepadKeyPressed(keyCode) {
                 if(keySetupGamepadPopUp.opened) {
                     if(kcm.gamepadKeyConfig("ButtonEnter") == keyCode) {
-                        deviceSetupView.ignoreEvent = true       
+                        deviceSetupView.ignoreEvent = true
                     }
                     kcm.setGamepadKeyConfig(keySetupGamepadPopUp.keyType[1], keyCode)
                     keySetupGamepadPopUp.close()

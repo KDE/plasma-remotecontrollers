@@ -1,6 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2020 Aditya Mehra <aix.m@outlook.com>
-    
+
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only OR LicenseRef-KDE-Accepted-GPL
 */
 
@@ -33,7 +33,7 @@ PlasmaComponents.Button {
             text: model.buttonDisplay
             elide: Text.ElideLeft
         }
-  
+
         Item {
             Layout.preferredWidth: Kirigami.Units.iconSizes.large
 
@@ -41,9 +41,9 @@ PlasmaComponents.Button {
                 id: keyIcon
                 source: model.assignedKeyIcon
                 width: Kirigami.Units.iconSizes.large
-                height: Kirigami.Units.iconSizes.large 
+                height: Kirigami.Units.iconSizes.large
                 anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter: parent.verticalCenter                                       
+                anchors.verticalCenter: parent.verticalCenter
                 visible: model.assignedKeyIcon != "" ? 1 : 0
                 enabled: model.assignedKeyIcon != "" ? 1 : 0
                 color: Kirigami.Theme.textColor
@@ -52,10 +52,10 @@ PlasmaComponents.Button {
 
         Kirigami.Separator {
             id: decorationSeparator
-            Layout.preferredWidth: 1                
+            Layout.preferredWidth: 1
             Layout.fillHeight: true
             visible: keyIcon.visible
-            enabled: keyIcon.visible               
+            enabled: keyIcon.visible
         }
 
         PlasmaComponents.Label {
@@ -76,10 +76,7 @@ PlasmaComponents.Button {
     onClicked: {
         if (model.deviceType == "GAMEPAD") {
             keySetupGamepadPopUp.keyType = [model.buttonDisplay, model.buttonType]
-            
-            if(!deviceView.ignoreEvent) {
-                keySetupGamepadPopUp.open()
-            }
+            keySetupGamepadPopUp.open()
         }
         if (model.deviceType == "CEC") {
             keySetupPopUp.keyType = [model.buttonDisplay, model.buttonType]
