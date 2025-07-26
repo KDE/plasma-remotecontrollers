@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-11 00:45+0000\n"
+"POT-Creation-Date: 2025-07-26 00:44+0000\n"
 "PO-Revision-Date: 2024-12-15 17:36+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -312,57 +312,62 @@ msgstr "बटन वापस"
 msgid "Button Home"
 msgstr "बटन होम"
 
-#: ui/+mediacenter/DeviceMap.qml:38 ui/DeviceMap.qml:44
+#: ui/desktop/DeviceMap.qml:44 ui/mediacenter/DeviceSetupSidebar.qml:38
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr "टीवी रिमोट की कुंजियों को बटनों से बांधें"
 
-#: ui/+mediacenter/DeviceMap.qml:40 ui/DeviceMap.qml:46
+#: ui/desktop/DeviceMap.qml:46 ui/mediacenter/DeviceSetupSidebar.qml:40
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr "Wii रिमोट कुंजियों को बटनों से बांधें"
 
-#: ui/+mediacenter/DeviceMap.qml:42 ui/DeviceMap.qml:48
+#: ui/desktop/DeviceMap.qml:48 ui/mediacenter/DeviceSetupSidebar.qml:42
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr "गेमपैड कुंजियों को बटनों से बांधें"
 
-#: ui/+mediacenter/DeviceSetupView.qml:154
-#, kde-format
-msgid "Go back [←] to return to device selection"
-msgstr "डिवाइस चयन पर वापस जाने के लिए [←] पर जाएँ"
-
-#: ui/+mediacenter/main.qml:24 ui/+mediacenter/main.qml:72 ui/main.qml:20
+#: ui/main.qml:22 ui/main_mediacenter.qml:24
 #, kde-format
 msgid "Remote Controllers"
 msgstr "रिमोट कंट्रोलर"
 
-#: ui/+mediacenter/main.qml:94
-#, kde-format
-msgid "Found Devices"
-msgstr "पाए गए उपकरण"
-
-#: ui/+mediacenter/main.qml:94
-#, kde-format
-msgid "No Devices Found"
-msgstr "कोई यंत्र नहीं मिले"
-
-#: ui/+mediacenter/main.qml:145 ui/main.qml:125
-#, kde-format
-msgid "Select Key On Your TV Remote For %1"
-msgstr "%1 के लिए अपने टीवी रिमोट पर कुंजी चुनें"
-
-#: ui/+mediacenter/main.qml:176 ui/main.qml:164
-#, kde-format
-msgid "Select Key On Your Gamepad For %1"
-msgstr "%1 के लिए अपने गेमपैड पर कुंजी चुनें"
-
-#: ui/main.qml:52
+#: ui/main.qml:54
 #, kde-format
 msgid "Device:"
 msgstr "उपकरण:"
 
-#: ui/main.qml:92
+#: ui/main.qml:94 ui/main_mediacenter.qml:77
 #, kde-format
 msgid "No remote controllers available."
 msgstr "कोई रिमोट कंट्रोलर उपलब्ध नहीं है."
+
+#: ui/main.qml:127
+#, kde-format
+msgid "Select Key On Your TV Remote For %1"
+msgstr "%1 के लिए अपने टीवी रिमोट पर कुंजी चुनें"
+
+#: ui/main.qml:166
+#, kde-format
+msgid "Select Key On Your Gamepad For %1"
+msgstr "%1 के लिए अपने गेमपैड पर कुंजी चुनें"
+
+#: ui/mediacenter/DeviceSetupSidebar.qml:88
+#: ui/mediacenter/DeviceSetupSidebar.qml:122
+#, kde-format
+msgid "Select button mapping for %1"
+msgstr ""
+
+#: ui/mediacenter/DeviceSetupSidebar.qml:159
+#, kde-format
+msgid "Selected key: %1"
+msgstr ""
+
+#~ msgid "Go back [←] to return to device selection"
+#~ msgstr "डिवाइस चयन पर वापस जाने के लिए [←] पर जाएँ"
+
+#~ msgid "Found Devices"
+#~ msgstr "पाए गए उपकरण"
+
+#~ msgid "No Devices Found"
+#~ msgstr "कोई यंत्र नहीं मिले"

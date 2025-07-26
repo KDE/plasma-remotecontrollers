@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-11 00:45+0000\n"
+"POT-Creation-Date: 2025-07-26 00:44+0000\n"
 "PO-Revision-Date: 2023-03-01 00:08+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -312,60 +312,65 @@ msgstr "뒤로 단추"
 msgid "Button Home"
 msgstr "홈 단추"
 
-#: ui/+mediacenter/DeviceMap.qml:38 ui/DeviceMap.qml:44
+#: ui/desktop/DeviceMap.qml:44 ui/mediacenter/DeviceSetupSidebar.qml:38
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr "TV 리모콘 키를 단추와 연결"
 
-#: ui/+mediacenter/DeviceMap.qml:40 ui/DeviceMap.qml:46
+#: ui/desktop/DeviceMap.qml:46 ui/mediacenter/DeviceSetupSidebar.qml:40
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr "Wii 리모트 키를 단추와 연결"
 
-#: ui/+mediacenter/DeviceMap.qml:42 ui/DeviceMap.qml:48
+#: ui/desktop/DeviceMap.qml:48 ui/mediacenter/DeviceSetupSidebar.qml:42
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr "게임패드 키를 단추와 연결"
 
-#: ui/+mediacenter/DeviceSetupView.qml:154
-#, kde-format
-msgid "Go back [←] to return to device selection"
-msgstr "장치 선택으로 돌아가려면 뒤로 이동[←]"
-
-#: ui/+mediacenter/main.qml:24 ui/+mediacenter/main.qml:72 ui/main.qml:20
+#: ui/main.qml:22 ui/main_mediacenter.qml:24
 #, kde-format
 msgid "Remote Controllers"
 msgstr "리모콘"
 
-#: ui/+mediacenter/main.qml:94
-#, kde-format
-msgid "Found Devices"
-msgstr "발견한 장치"
-
-#: ui/+mediacenter/main.qml:94
-#, kde-format
-msgid "No Devices Found"
-msgstr "장치를 찾을 수 없음"
-
-#: ui/+mediacenter/main.qml:145 ui/main.qml:125
-#, kde-format
-msgid "Select Key On Your TV Remote For %1"
-msgstr "%1에 사용할 TV 리모콘 키 선택"
-
-#: ui/+mediacenter/main.qml:176 ui/main.qml:164
-#, kde-format
-msgid "Select Key On Your Gamepad For %1"
-msgstr "%1에 사용할 게임패드 키 선택"
-
-#: ui/main.qml:52
+#: ui/main.qml:54
 #, kde-format
 msgid "Device:"
 msgstr "장치:"
 
-#: ui/main.qml:92
+#: ui/main.qml:94 ui/main_mediacenter.qml:77
 #, kde-format
 msgid "No remote controllers available."
 msgstr "사용 가능한 리모콘이 없습니다."
+
+#: ui/main.qml:127
+#, kde-format
+msgid "Select Key On Your TV Remote For %1"
+msgstr "%1에 사용할 TV 리모콘 키 선택"
+
+#: ui/main.qml:166
+#, kde-format
+msgid "Select Key On Your Gamepad For %1"
+msgstr "%1에 사용할 게임패드 키 선택"
+
+#: ui/mediacenter/DeviceSetupSidebar.qml:88
+#: ui/mediacenter/DeviceSetupSidebar.qml:122
+#, kde-format
+msgid "Select button mapping for %1"
+msgstr ""
+
+#: ui/mediacenter/DeviceSetupSidebar.qml:159
+#, kde-format
+msgid "Selected key: %1"
+msgstr ""
+
+#~ msgid "Go back [←] to return to device selection"
+#~ msgstr "장치 선택으로 돌아가려면 뒤로 이동[←]"
+
+#~ msgid "Found Devices"
+#~ msgstr "발견한 장치"
+
+#~ msgid "No Devices Found"
+#~ msgstr "장치를 찾을 수 없음"
 
 #~ msgid "This module lets you configure remote controllers."
 #~ msgstr "이 모듈에서 리모콘을 설정할 수 있습니다."

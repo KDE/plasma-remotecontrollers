@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-11 00:45+0000\n"
+"POT-Creation-Date: 2025-07-26 00:44+0000\n"
 "PO-Revision-Date: 2022-07-23 12:33+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -312,60 +312,65 @@ msgstr "Knop Terug"
 msgid "Button Home"
 msgstr "Knop Home"
 
-#: ui/+mediacenter/DeviceMap.qml:38 ui/DeviceMap.qml:44
+#: ui/desktop/DeviceMap.qml:44 ui/mediacenter/DeviceSetupSidebar.qml:38
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr "Afstandsbediening van tv aan knoppen verbinden"
 
-#: ui/+mediacenter/DeviceMap.qml:40 ui/DeviceMap.qml:46
+#: ui/desktop/DeviceMap.qml:46 ui/mediacenter/DeviceSetupSidebar.qml:40
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr "Afstandsbediening van Wii aan knoppen verbinden"
 
-#: ui/+mediacenter/DeviceMap.qml:42 ui/DeviceMap.qml:48
+#: ui/desktop/DeviceMap.qml:48 ui/mediacenter/DeviceSetupSidebar.qml:42
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr "Toetsen van gamepad aan knoppen verbinden"
 
-#: ui/+mediacenter/DeviceSetupView.qml:154
-#, kde-format
-msgid "Go back [←] to return to device selection"
-msgstr "Ga terug [←] om terug te keren naar selectie van apparaat"
-
-#: ui/+mediacenter/main.qml:24 ui/+mediacenter/main.qml:72 ui/main.qml:20
+#: ui/main.qml:22 ui/main_mediacenter.qml:24
 #, kde-format
 msgid "Remote Controllers"
 msgstr "Afstandsbedieningen"
 
-#: ui/+mediacenter/main.qml:94
-#, kde-format
-msgid "Found Devices"
-msgstr "Gevonden apparaten"
-
-#: ui/+mediacenter/main.qml:94
-#, kde-format
-msgid "No Devices Found"
-msgstr "Geen apparaten gevonden"
-
-#: ui/+mediacenter/main.qml:145 ui/main.qml:125
-#, kde-format
-msgid "Select Key On Your TV Remote For %1"
-msgstr "Toets op uw afstandsbediening voor tv selecteren voor %1"
-
-#: ui/+mediacenter/main.qml:176 ui/main.qml:164
-#, kde-format
-msgid "Select Key On Your Gamepad For %1"
-msgstr "Toets op uw afstandsbediening voor gamepad selecteren voor %1"
-
-#: ui/main.qml:52
+#: ui/main.qml:54
 #, kde-format
 msgid "Device:"
 msgstr "Apparaat:"
 
-#: ui/main.qml:92
+#: ui/main.qml:94 ui/main_mediacenter.qml:77
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Geen afstandsbedieningen beschikbaar."
+
+#: ui/main.qml:127
+#, kde-format
+msgid "Select Key On Your TV Remote For %1"
+msgstr "Toets op uw afstandsbediening voor tv selecteren voor %1"
+
+#: ui/main.qml:166
+#, kde-format
+msgid "Select Key On Your Gamepad For %1"
+msgstr "Toets op uw afstandsbediening voor gamepad selecteren voor %1"
+
+#: ui/mediacenter/DeviceSetupSidebar.qml:88
+#: ui/mediacenter/DeviceSetupSidebar.qml:122
+#, kde-format
+msgid "Select button mapping for %1"
+msgstr ""
+
+#: ui/mediacenter/DeviceSetupSidebar.qml:159
+#, kde-format
+msgid "Selected key: %1"
+msgstr ""
+
+#~ msgid "Go back [←] to return to device selection"
+#~ msgstr "Ga terug [←] om terug te keren naar selectie van apparaat"
+
+#~ msgid "Found Devices"
+#~ msgstr "Gevonden apparaten"
+
+#~ msgid "No Devices Found"
+#~ msgstr "Geen apparaten gevonden"
 
 #~ msgid "This module lets you configure remote controllers."
 #~ msgstr "Deze module laat u afstandsbedieningen configureren."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-11 00:45+0000\n"
+"POT-Creation-Date: 2025-07-26 00:44+0000\n"
 "PO-Revision-Date: 2023-07-22 23:10+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -312,57 +312,62 @@ msgstr "Button Retro"
 msgid "Button Home"
 msgstr "Button Initio"
 
-#: ui/+mediacenter/DeviceMap.qml:38 ui/DeviceMap.qml:44
+#: ui/desktop/DeviceMap.qml:44 ui/mediacenter/DeviceSetupSidebar.qml:38
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr "Liga claves remote de TV a Buttones"
 
-#: ui/+mediacenter/DeviceMap.qml:40 ui/DeviceMap.qml:46
+#: ui/desktop/DeviceMap.qml:46 ui/mediacenter/DeviceSetupSidebar.qml:40
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr "Liga Claves Remote de Wii a Buttones"
 
-#: ui/+mediacenter/DeviceMap.qml:42 ui/DeviceMap.qml:48
+#: ui/desktop/DeviceMap.qml:48 ui/mediacenter/DeviceSetupSidebar.qml:42
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr "Liga Claves de Gamepad a Buttones"
 
-#: ui/+mediacenter/DeviceSetupView.qml:154
-#, kde-format
-msgid "Go back [←] to return to device selection"
-msgstr "Vade Retro [←] per retornar a selection de dispositivo"
-
-#: ui/+mediacenter/main.qml:24 ui/+mediacenter/main.qml:72 ui/main.qml:20
+#: ui/main.qml:22 ui/main_mediacenter.qml:24
 #, kde-format
 msgid "Remote Controllers"
 msgstr "Controlatores Remote"
 
-#: ui/+mediacenter/main.qml:94
-#, kde-format
-msgid "Found Devices"
-msgstr "Dispositivos trovate"
-
-#: ui/+mediacenter/main.qml:94
-#, kde-format
-msgid "No Devices Found"
-msgstr "On trovava nulle dispositivo"
-
-#: ui/+mediacenter/main.qml:145 ui/main.qml:125
-#, kde-format
-msgid "Select Key On Your TV Remote For %1"
-msgstr "Selige Clave sur Tu Remote de TV Per %1"
-
-#: ui/+mediacenter/main.qml:176 ui/main.qml:164
-#, kde-format
-msgid "Select Key On Your Gamepad For %1"
-msgstr "Selige Clave sur Tu Gamepad Per %1"
-
-#: ui/main.qml:52
+#: ui/main.qml:54
 #, kde-format
 msgid "Device:"
 msgstr "Dispositivo:"
 
-#: ui/main.qml:92
+#: ui/main.qml:94 ui/main_mediacenter.qml:77
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Nulle controlores remote disponibile"
+
+#: ui/main.qml:127
+#, kde-format
+msgid "Select Key On Your TV Remote For %1"
+msgstr "Selige Clave sur Tu Remote de TV Per %1"
+
+#: ui/main.qml:166
+#, kde-format
+msgid "Select Key On Your Gamepad For %1"
+msgstr "Selige Clave sur Tu Gamepad Per %1"
+
+#: ui/mediacenter/DeviceSetupSidebar.qml:88
+#: ui/mediacenter/DeviceSetupSidebar.qml:122
+#, kde-format
+msgid "Select button mapping for %1"
+msgstr ""
+
+#: ui/mediacenter/DeviceSetupSidebar.qml:159
+#, kde-format
+msgid "Selected key: %1"
+msgstr ""
+
+#~ msgid "Go back [←] to return to device selection"
+#~ msgstr "Vade Retro [←] per retornar a selection de dispositivo"
+
+#~ msgid "Found Devices"
+#~ msgstr "Dispositivos trovate"
+
+#~ msgid "No Devices Found"
+#~ msgstr "On trovava nulle dispositivo"

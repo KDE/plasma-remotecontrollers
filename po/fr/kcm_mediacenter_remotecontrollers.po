@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-11 00:45+0000\n"
+"POT-Creation-Date: 2025-07-26 00:44+0000\n"
 "PO-Revision-Date: 2022-08-17 21:15+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -309,61 +309,66 @@ msgstr "Bouton de retour arrière"
 msgid "Button Home"
 msgstr "Bouton d'accueil"
 
-#: ui/+mediacenter/DeviceMap.qml:38 ui/DeviceMap.qml:44
+#: ui/desktop/DeviceMap.qml:44 ui/mediacenter/DeviceSetupSidebar.qml:38
 #, kde-format
 msgid "Bind TV Remote Keys To Buttons"
 msgstr "Associer les touches de télévision à distance avec les boutons"
 
-#: ui/+mediacenter/DeviceMap.qml:40 ui/DeviceMap.qml:46
+#: ui/desktop/DeviceMap.qml:46 ui/mediacenter/DeviceSetupSidebar.qml:40
 #, kde-format
 msgid "Bind Wii Remote Keys To Buttons"
 msgstr "Associer les touches de télévision à distance avec les boutons"
 
-#: ui/+mediacenter/DeviceMap.qml:42 ui/DeviceMap.qml:48
+#: ui/desktop/DeviceMap.qml:48 ui/mediacenter/DeviceSetupSidebar.qml:42
 #, kde-format
 msgid "Bind Gamepad Keys To Buttons"
 msgstr "Associer les touches de Gamepad avec les boutons"
 
-#: ui/+mediacenter/DeviceSetupView.qml:154
-#, kde-format
-msgid "Go back [←] to return to device selection"
-msgstr ""
-"Faire un retour en arrière [←] pour revenir à la sélection de périphérique"
-
-#: ui/+mediacenter/main.qml:24 ui/+mediacenter/main.qml:72 ui/main.qml:20
+#: ui/main.qml:22 ui/main_mediacenter.qml:24
 #, kde-format
 msgid "Remote Controllers"
 msgstr "Contrôleurs à distance"
 
-#: ui/+mediacenter/main.qml:94
-#, kde-format
-msgid "Found Devices"
-msgstr "Périphériques trouvés"
-
-#: ui/+mediacenter/main.qml:94
-#, kde-format
-msgid "No Devices Found"
-msgstr "Aucun périphérique trouvé"
-
-#: ui/+mediacenter/main.qml:145 ui/main.qml:125
-#, kde-format
-msgid "Select Key On Your TV Remote For %1"
-msgstr "Sélectionner une touche pour votre télécommande TV pour %1"
-
-#: ui/+mediacenter/main.qml:176 ui/main.qml:164
-#, kde-format
-msgid "Select Key On Your Gamepad For %1"
-msgstr "Sélectionner une touche pour votre Gamepad pour %1"
-
-#: ui/main.qml:52
+#: ui/main.qml:54
 #, kde-format
 msgid "Device:"
 msgstr "Périphérique :"
 
-#: ui/main.qml:92
+#: ui/main.qml:94 ui/main_mediacenter.qml:77
 #, kde-format
 msgid "No remote controllers available."
 msgstr "Aucune télécommande disponible."
+
+#: ui/main.qml:127
+#, kde-format
+msgid "Select Key On Your TV Remote For %1"
+msgstr "Sélectionner une touche pour votre télécommande TV pour %1"
+
+#: ui/main.qml:166
+#, kde-format
+msgid "Select Key On Your Gamepad For %1"
+msgstr "Sélectionner une touche pour votre Gamepad pour %1"
+
+#: ui/mediacenter/DeviceSetupSidebar.qml:88
+#: ui/mediacenter/DeviceSetupSidebar.qml:122
+#, kde-format
+msgid "Select button mapping for %1"
+msgstr ""
+
+#: ui/mediacenter/DeviceSetupSidebar.qml:159
+#, kde-format
+msgid "Selected key: %1"
+msgstr ""
+
+#~ msgid "Go back [←] to return to device selection"
+#~ msgstr ""
+#~ "Faire un retour en arrière [←] pour revenir à la sélection de périphérique"
+
+#~ msgid "Found Devices"
+#~ msgstr "Périphériques trouvés"
+
+#~ msgid "No Devices Found"
+#~ msgstr "Aucun périphérique trouvé"
 
 #~ msgid "This module lets you configure remote controllers."
 #~ msgstr "Ce module vous permet de configurer les télé-commandes."
