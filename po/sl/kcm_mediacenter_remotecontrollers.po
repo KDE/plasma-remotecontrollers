@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-26 00:44+0000\n"
-"PO-Revision-Date: 2022-07-25 08:27+0200\n"
+"PO-Revision-Date: 2025-07-26 08:37+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Poedit 3.6\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -357,12 +357,12 @@ msgstr "Izberite tipko na igralni konzoli za %1"
 #: ui/mediacenter/DeviceSetupSidebar.qml:122
 #, kde-format
 msgid "Select button mapping for %1"
-msgstr ""
+msgstr "Izberite preslikavo gumba za %1"
 
 #: ui/mediacenter/DeviceSetupSidebar.qml:159
 #, kde-format
 msgid "Selected key: %1"
-msgstr ""
+msgstr "Izbrana tipka: %1"
 
 #~ msgid "Go back [←] to return to device selection"
 #~ msgstr "Pojdi nazaj  [←] na izbiro naprave"

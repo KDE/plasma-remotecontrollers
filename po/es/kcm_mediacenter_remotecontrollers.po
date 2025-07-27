@@ -1,15 +1,15 @@
 # Spanish translations for kcm_mediacenter_remotecontrollers.po package.
-# Copyright (C) 2022 This file is copyright:
+# Copyright (C) 2022-2025 This file is copyright:
 # This file is distributed under the same license as the plasma-remotecontrollers package.
-#
 # Automatically generated, 2022.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2022.
+#
+# SPDX-FileCopyrightText: 2022, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_mediacenter_remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-26 00:44+0000\n"
-"PO-Revision-Date: 2022-08-03 17:55+0200\n"
+"PO-Revision-Date: 2025-07-27 00:24+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -358,24 +358,9 @@ msgstr "Seleccione la tecla del mando de juegos para %1"
 #: ui/mediacenter/DeviceSetupSidebar.qml:122
 #, kde-format
 msgid "Select button mapping for %1"
-msgstr ""
+msgstr "Seleccione asignación de botón para %1"
 
 #: ui/mediacenter/DeviceSetupSidebar.qml:159
 #, kde-format
 msgid "Selected key: %1"
-msgstr ""
-
-#~ msgid "Go back [←] to return to device selection"
-#~ msgstr "Retroceda [←] para volver a la selección de dispositivo"
-
-#~ msgid "Found Devices"
-#~ msgstr "Dispositivos encontrados"
-
-#~ msgid "No Devices Found"
-#~ msgstr "No se han encontrado dispositivos"
-
-#~ msgid "This module lets you configure remote controllers."
-#~ msgstr "Este módulo le permite configurar mandos a distancia."
-
-#~ msgid "Configure Remote Controllers"
-#~ msgstr "Configurar mandos a distancia"
+msgstr "Tecla seleccionada: %1"

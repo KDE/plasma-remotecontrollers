@@ -363,12 +363,3 @@ msgstr ""
 #, kde-format
 msgid "Selected key: %1"
 msgstr ""
-
-#~ msgid "Go back [←] to return to device selection"
-#~ msgstr "返回 [←] 到设备选择"
-
-#~ msgid "Found Devices"
-#~ msgstr "已发现的设备"
-
-#~ msgid "No Devices Found"
-#~ msgstr "未发现设备"

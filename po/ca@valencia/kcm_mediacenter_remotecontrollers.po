@@ -1,15 +1,15 @@
 # Translation of kcm_mediacenter_remotecontrollers.po to Catalan (Valencian)
-# Copyright (C) 2022-2024 This_file_is_part_of_KDE
+# Copyright (C) 2022-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-26 00:44+0000\n"
-"PO-Revision-Date: 2024-01-30 11:14+0100\n"
+"PO-Revision-Date: 2025-07-26 12:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -358,18 +358,9 @@ msgstr "Seleccioneu una tecla en el comandament de joc per %1"
 #: ui/mediacenter/DeviceSetupSidebar.qml:122
 #, kde-format
 msgid "Select button mapping for %1"
-msgstr ""
+msgstr "Seleccioneu el mapatge de botó per a %1"
 
 #: ui/mediacenter/DeviceSetupSidebar.qml:159
 #, kde-format
 msgid "Selected key: %1"
-msgstr ""
-
-#~ msgid "Go back [←] to return to device selection"
-#~ msgstr "Torneu arrere [←] per a retornar a la selecció de dispositius"
-
-#~ msgid "Found Devices"
-#~ msgstr "Dispositius trobats"
-
-#~ msgid "No Devices Found"
-#~ msgstr "No s'ha trobat cap dispositiu"
+msgstr "Tecla seleccionada: %1"

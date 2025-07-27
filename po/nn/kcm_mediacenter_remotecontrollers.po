@@ -367,12 +367,3 @@ msgstr ""
 #, kde-format
 msgid "Selected key: %1"
 msgstr ""
-
-#~ msgid "Go back [←] to return to device selection"
-#~ msgstr "Trykk tilbake («←») for å velja ny eining"
-
-#~ msgid "Found Devices"
-#~ msgstr "Fann einingar"
-
-#~ msgid "No Devices Found"
-#~ msgstr "Fann ingen einingar"
