@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the plasma-remotecontrollers package.
 #
-# Stefan Asserhäll <stefan.asserhall@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-26 00:44+0000\n"
-"PO-Revision-Date: 2023-08-03 19:59+0200\n"
+"PO-Revision-Date: 2025-07-28 18:39+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.08.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -356,12 +356,12 @@ msgstr "Välj knapp på handkontrollen för %1"
 #: ui/mediacenter/DeviceSetupSidebar.qml:122
 #, kde-format
 msgid "Select button mapping for %1"
-msgstr ""
+msgstr "Välj knappavbildning för %1"
 
 #: ui/mediacenter/DeviceSetupSidebar.qml:159
 #, kde-format
 msgid "Selected key: %1"
-msgstr ""
+msgstr "Vald knapp: %1"
 
 #~ msgid "Go back [←] to return to device selection"
 #~ msgstr "Gå tillbaka [←] för att återgå till enhetsval"

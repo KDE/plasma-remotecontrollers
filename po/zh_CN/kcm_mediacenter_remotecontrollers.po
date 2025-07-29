@@ -357,9 +357,9 @@ msgstr "为 %1 选择您的游戏控制器按钮"
 #: ui/mediacenter/DeviceSetupSidebar.qml:122
 #, kde-format
 msgid "Select button mapping for %1"
-msgstr ""
+msgstr "选择 %1 的按钮映射"
 
 #: ui/mediacenter/DeviceSetupSidebar.qml:159
 #, kde-format
 msgid "Selected key: %1"
-msgstr ""
+msgstr "已选择的按键：%1"
