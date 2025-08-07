@@ -63,7 +63,8 @@
         "Name[tr]": "Uzaktan Kumandalar",
         "Name[uk]": "Дистанційне керування",
         "Name[x-test]": "xxRemote Controllersxx",
-        "Name[zh_CN]": "遥控器"
+        "Name[zh_CN]": "遥控器",
+        "Name[zh_TW]": "遙控器"
     },
     "X-DocPath": "kcontrol/desktopthemedetails/index.html",
     "X-KDE-Keywords": "Remote Controllers,Remote,Controller,remote controllers,remote,controller,wii,cec,hdmi-cec",
