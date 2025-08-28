@@ -362,9 +362,3 @@ msgstr ""
 #, kde-format
 msgid "Selected key: %1"
 msgstr ""
-
-#~ msgid "Found Devices"
-#~ msgstr "Nalezená zařízení"
-
-#~ msgid "No Devices Found"
-#~ msgstr "Nenalezena žádná zařízení"
