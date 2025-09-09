@@ -36,7 +36,6 @@
         "Description[sv]": "Ställ in fjärrkontroller",
         "Description[tr]": "Uzaktan Kumandaları Ayarla",
         "Description[uk]": "Налаштовування дистанційного керування Плазмою",
-        "Description[x-test]": "xxSetup Remote Controllersxx",
         "Description[zh_CN]": "设置遥控器",
         "Description[zh_TW]": "設定遙控器",
         "FormFactors": [
@@ -66,7 +65,6 @@
         "Name[sv]": "Fjärrkontroller",
         "Name[tr]": "Uzaktan Kumandalar",
         "Name[uk]": "Дистанційне керування",
-        "Name[x-test]": "xxRemote Controllersxx",
         "Name[zh_CN]": "遥控器",
         "Name[zh_TW]": "遙控器"
     },
@@ -101,7 +99,6 @@
     "X-KDE-Keywords[sv]": "Fjärrkontroller,Fjärr,Kontroll,fjärrkontroller,fjärr,kontroller,wii,cec,hdmi-cec",
     "X-KDE-Keywords[tr]": "uzaktan kumanda,kumanda,denetimci,kol,uzaktan kumandalar,kollar,wii,cec,hdmi-cec",
     "X-KDE-Keywords[uk]": "Remote Controllers,Remote,Controller,remote controllers,remote,controller,wii,cec,hdmi-cec,дистанційне керування,пульт,контролер,віддалені контролери",
-    "X-KDE-Keywords[x-test]": "xxRemote Controllersxx,xxRemotexx,xxControllerxx,xxremote controllersxx,xxremotexx,xxcontrollerxx,xxwiixx,xxcecxx,xxhdmi-cecxx",
     "X-KDE-Keywords[zh_CN]": "Remote Controllers,Remote,Controller,remote controllers,remote,controller,wii,cec,hdmi-cec,yaokongqi,kongzhiqi,遥控器,控制器",
     "X-KDE-Keywords[zh_TW]": "遠端控制器,遙控器,遙控",
     "X-KDE-System-Settings-Parent-Category": "hardware",
