@@ -14,6 +14,7 @@
 DevicesModel::DevicesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    qDebug() << " KCM DevicesModel ctor";
     m_roleNames[DeviceTypeRole] = "deviceType";
     m_roleNames[DeviceNameRole] = "deviceName";
     m_roleNames[DeviceUniqueIdentifierRole] = "deviceUniqueIdentifier";
@@ -21,6 +22,7 @@ DevicesModel::DevicesModel(QObject *parent)
 
     ControllerManagerDBusInterface *iface = new ControllerManagerDBusInterface("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", QDBusConnection::sessionBus(), this);
     if(iface->isValid()) {
+        qDebug() << "iface valid, connnecting!";
         connect(iface, &ControllerManagerDBusInterface::deviceConnected, this, &DevicesModel::deviceConnected);
         connect(iface, &ControllerManagerDBusInterface::deviceDisconnected, this, &DevicesModel::deviceDisconnected);
     }
@@ -106,6 +108,7 @@ void DevicesModel::load()
         device["deviceType"] = deviceType(uniqueIdentifier);
         device["deviceUniqueIdentifier"] = uniqueIdentifier;
         device["deviceIconName"] = deviceIconName(uniqueIdentifier);
+        qDebug() << "Device loaded:" << device;
         m_devices.append(device);
     }
 
@@ -119,6 +122,7 @@ void DevicesModel::deviceConnected(const QString &uniqueIdentifier)
     device["deviceType"] = deviceType(uniqueIdentifier);
     device["deviceUniqueIdentifier"] = uniqueIdentifier;
     device["deviceIconName"] = deviceIconName(uniqueIdentifier);
+    qDebug() << "Device connected:" << device;
     beginInsertRows(QModelIndex(), m_devices.size(), m_devices.size());
     m_devices.append(device);
     endInsertRows();
@@ -141,8 +145,10 @@ QStringList DevicesModel::connectedDevices()
     QDBusMessage message = QDBusMessage::createMethodCall("org.kde.plasma.remotecontrollers", "/ControllerManager", "org.kde.plasma.remotecontrollers.ControllerManager", "connectedDevices");
     QDBusMessage reply = QDBusConnection::sessionBus().call(message);
     if (reply.type() == QDBusMessage::ErrorMessage) {
+        qWarning() << "connectedDevices error:" << reply.errorMessage();
         return QStringList();
     }
+    qDebug() << "connectedDevices returned ok";
     return reply.arguments().at(0).toStringList();
 }
 

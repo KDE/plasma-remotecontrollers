@@ -99,6 +99,7 @@ void ControllerManager::newDevice(Device *device)
 
     // Don't send notifications for CEC devices, since we expect them to always be available
     if (device->getDeviceType() != DeviceCEC) {
+        qDebug() << "EMIT deviceConnected" << device->getUniqueIdentifier();
         Q_EMIT deviceConnected(device);
         Q_EMIT m_dbusInterface->deviceConnected(device->getUniqueIdentifier());
     }

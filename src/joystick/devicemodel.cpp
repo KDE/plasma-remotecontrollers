@@ -28,6 +28,8 @@ static bool initialized = false;
 
 DeviceModel::DeviceModel()
 {
+    qDebug() << "NEW DEVICEMODEL!";
+
     m_timer = new QTimer(this);
     connect(m_timer, &QTimer::timeout, this, &DeviceModel::poll);
     // Only poll once per 2 seconds until we have a device

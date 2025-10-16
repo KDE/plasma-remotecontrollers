@@ -14,6 +14,7 @@ ControllerManagerDBusInterface::ControllerManagerDBusInterface(QObject *parent)
     : QObject(parent)
 {
     QDBusConnection::sessionBus().registerObject("/ControllerManager", this, QDBusConnection::ExportAllSignals | QDBusConnection::ExportAllSlots);
+    qDebug() << "ControllerManager ctor";
 }
 
 ControllerManagerDBusInterface::~ControllerManagerDBusInterface()
@@ -27,7 +28,7 @@ Q_SCRIPTABLE QStringList ControllerManagerDBusInterface::connectedDevices()
     for (auto device : connected_devices) {
         deviceList << device->getUniqueIdentifier();
     }
-
+    qDebug() << "Sending devicelist" << deviceList;
     return deviceList;
 }
 
