@@ -1,3 +1,8 @@
+/*
+    SPDX-FileCopyrightText: 2025 Sebastian Kügler <sebas@kde.org>
+
+    SPDX-License-Identifier: GPL-2.0-or-later
+*/
 
 #include <QDebug>
 #include "qjoystick.h"
@@ -6,11 +11,13 @@
 
 #include <linux/input-event-codes.h>
 
-// QJoyStick::QJoyStick(QObject* parent)
-// : Device(parent) {}
+// The middle position of the joystick, calibration thing basically
+const int kJoyStickNone = 1024;
+
 
 QJoyStick::QJoyStick(Gamepad* gamepad)
 {
+    qDebug() << "Initializing joystick with None position between" << -kJoyStickNone << "and" << kJoyStickNone;
     setDevice(gamepad);
     m_uniqueIdentifier = gamepad->path();
     m_name = gamepad->name();
@@ -19,8 +26,6 @@ QJoyStick::QJoyStick(Gamepad* gamepad)
     QObject::connect(this, &QJoyStick::keyPress,
                      &ControllerManager::instance(), &ControllerManager::emitKey);
 }
-
-
 
 Gamepad* QJoyStick::device() const
 {
@@ -45,41 +50,27 @@ void QJoyStick::setDevice(Gamepad* gamepad)
 
 void QJoyStick::initButtons()
 {
-    m_buttons.clear();
-
     if (!m_device) {
         return;
     }
 
-    const int numButtons = SDL_JoystickNumButtons(m_device->joystick());
-    for (int i = 0; i < SDL_CONTROLLER_BUTTON_MAX; i++) {
-        const SDL_GameControllerButton button = static_cast<SDL_GameControllerButton>(i);
-        if (SDL_GameControllerHasButton(m_device->gamecontroller(), button)) {
-            m_buttons << button;
-            if (m_buttons.count() == numButtons) {
-                break;
-            }
-        }
-    }
+    connect(m_device, &Gamepad::buttonStateChanged, this, [this](SDL_JoyButtonEvent jbutton) {
+        const int button = jbutton.button;
+        if (button >= 0) {
+            const bool pressed = jbutton.type == SDL_EVENT_JOYSTICK_BUTTON_DOWN;
 
-    connect(m_device, &Gamepad::buttonStateChanged, this, [this](SDL_GameControllerButton button) {
-        const int row = m_buttons.indexOf(button);
-        if (row >= 0) {
-            const bool pressed = SDL_GameControllerGetButton(m_device->gamecontroller(), m_buttons.at(row));
-
-            if (row == 0) {
+            if (button == 0) {
                 setButton0Pressed(pressed);
-            } else if (row == 1) {
+            } else if (button == 1) {
                 setButton1Pressed(pressed);
-            } else if (row == 2) {
+            } else if (button == 2) {
                 setButton2Pressed(pressed);
-            } else if (row == 3) {
+            } else if (button == 3) {
                 setButton3Pressed(pressed);
             } else {
-                qWarning() << "Unknown button" << row << "pressed:" << pressed;
+                qWarning() << "Unknown button" << button << "pressed:" << pressed;
 
             }
-            //qDebug() << "Button" << row << "changed. pressed:" << pressed;
         }
     });
 }
@@ -94,20 +85,20 @@ void QJoyStick::initStick()
     }
 
     connect(m_device, &Gamepad::axisStateChanged, this, [this](int axis) {
-        auto val = SDL_JoystickGetAxis(m_device->joystick(), axis);
+        auto val = SDL_GetJoystickAxis(m_device->joystick(), axis);
         qDebug() << "Axis" << axis << "changed:" << val;
-        if (axis == 0) {
-            if (val > 129) {
+        if (axis == SDL_GAMEPAD_AXIS_LEFTX) {
+            if (val > kJoyStickNone) {
                 setDirectionX(Right);
-            } else if (val < 128) {
+            } else if (val < -kJoyStickNone) {
                 setDirectionX(Left);
             } else {
                 setDirectionX(None);
             }
-        } else if (axis == 1)  {
-            if (val > 129) {
+        } else if (axis == SDL_GAMEPAD_AXIS_LEFTY)  {
+            if (val > kJoyStickNone) {
                 setDirectionY(Down);
-            } else if (val < 128) {
+            } else if (val < -kJoyStickNone) {
                 setDirectionY(Up);
             } else {
                 setDirectionY(None);
@@ -147,8 +138,6 @@ void QJoyStick::setDirectionX(Direction newDirection) {
 
         m_directionX = newDirection;
         Q_EMIT directionXChanged(m_directionX);
-
-
     }
 }
 
@@ -190,14 +179,11 @@ bool QJoyStick::button0Pressed() const {
 void QJoyStick::setButton0Pressed(bool pressed) {
     if (m_button0Pressed != pressed) {
         m_button0Pressed = pressed;
-
         Q_EMIT keyPress(KEY_ENTER, pressed);
-
         qDebug() << "button 0 ENTER" << m_button0Pressed;
         Q_EMIT button0PressedChanged(m_button0Pressed);
     }
 }
-
 
 bool QJoyStick::button1Pressed() const {
     return m_button1Pressed;

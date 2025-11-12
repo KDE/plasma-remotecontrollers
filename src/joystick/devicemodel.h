@@ -2,6 +2,7 @@
     SPDX-FileCopyrightText: 2023 Joshua Goins <josh@redstrate.com>
     SPDX-FileCopyrightText: 2023 Jeremy Whiting <jpwhiting@kde.org>
     SPDX-FileCopyrightText: 2023 Niccolò Venerandi <niccolo@venerandi.com>
+    SPDX-FileCopyrightText: 2025 Sebastian Kügler <sebas@kde.org>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -40,6 +41,7 @@ private Q_SLOTS:
     void poll();
 
 private:
+    void init();
     void addDevice(const int deviceIndex);
     void removeDevice(const int deviceIndex);
 

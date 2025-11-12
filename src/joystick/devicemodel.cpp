@@ -2,6 +2,7 @@
     SPDX-FileCopyrightText: 2023 Joshua Goins <josh@redstrate.com>
     SPDX-FileCopyrightText: 2023 Jeremy Whiting <jpwhiting@kde.org>
     SPDX-FileCopyrightText: 2023 Niccolò Venerandi <niccolo@venerandi.com>
+    SPDX-FileCopyrightText: 2025 Sebastian Kügler <sebas@kde.org>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -11,8 +12,9 @@
 // #include <KLocalizedString>
 #include <QTimer>
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_joystick.h>
+#include <SDL3/SDL.h>
+#include <iostream>
+#include <vector>
 
 #include "gamepad.h"
 //#include "logging.h"
@@ -28,12 +30,13 @@ static bool initialized = false;
 
 DeviceModel::DeviceModel()
 {
-    qDebug() << "NEW DEVICEMODEL!";
-
     m_timer = new QTimer(this);
     connect(m_timer, &QTimer::timeout, this, &DeviceModel::poll);
-    // Only poll once per 2 seconds until we have a device
     m_timer->start(kLongPollTime);
+
+    init();
+
+    // Only poll once per 2 seconds until we have a device
 
     // Also call it once after we have initialized in case
     // there are already controllers.
@@ -43,16 +46,55 @@ DeviceModel::DeviceModel()
 DeviceModel::~DeviceModel()
 {
     if (initialized) {
-        qDebug() << "Calling SDL_Quit";
         SDL_Quit();
         initialized = false;
     }
 }
 
+void DeviceModel::init()
+{
+    if (!initialized) {
+        if (!SDL_Init(SDL_INIT_JOYSTICK)) {
+            qWarning() << "Failed to initialize SDL joystick subsystem: " << SDL_GetError();
+        } else {
+            initialized = true;
+        }
+    }
+
+    if (initialized) {
+        int numJoysticks = 0;
+        SDL_JoystickID* joystickIDs = SDL_GetJoysticks(&numJoysticks);
+        if (!joystickIDs) {
+            qWarning() << "SDL_GetJoysticks failed: " << SDL_GetError() << "\n";
+            SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
+            return;
+        }
+
+        qDebug() << "Number of joysticks connected: " << numJoysticks;
+
+        for (int i = 0; i < numJoysticks; ++i) {
+            SDL_JoystickID instID = joystickIDs[i];
+            const char* name = SDL_GetJoystickNameForID(instID);
+            const char* path = SDL_GetJoystickPathForID(instID);
+            Uint16 vendor = SDL_GetJoystickVendorForID(instID);
+            Uint16 product = SDL_GetJoystickProductForID(instID);
+
+            qDebug() << "Joystick #" << i
+                    << " — Instance ID: " << instID
+                    << "\n\tName: " << (name ? name : "Unknown")
+                    << "\n\tPath: " << (path ? path : "Unknown")
+                    << "\n\tVendor ID: 0x" << std::hex << vendor
+                    << "\n\tProduct ID: 0x" << std::hex << product;
+            addDevice(instID);
+        }
+    }
+}
+
 Gamepad *DeviceModel::device(int index) const
 {
-    if (index < 0 || index >= m_devices.count())
+    if (index < 0 || index >= m_devices.count()) {
         return nullptr;
+    }
 
     const int sdlIndex = m_devices.keys().at(index);
     return m_devices.value(sdlIndex);
@@ -72,7 +114,6 @@ QVariant DeviceModel::data(const QModelIndex &index, int role) const
 
     if (role == Qt::DisplayRole) {
         const int sdlIndex = m_devices.keys().at(index.row());
-
         return QString("%1 (%2)").arg(m_devices.value(sdlIndex)->name(), m_devices.value(sdlIndex)->path());
     }
 
@@ -81,27 +122,21 @@ QVariant DeviceModel::data(const QModelIndex &index, int role) const
 
 void DeviceModel::poll()
 {
-    if (!initialized) {
-        qDebug() << "Calling SDL_Init";
-        SDL_Init(SDL_INIT_GAMECONTROLLER);
-        initialized = true;
-    }
-
     SDL_Event event{};
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
-        case SDL_CONTROLLERDEVICEADDED:
+        case SDL_EVENT_JOYSTICK_ADDED:
             addDevice(event.cdevice.which);
             break;
-        case SDL_CONTROLLERDEVICEREMOVED:
+        case SDL_EVENT_JOYSTICK_REMOVED:
             removeDevice(event.cdevice.which);
             break;
-        case SDL_CONTROLLERBUTTONDOWN:
-        case SDL_CONTROLLERBUTTONUP:
-            m_devices.value(event.cbutton.which)->onButtonEvent(event.cbutton);
+        case SDL_EVENT_JOYSTICK_BUTTON_DOWN:
+        case SDL_EVENT_JOYSTICK_BUTTON_UP:
+            m_devices.value(event.jbutton.which)->onButtonEvent(event);
             break;
-        case SDL_CONTROLLERAXISMOTION:
-            m_devices.value(event.caxis.which)->onAxisEvent(event.caxis);
+        case SDL_EVENT_JOYSTICK_AXIS_MOTION:
+            m_devices.value(event.jaxis.which)->onAxisEvent(event);
             break;
         }
     }
@@ -109,32 +144,29 @@ void DeviceModel::poll()
 
 void DeviceModel::addDevice(const int deviceIndex)
 {
-    const auto joystick = SDL_JoystickOpen(deviceIndex);
-    const auto id = SDL_JoystickInstanceID(joystick);
+    const auto joystick = SDL_OpenJoystick(deviceIndex);
+
+    if (!joystick) {
+        qWarning() << "Failed to open joystick: " << SDL_GetError();
+        return;
+    }
+    const auto id = SDL_GetJoystickID(joystick);
 
     if (m_devices.contains(id)) {
         qWarning() << "Got a duplicate add event, ignoring. Index: " << deviceIndex;
         return;
     }
 
-    const auto gamepad = SDL_GameControllerOpen(deviceIndex);
-    if (SDL_GameControllerTypeForIndex(deviceIndex) == SDL_CONTROLLER_TYPE_VIRTUAL) {
-        qWarning() << "Skipping gamepad since it is virtual. Index: " << deviceIndex;
-        return;
-    }
-
     beginInsertRows(QModelIndex(), m_devices.count(), m_devices.count());
-    m_devices.insert(id, new Gamepad(joystick, gamepad, this));
+    m_devices.insert(id, new Gamepad(joystick, this));
     endInsertRows();
 
     // Now that we have a device poll every short poll time
     m_timer->setInterval(kShortPollTime);
     Q_EMIT devicesChanged();
 
-    qDebug() << "NEW JOYSTICK!";
     auto qjoystick = new QJoyStick(m_devices[id]);
     ControllerManager::instance().newDevice(qjoystick);
-
 }
 
 void DeviceModel::removeDevice(const int deviceIndex)

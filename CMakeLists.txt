@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 project(plasma-remotecontrollers)
-set(PROJECT_VERSION "5.27.80")
-set(PROJECT_VERSION_MAJOR 5)
+set(PROJECT_VERSION "6.4.50")
+set(PROJECT_VERSION_MAJOR 6)
 
 set(QT_MIN_VERSION "6.4.0")
-set(KF_MIN_VERSION "5.240.0")
+set(KF_MIN_VERSION "6.0.0")
 
 find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -44,14 +44,12 @@ find_package(ScreenSaverDBusInterface CONFIG REQUIRED)
 pkg_check_modules(Libcec IMPORTED_TARGET libcec>=6)
 add_feature_info(Libcec Libcec_FOUND "Adds support for CEC devices")
 
-
-#find_package(SDL2 REQUIRED)
-find_package(SDL2 2.0.16)
-set_package_properties(SDL2 PROPERTIES
+find_package(SDL3)
+set_package_properties(SDL3 PROPERTIES
         TYPE OPTIONAL
-        PURPOSE "Required for building Game Controller / joystick support"
+        PURPOSE "Required for building SDL3 joystick support"
 )
-#add_feature_info(SDL2 SDL2_FOUND "Required for building Game Controller / joystick support")
+add_feature_info(SDL3 SDL3_FOUND "Adds support for joystick using SDL3")
 
 pkg_check_modules(XWiimote IMPORTED_TARGET libxwiimote)
 add_feature_info(XWiimote XWiimote_FOUND "Adds support for Wiimotes, not currently recommended due to unmaintained Wiimote")

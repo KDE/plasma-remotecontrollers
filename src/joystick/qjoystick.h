@@ -1,3 +1,9 @@
+/*
+    SPDX-FileCopyrightText: 2025 Sebastian Kügler <sebas@kde.org>
+
+    SPDX-License-Identifier: GPL-2.0-or-later
+*/
+
 #pragma once
 
 #include "gamepad.h"
@@ -10,7 +16,6 @@ class QJoyStick : public Device {
 
     Q_PROPERTY(Gamepad *device MEMBER m_device READ device WRITE setDevice NOTIFY deviceChanged REQUIRED)
 
-
     Q_PROPERTY(Direction directionX READ directionX WRITE setDirectionX NOTIFY directionXChanged)
     Q_PROPERTY(Direction directionY READ directionY WRITE setDirectionY NOTIFY directionYChanged)
 
@@ -18,7 +23,6 @@ class QJoyStick : public Device {
     Q_PROPERTY(bool button1Pressed READ button1Pressed WRITE setButton1Pressed NOTIFY button1PressedChanged)
     Q_PROPERTY(bool button2Pressed READ button2Pressed WRITE setButton2Pressed NOTIFY button2PressedChanged)
     Q_PROPERTY(bool button3Pressed READ button3Pressed WRITE setButton3Pressed NOTIFY button3PressedChanged)
-    //QML_VALUE_TYPE(qjoystick)
 
 public:
     enum Direction {
@@ -30,7 +34,6 @@ public:
     };
     Q_ENUM(Direction)
 
-    //explicit QJoyStick(QObject* parent = nullptr);
     explicit QJoyStick(Gamepad* parent);
 
     Gamepad* device() const;
@@ -53,7 +56,6 @@ public:
 
     bool button3Pressed() const;
     void setButton3Pressed(bool pressed);
-
 
 Q_SIGNALS:
     void deviceChanged();
@@ -84,6 +86,5 @@ private:
     bool m_button0Pressed { false };
 
     Gamepad* m_device { nullptr };
-    QList<SDL_GameControllerButton> m_buttons;
 };
 

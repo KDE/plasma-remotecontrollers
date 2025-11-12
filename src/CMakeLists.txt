@@ -69,8 +69,7 @@ if (TARGET PkgConfig::Libcec)
     add_definitions(-DHAS_LIBCEC)
 endif()
 
-if (TARGET SDL2::SDL2)
-    #add_subdirectory( gamecontroller )
+if (SDL3_FOUND)
     set(JOYSTICK_SRCS
         joystick/devicemodel.cpp
         joystick/devicemodel.h
@@ -80,8 +79,8 @@ if (TARGET SDL2::SDL2)
         joystick/qjoystick.h
     )
     target_sources(plasma-remotecontrollers PUBLIC ${JOYSTICK_SRCS})
-    target_link_libraries(plasma-remotecontrollers SDL2::SDL2)
-    add_definitions(-DHAS_JOYSTICK)
+    target_link_libraries(plasma-remotecontrollers SDL3::SDL3)
+    add_definitions(-DHAS_SDL3)
 endif()
 
 
