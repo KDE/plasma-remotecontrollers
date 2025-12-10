@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the plasma-remotecontrollers package.
-# Vit Pelcak <vit@pelcak.org>, 2023.
+# SPDX-FileCopyrightText: 2023, 2025 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2023-01-27 15:27+0100\n"
+"PO-Revision-Date: 2025-12-02 11:20+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -356,9 +356,9 @@ msgstr ""
 #: ui/mediacenter/DeviceSetupSidebar.qml:122
 #, kde-format
 msgid "Select button mapping for %1"
-msgstr ""
+msgstr "Vyberte mapování tlačítka pro %1"
 
 #: ui/mediacenter/DeviceSetupSidebar.qml:159
 #, kde-format
 msgid "Selected key: %1"
-msgstr ""
+msgstr "Vybraná klávesa: %1"
