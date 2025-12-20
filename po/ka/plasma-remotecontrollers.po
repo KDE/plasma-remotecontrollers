@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-12-20 00:44+0000\n"
 "PO-Revision-Date: 2023-02-11 06:35+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -38,34 +38,35 @@ msgstr "ჩაკეტვები"
 msgid "KDE Plasma"
 msgstr "KDE Plasma"
 
-#: main.cpp:37
+#: main.cpp:42
 #, kde-format
 msgid "Plasma Remote Controllers"
 msgstr "Plasma დაშორებული კონტროლერები"
 
-#: main.cpp:38
+#: main.cpp:43
 #, kde-format
 msgid "System update status notifier"
 msgstr "სისტემის განახლების მდგომარეობის გამფრთხილებელი"
 
-#: main.cpp:39
-#, kde-format
-msgid "© 2022 Plasma Development Team"
+#: main.cpp:44
+#, fuzzy, kde-format
+#| msgid "© 2022 Plasma Development Team"
+msgid "© 2022-2025 Plasma Development Team"
 msgstr "© 2022 Plasma -ის პროგრამისტების გუნდი"
 
-#: main.cpp:41
+#: main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Temuri Doghonadze"
 
-#: main.cpp:42
+#: main.cpp:47
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Temuri.doghonadze@gmail.com"
 
-#: main.cpp:50
+#: main.cpp:55
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "გაშვებული ასლის ჩანაცვლება"

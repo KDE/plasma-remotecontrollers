@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-12-20 00:44+0000\n"
 "PO-Revision-Date: 2024-03-02 21:50+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -37,34 +37,35 @@ msgstr "Tiltások"
 msgid "KDE Plasma"
 msgstr "KDE Plasma"
 
-#: main.cpp:37
+#: main.cpp:42
 #, kde-format
 msgid "Plasma Remote Controllers"
 msgstr "Plasma Távvezérlők"
 
-#: main.cpp:38
+#: main.cpp:43
 #, kde-format
 msgid "System update status notifier"
 msgstr "Rendszerfrissítés állapotértesítő"
 
-#: main.cpp:39
-#, kde-format
-msgid "© 2022 Plasma Development Team"
+#: main.cpp:44
+#, fuzzy, kde-format
+#| msgid "© 2022 Plasma Development Team"
+msgid "© 2022-2025 Plasma Development Team"
 msgstr "© A Plasma fejlesztői, 2022."
 
-#: main.cpp:41
+#: main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Kiszel Kristóf"
 
-#: main.cpp:42
+#: main.cpp:47
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ulysses@fsf.hu"
 
-#: main.cpp:50
+#: main.cpp:55
 #, kde-format
 msgid "Replace an existing instance"
 msgstr "Meglévő példány cseréje"
