@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the plasma-remotecontrollers package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-20 00:44+0000\n"
-"PO-Revision-Date: 2023-02-09 13:31+0100\n"
+"PO-Revision-Date: 2025-12-20 11:50+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: controllermanager.cpp:54
 #, kde-format
@@ -48,10 +48,9 @@ msgid "System update status notifier"
 msgstr "Statusmeldingenprogramma voor bijwerken van systeem"
 
 #: main.cpp:44
-#, fuzzy, kde-format
-#| msgid "© 2022 Plasma Development Team"
+#, kde-format
 msgid "© 2022-2025 Plasma Development Team"
-msgstr "© 2022 Ontwikkelteam van Plasma"
+msgstr "© 2022-2025 Ontwikkelteam van Plasma"
 
 #: main.cpp:46
 #, kde-format

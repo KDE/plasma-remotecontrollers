@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-20 00:44+0000\n"
-"PO-Revision-Date: 2023-02-11 06:35+0100\n"
+"PO-Revision-Date: 2025-12-20 08:20+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #: controllermanager.cpp:54
 #, kde-format
@@ -49,10 +49,9 @@ msgid "System update status notifier"
 msgstr "სისტემის განახლების მდგომარეობის გამფრთხილებელი"
 
 #: main.cpp:44
-#, fuzzy, kde-format
-#| msgid "© 2022 Plasma Development Team"
+#, kde-format
 msgid "© 2022-2025 Plasma Development Team"
-msgstr "© 2022 Plasma -ის პროგრამისტების გუნდი"
+msgstr "© 2022-2025 Plasma -ის პროგრამისტების გუნდი"
 
 #: main.cpp:46
 #, kde-format

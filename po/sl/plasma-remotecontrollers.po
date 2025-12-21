@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-20 00:44+0000\n"
-"PO-Revision-Date: 2023-02-10 09:04+0100\n"
+"PO-Revision-Date: 2025-12-20 07:15+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #: controllermanager.cpp:54
 #, kde-format
@@ -49,10 +49,9 @@ msgid "System update status notifier"
 msgstr "Obvestilnik stanja osvežitve sistema"
 
 #: main.cpp:44
-#, fuzzy, kde-format
-#| msgid "© 2022 Plasma Development Team"
+#, kde-format
 msgid "© 2022-2025 Plasma Development Team"
-msgstr "© 2022 Razvojna ekipa Plasma"
+msgstr "© 2022-2025 Razvojna ekipa Plasma"
 
 #: main.cpp:46
 #, kde-format
