@@ -49,9 +49,9 @@ msgid "System update status notifier"
 msgstr "系统更新状态通知程序"
 
 #: main.cpp:44
-#, fuzzy, kde-format
+#, kde-format
 msgid "© 2022-2025 Plasma Development Team"
-msgstr "© 2022 Plasma Development Team"
+msgstr ""
 
 #: main.cpp:46
 #, kde-format
