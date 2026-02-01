@@ -26,12 +26,12 @@ msgstr "遥控器"
 #: controllermanager.cpp:56
 #, kde-format
 msgid "Configure Inhibited Apps"
-msgstr "配置禁止的应用"
+msgstr "配置已阻止的应用"
 
 #: controllermanager.cpp:58
 #, kde-format
 msgid "Inhibitions"
-msgstr "禁止应用"
+msgstr "已阻止项"
 
 #: libcec/ceccontroller.cpp:166
 #, kde-format
