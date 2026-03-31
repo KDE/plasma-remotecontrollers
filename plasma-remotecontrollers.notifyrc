@@ -36,6 +36,7 @@ Comment=Translates events from various input devices to native key presses
 Comment[ar]=يترجم الأحداث من أجهزة الإدخال المختلفة إلى كبسات مفاتيح أصلية
 Comment[ca]=Tradueix esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles
 Comment[ca@valencia]=Traduïx esdeveniments des de diversos dispositius d'entrada a pulsacions natives de tecles
+Comment[cs]=Převádí události z různých vstupních zařízení na nativní stisknutí kláves
 Comment[de]=Ereignisse von verschiedenen Eingabegeräten werden in systemeigene Tastendrücke übersetzt
 Comment[en_GB]=Translates events from various input devices to native key presses
 Comment[eo]=Tradukas eventojn de variaj enig-aparatoj al operaciumaj klavpremoj
