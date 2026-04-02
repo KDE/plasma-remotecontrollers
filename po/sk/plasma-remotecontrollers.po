@@ -18,17 +18,17 @@ msgstr ""
 #: controllermanager.cpp:54
 #, kde-format
 msgid "Remote Controllers"
-msgstr ""
+msgstr "Diaľkové ovládače"
 
 #: controllermanager.cpp:56
 #, kde-format
 msgid "Configure Inhibited Apps"
-msgstr ""
+msgstr "Nastaviť zakázané aplikácie"
 
 #: controllermanager.cpp:58
 #, kde-format
 msgid "Inhibitions"
-msgstr ""
+msgstr "Zábrany"
 
 #: libcec/ceccontroller.cpp:134
 #, kde-format
@@ -46,18 +46,18 @@ msgid "System update status notifier"
 msgstr "Notifikátor stavu aktualizácie systému"
 
 #: main.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "© 2022 Plasma Development Team"
-msgstr "© 2010-2022 Vývojový tím Plasma"
+msgstr "© 2022 Vývojový tím Plasma"
 
 #: main.cpp:39
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Roman Paholík"
 
 #: main.cpp:40
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wizzardsk@gmail.com"
@@ -81,7 +81,7 @@ msgstr "Ovládač odpojený"
 #, kde-format
 msgctxt "What Nintendo Wii remote controllers are called"
 msgid "Wii Remote"
-msgstr ""
+msgstr "Wii Remote"
 
 #~ msgid "What Nintendo Wii remote controllers are called"
 #~ msgstr "Ako sa volajú diaľkové ovládače Nintendo Wii"
