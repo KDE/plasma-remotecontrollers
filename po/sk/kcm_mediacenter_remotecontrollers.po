@@ -354,12 +354,12 @@ msgstr "Vyberte kláves na gamepade pre %1"
 #: ui/mediacenter/DeviceSetupSidebar.qml:122
 #, kde-format
 msgid "Select button mapping for %1"
-msgstr ""
+msgstr "Vybrať mapovanie tlačidiel pre %1"
 
 #: ui/mediacenter/DeviceSetupSidebar.qml:159
 #, kde-format
 msgid "Selected key: %1"
-msgstr ""
+msgstr "Vybraný kláves: %1"
 
 #~ msgid "Found Devices"
 #~ msgstr "Nájdené zariadenia"
