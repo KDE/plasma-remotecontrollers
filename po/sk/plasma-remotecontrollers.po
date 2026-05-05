@@ -54,13 +54,13 @@ msgstr "© 2022-2025 Plasma Development Team"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Your names"
+msgstr "Roman Paholík"
 
 #: main.cpp:47
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "Your emails"
+msgstr "wizzardsk@gmail.com"
 
 #: main.cpp:55
 #, kde-format
