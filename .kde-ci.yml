@@ -23,3 +23,6 @@ Dependencies:
     'plasma/libplasma': '@same'
     'plasma/plasma-workspace': '@same'
     'third-party/wayland': '@latest'
+
+Options:
+  enable-lsan: True
