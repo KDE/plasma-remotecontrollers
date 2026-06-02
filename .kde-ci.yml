@@ -26,3 +26,4 @@ Dependencies:
 
 Options:
   enable-lsan: True
+  require-passing-tests-on: ['@all']
