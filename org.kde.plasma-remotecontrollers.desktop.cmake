@@ -36,6 +36,7 @@ Name[sk]=Diaľkové ovládače Plasma
 Name[sl]=Plasma Remotecontrollers
 Name[sv]=Plasma fjärrkontroller
 Name[tr]=Plasma Uzaktan Kumandalar
+Name[ug]=Plasma تىزگىنەك
 Name[uk]=Дистанційне керування Плазмою
 Name[zh_CN]=Plasma 无线控制器
 Name[zh_TW]=Plasma Remotecontrollers
