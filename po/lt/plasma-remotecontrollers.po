@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma-remotecontrollers\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-12-20 00:44+0000\n"
-"PO-Revision-Date: 2023-02-09 01:04+0000\n"
+"PO-Revision-Date: 2026-06-23 18:42+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: lt\n"
@@ -17,71 +17,72 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 3.9\n"
 
 #: controllermanager.cpp:54
 #, kde-format
 msgid "Remote Controllers"
-msgstr ""
+msgstr "Nuotolinio valdymo pultai"
 
 #: controllermanager.cpp:56
 #, kde-format
 msgid "Configure Inhibited Apps"
-msgstr ""
+msgstr "Konfigūruoti užslopintas programas"
 
 #: controllermanager.cpp:58
 #, kde-format
 msgid "Inhibitions"
-msgstr ""
+msgstr "Slopinimai"
 
 #: libcec/ceccontroller.cpp:166
 #, kde-format
 msgid "KDE Plasma"
-msgstr ""
+msgstr "KDE Plasma"
 
 #: main.cpp:42
 #, kde-format
 msgid "Plasma Remote Controllers"
-msgstr ""
+msgstr "Plasma nuotolinio valdymo pultai"
 
 #: main.cpp:43
 #, kde-format
 msgid "System update status notifier"
-msgstr ""
+msgstr "Sistemos atnaujinimų būsenos pranešiklis"
 
 #: main.cpp:44
 #, kde-format
 msgid "© 2022-2025 Plasma Development Team"
-msgstr ""
+msgstr "© 2022–2025 Plasma plėtojimo komanda"
 
 #: main.cpp:46
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Moo"
 
 #: main.cpp:47
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "<>"
 
 #: main.cpp:55
 #, kde-format
 msgid "Replace an existing instance"
-msgstr ""
+msgstr "Pakeisti esamą egzempliorių"
 
 #: notificationsmanager.cpp:27
 #, kde-format
 msgid "Controller connected"
-msgstr ""
+msgstr "Prijungtas nuotolinio valdymo pultas"
 
 #: notificationsmanager.cpp:37
 #, kde-format
 msgid "Controller Disconnected"
-msgstr ""
+msgstr "Nuotolinio valdymo pultas atjungtas"
 
 #: wiimote/wiimote.cpp:22
 #, kde-format
 msgctxt "What Nintendo Wii remote controllers are called"
 msgid "Wii Remote"
-msgstr ""
+msgstr "„Wii Remote“"
