@@ -1,0 +1,15 @@
+version = 1
+SPDX-PackageName = "Plasma Remotecontrollers"
+SPDX-PackageSupplier = "Bart Ribbers <bribbers@disroot.org>"
+
+[[annotations]]
+path = "plasma-remotecontrollers.notifyrc"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 Bart Ribbers <bribbers@disroot.org>"
+SPDX-License-Identifier = "BSD-2-Clause"
+
+[[annotations]]
+path = "plasma-remotecontrollersrc"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 Bart Ribbers <bribbers@disroot.org>"
+SPDX-License-Identifier = "BSD-2-Clause"
